@@ -1,0 +1,221 @@
+/* Dark theme variables */
+:root {
+    --color-website-bg: #0f1115;
+    --color-panel-bg: #fff;
+    --color-panel-border: #232838;
+
+    --color-title: #222;
+    --color-paragraph: #e6e9f2;
+    --color-accent: #7aa2ff;
+
+    --color-tint-dark: RGBA(0, 0, 0, 0.08);
+    --color-tint-light: RGBA(255, 255, 255, 0.08);
+
+    --card-media-min: 240px;
+    --card-media-max: 360px;
+}
+
+/* region Page-Layout */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(1000px 600px at 20% -10%, #151927 0%, var(--color-website-bg) 60%) fixed;
+    line-height: 1.65;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    text-rendering: optimizeLegibility;
+}
+
+/* Center the whole page content horizontally and keep it readable */
+body > main {
+    min-width: 500px;
+    max-width: 750px; /* Adjust as you like */
+    margin: 0 auto; /* Centers horizontally */
+    padding: 2rem 1.25rem; /* Page side padding */
+}
+/* endregion Page-Layout */
+
+/* region Panel-Layout */
+.Panel {
+    background-color: var(--color-panel-bg);
+    border: 1px solid #e6e6ee;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin: 0 0 1.25rem 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.Panel h2 {
+    margin: 0 0 1rem 0;
+    padding: 0 0 1.5rem 0;
+    color: var(--color-title);
+    font-size: clamp(1.5rem, 2.5vw + 1rem, 2rem);
+    line-height: 1.2;
+}
+
+.Cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-media-min), 1fr));
+    gap: 1rem;
+}
+/* endregion Section-Layout */
+
+/* region Card-Layout*/
+.Card {
+    display: flex;
+    min-width: var(--card-media-min);
+    max-width: var(--card-media-max);
+    flex: 1 1 200px;
+    flex-direction: column;
+    gap: 1rem;
+
+    background-color: var(--color-tint-dark);
+
+    border-radius: 15px;
+}
+
+.Card-Image {
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: var(--card-media-min);
+    max-width: var(--card-media-max);
+    aspect-ratio: 1 / 1;
+
+    padding: 0;
+
+    border-radius: 12px;
+    overflow: hidden;
+
+    display: grid;
+    place-items: center;
+    background: rgba(0, 0, 0, 0.96);
+    color: var(--color-paragraph);
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.Card-Image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* fill container while preserving aspect ratio */
+    object-position: center center;
+}
+
+.Card h3{
+    text-align: center;
+    margin: 10px;
+}
+
+.Card p {
+    margin: 15px;
+}
+/* endregion Card-Layout*/
+
+/* region About Me layout */
+.About-Me.Panel {
+    display: flex;
+    flex-direction: column;
+}
+
+/* region Header */
+.About-Me.Panel .Header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.About-Me.Panel .Header h2 {
+    margin: 0;
+    padding: 0;
+    color: var(--color-title);
+    font-size: clamp(1.5rem, 2.5vw + 1rem, 2rem);
+    line-height: 1.2;
+}
+
+.About-Me.Panel .Icons {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.75rem;
+    align-items: stretch;
+
+    margin: 0.5rem 0 0.75rem 0;
+}
+
+.About-Me.Panel .Icons h3 {
+    margin: 0;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-panel-border);
+    background: var(--color-tint-dark);
+    color: var(--color-title);
+    border-radius: 12px; /* rounded rectangle */
+    text-align: center;
+    font-weight: 600;
+}
+/* endregion Header */
+
+/* region Description */
+.About-Me.Panel .Description {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.About-Me.Panel .Description h3 {
+    width: 100%;
+    margin: 1.5rem 0 0 0;
+}
+
+.About-Me.Panel .Description p {
+    flex: 1 1 300px;
+    margin: 0;
+}
+
+.About-Me.Panel .Image {
+    flex: 0 0 auto;
+}
+
+.About-Me.Panel .Image img {
+    display: block;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--color-panel-border);
+    background: #0b0d12;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+/* endregion Description */
+/* endregion About Me layout */
+
+/*region Rotations*/
+.Rotations.Panel {
+
+}
+
+.Rotations.Panel .Content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.Rotations.Panel .Content .Media-Container{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.Rotations.Panel .Content .Media-Container img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* endregion Rotations*/
