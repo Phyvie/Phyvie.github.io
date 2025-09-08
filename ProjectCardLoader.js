@@ -47,6 +47,7 @@ function buildCardFromData(data) {
     const article = document.createElement("article");
     article.className = "Card";
 
+    /* region project image */
     const imageContainer = document.createElement("div");
     imageContainer.className = "Card-Image";
     article.appendChild(imageContainer);
@@ -56,7 +57,9 @@ function buildCardFromData(data) {
     if (data.image?.alt) img.alt = data.image.alt;
     img.className = "HoverScale";
     imageContainer.appendChild(img);
+    /* endregion project image*/
 
+    /*region project title & type */
     const ProjectTitleContainer = document.createElement("div");
     ProjectTitleContainer.id = "ProjectTitleContainer";
     article.appendChild(ProjectTitleContainer);
@@ -69,47 +72,61 @@ function buildCardFromData(data) {
     h3.id = "ProjectTypeWriting";
     h3.innerHTML = data["project-type"] || "project-type";
     ProjectTitleContainer.appendChild(h3);
+    /*endregion project title & type*/
 
     const ProjectDataContainer = document.createElement("div");
     ProjectDataContainer.className = "ProjectDataContainer";
     article.appendChild(ProjectDataContainer);
 
+    /* region project origin */
     const ProjectOriginContainer = document.createElement("div");
     ProjectOriginContainer.id = "ProjectOriginContainer";
     ProjectDataContainer.appendChild(ProjectOriginContainer)
 
-    const ProjectOriginName = document.createElement("p");
-    ProjectOriginName.innerHTML = data.origin;
-    ProjectOriginContainer.appendChild(ProjectOriginName);
+    const ProjectOriginText = document.createElement("p");
+    ProjectOriginText.id = "ProjectOriginText";
+    ProjectOriginText.textContent = "Development: ";
+    ProjectOriginContainer.appendChild(ProjectOriginText);
 
-    const ProjectOriginIcon = document.createElement("img");
-    ProjectOriginIcon.src = "#";
-    ProjectOriginContainer.appendChild(ProjectOriginIcon);
+    CreateIconOrText(ProjectOriginContainer, "Calender");
+
+    const ProjectDateAndTimeText = document.createElement("p");
+    ProjectDateAndTimeText.textContent = `${data.date} - ${data.time}`;
+    ProjectOriginContainer.appendChild(ProjectDateAndTimeText);
+
+    CreateIconOrText(ProjectOriginContainer, data.origin);
+
+    // Team size as image with text overlay
+    const TeamSizeWrapper = document.createElement("div");
+    TeamSizeWrapper.className = "IconWithLabel";
+    ProjectOriginContainer.appendChild(TeamSizeWrapper);
 
     const ProjectTeamSizeIcon = document.createElement("img");
-    ProjectTeamSizeIcon.src = "Data/Icons/Group.png";
-    ProjectOriginContainer.appendChild(ProjectTeamSizeIcon);
+    ProjectTeamSizeIcon.src = data["team-size"] == 1 ? "Data/Icons/Person.png" : "Data/Icons/Group.png";
+    TeamSizeWrapper.appendChild(ProjectTeamSizeIcon);
 
     const ProjectTeamSizeText = document.createElement("p");
-    ProjectTeamSizeText.innerHTML = data["team-size"];
-    ProjectTeamSizeIcon.appendChild(ProjectTeamSizeText);
+    ProjectTeamSizeText.className = "IconOverlay";
+    ProjectTeamSizeText.textContent = data["team-size"];
+    TeamSizeWrapper.appendChild(ProjectTeamSizeText);
+    /*endregion project origin*/
 
+    /* region Project Tags */
     const TagHolder = document.createElement("div");
     TagHolder.className = "TagHolder";
     article.appendChild(TagHolder);
 
-    for(const contribution in data.contributions)
-    {
-        let newTag = buildTag(contribution);
-        TagHolder.appendChild(newTag);
-    }
+    const ToolsText = document.createElement("p");
+    ToolsText.textContent = "Tools: ";
+    TagHolder.appendChild(ToolsText);
 
-    for (const tool in data.tools)
+    for (const tool of data.tools)
     {
-        let newTag = buildTag (tool);
-        TagHolder.appendChild(newTag);
+        CreateIconOrText(TagHolder, tool);
     }
+    /* endregion Project Tags*/
 
+    /* region Project Links */
     const LinksContainer = document.createElement("div");
     LinksContainer.className = "LinksContainer";
     article.appendChild(LinksContainer);
@@ -131,17 +148,28 @@ function buildCardFromData(data) {
     MoreInfoImage.src = "Data/Placeholder-images/nitrome_2.png";
     MoreInfoImage.alt = "More Info ->";
     MoreInfoContainer.appendChild(MoreInfoImage);
+    /* endregion Project Links*/
 
     return article;
 }
 
-function buildTag(tagData) {
-    var tag = document.createElement("div");
-    tag.className = "Tag";
+function CreateIconOrText(IconContainer, iconData) {
+    const Icon = document.createElement("img");
+    Icon.className = "TagIcon";
+    Icon.src = `Data/Icons/${iconData}.png`;
+    IconContainer.appendChild(Icon);
 
-    tag.innerHTML = `<span>${tagData}</span>`; /* +ZyKa need to fill the correct Data into the tag */
+    Icon.onerror = () => {
+        console.log("couldn't load icon: " + iconData + "now replacing with text" + iconData);
+        Icon.onerror = null;
+        Icon.src = "#";
+        IconContainer.removeChild(Icon);
 
-    return tag;
+        const ReplacementText = document.createElement("p");
+        ReplacementText.className = "TagText";
+        ReplacementText.innerHTML = iconData;
+        IconContainer.appendChild(ReplacementText);
+    }
 }
 
 function capitalize(str) {
