@@ -7,9 +7,10 @@
     "alt": "Lone Signal Project IMG",
     "class": "HoverScale"
   },
-  "game-type": "narrative walking sim",
+  "project-type": "narrative walking sim",
   "origin": "Cologne Game Lab",
-  "team size": "5",
+  "team-size": "5",
+  "date": "2022",
   "time": "7 weeks",
   "contributions": [
     "programming: photo mechanic",
@@ -17,7 +18,7 @@
   ],
   "tools": [
     "Unreal Engine",
-    "C++",
+    "Cpp",
     "TortoiseSVN"
   ]
 }
