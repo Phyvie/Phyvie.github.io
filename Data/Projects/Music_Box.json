@@ -1,0 +1,23 @@
+{
+  "project-title": "Music Box",
+  "projectType": "Multiplayer Puzzle Game",
+  "version": "1.0.0",
+  "description": "",
+  "image": {
+    "src": "Data/Placeholder-images/Chibi-L.jpg",
+    "alt": "Music Box Project IMG",
+    "class": "HoverScale"
+  },
+  "origin": "Cologne Game Lab",
+  "team size": "5",
+  "time": "7 weeks",
+  "contributions": [
+    "Level Design",
+    "Mechanic Design (in collab)"
+  ],
+  "tools": [
+    "Unity",
+    "Miro",
+    "Libre Office"
+  ]
+}

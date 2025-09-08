@@ -1,0 +1,23 @@
+{
+  "project-title": "Dont Brake",
+  "project-type": "Solo Game Project",
+  "version": "1.0.0",
+  "description": "",
+  "image": {
+    "src": "Data/Placeholder-images/mahou-shoujo-madoka-magica-2538.jpg",
+    "alt": "Dont Brake Project IMG",
+    "class": "HoverScale"
+  },
+  "origin": "private",
+  "team size": "1",
+  "time": "?",
+  "contributions": [
+    "Game Design",
+    "Level Design",
+    "Programming"
+  ],
+  "tools": [
+    "Unity",
+    "C#"
+  ]
+}
