@@ -11,8 +11,17 @@
     --color-tint-dark: RGBA(0, 0, 0, 0.08);
     --color-tint-light: RGBA(255, 255, 255, 0.08);
 
+    --color-tag-bg: #232838;
+    --color-tag-text: #e6e9f2;
+    --color-tag-border: #0f1115;
+
     --card-media-min: 240px;
     --card-media-max: 360px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
 }
 
 /* region Page-Layout */
@@ -38,6 +47,12 @@ body > main {
 }
 /* endregion Page-Layout */
 
+.HoverScale:hover {
+    transition: transform 250ms ease;
+    transform: scale(1.1);
+    overflow: hidden;
+}
+
 /* region Panel-Layout */
 .Panel {
     background-color: var(--color-panel-bg);
@@ -48,7 +63,7 @@ body > main {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
-.Panel h2 {
+.Panel h1 {
     margin: 0 0 1rem 0;
     padding: 0 0 1.5rem 0;
     color: var(--color-title);
@@ -70,7 +85,6 @@ body > main {
     max-width: var(--card-media-max);
     flex: 1 1 200px;
     flex-direction: column;
-    gap: 1rem;
 
     background-color: var(--color-tint-dark);
 
@@ -105,13 +119,94 @@ body > main {
     object-position: center center;
 }
 
-.Card h3{
+.Card #ProjectTitleContainer h2{
     text-align: center;
-    margin: 10px;
+    margin: 0.8rem;
+    line-height: 2rem;
+}
+
+.Card #ProjectTitleContainer h3 {
+    text-align: center;
+    margin: 0.8rem;
+    line-height: 1rem;
 }
 
 .Card p {
     margin: 15px;
+}
+
+.Card #ProjectOriginContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.Card #ProjectOriginContainer img {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 0.5rem 0 0.5rem;
+}
+
+.Card #ProjectOriginContainer img > p {
+    position: absolute;
+}
+
+.Card .TagHolder {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.5rem;
+    margin: 10px;
+}
+
+.Card .Tag {
+    background-color: var(--color-tag-bg);
+    border-radius: 12px;
+    border: 1px solid var(--color-tag-border);
+    min-width: 1rem;
+    min-height: 1rem;
+    padding: 0 0.5rem;
+    color: var(--color-tag-text);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.Card .LinksContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.Card .LinkContainer {
+    height: 2rem;
+    min-height: 2rem;
+    max-height: 2rem;
+    min-width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+
+    background-color: var(--color-tint-dark);
+    border-radius: 12px;
+}
+
+.Card .LinkContainer img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    align-content: center;
+    padding: 0 10px 0 10px;
+    line-height: 1.2rem;
+    font-size: 1.2rem;
 }
 /* endregion Card-Layout*/
 
@@ -130,7 +225,7 @@ body > main {
     gap: 0.5rem;
 }
 
-.About-Me.Panel .Header h2 {
+.About-Me.Panel .Header h1 { /*my name*/
     margin: 0;
     padding: 0;
     color: var(--color-title);
@@ -148,7 +243,7 @@ body > main {
     margin: 0.5rem 0 0.75rem 0;
 }
 
-.About-Me.Panel .Icons h3 {
+.About-Me.Panel .Icons h3 { /*the icons describing the areas I work in*/
     margin: 0;
     padding: 0.5rem 0.75rem;
     border: 1px solid var(--color-panel-border);
@@ -163,26 +258,36 @@ body > main {
 /* region Description */
 .About-Me.Panel .Description {
     display: flex;
-    gap: 1rem;
-    align-items: flex-start;
+    flex-direction: row;
     flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1rem;
 }
 
-.About-Me.Panel .Description h3 {
+.About-Me.Panel .Description .TextContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1 1 320px;
+    min-width: 280px;
+}
+
+.About-Me.Panel .Description h2 {
     width: 100%;
     margin: 1.5rem 0 0 0;
 }
 
 .About-Me.Panel .Description p {
-    flex: 1 1 300px;
+    flex: 1 1;
     margin: 0;
 }
 
-.About-Me.Panel .Image {
+.About-Me.Panel .ImageContainer {
+    align-self: flex-end;
     flex: 0 0 auto;
 }
 
-.About-Me.Panel .Image img {
+.About-Me.Panel .ImageContainer img {
     display: block;
     width: 160px;
     height: 160px;
@@ -196,22 +301,22 @@ body > main {
 /* endregion About Me layout */
 
 /*region Rotations*/
+
 .Rotations.Panel {
-
-}
-
-.Rotations.Panel .Content{
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.Rotations.Panel .Content .Media-Container{
-    width: 100%;
+.Rotations.Panel .Media-Container{
+    position: relative;
+    margin: 0 0 0 0;
     aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 12px;
 }
 
-.Rotations.Panel .Content .Media-Container img{
+.Rotations.Panel .Media-Container img{
     display: block;
     width: 100%;
     height: 100%;

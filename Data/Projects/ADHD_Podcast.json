@@ -1,0 +1,22 @@
+{
+  "project-title": "ADHD_Gamification",
+  "project-type": "Science Podcast",
+  "version": "1.0.0",
+  "description": "",
+  "image": {
+    "src": "Data/Placeholder-images/gowther.jpg",
+    "alt": "Gamification in ADHD Audio File",
+    "class": "HoverScale"
+  },
+  "origin": "Cologne Game Lab",
+  "team size": "1",
+  "time": "1 weeks",
+  "contributions": [
+    "Research & Writing",
+    "Recording & Cutting"
+  ],
+  "tools": [
+    "OBS Studio",
+    "DaVinci Resolve"
+  ]
+}

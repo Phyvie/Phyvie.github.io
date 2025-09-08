@@ -1,0 +1,23 @@
+{
+  "project-title": "Play My Math",
+  "project-type": "Tech Design",
+  "version": "1.0.0",
+  "description": "",
+  "image": {
+    "src": "Data/Placeholder-images/HxH.jpg",
+    "alt": "Play My Math Project IMG",
+    "class": "HoverScale"
+  },
+  "origin": "Cologne Game Lab",
+  "team size": "6",
+  "time": "7 weeks",
+  "contributions": [
+    "Project Lead",
+    "Tech Design"
+  ],
+  "tools": [
+    "Board Games",
+    "Miro",
+    "Unity"
+  ]
+}

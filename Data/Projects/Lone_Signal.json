@@ -1,0 +1,23 @@
+{
+  "project-title": "Lone Signal",
+  "version": "1.0.0",
+  "description": "",
+  "image": {
+    "src": "Data/Placeholder-images/Bowser.jpg",
+    "alt": "Lone Signal Project IMG",
+    "class": "HoverScale"
+  },
+  "game-type": "narrative walking sim",
+  "origin": "Cologne Game Lab",
+  "team size": "5",
+  "time": "7 weeks",
+  "contributions": [
+    "programming: photo mechanic",
+    "programming: movement controller"
+  ],
+  "tools": [
+    "Unreal Engine",
+    "C++",
+    "TortoiseSVN"
+  ]
+}
