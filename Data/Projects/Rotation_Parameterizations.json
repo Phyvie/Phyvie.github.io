@@ -8,6 +8,12 @@
     "alt": "Gamification in ADHD Audio File",
     "class": "HoverScale"
   },
+  "project-video": {
+    "src": "Data/Projects/#.mp4"
+  },
+  "mechanic-video": {
+    "src": "Data/Projects/#.mp4"
+  },
   "origin": "Cologne Game Lab",
   "team-size": "1",
   "date": "2025",
