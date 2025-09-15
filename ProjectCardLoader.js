@@ -3,17 +3,7 @@ var TEMPLATE_PROJECT_TAG = null;
 
 function loadTemplates() {
     TEMPLATE_PROJECT_CARD = document.getElementById("template-project-card");
-    assertProjectCardTemplateRefs();
     TEMPLATE_PROJECT_TAG = document.getElementById("template-project-tag");
-}
-
-function assertProjectCardTemplateRefs() {
-    const root = TEMPLATE_PROJECT_CARD.content;
-    const required = ["image", "video", "title", "project-type", "originIconContainer", "dateTime", "teamIcon", "teamSize", "tags", "projectPageLink", "moreInfoLink"];
-    const missing = required.filter(ref => !root.querySelector(`[data-ref="${ref}"]`));
-    if (missing.length) {
-        throw new Error(`Template missing data-ref(s): ${missing.join(", ")}`);
-    }
 }
 
 /**
@@ -66,7 +56,6 @@ function setIconOrText(container, iconName) {
     if (!iconName) return;
 
     const img = document.createElement("img");
-    img.className = "TagIcon";
     img.src = `Data/Icons/${iconName}.png`;
     img.alt = iconName;
     img.onerror = () => {
@@ -75,13 +64,13 @@ function setIconOrText(container, iconName) {
     container.appendChild(img);
 }
 
-function createTag(content) {
-    const tag = document.createElement("div");
-    tag.className = "Tag";
-    const span = document.createElement("span");
-    setIconOrText(span, content);
-    tag.appendChild(span);
-    return tag;
+function createTagFromTemplate(content) {
+    const fragment = TEMPLATE_PROJECT_TAG.content.cloneNode(true);
+    const tagRoot = fragment.querySelector("div.Tag");
+    if (!tagRoot) {
+        throw new Error("Template missing div.Tag");
+    }
+    return tagRoot;
 }
 
 /**
@@ -116,14 +105,15 @@ function createCardFromTemplate() {
 function fillCardData(cardRoot, jsonData) {
     loadImageAndTitle(cardRoot, jsonData);
     loadVideo(cardRoot, jsonData);
-    loadOriginAndDateTime(cardRoot, jsonData);
+    loadOrigin(cardRoot, jsonData);
+    loadDateTime(cardRoot, jsonData);
     loadTeamSize(cardRoot, jsonData);
     loadTags(cardRoot, jsonData);
     loadLinks(cardRoot, jsonData);
     wireImageToVideo(cardRoot); // enable click-to-play swap
 }
 
-// 0) Load image and title
+// Load image and title
 function loadImageAndTitle(cardRoot, jsonData) {
     // Image
     const img = qRef(cardRoot, "image");
@@ -149,7 +139,7 @@ function loadImageAndTitle(cardRoot, jsonData) {
     }
 }
 
-// 1) Video
+// Video
 function loadVideo(cardRoot, jsonData) {
   const vid = qRef(cardRoot, "video");
   if (!vid) return;
@@ -191,28 +181,27 @@ function wireImageToVideo(cardRoot) {
     });
 }
 
-// 2) Origin + Date/Time
-function loadOriginAndDateTime(cardRoot, jsonData) {
-  const originIconContainer = qRef(cardRoot, "originIconContainer");
-  if (originIconContainer) {
-    const calendar = document.createElement("span");
-    setIconOrText(calendar, "Calender");
-    originIconContainer.appendChild(calendar);
+// Origin
+function loadOrigin(cardRoot, jsonData) {
+    const origin = qRef(cardRoot, "origin");
+    if (origin) {
+        setIconOrText(origin, jsonData?.origin);
+    }
+}
 
-    const origin = document.createElement("span");
-    setIconOrText(origin, jsonData?.origin);
-    originIconContainer.appendChild(origin);
+// Date/Time
+function loadDateTime(cardRoot, jsonData) {
+  const date = qRef(cardRoot, "date");
+  if (date) {
+      date.textContent = jsonData?.date;
   }
-
-  const dateTime = qRef(cardRoot, "dateTime");
-  if (dateTime) {
-    const date = jsonData?.date || "";
-    const time = jsonData?.time || "";
-    dateTime.textContent = date && time ? `${date} - ${time}` : (date || time || "");
+  const time = qRef(cardRoot, "time");
+  if (time) {
+      time.textContent = jsonData?.time;
   }
 }
 
-// 3) Team size
+// Team size
 function loadTeamSize(cardRoot, jsonData) {
   const teamIcon = qRef(cardRoot, "teamIcon");
   const teamSizeText = qRef(cardRoot, "teamSize");
@@ -229,14 +218,18 @@ function loadTeamSize(cardRoot, jsonData) {
   }
 }
 
-// 4) Tags (tools)
+// Tags (tools)
 function loadTags(cardRoot, jsonData) {
-  const tags = qRef(cardRoot, "tags");
+  const tags = cardRoot.querySelector("#ProjectTagContainer");
   if (!tags || !Array.isArray(jsonData?.tools)) return;
-  jsonData.tools.forEach(t => tags.appendChild(createTag(t)));
+  jsonData.tools.forEach((t) => {
+      let newTag = createTagFromTemplate();
+      setIconOrText(newTag, t);
+      tags.appendChild(newTag);
+  });
 }
 
-// 5) Links
+// Links
 function loadLinks(cardRoot, jsonData) {
   const pageLink = qRef(cardRoot, "projectPageLink");
   if (pageLink && jsonData?.["project-url"]) {

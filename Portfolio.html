@@ -43,6 +43,11 @@
         </p>
     </section>
 
+    <template id ="template-project-tag">
+        <div class="Tag">
+        </div>
+    </template>
+
     <template id="template-project-card">
         <article class="Card">
             <!-- project image & video -->
@@ -57,28 +62,27 @@
                 <h3 data-ref="project-type"></h3>
             </div>
 
-            <!-- project description -->
-            <div class="ProjectDataContainer">
-                <!-- origin -->
-                <div id="ProjectOriginContainer">
-                    <p id="ProjectOriginText">Development: </p>
-                    <span data-ref="originIconContainer"></span>
-                    <p data-ref="dateTime"></p>
-
-                    <!-- team size with icon and overlay -->
-                    <div class="IconWithLabel">
-                        <img data-ref="teamIcon" alt="Team size">
-                        <p class="IconOverlay" data-ref="teamSize"></p>
+            <div id="DevelopmentAndTagContainer">
+                <div id="DevelopmentInfoContainer">
+                    <div class="Tag" data-ref="origin">
+                    </div>
+                    <div class="Tag">
+                        <p id="date-time">
+                            <span>
+                                <span data-ref="date"></span>
+                                <span> - </span>
+                            </span>
+                            <span data-ref="time" style="white-space: nowrap"></span>
+                        </p>
+                    </div>
+                    <div class="Tag IconWithLabel">
+                        <image data-ref="teamIcon"></image>
+                        <p data-ref="teamSize"></p>
                     </div>
                 </div>
+                <div id="ProjectTagContainer">
+                </div>
             </div>
-
-            <!-- tags -->
-            <div class="TagHolder">
-                <p>Tools: </p>
-                <div data-ref="tags"></div>
-            </div>
-
 
             <!-- links -->
             <div class="LinksContainer">
