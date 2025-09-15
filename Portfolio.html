@@ -42,6 +42,57 @@
             I am currently working on the integration of the tool into an educational website.
         </p>
     </section>
+
+    <template id="template-project-card">
+        <article class="Card">
+            <!-- project image & video -->
+            <div class="Card-Image">
+                <img class="HoverScale" data-ref="image" alt="">
+                <video controls data-ref="video" hidden></video>
+            </div>
+
+            <!-- project title & type -->
+            <div id="ProjectTitleContainer">
+                <h2 data-ref="title"></h2>
+                <h3 data-ref="project-type"></h3>
+            </div>
+
+            <!-- project description -->
+            <div class="ProjectDataContainer">
+                <!-- origin -->
+                <div id="ProjectOriginContainer">
+                    <p id="ProjectOriginText">Development: </p>
+                    <span data-ref="originIconContainer"></span>
+                    <p data-ref="dateTime"></p>
+
+                    <!-- team size with icon and overlay -->
+                    <div class="IconWithLabel">
+                        <img data-ref="teamIcon" alt="Team size">
+                        <p class="IconOverlay" data-ref="teamSize"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- tags -->
+            <div class="TagHolder">
+                <p>Tools: </p>
+                <div data-ref="tags"></div>
+            </div>
+
+
+            <!-- links -->
+            <div class="LinksContainer">
+                <a class="LinkContainer" target="_self" rel="noopener noreferrer" data-ref="projectPageLink">
+                    <img src="#" alt="Project Page ->">
+                </a>
+                <a class="LinkContainer" target="_self" rel="noopener noreferrer" data-ref="moreInfoLink">
+                    <img src="#" alt="More Info ->">
+                </a>
+            </div>
+        </article>
+    </template>
+
+
     <section class="Panel">
         <h1> Finished Games: </h1>
         <div class="Cards" id="Finished-Games">
@@ -61,8 +112,9 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            renderProjectCard("Lone_Signal", "#Finished-Games");
+            loadTemplates();
 
+            renderProjectCard("Lone_Signal", "#Finished-Games");
             /*
             renderProjectCard("Music_Box", "#Finished-Games");
             renderProjectCard("Möbius_Magnus", "#Finished-Games");
