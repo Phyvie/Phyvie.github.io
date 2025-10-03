@@ -1,0 +1,33 @@
+{
+  "project-title": "Lone Signal",
+  "version": "1.0.0",
+  "description": "",
+  "image": {
+    "src": "Data/Projects/Lone_Signal/Thumbnail.png",
+    "alt": "Lone Signal Project IMG",
+    "class": "HoverScale"
+  },
+  "project-video": {
+    "src": "Data/Projects/Lone_Signal/Lone_Signal_Trailer.mp4"
+  },
+  "highlight": "Narrative Photo Album Mechanic",
+  "mechanic-video": {
+    "src": "Data/Projects/#.mp4"
+  },
+  "project-url": "#",
+  "project-info-url": "Data/Projects/Music_Box/Music_Box.html",
+  "project-type": "Multiplayer Puzzle Game",
+  "origin": "Cologne Game Lab",
+  "team-size": "5",
+  "date": "2022",
+  "time": "7 weeks",
+  "contributions": [
+    "programming: photo mechanic",
+    "programming: movement controller"
+  ],
+  "tools": [
+    "Unreal Engine",
+    "Cpp",
+    "TortoiseSVN"
+  ]
+}

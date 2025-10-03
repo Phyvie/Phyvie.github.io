@@ -1,0 +1,32 @@
+{
+  "project-title": "Music Box",
+  "projectType": "Multiplayer Puzzle Game",
+  "version": "1.0.0",
+  "description": "",
+  "image": {
+    "src": "Data/Projects/Music_Box/Thumbnail.png",
+    "alt": "Music Box Project IMG",
+    "class": "HoverScale"
+  },
+  "project-video": {
+    "src": "Data/Projects/Music_Box/Gameplay_Video.mp4"
+  },
+  "highlight": "Level Design",
+  "mechanic-video": {
+    "src": "Data/Projects/#.mp4"
+  },
+  "project-url": "",
+  "origin": "Cologne Game Lab",
+  "team-size": "5",
+  "date": "2023",
+  "time": "7 weeks",
+  "contributions": [
+    "Level Design",
+    "Mechanic Design (in collab)"
+  ],
+  "tools": [
+    "Unity",
+    "Miro",
+    "Libre_Office"
+  ]
+}
