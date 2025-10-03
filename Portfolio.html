@@ -1,3 +1,32 @@
+<!-- naming convention follows BEM with type descriptors based on
+https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/ -->
+<!--
+o-- object = element that is repeated in multiple contexts (e.g. buttons, tags, ...)
+c-- component = element that is used in one specific context
+m-- modifier = class that is used to modify any type of element
+l-- layout = elements that modify the layout of the page (e.g. wrappers)
+is--, has-- = specific modifier for an element that is in a specific state
+js-- JavaScript hook
+
+example: A gallery filled with images
+<div class="o--gallery"> //the gallery block
+    <div class="o--gallery-item"> //an item in the gallery can also be put into other contexts, thus they are object o-- by themselves
+        <div class="l--gallery-item__media"> //the media block is a wrapper, thus l-- for an image or a video or other media
+            <img class="c--gallery-item__image o--centered-image"> //the image itself is a component, thus c--; It can also use aa common image layout, which makes its layout a reusable object, thus o--image-centered
+        </div>
+        <div class="l--gallery-item__caption"> //the caption is a wrapper for the title and description, thus l--
+            <h1 class="c--gallery-item__title"> a title </h1> //component, could also use a general layout o--
+            <p class="c--gallery-item__description"> a description </p> //component, could also use a general layout o--
+        </div>
+    </div>
+    <div class="o--gallery-item">
+        ...
+    </div>
+    ...
+</div>
+ -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,36 +36,40 @@
     <script src="ProjectCardLoader.js" defer></script>
 </head>
 <body>
+<nav style="color: white; text-align: center;">
+    TODO: Navigation
+</nav>
 <main>
-    <section class="About-Me Panel">
-        <div class="Header">
-            <h1> Vivian Filou Then Bergh </h1>
-            <div class="Icons">
-                <h3> Tech Designer </h3>
-                <h3>Gameplay Programmer </h3>
-                <h3> Math Nerd </h3>
-            </div>
+    <section class="o--about-me o--panel">
+        <div class="l--about-me__header">
+            <h1 class="c--about-me__my-name"> Vivien Filou Then Bergh </h1>
         </div>
-        <div class="Description">
-            <div class="TextContainer">
-                <h2> About me: </h2>
-                <p>
-                    This summer I finished my bachelor's degree in Digital Games at the Cologne Game Lab.
-                    I work best at the intersection of game design, gameplay programming.
-                    Additionally, I am a math & music nerd; Thus I currently work on an educational website about parameterizations of 3D rotations (Quaternions and the like).
-                </p>
-            </div>
-            <div class="ImageContainer">
-                <img src="Data/Placeholder-images/a%20short%20hike%20top.png" alt="Portrait of Valentin Then Bergh">
+        <div class="l--about-me__tags">
+            <h3 class="o--tag"> Tech Designer </h3>
+            <h3 class="o--tag">Gameplay Programmer </h3>
+            <h3 class="o--tag"> Math Nerd </h3>
+        </div>
+        <div class="l--about-me__description">
+            <p class="c--about_me__description">
+                lorem ipsum
+            </p>
+        </div>
+        <div class="l--about-me__media l--media-container">
+            <img class="c--media-content c-about-me__image" src="Data/Placeholder-images/a%20short%20hike%20top.png" alt="Portrait of Valentin Then Bergh">
+        </div>
+        <div class="l--about-me__links">
+            <div class="o--link">
+                Youtube
             </div>
         </div>
     </section>
-    <section class="Rotations Panel">
-        <div class="Media-Container">
-            <img src="Data/Placeholder-images/Katzenpfote.jpg" alt="Project IMG" class="HoverScale">
+
+    <section class="o--rotations o--panel">
+        <div class="l--rotations__media">
+            <img class="c--rotations__image m--hover-scale" src="Data/Placeholder-images/Katzenpfote.jpg" alt="Project IMG">
         </div>
-        <h1>3D Rotations</h1>
-        <p>
+        <h1 class="c--rotations__title">3D Rotations</h1>
+        <p class="c--rotations__description">
             I wrote my bachelor thesis about the use cases of parameterizations of 3D rotations in game development - specifically euler angles, quaternions, rotation vectors, and rotation matrices.
             Additionally, I developed a tool to visualise the different parameterizations.
             I am currently working on the integration of the tool into an educational website.
@@ -44,73 +77,76 @@
     </section>
 
     <template id ="template-project-tag">
-        <div class="Tag">
+        <div class="o--tag m--hover-info-container">
+            <img class ="c--tag__icon" data-ref = "js--tag-icon" src ="#" alt ="#">
+            <div class="m--hover-info-field">
+                <p data-ref="js--tag-hover-info"> </p>
+            </div>
         </div>
     </template>
 
     <template id="template-project-card">
-        <article class="Card">
+        <article class="project-card">
             <!-- project image & video -->
-            <div class="Card-Image">
-                <img class="HoverScale" data-ref="image" alt="">
-                <video controls data-ref="video" hidden></video>
+            <div class="l--project-card__image">
+                <img class="m--hover-scale" data-ref="js--image" src ="" alt="">
+                <video controls data-ref="js--video" hidden></video>
             </div>
 
             <!-- project title & type -->
-            <div id="ProjectTitleContainer">
-                <h2 data-ref="title"></h2>
-                <h3 data-ref="project-type"></h3>
+            <div id="project-card__title-container">
+                <h2 data-ref="js--title"></h2>
+                <h3 data-ref="js--project-type"></h3>
             </div>
 
-            <div id="DevelopmentAndTagContainer">
-                <div id="DevelopmentInfoContainer">
-                    <div class="Tag" data-ref="origin">
+            <div id="project-card__dev-and-tag-container">
+                <div id="project-card_dev-info-container">
+                    <div class="o--tag" data-ref="js--origin">
                     </div>
-                    <div class="Tag">
-                        <p id="date-time">
-                            <span>
-                                <span data-ref="date"></span>
-                                <span> - </span>
-                            </span>
-                            <span data-ref="time" style="white-space: nowrap"></span>
+                    <div class="o--tag o--icon-with-label">
+                        <img src="Data/Icons/Calendar.png" alt="">
+                        <p id="js--date-time" style="top: 24%">
+                            <span data-ref="js--date"></span>
+                            <br>
+                            <span data-ref="js--time" style="white-space: nowrap"></span>
                         </p>
                     </div>
-                    <div class="Tag IconWithLabel">
-                        <image data-ref="teamIcon"></image>
-                        <p data-ref="teamSize"></p>
+                    <div class="o--tag o--icon-with-label">
+                        <img data-ref="js--teamIcon" src="" alt="">
+                        <p data-ref="js--teamSize"></p>
                     </div>
                 </div>
-                <div id="ProjectTagContainer">
+                <div id="project-card__tag-container">
                 </div>
             </div>
 
             <!-- links -->
-            <div class="LinksContainer">
-                <a class="LinkContainer" target="_self" rel="noopener noreferrer" data-ref="projectPageLink">
-                    <img src="#" alt="Project Page ->">
+            <div class="l--project-card__links-container">
+                <a class="l--project-card__link" target="_self" rel="noopener noreferrer" data-ref="js--projectPageLink">
+                    <img class="c--project_card--link-image" src="#" alt="Project Page ->">
                 </a>
-                <a class="LinkContainer" target="_self" rel="noopener noreferrer" data-ref="moreInfoLink">
-                    <img src="#" alt="More Info ->">
+                <a class="l--project-card__link" target="_self" rel="noopener noreferrer" data-ref="js--moreInfoLink">
+                    <img class="c--project_card--link-image" src="#" alt="More Info ->">
                 </a>
             </div>
         </article>
     </template>
 
 
-    <section class="Panel">
-        <h1> Finished Games: </h1>
-        <div class="Cards" id="Finished-Games">
+    <section class="o--finished-games o--panel">
+        <h1 class="c--panel__header"> Finished Games: </h1>
+        <div class="l--panel__cards-container" id="Finished-Games">
             <!-- Project Cards will be dynamically added here -->
         </div>
     </section>
-    <section class="Panel">
-        <h1> Game Dev Assets </h1>
-        <div class="Cards" id="Game-Artifacts">
+    <section class="o--game-artifacts o--panel">
+        <h1 class="c--panel__header"> Game Dev Assets </h1>
+        <div class="l--panel__cards-container" id="Game-Artifacts">
         </div>
     </section>
-    <section class="Panel">
-        <h1> Other Works </h1>
-        <div class="Cards" id="Other-Works">
+    <section class="o--other-works o--panel">
+        <h1 class="c--panel__header"> Other Works </h1>
+        <div class="l--panel__cards-container" id="Other-Works">
         </div>
     </section>
 
@@ -118,9 +154,9 @@
         document.addEventListener("DOMContentLoaded", () => {
             loadTemplates();
 
-            renderProjectCard("Lone_Signal", "#Finished-Games");
+            renderProjectCard("Lone Signal", "Data/Projects/Lone_Signal/Lone_Signal.json", "#Finished-Games");
+            renderProjectCard("Music Box", "Data/Projects/Music_Box/Music_Box.json", "#Finished-Games");
             /*
-            renderProjectCard("Music_Box", "#Finished-Games");
             renderProjectCard("Möbius_Magnus", "#Finished-Games");
             renderProjectCard("Play_My_Math", "#Finished-Games");
 

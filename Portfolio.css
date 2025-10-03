@@ -1,43 +1,76 @@
-/* Dark theme variables */
+/* region GLOBAL VARIABLES */
 :root {
-    --color-website-bg: #0f1115;
-    --color-panel-bg: #fff;
-    --color-panel-border: #232838;
+    /* region ColorPalette-StolenFromDiscord */
+    --COLOR-BG-WEBSITE: hsl(252, 33%, 17%);
+    --COLOR-BG-BLOCK: hsla(211, 18%, 26%, 1.0);
+    --COLOR-BG-ELEMENT: hsl(271, 67%, 12%);
 
-    --color-title: #222;
-    --color-paragraph: #e6e9f2;
-    --color-accent: #7aa2ff;
+    --COLOR-DECORATION-BLOCK: hsl(271, 67%, 0%);
+    --COLOR-DECORATION-ELEMENT: hsl(0, 0%, 10%);
 
-    --color-tint-dark: RGBA(0, 0, 0, 0.08);
-    --color-tint-light: RGBA(255, 255, 255, 0.08);
+    --COLOR-TEXT-MAIN: hsl(200, 4%, 84%);
+    --COLOR-TEXT-ACCENT: hsl(200, 11%, 66%);
+    /* endregion ColorPalette-StolenFromDiscord */
 
-    --color-tag-bg: #232838;
-    --color-tag-text: #e6e9f2;
-    --color-tag-border: #0f1115;
+    /* region PageColors */
+    --COLOR-TEXT-TITLE: var(--COLOR-TEXT-MAIN);
 
-    --card-media-min: 240px;
-    --card-media-max: 360px;
+    --COLOR-BORDER-BLOCK: var(--COLOR-DECORATION-BLOCK);
+    --COLOR-BORDER-ELEMENT: var(--COLOR-DECORATION-ELEMENT);
+
+    --COLOR-ICON-LABEL: var(--COLOR-TEXT-MAIN);
+    /* endregion PageColors */
+
+    /* region Layout-Design */
+    --DESIGN-BORDER-BLOCK: 1px solid var(--COLOR-BORDER-BLOCK) 12px;
+    --DESIGN-BORDER-ELEMENT: 1px solid var(--COLOR-BORDER-BLOCK) 12px;
+    /* endregion Layout-Design */
+
+    --FF: sans-serif;
 }
+/* region GLOBAL VARIABLES */
 
-/* region GeneralHelperClasses */
-h1, h2, h3, h4, h5, h6 {
+/* region CSS-RESET */
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    border: 0;
+    -webkit-font-smoothing: antialiased;
+    font-family: var(--FF);
 }
 
-.HoverScale:hover {
+img, picture, video, canvas, svg {
+    display: block;
+}
+
+font, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+    hyphens: auto;
+    color: var(--COLOR-TEXT-MAIN);
+}
+/* endregion CSS-RESET */
+
+/* region GeneralModifiers */
+/* +todo: rename these properly */
+.m--hover-scale:hover {
     transition: transform 250ms ease;
     transform: scale(1.1);
     overflow: hidden;
 }
 
-.IconWithLabel {
+.__icon-with-label {
     position: relative;
     align-content: center;
     justify-content: center;
 }
 
-.IconWithLabel img {
+.__icon-with-label img {
     display: block;
     width: 100%;
     height: 100%;
@@ -45,10 +78,11 @@ h1, h2, h3, h4, h5, h6 {
     object-position: center;
 }
 
-.IconWithLabel p {
+.__icon-with-label p {
     position: absolute;
     inset: 0;
-    display: flex;
+    display: block;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 0;
@@ -58,74 +92,30 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     font-size: 0.9rem;
 
-    color: black;
+    color: var(--COLOR-ICON-LABEL);
 }
-/* endregion GeneralHelperClasses */
+/* endregion GeneralModifiers */
 
-/* region Page-Layout */
-html,
-body{
-
-}
-
-body {
-    margin: 0;
-    background: radial-gradient(1000px 600px at 20% -10%, #151927 0%, var(--color-website-bg) 60%) fixed;
-    line-height: 1.65;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-    text-rendering: optimizeLegibility;
-}
-
-/* Center the whole page content horizontally and keep it readable */
-body > main {
-    min-width: 500px;
-    max-width: 750px; /* Adjust as you like */
-    margin: 0 auto; /* Centers horizontally */
-    padding: 2rem 1.25rem; /* Page side padding */
-}
-/* endregion Page-Layout */
-
-/* region Panel-Layout */
-.Panel {
-    background-color: var(--color-panel-bg);
-    border: 1px solid #e6e6ee;
-    border-radius: 12px;
-    padding: 1.25rem;
-    margin: 0 0 1.25rem 0;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-}
-
-.Panel h1 {
-    margin: 0 0 1rem 0;
-    padding: 0 0 1.5rem 0;
-    color: var(--color-title);
-    font-size: clamp(1.5rem, 2.5vw + 1rem, 2rem);
-    line-height: 1.2;
-}
-
-.Cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--card-media-min), 1fr));
-    gap: 1rem;
-}
-/* endregion Section-Layout */
-
+/* region reused objects */
 /* region Card-Layout*/
-.Card {
+.project-card {
+    --card-media-min: 240px;
+    --card-media-max: 360px;
+
     display: flex;
     min-width: var(--card-media-min);
     max-width: var(--card-media-max);
     flex: 1 1 200px;
     flex-direction: column;
 
-    background-color: var(--color-tint-dark);
+    background-color: var(--COLOR-BG-ELEMENT);
 
     border-radius: 15px;
 
     gap: 0.3rem;
 }
 
-.Card-Image {
+.l--project-card__image {
     flex: 0 0 auto;
     width: 100%;
     min-width: var(--card-media-min);
@@ -140,12 +130,12 @@ body > main {
     display: grid;
     place-items: center;
     background: rgba(0, 0, 0, 0.96);
-    color: var(--color-paragraph);
+    color: var(--COLOR-TEXT-MAIN);
     text-align: center;
     font-size: 0.95rem;
 }
 
-.Card-Image img {
+.l--project-card__image img {
     display: block;
     width: 100%;
     height: 100%;
@@ -154,30 +144,30 @@ body > main {
 }
 
 /* Ensure the video fills the same area as the image */
-.Card-Image video {
+.l--project-card__image video {
     display: none;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.Card #ProjectTitleContainer h2{
+.project-card #ProjectTitleContainer h2{
     text-align: center;
     margin: 0.8rem;
     line-height: 2rem;
 }
 
-.Card #ProjectTitleContainer h3 {
+.project-card #ProjectTitleContainer h3 {
     text-align: center;
     margin: 0.8rem;
     line-height: 1rem;
 }
 
-.Card p {
+.project-card p {
     margin: 15px;
 }
 
-.Card #DevelopmentAndTagContainer {
+.project-card #project-card__dev-and-tag-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -185,48 +175,66 @@ body > main {
     gap: 0.5rem;
 }
 
-.Card #DevelopmentInfoContainer{
+.project-card #project-card_dev-info-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(5px, 1fr));
     gap: 0.5rem;
     margin: 0;
 }
 
-.Card #ProjectTagContainer {
+.project-card #project-card__tag-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(5px, 1fr));
     gap: 0.5rem;
     margin: 0;
 }
 
-.Card .Tag {
+.project-card .o--tag {
     display: flex;
-    background-color: var(--color-tint-dark);
+    background-color: var(--COLOR-BG-ELEMENT);
     justify-content: center;
     align-items: center;
     border-radius: 12px;
-    overflow: hidden;
     padding: 20px;
 
     flex-wrap: wrap;
+    position: relative;
 }
 
-.Card .Tag img {
+.project-card .c--tag__img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     display: block;
 }
 
-.Card .Tag p {
-    display: inline;
-    align-self: center;
-    width: 100%;
-    font-size: 0.8rem;
-    text-align: center;
+.HoverInfoContainer .HoverInfoField {
+    position: absolute;
+    bottom: 80%;
+    left: 80%;
+    display: block;
+
+    padding: 12px;
+
+    background-color: var(--COLOR-TEXT-MAIN);
+    border-radius: 12px;
+
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 150ms ease, visibility 150ms ease;
 }
 
-.Card .LinksContainer {
+.HoverInfoContainer:hover .HoverInfoField,
+.HoverInfoContainer:active .HoverInfoField,
+.HoverInfoContainer:focus-within .HoverInfoField {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.l--project-card__links-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -236,7 +244,7 @@ body > main {
     overflow: hidden;
 }
 
-.Card .LinkContainer {
+.l--project-card__link {
     height: 2rem;
     min-height: 2rem;
     max-height: 2rem;
@@ -244,11 +252,11 @@ body > main {
     max-width: 100%;
     overflow: hidden;
 
-    background-color: var(--color-tint-dark);
+    background-color: var(--COLOR-BG-ELEMENT);
     border-radius: 12px;
 }
 
-.Card .LinkContainer img {
+.c--project-card__link-image {
     display: block;
     width: 100%;
     height: 100%;
@@ -262,14 +270,97 @@ body > main {
 }
 /* endregion Card-Layout*/
 
-/* region About Me layout */
-.About-Me.Panel {
-    display: flex;
+.l--media-container {
+    width: 50px;
+    height: 50px;
+}
+
+.c--media-content {
+    visibility: hidden;
+    background-color: var(--COLOR-DECORATION-ELEMENT);
+    object-fit: cover;
+}
+/* endregion reused objects */
+
+/* region page-layout */
+body {
+    margin: 0;
+    background: radial-gradient(1000px 600px at 20% -10%, #151927 0%, var(--COLOR-BG-WEBSITE) 60%) fixed;
+    line-height: 1.65;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    text-rendering: optimizeLegibility;
+}
+
+main {
+    min-width: 500px;
+    max-width: 750px; /* Adjust as you like */
+    margin: 0 auto; /* Centers horizontally */
+    padding: 2rem 1.25rem; /* Page side padding */
+}
+
+/* region Panel-Layout */
+.o--panel {
+    background-color: var(--COLOR-BG-BLOCK);
+    /*border: var(--DESIGN-BORDER-BLOCK);*/
+    padding: 1.25rem;
+    margin: 0 0 1.25rem 0;
+
+    border-left:    6px solid color-mix(in srgb, var(--COLOR-BG-BLOCK) 80%, white 10%);
+    border-top:     6px solid color-mix(in srgb, var(--COLOR-BG-BLOCK) 80%, white 10%);
+    border-right:   6px solid color-mix(in srgb, var(--COLOR-BG-BLOCK) 80%, black 20%);
+    border-bottom:  6px solid color-mix(in srgb, var(--COLOR-BG-BLOCK) 80%, black 20%);
+    /*box-shadow: var(--COLOR-BORDER-BLOCK) 4px 4px 5px;*/
+}
+
+.c--panel__header {
+    margin: 0 0 1rem 0;
+    padding: 0 0 1.5rem 0;
+    color: var(--COLOR-TEXT-TITLE);
+    font-size: clamp(1.5rem, 2.5vw + 1rem, 2rem);
+    line-height: 1.2;
+}
+
+.l--panel__cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-media-min), 1fr));
+    gap: 1rem;
+}
+/* endregion Panel-Layout */
+
+/* region AboutMe */
+.o--about-me {
+    display: grid;
     flex-direction: column;
+    grid-template-areas:
+            "header header"
+            "tags tags"
+            "description media"
+            "links media"
+            "media media"
+}
+
+.l--about-me__header {
+    grid-area: header;
+}
+
+.l--about-me__tags {
+    grid-area: tags;
+}
+
+.l--about-me__description {
+    grid-area: description;
+}
+
+.l--about-me__links {
+    grid-area: links;
+}
+
+.l--about-me__media {
+    grid-area: media;
 }
 
 /* region Header */
-.About-Me.Panel .Header {
+.l--about-me__header {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -277,15 +368,15 @@ body > main {
     gap: 0.5rem;
 }
 
-.About-Me.Panel .Header h1 { /*my name*/
+.c--about-me__my-name {
     margin: 0;
     padding: 0;
-    color: var(--color-title);
+    color: var(--COLOR-TEXT-TITLE);
     font-size: clamp(1.5rem, 2.5vw + 1rem, 2rem);
     line-height: 1.2;
 }
 
-.About-Me.Panel .Icons {
+.l--about-me__tags {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -295,12 +386,12 @@ body > main {
     margin: 0.5rem 0 0.75rem 0;
 }
 
-.About-Me.Panel .Icons h3 { /*the icons describing the areas I work in*/
+.l--about-me__tags .o--tag { /*the icons describing the areas I work in*/
     margin: 0;
     padding: 0.5rem 0.75rem;
-    border: 1px solid var(--color-panel-border);
-    background: var(--color-tint-dark);
-    color: var(--color-title);
+    border: 1px solid var(--COLOR-BORDER-ELEMENT);
+    background: var(--COLOR-BG-ELEMENT);
+    color: var(--COLOR-TEXT-TITLE);
     border-radius: 12px; /* rounded rectangle */
     text-align: center;
     font-weight: 600;
@@ -308,7 +399,7 @@ body > main {
 /* endregion Header */
 
 /* region Description */
-.About-Me.Panel .Description {
+.l-about-me__description {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -316,7 +407,7 @@ body > main {
     gap: 1rem;
 }
 
-.About-Me.Panel .Description .TextContainer{
+.l--about-me__text {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -324,28 +415,28 @@ body > main {
     min-width: 280px;
 }
 
-.About-Me.Panel .Description h2 {
+.c--about-me__text-header {
     width: 100%;
     margin: 1.5rem 0 0 0;
 }
 
-.About-Me.Panel .Description p {
+.c--about-me__text-paragraph {
     flex: 1 1;
     margin: 0;
 }
 
-.About-Me.Panel .ImageContainer {
+.l--about-me__image {
     align-self: flex-end;
     flex: 0 0 auto;
 }
 
-.About-Me.Panel .ImageContainer img {
+.c--about-me__image {
     display: block;
     width: 160px;
     height: 160px;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid var(--color-panel-border);
+    border: 2px solid var(--COLOR-BORDER-ELEMENT);
     background: #0b0d12;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
@@ -354,13 +445,13 @@ body > main {
 
 /*region Rotations*/
 
-.Rotations.Panel {
+.o--rotations {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.Rotations.Panel .Media-Container{
+.l--rotations__media{
     position: relative;
     margin: 0 0 0 0;
     aspect-ratio: 1 / 1;
@@ -368,7 +459,7 @@ body > main {
     border-radius: 12px;
 }
 
-.Rotations.Panel .Media-Container img{
+.l--rotations__media img{
     display: block;
     width: 100%;
     height: 100%;
@@ -376,3 +467,4 @@ body > main {
 }
 
 /* endregion Rotations*/
+/* endregion page-layout */
