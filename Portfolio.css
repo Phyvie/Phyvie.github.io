@@ -1,32 +1,29 @@
 /* region GLOBAL VARIABLES */
 :root {
-    /* region ColorPalette-StolenFromDiscord */
-    --COLOR-BG-WEBSITE: hsl(252, 33%, 17%);
-    --COLOR-BG-BLOCK: hsla(211, 18%, 26%, 1.0);
-    --COLOR-BG-ELEMENT: hsl(271, 67%, 12%);
+    /* region MAIN COLORS */
+    --COLOR-DARK: hsl(270, 20%, 10%);
+    --COLOR-LIGHT: hsl(90, 0%, 90%);
 
-    --COLOR-DECORATION-BLOCK: hsl(271, 67%, 0%);
-    --COLOR-DECORATION-ELEMENT: hsl(0, 0%, 10%);
+    --COLOR-ACCENT-DARK: hsl(263, 76%, 26%);
+    --COLOR-ACCENT-LIGHT: hsl(18, 68%, 33%);
+    /* endregion MAIN COLORS */
 
-    --COLOR-TEXT-MAIN: hsl(200, 4%, 84%);
-    --COLOR-TEXT-ACCENT: hsl(200, 11%, 66%);
-    /* endregion ColorPalette-StolenFromDiscord */
+    /* region ALL COLORS */
+    --COLOR-BG-WEBSITE: var(--COLOR-DARK);
+    --COLOR-BG-BLOCK: var(--COLOR-DARK);
+    --COLOR-BG-ELEMENT: var(--COLOR-DARK);
 
-    /* region PageColors */
-    --COLOR-TEXT-TITLE: var(--COLOR-TEXT-MAIN);
+    --COLOR-DECORATION-BLOCK: var(--COLOR-ACCENT-DARK);
+    --COLOR-DECORATION-ELEMENT: var(--COLOR-ACCENT-LIGHT);
 
-    --COLOR-BORDER-BLOCK: var(--COLOR-DECORATION-BLOCK);
-    --COLOR-BORDER-ELEMENT: var(--COLOR-DECORATION-ELEMENT);
+    --COLOR-TEXT-MAIN: var(--COLOR-LIGHT);
+    --COLOR-TEXT-ACCENT: var(--COLOR-ACCENT-LIGHT);
+    /* endregion ALL COLORS */
 
-    --COLOR-ICON-LABEL: var(--COLOR-TEXT-MAIN);
-    /* endregion PageColors */
-
-    /* region Layout-Design */
-    --DESIGN-BORDER-BLOCK: 1px solid var(--COLOR-BORDER-BLOCK) 12px;
-    --DESIGN-BORDER-ELEMENT: 1px solid var(--COLOR-BORDER-BLOCK) 12px;
-    /* endregion Layout-Design */
-
-    --FF: sans-serif;
+    /* region FONTS */
+    --FF-MAIN: sans-serif;
+    --FF-SECONDARY: serif;
+    /* endregion FONTS */
 }
 /* region GLOBAL VARIABLES */
 
@@ -37,7 +34,7 @@
     padding: 0;
     border: 0;
     -webkit-font-smoothing: antialiased;
-    font-family: var(--FF);
+    font-family: var(--FF-Main);
 }
 
 img, picture, video, canvas, svg {
@@ -56,295 +53,62 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 /* endregion CSS-RESET */
 
-/* region GeneralModifiers */
-/* +todo: rename these properly */
-.m--hover-scale:hover {
-    transition: transform 250ms ease;
-    transform: scale(1.1);
-    overflow: hidden;
+/* region DEV-VISUALISATION */
+* {
+    outline: 3px dashed rgba(255, 0, 0, 0.5);
+    background-color: rgba(148, 112, 219, 0.3);
 }
 
-.__icon-with-label {
-    position: relative;
-    align-content: center;
-    justify-content: center;
+img {
+    outline: 2px solid rgba(0, 255, 0, 0.5);
+    background-color: rgba(148, 112, 219, 0.3);
 }
+/* endregion DEV-VISUALISATION */
 
-.__icon-with-label img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-}
-
-.__icon-with-label p {
-    position: absolute;
-    inset: 0;
-    display: block;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-
-    pointer-events: none;
-
-    text-align: center;
-    font-size: 0.9rem;
-
-    color: var(--COLOR-ICON-LABEL);
-}
-/* endregion GeneralModifiers */
-
-/* region reused objects */
-/* region Card-Layout*/
-.project-card {
-    --card-media-min: 240px;
-    --card-media-max: 360px;
-
-    display: flex;
-    min-width: var(--card-media-min);
-    max-width: var(--card-media-max);
-    flex: 1 1 200px;
-    flex-direction: column;
-
-    background-color: var(--COLOR-BG-ELEMENT);
-
-    border-radius: 15px;
-
-    gap: 0.3rem;
-}
-
-.l--project-card__image {
-    flex: 0 0 auto;
-    width: 100%;
-    min-width: var(--card-media-min);
-    max-width: var(--card-media-max);
-    aspect-ratio: 16 / 9;
-
-    padding: 0;
-
-    border-radius: 12px;
-    overflow: hidden;
-
-    display: grid;
-    place-items: center;
-    background: rgba(0, 0, 0, 0.96);
-    color: var(--COLOR-TEXT-MAIN);
-    text-align: center;
-    font-size: 0.95rem;
-}
-
-.l--project-card__image img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;      /* fill container while preserving aspect ratio */
-    object-position: center center;
-}
-
-/* Ensure the video fills the same area as the image */
-.l--project-card__image video {
-    display: none;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.project-card #ProjectTitleContainer h2{
-    text-align: center;
-    margin: 0.8rem;
-    line-height: 2rem;
-}
-
-.project-card #ProjectTitleContainer h3 {
-    text-align: center;
-    margin: 0.8rem;
-    line-height: 1rem;
-}
-
-.project-card p {
-    margin: 15px;
-}
-
-.project-card #project-card__dev-and-tag-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: stretch;
-    gap: 0.5rem;
-}
-
-.project-card #project-card_dev-info-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(5px, 1fr));
-    gap: 0.5rem;
-    margin: 0;
-}
-
-.project-card #project-card__tag-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(5px, 1fr));
-    gap: 0.5rem;
-    margin: 0;
-}
-
-.project-card .o--tag {
-    display: flex;
-    background-color: var(--COLOR-BG-ELEMENT);
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    padding: 20px;
-
-    flex-wrap: wrap;
-    position: relative;
-}
-
-.project-card .c--tag__img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
-
-.HoverInfoContainer .HoverInfoField {
-    position: absolute;
-    bottom: 80%;
-    left: 80%;
-    display: block;
-
-    padding: 12px;
-
-    background-color: var(--COLOR-TEXT-MAIN);
-    border-radius: 12px;
-
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 1;
-    transition: opacity 150ms ease, visibility 150ms ease;
-}
-
-.HoverInfoContainer:hover .HoverInfoField,
-.HoverInfoContainer:active .HoverInfoField,
-.HoverInfoContainer:focus-within .HoverInfoField {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.l--project-card__links-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 10px;
-    overflow: hidden;
-}
-
-.l--project-card__link {
-    height: 2rem;
-    min-height: 2rem;
-    max-height: 2rem;
-    min-width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-
-    background-color: var(--COLOR-BG-ELEMENT);
-    border-radius: 12px;
-}
-
-.c--project-card__link-image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-
-    align-content: center;
-    padding: 0 10px 0 10px;
-    line-height: 1.2rem;
-    font-size: 1.2rem;
-}
-/* endregion Card-Layout*/
-
-.l--media-container {
-    width: 50px;
-    height: 50px;
-}
-
-.c--media-content {
-    visibility: hidden;
-    background-color: var(--COLOR-DECORATION-ELEMENT);
-    object-fit: cover;
-}
-/* endregion reused objects */
-
-/* region page-layout */
-body {
-    margin: 0;
-    background: radial-gradient(1000px 600px at 20% -10%, #151927 0%, var(--COLOR-BG-WEBSITE) 60%) fixed;
-    line-height: 1.65;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-    text-rendering: optimizeLegibility;
-}
-
-main {
-    min-width: 500px;
-    max-width: 750px; /* Adjust as you like */
-    margin: 0 auto; /* Centers horizontally */
-    padding: 2rem 1.25rem; /* Page side padding */
-}
-
-/* region Panel-Layout */
+/* region GLOBAL OBJECTS */
 .o--panel {
+    width: 100%;
+    min-height: 200px; /* +ZyKa min-height for panels so that I can see them */
+
+    padding: 3vw;
+
     background-color: var(--COLOR-BG-BLOCK);
-    /*border: var(--DESIGN-BORDER-BLOCK);*/
-    padding: 1.25rem;
-    margin: 0 0 1.25rem 0;
+    border-bottom: 2px solid var(--COLOR-DECORATION-BLOCK);
+}
+/* endregion GLOBAL OBJECTS */
 
-    border-left:    6px solid color-mix(in srgb, var(--COLOR-BG-BLOCK) 80%, white 10%);
-    border-top:     6px solid color-mix(in srgb, var(--COLOR-BG-BLOCK) 80%, white 10%);
-    border-right:   6px solid color-mix(in srgb, var(--COLOR-BG-BLOCK) 80%, black 20%);
-    border-bottom:  6px solid color-mix(in srgb, var(--COLOR-BG-BLOCK) 80%, black 20%);
-    /*box-shadow: var(--COLOR-BORDER-BLOCK) 4px 4px 5px;*/
+/* region BLOCKS */
+main {
+    display: flex;
+    flex-flow: column nowrap;
+
+    background-color: var(--COLOR-BG-WEBSITE);
+
+    padding: clamp(20px, 6vw, 150px);
 }
 
-.c--panel__header {
-    margin: 0 0 1rem 0;
-    padding: 0 0 1.5rem 0;
-    color: var(--COLOR-TEXT-TITLE);
-    font-size: clamp(1.5rem, 2.5vw + 1rem, 2rem);
-    line-height: 1.2;
-}
-
-.l--panel__cards-container {
+/* region ABOUT-ME */
+.o--about-me{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--card-media-min), 1fr));
-    gap: 1rem;
-}
-/* endregion Panel-Layout */
+    grid-template-columns: 50% 50%;
 
-/* region AboutMe */
-.o--about-me {
-    display: grid;
-    flex-direction: column;
+    gap: 20px;
     grid-template-areas:
-            "header header"
-            "tags tags"
-            "description media"
-            "links media"
-            "media media"
+            "media name"
+            "media tags"
+            "media description"
+            "media links"
 }
 
 .l--about-me__header {
-    grid-area: header;
+    grid-area: name;
 }
 
 .l--about-me__tags {
     grid-area: tags;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }
 
 .l--about-me__description {
@@ -353,118 +117,178 @@ main {
 
 .l--about-me__links {
     grid-area: links;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }
 
 .l--about-me__media {
     grid-area: media;
 }
+/* endregion ABOUT-ME */
 
-/* region Header */
-.l--about-me__header {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.c--about-me__my-name {
-    margin: 0;
-    padding: 0;
-    color: var(--COLOR-TEXT-TITLE);
-    font-size: clamp(1.5rem, 2.5vw + 1rem, 2rem);
-    line-height: 1.2;
-}
-
-.l--about-me__tags {
-    width: 100%;
+/* region HIGHLIGHT PROJECT */
+.o--highlight-project{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 0.75rem;
-    align-items: stretch;
+    grid-template-columns: 50% 50%;
 
-    margin: 0.5rem 0 0.75rem 0;
+    gap: 20px;
+    grid-template-areas:
+        "header media"
+        "description media"
+        "description media"
+        "links media"
 }
 
-.l--about-me__tags .o--tag { /*the icons describing the areas I work in*/
-    margin: 0;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid var(--COLOR-BORDER-ELEMENT);
-    background: var(--COLOR-BG-ELEMENT);
-    color: var(--COLOR-TEXT-TITLE);
-    border-radius: 12px; /* rounded rectangle */
-    text-align: center;
-    font-weight: 600;
+.l--highlight-project__header{
+    grid-area: header;
 }
-/* endregion Header */
 
-/* region Description */
-.l-about-me__description {
+.l--highlight-project__media{
+    grid-area: media;
+}
+
+.l--highlight-project__description{
+    grid-area: description;
+}
+
+.l--highlight-project__links{
+    grid-area: links;
+
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 1rem;
+    justify-content: space-around;
 }
+/* endregion HIGHLIGHT PROJECT */
 
-.l--about-me__text {
+/* region EXPERTISE */
+.o--expertise{
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    flex: 1 1 320px;
-    min-width: 280px;
 }
 
-.c--about-me__text-header {
-    width: 100%;
-    margin: 1.5rem 0 0 0;
-}
-
-.c--about-me__text-paragraph {
-    flex: 1 1;
-    margin: 0;
-}
-
-.l--about-me__image {
-    align-self: flex-end;
-    flex: 0 0 auto;
-}
-
-.c--about-me__image {
-    display: block;
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid var(--COLOR-BORDER-ELEMENT);
-    background: #0b0d12;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-}
-/* endregion Description */
-/* endregion About Me layout */
-
-/*region Rotations*/
-
-.o--rotations {
+.l--expertise__domains {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    flex-flow: row wrap;
+
+    justify-content: stretch;
+    gap: 20px;
 }
 
-.l--rotations__media{
-    position: relative;
-    margin: 0 0 0 0;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    border-radius: 12px;
+.o--expertise-domain {
+    display: flex;
+    flex-flow: column wrap;
+    flex: 1 1 auto;
+    gap: 1.5rem;
 }
 
-.l--rotations__media img{
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.c--expertise-domain__header {
+    align-self: center;
 }
 
-/* endregion Rotations*/
-/* endregion page-layout */
+.o--skill-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+        "icon header"
+        "icon description";
+
+    place-content: center;
+}
+
+.c--skill-item__icon {
+    grid-area: icon;
+    aspect-ratio: 1;
+}
+
+.c--skill-item__header {
+    grid-area: header;
+    padding: 3%;
+}
+
+.c--skill-item__description {
+    grid-area: description;
+    padding: 3%;
+}
+
+.o--skill-collection {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.c--skill-collection__icon {
+
+}
+/* endregion EXPERTISE */
+
+
+/* region PROJECT GALLERY */
+.o--project-gallery {
+
+}
+
+.l--project-gallery__cards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+/* Project Card (Object - reusable) */
+.o--project-card {
+
+}
+
+.c--project-card__title {
+
+}
+
+.c--project-card__subtitle {
+
+}
+
+.c--project-card__description {
+
+}
+
+/* Card Media Section */
+.l--project-card__media {
+
+}
+
+.l--project-card__media img {
+
+}
+
+.l--project-card__media video {
+
+}
+
+/* Card Tools Section */
+.l--project-card__tools {
+
+}
+
+.l--project-card__tag-container {
+
+}
+
+/* Card Links Section */
+.l--project-card__links-container {
+
+}
+
+.l--project-card__link {
+
+}
+
+.c--project-card__link-image {
+
+}
+
+/* endregion PROJECT GALLERY */
+
+.o--contact{
+
+}
+/* endregion BLOCKS */
