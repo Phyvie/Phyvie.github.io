@@ -339,7 +339,7 @@ main {
             "media media"
 }
 
-.l--about-me__header {
+.c--about-me__header {
     grid-area: header;
 }
 
@@ -360,7 +360,7 @@ main {
 }
 
 /* region Header */
-.l--about-me__header {
+.c--about-me__header {
     width: 100%;
     display: flex;
     flex-direction: column;
