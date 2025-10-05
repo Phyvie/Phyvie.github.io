@@ -27,8 +27,8 @@
     --FONT-SIZE-DEFAULT: 1rem;
     --FONT-SIZE-XS: 0.4rem;
     --FONT-SIZE-SMALL: 0.8rem;
-    --FONT-SIZE-EMPHASIZED: 1.5rem;
-    --FONT-SIZE-TITLE: 3rem;
+    --FONT-SIZE-EMPHASIZED: 1.2em;
+    --FONT-SIZE-TITLE: 2.5rem;
     /* endregion FONTS */
 
     /* region LAYOUT */
@@ -48,8 +48,8 @@
 
 /* region DEV-VISUALISATION */
 * {
-    outline: 3px dashed rgba(255, 0, 0, 0.5);
-    background-color: rgba(148, 112, 219, 0.3);
+    /*outline: 3px dashed rgba(255, 0, 0, 0.5);*/
+    /*background-color: rgba(148, 112, 219, 0.3);*/
 }
 
 img {
@@ -70,6 +70,14 @@ img {
 
     height: max-content;
 }
+
+.m--media-large {
+    width: 70vh;
+}
+
+.m--emphasized-tag {
+    font-size: var(--FONT-SIZE-EMPHASIZED);
+}
 /* endregion GLOBAL OBJECTS */
 
 /* region BLOCKS */
@@ -83,102 +91,74 @@ main {
     gap: var(--LAYOUT-DISTANCE-XL)
 }
 
-/* region PANEL */
-.o--panel {
+/* region DEFAULT-PANEL */
+.o--default-panel {
     width: 100%;
     min-height: 200px; /* +ZyKa min-height for panels so that I can see them */
+
+    display: flex;
+    flex-flow: row wrap;
+
+    gap: var(--LAYOUT-DISTANCE-LARGE);
 
     /*border-bottom: 2px solid var(--COLOR-DECORATION-BLOCK);*/
     padding: var(--LAYOUT-DISTANCE-LARGE) var(--LAYOUT-DISTANCE-LARGE);
 }
 
-.c--panel__header {
+.c--default-panel__header {
     margin: 0;
     padding: 0;
 
     font-size: var(--FONT-SIZE-TITLE);
 }
-/* endregion PANEL */
 
-
-
-/* region ABOUT-ME */
-.o--about-me{
-    display: flex;
-    flex-flow: row wrap;
-
-    gap: var(--LAYOUT-DISTANCE-LARGE);
+.c--default-panel__media {
+    flex: 1 0 auto;
+    min-width: 50%;
 }
 
-
-.c--about-me__media {
-    flex: 1 1 auto;
-}
-
-.c--about-me__info-container{
+.c--default-panel__info-container{
     flex: 1 1 auto;
 
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    align-content: center;
 
     gap: var(--LAYOUT-DISTANCE-LARGE);
-    padding: var(--LAYOUT-DISTANCE-LARGE) var(--LAYOUT-DISTANCE-LARGE);
+    padding: var(--LAYOUT-DISTANCE-LARGE) var(--LAYOUT-DISTANCE-XL);
 }
 
-.c--about-me__header {
+.c--default-panel__header {
     padding: var(--LAYOUT-DISTANCE-DEFAULT);
+    text-align: center;
 }
 
-.c--about-me__tags {
+.c--default-panel__tags {
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: center;
     gap: var(--LAYOUT-DISTANCE-DEFAULT);
 }
 
-.c--about-me__description {
-    font-size: var(--FONT-SIZE-DEFAULT);
-}
-
-.c--about-me__links {
+.c--default-panel__links {
     margin-top: auto;
 
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: space-around;
     gap: var(--LAYOUT-DISTANCE-DEFAULT);
 }
-/* endregion ABOUT-ME */
+/* endregion DEFAULT-PANEL */
 
-/* region HIGHLIGHT PROJECT */
-.o--highlight-project{
-
+/* region ABOUT ME */
+.c--about-me__my-name {
+    text-align: left;
 }
 
-.c--highlight-project__header{
-    grid-area: header;
-
-    text-align: center;
+.c--about-me__tags {
+    justify-content: flex-start;
 }
-
-.c--highlight-project__media{
-    grid-area: media;
-}
-
-.c--highlight-project__description{
-    grid-area: description;
-}
-
-.c--highlight-project__links{
-    grid-area: links;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-/* endregion HIGHLIGHT PROJECT */
+/* endregion ABOUT ME */
 
 /* region WORKFLOW */
 .o--workflow{

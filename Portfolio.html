@@ -6,23 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="CSS-Reset.css">
     <link rel="stylesheet" href="Portfolio.css">
-    <title> Viv Then Bergh </title>
+    <title> Vivien Then Bergh </title>
 </head>
 <body>
 
 <main>
-    <section class="o--panel o--about-me">
-        <div class="c--about-me__media c--media-container">
+    <section class="o--default-panel o--default-panel">
+        <div class="c--default-panel__media c--media-container">
             <img src="#" alt="Image of me">
         </div>
-        <div class ="c--about-me__info-container">
-            <h1 class="c--about-me__header c--panel__header"> Viv Then Bergh </h1>
-            <div class="c--about-me__tags">
-                <h2 class="o--tag"> Tech Designer </h2>
-                <h2 class="o--tag">Gameplay Programmer </h2>
-                <h2 class="o--tag"> Math Nerd </h2>
+        <div class ="c--default-panel__info-container">
+            <h1 class="c--default-panel__header c--about-me__my-name"> Vivien Then Bergh </h1>
+            <div class="c--default-panel__tags c--about_me__tags">
+                <h2 class="o--tag m--emphasized-tag"> Gameplay Programming </h2>
+                <h2 class="o--tag m--emphasized-tag"> Tech Design </h2>
+                <h2 class="o--tag m--emphasized-tag"> Math Visualization </h2>
             </div>
-            <div class="c--about-me__description">
+            <div class="c--default-panel__description-container">
                 <p class="c--about_me__description">
                     This is my introduction sentence.
                     <br>
@@ -33,7 +33,7 @@
                     This is the last sentence of my description.
                 </p>
             </div>
-            <div class="c--about-me__links">
+            <div class="c--default-panel__links">
                 <p> link 1</p>
                 <p> link 2 </p>
                 <p> link 3 </p>
@@ -41,42 +41,40 @@
         </div>
     </section>
 
-    <section class="o--panel o--highlight-project o--about-me">
-        <div class="c--about-me__description">
-            <div class="c--highlight-project__header c--about-me__header">
-                <h1> Highlight: Project A </h1>
-            </div>
-            <div class="c--highlight-project__description c--about-me__description">
+    <section class="o--default-panel o--default-panel">
+        <div class="c--default-panel__info-container">
+            <h1 class="c--default-panel__header"> Highlight: Project A </h1>
+            <div class="c--default-panel__description">
                 <p> Description </p>
             </div>
-            <div class="c--highlight-project__links c--about-me__links">
+            <div class="c--default-panel__links">
                 <p> link 1</p>
                 <p> link 2 </p>
             </div>
         </div>
-        <div class="c--highlight-project__media c--about-me__media">
+        <div class="c--default-panel__media m--media-large">
             <img src="#" alt="Image of Project">
         </div>
     </section>
 
-    <section class="o--panel o--highlight-project">
-        <div class="c--highlight-project__header">
-            <h1> Highlight Project B </h1>
-        </div>
-        <div class="c--highlight-project__description">
-            <p> Description </p>
-        </div>
-        <div class="c--highlight-project__media">
+    <section class="o--default-panel o--default-panel">
+        <div class="c--default-panel__media m--media-large">
             <img src="#" alt="Image of Project">
         </div>
-        <div class="c--highlight-project__links">
-            <p> link 1</p>
-            <p> link 2 </p>
+        <div class="c--default-panel__info-container">
+            <h1 class="c--default-panel__header"> Highlight: Project B </h1>
+            <div class="c--default-panel__description">
+                <p> Description </p>
+            </div>
+            <div class="c--default-panel__links">
+                <p> link 1</p>
+                <p> link 2 </p>
+            </div>
         </div>
     </section>
 
-    <section class="o--panel o--workflow">
-        <h1 class="c--workflow__header"> My Workflow </h1>
+    <section class="o--default-panel o--workflow">
+        <h1 class="c--workflow__header"> Behind the scenes </h1>
         <div class="c--workflow__main-tools">
             <h2 class="c--workflow__tools-header"> Main Tools: </h2>
             <div class="c--workflow__tools-container">
@@ -100,8 +98,8 @@
         </div>
     </section>
 
-    <section class="o--panel o--project-gallery">
-        <h1 class="c--panel__header c--project-gallery__header"> Further Projects </h1>
+    <section class="o--default-panel o--project-gallery">
+        <h1 class="c--default-panel__header c--project-gallery__header"> Further Projects </h1>
         <div class="o--project-gallery__project-item c--project-gallery_project-item--first">
             <div class="c--project-item__media">
                 <img src="#" alt="image/video of project">
@@ -237,8 +235,8 @@
     </section>
 
     <!-- DEPRECATED
-    <section class="o--panel o--expertise">
-        <h1 class="c--panel__header"> Expertise </h1>
+    <section class="o--default-panel o--expertise">
+        <h1 class="c--default-panel__header"> Expertise </h1>
         <div class="c--expertise__domains">
             <div class="o--expertise-domain">
                 <h2 class="c--expertise-domain__header"> Programming </h2>
@@ -323,8 +321,8 @@
     END DEPRECATED -->
 
     <!-- DEPRECATED
-    <section class="o--panel o--project-gallery">
-        <h1 class="c--panel__header"> Project Gallery </h1>
+    <section class="o--default-panel o--project-gallery">
+        <h1 class="c--default-panel__header"> Project Gallery </h1>
         <div class="c--project-gallery__cards">
             <div class="o--project-card">
                 <h2 class="c--project-card__title" data-ref="title"> project title </h2>
@@ -441,8 +439,8 @@
     </section>
     END DEPRECATED -->
 
-    <section class="o--panel o--contact">
-        <h1 class="c--panel__header"> Contact </h1>
+    <section class="o--default-panel o--contact">
+        <h1 class="c--default-panel__header"> Contact </h1>
     </section>
 </main>
 
