@@ -29,6 +29,8 @@
     --FONT-SIZE-SMALL: 0.8rem;
     --FONT-SIZE-EMPHASIZED: 1.2em;
     --FONT-SIZE-TITLE: 2.5rem;
+
+    --ELEMENT-LINE-HEIGHT: 1.8em; /* 1.8em = 1 line-height */
     /* endregion FONTS */
 
     /* region LAYOUT */
@@ -52,7 +54,7 @@
     /*background-color: rgba(148, 112, 219, 0.3);*/
 }
 
-img {
+img:not([class]) {
     outline: 2px solid rgba(0, 255, 0, 0.5);
     background-color: rgba(148, 112, 219, 0.3);
     height: 100%;
@@ -65,17 +67,29 @@ img {
 .o--tag {
     display: block;
     background-color: var(--COLOR-DECORATION-ELEMENT);
-    padding: var(--LAYOUT-DISTANCE-DEFAULT);
+    padding: var(--LAYOUT-DISTANCE-DEFAULT) var(--LAYOUT-DISTANCE-LARGE);
     border-radius: var(--LAYOUT-BORDER-RADIUS-CYLINDER);
 
     height: max-content;
 }
 
-.m--media-large {
+.o--tag > img {
+    display: block;
+    object-fit: contain;
+}
+
+.o--media-icon--font-emphasized {
+    font-size: var(--FONT-SIZE-EMPHASIZED);
+    height: 1.8em;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.o--media--screen-large {
     width: 70vh;
 }
 
-.m--emphasized-tag {
+.o--tag--emphasize {
     font-size: var(--FONT-SIZE-EMPHASIZED);
 }
 /* endregion GLOBAL OBJECTS */
@@ -161,6 +175,7 @@ main {
 /* endregion ABOUT ME */
 
 /* region WORKFLOW */
+/* +ZyKa should this really be a grid? */
 .o--workflow{
     display: grid;
     grid-template-columns: 30% 70%;
@@ -178,6 +193,8 @@ main {
 
 .c--workflow__main-tools {
     grid-area: main-tools;
+
+    container: c--workflow__main-tools / inline-size;
 }
 
 .c--workflow__secondary-tools {
@@ -196,6 +213,26 @@ main {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    align-items: center;
+}
+
+/* Query the PARENT container (c--workflow__main-tools), not the child */
+@container c--workflow__main-tools (max-width: 350px) {
+    .c--workflow__tools-container {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        justify-items: center;
+        gap: var(--LAYOUT-GAP-DEFAULT);
+    }
+}
+
+@container c--workflow__main-tools (min-width: 350px) and (max-width: 650px) {
+    .c--workflow__tools-container {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        justify-items: center;
+        gap: var(--LAYOUT-GAP-DEFAULT);
+    }
 }
 /* endregion WORKFLOW */
 
