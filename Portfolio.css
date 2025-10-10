@@ -95,6 +95,12 @@ img:not([class]) {
 /* endregion GLOBAL OBJECTS */
 
 /* region BLOCKS */
+/* -ZyKa ScrollSnap doesn't feel right */
+/*html {*/
+/*    scroll-snap-type: y proximity;*/
+/*    scroll-behavior: smooth;*/
+/*}*/
+
 main {
     display: flex;
     flex-flow: column nowrap;
@@ -102,7 +108,10 @@ main {
     background-color: var(--COLOR-BG-WEBSITE);
 
     padding: var(--LAYOUT-DISTANCE-XL) var(--LAYOUT-DISTANCE-XL);
-    gap: var(--LAYOUT-DISTANCE-XL)
+    gap: var(--LAYOUT-DISTANCE-XL);
+
+    /* -ZyKa ScrollSnap doesn't feel right */
+    /*scroll-snap-align: start;*/
 }
 
 /* region DEFAULT-PANEL */
@@ -163,6 +172,21 @@ main {
     gap: var(--LAYOUT-DISTANCE-DEFAULT);
 }
 /* endregion DEFAULT-PANEL */
+
+/* region MAIN-SEPARATOR */
+.c--main__separator {
+    height: 25px;
+    background: linear-gradient(to bottom,
+        transparent 0, var(--COLOR-ACCENT-DARK) 40%,
+        var(--COLOR-ACCENT-DARK) 40%, var(--COLOR-ACCENT-DARK) 60%,
+        var(--COLOR-ACCENT-DARK) 60%, transparent 100%
+        );
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+
+    /* -ZyKa ScrollSnap doesn't feel right */
+    /*scroll-snap-align: start;*/
+}
+/* endregion MAIN-SEPARATOR */
 
 /* region ABOUT ME */
 .c--about-me__my-name {
