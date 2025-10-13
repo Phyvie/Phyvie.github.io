@@ -4,17 +4,16 @@ https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/ -->
 o-- object = element that is repeated in multiple contexts (e.g. buttons, tags, ...)
 c-- component = element that is used in one specific context
 m-- modifier = class that is used to modify any type of element
-l-- layout = elements that modify the layout of the page (e.g. wrappers)
 is--, has-- = specific modifier for an element that is in a specific state
 js-- JavaScript hook
 
 example: A gallery filled with images
 <div class="o--gallery"> //the gallery block
     <div class="o--gallery-item"> //an item in the gallery can also be put into other contexts, thus they are object o-- by themselves
-        <div class="l--gallery-item__media"> //the media block is a wrapper, thus l-- for an image or a video or other media
+        <div class="c--gallery-item__media"> //the media block is a wrapper, thus l-- for an image or a video or other media
             <img class="c--gallery-item__image o--centered-image"> //the image itself is a component, thus c--; It can also use aa common image layout, which makes its layout a reusable object, thus o--image-centered
         </div>
-        <div class="l--gallery-item__caption"> //the caption is a wrapper for the title and description, thus l--
+        <div class="c--gallery-item__caption"> //the caption is a wrapper for the title and description, thus l--
             <h1 class="c--gallery-item__title"> a title </h1> //component, could also use a general layout o--
             <p class="c--gallery-item__description"> a description </p> //component, could also use a general layout o--
         </div>
