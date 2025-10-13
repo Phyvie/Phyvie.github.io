@@ -10,8 +10,41 @@
 </head>
 <body>
 
+<!-- SVG definitions for clip-path -->
+<svg width="0" height="0" style="position: absolute;">
+    <defs>
+        <!-- the points marked as 'Q' are the actual corners; the 'L' points before and ''-points afterwards are controls to round the corners -->
+        <clipPath id="rounded-arrow" clipPathUnits="objectBoundingBox">
+            <path d="
+                M 0.1,0.5
+
+                L 0.02, 0.1
+                Q 0.0,0.0
+                0.18, 0.0
+
+                L 0.72, 0.0
+                Q 0.90, 0.0
+                0.92, 0.1
+
+                L 0.98, 0.4
+                Q 1.0,0.5
+                0.98, 0.6
+
+                L 0.92, 0.9
+                Q 0.90, 1.0
+                0.72, 1.0
+
+                L 0.18, 1.0
+                Q 0.0, 1.0
+                0.02, 0.9
+                Z" />
+        </clipPath>
+    </defs>
+</svg>
+
+
 <main>
-    <section class="o--default-panel o--default-panel">
+    <section class="o--default-panel">
         <div class="c--default-panel__media c--media-container">
             <img src="#" alt="Image of me">
         </div>
@@ -34,34 +67,72 @@
                 </p>
             </div>
             <div class="c--default-panel__links">
-                <p> link 1</p>
-                <p> link 2 </p>
-                <p> link 3 </p>
+                <div class="u--drop-shadow--dark">
+                    <p class ="o--link-arrow"> first link </p>
+                </div>
+                <div class="u--drop-shadow--dark">
+                    <p class="o--link-arrow"> Medium Size link </p>
+                </div>
+                <div class="u--drop-shadow--dark">
+                    <p class="o--link-arrow"> short </p>
+                </div>
             </div>
         </div>
     </section>
 
     <div class="c--main__separator"></div>
 
-    <section class="o--default-panel o--default-panel">
+    <section class="o--default-panel">
         <div class="c--default-panel__info-container">
-            <h1 class="c--default-panel__header"> Highlight: Project A </h1>
+            <h1 class="c--default-panel__header">  Bachelor Thesis - Rotations </h1>
             <div class="c--default-panel__description">
-                <p> Description </p>
+                <p>
+                    Bachelor Thesis - Rotations is an interactive educational website aimed primarily at game developers.
+                    <br>
+                    It teaches the mathematics & use cases for different parameterizations of three-dimensional rotations.
+                </p>
+                <br>
+                <p>
+                    The project started as my bachelor thesis, in which I reframed mathematical papers about rotations to the context of game development.
+                    In roughly 8000 words the thesis describes the properties of the four most common parameterizations: rotation vectors, quaternions, euler angles and matrices.
+                    It culminates in a summary table that specifies which parameterization is most suitable for a given use case.
+                    <br>
+                    To support the thesis with over 100 images, I created an interactive visualization tool in the unity game engine.
+                    <br>
+                    To further improve the accessibility of the project, I am working on an interactive website that combines the explanatory aspects of the thesis with the interactive visualization tool.
+                </p>
             </div>
             <div class="c--default-panel__links">
-                <p> link 1</p>
-                <p> link 2 </p>
+                <p> more info </p>
+                <p> to project page </p>
             </div>
         </div>
-        <div class="c--default-panel__media o--media--screen-large">
-            <img src="#" alt="Image of Project">
+        <div class="c--default-panel__media">
+            <div class="o--media-gallery">
+<!--                <div class="c&#45;&#45;media-gallery__item">-->
+<!--                    <img src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">-->
+<!--                </div>-->
+<!--                <div class="c&#45;&#45;media-gallery__item">-->
+<!--                    <img src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">-->
+<!--                </div>-->
+<!--                <div class="c&#45;&#45;media-gallery__item">-->
+<!--                    <object class="c&#45;&#45;media-gallery__item" data="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" type="application/pdf" width="100%" height="100%">-->
+<!--                        <p> Unable to display PDF.-->
+<!--                            <a href="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf"> open separately instead. </a>-->
+<!--                        </p>-->
+<!--                    </object>-->
+<!--                </div>-->
+                <div class="c--media-gallery__item">
+                    <iframe src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
+                </div>
+                <!-- !ZyKa PDF.js for self-rendered PDF without the controls from the reader -->
+            </div>
         </div>
     </section>
 
     <div class="c--main__separator"></div>
 
-    <section class="o--default-panel o--default-panel">
+    <section class="o--default-panel">
         <div class="c--default-panel__media o--media--screen-large">
             <img src="#" alt="Image of Project">
         </div>
@@ -71,8 +142,8 @@
                 <p> Description </p>
             </div>
             <div class="c--default-panel__links">
-                <p> link 1</p>
-                <p> link 2 </p>
+                <p> more info </p>
+                <p> to project page </p>
             </div>
         </div>
     </section>
@@ -85,19 +156,19 @@
             <h2 class="c--workflow__tools-header"> Main Tools: </h2>
             <div class="c--workflow__tools-container"> <!-- !ZyKa -->
                 <div class="o--tag">
-                    <img class="o--media-icon--font-emphasized" src="Data/Icons/PaperPrototype.png" alt="Paper Prototype">
+                    <img class="o--media-icon o--media-icon--font-emphasized" src="Data/Icons/PaperPrototype.png" alt="Paper Prototype">
                 </div>
-                <img class="o--media-icon--font-emphasized" src="Data/Icons/Arrow.png" alt="Arrow">
+                <img class="o--media-icon o--media-icon--font-emphasized" src="Data/Icons/Arrow.png" alt="Arrow">
                 <div class="o--tag">
-                    <img class = "o--media-icon--font-emphasized" src="Data/Icons/Libre_Office.png" alt = "Development Plan">
+                    <img class = "o--media-icon o--media-icon--font-emphasized" src="Data/Icons/GDD.png" alt = "Development Plan">
                 </div>
-                <img class ="o--media-icon--font-emphasized" src="Data/Icons/Arrow.png" alt="Arrow">
+                <img class ="o--media-icon o--media-icon--font-emphasized" src="Data/Icons/Arrow.png" alt="Arrow">
                 <div class="o--tag">
-                    <img class = "o--media-icon--font-emphasized" src="Data/Icons/Cs.png" alt = "Coding">
+                    <img class = "o--media-icon o--media-icon--font-emphasized" src="Data/Icons/Cs.png" alt = "Coding">
                 </div>
-                <img class ="o--media-icon--font-emphasized" src="Data/Icons/Arrow.png" alt="Arrow">
+                <img class ="o--media-icon o--media-icon--font-emphasized" src="Data/Icons/Arrow.png" alt="Arrow">
                 <div class="o--tag">
-                    <img class = "o--media-icon--font-emphasized" src="Data/Icons/Unity.png" alt = "Unity">
+                    <img class = "o--media-icon o--media-icon--font-emphasized" src="Data/Icons/Unity.png" alt = "Unity">
                 </div>
             </div>
             <div class="o--scalable-arrow"></div>
@@ -105,10 +176,30 @@
         <div class="c--workflow__tools-header">
             <h2 class="c--workflow__secondary-tools-header"> Secondary Tools: </h2>
             <div class="c--workflow__tools-container">
-                <div class="o--tag"> Tool a </div>
-                <div class="o--tag"> Tool b </div>
-                <div class="o--tag"> Tool c </div>
-                <div class="o--tag"> Tool d </div>
+                <div class="o--tag">
+                    <img class="o--media-icon" src="Data/Icons/Git.png" alt="Git">
+                </div>
+                <div class="o--tag">
+                    <img class="o--media-icon" src="Data/Icons/Blender.png" alt="Blender">
+                </div>
+                <div class="o--tag">
+                    <img class="o--media-icon" src="Data/Icons/Miro.png" alt="Miro">
+                </div>
+                <div class="o--tag">
+                    <img class="o--media-icon" src="Data/Icons/Reaper.png" alt="Reaper">
+                </div>
+                <div class="o--tag">
+                    <img class="o--media-icon" src="Data/Icons/fmod.png" alt="Fmod">
+                </div>
+                <div class="o--tag">
+                    <img class="o--media-icon" src="Data/Icons/Unreal%20Engine.png" alt="Unreal Engine">
+                </div>
+                <div class="o--tag">
+                    <img class="o--media-icon" src="Data/Icons/Cpp.png" alt="C++">
+                </div>
+                <div class="o--tag">
+                    <img class="o--media-icon" src="Data/Icons/TortoiseSVN.png" alt="Subversion - TortoiseSVN">
+                </div>
             </div>
         </div>
         <div class="c--workflow__media">

@@ -4,8 +4,8 @@
     --COLOR-DARK: hsl(270, 20%, 10%);
     --COLOR-LIGHT: hsl(90, 0%, 90%);
 
-    --COLOR-ACCENT-DARK: hsl(263, 76%, 26%);
-    --COLOR-ACCENT-LIGHT: hsl(18, 68%, 33%);
+    --COLOR-ACCENT-DARK: hsl(263, 33%, 26%);
+    --COLOR-ACCENT-LIGHT: hsl(18, 87%, 30%);
     /* endregion MAIN COLORS */
 
     /* region ALL COLORS */
@@ -64,6 +64,26 @@ img:not([class]) {
 /* endregion DEV-VISUALISATION */
 
 /* region GLOBAL OBJECTS */
+/* region LINK-ARROW */
+.u--drop-shadow--dark {
+    display: inline-block;
+    filter: drop-shadow(3px 3px 3px var(--COLOR-ACCENT-DARK));
+}
+
+.o--link-arrow {
+    display: inline-flex;
+
+    background-color: var(--COLOR-ACCENT-LIGHT);
+    padding: var(--LAYOUT-DISTANCE-DEFAULT) var(--LAYOUT-DISTANCE-LARGE);
+    width: 200px; /* 0ZyKa used to ensure that the link-boxes don't vary too much in size; should probably extract into a modifier */
+    clip-path: url(#rounded-arrow);
+
+    justify-content: center;
+    align-items: center;
+}
+/* endregion LINK-ARROW */
+
+/* region TAG */
 .o--tag {
     display: block;
     background-color: var(--COLOR-DECORATION-ELEMENT);
@@ -73,25 +93,60 @@ img:not([class]) {
     height: max-content;
 }
 
+.o--tag--emphasize {
+    font-size: var(--FONT-SIZE-EMPHASIZED);
+}
+
 .o--tag > img {
     display: block;
     object-fit: contain;
 }
+/* endregion TAG */
 
-.o--media-icon--font-emphasized {
-    font-size: var(--FONT-SIZE-EMPHASIZED);
+/* region ICON */
+.o--icon {
+    display: block;
+}
+.o--media-icon {
+    font-size: var(--FONT-SIZE-DEFAULT);
     height: 1.8em;
     flex-shrink: 0;
     flex-grow: 0;
 }
 
-.o--media--screen-large {
-    width: 70vh;
-}
-
-.o--tag--emphasize {
+.o--media-icon--font-emphasized {
     font-size: var(--FONT-SIZE-EMPHASIZED);
 }
+/* endregion ICON */
+
+/* region MEDIA-GALLERY */
+.o--media-gallery {
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: scroll;
+    gap: var(--LAYOUT-DISTANCE-DEFAULT);
+
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: var(--LAYOUT-DISTANCE-DEFAULT);
+}
+
+.c--media-gallery__item {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.c--media-gallery__item * {
+    object-fit: contain;
+}
+
+.c--media-gallery__item--inactive {
+    display: none;
+}
+/* endregion MEDIA-GALLERY */
+
 /* endregion GLOBAL OBJECTS */
 
 /* region BLOCKS */
@@ -128,21 +183,17 @@ main {
     padding: var(--LAYOUT-DISTANCE-LARGE) var(--LAYOUT-DISTANCE-LARGE);
 }
 
-.c--default-panel__header {
-    margin: 0;
-    padding: 0;
-
-    font-size: var(--FONT-SIZE-TITLE);
-}
-
 .c--default-panel__media {
     flex: 1 0 auto;
-    min-width: 50%;
+    min-width: 55%;
+    width: 70vh; /* +ZyKa figure out how to define the width properly here */
+    aspect-ratio: 16/9;
 }
 
-.c--default-panel__info-container{
+.c--default-panel__info-container {
     flex: 1 1 auto;
 
+    max-width: 40%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -153,14 +204,8 @@ main {
 
 .c--default-panel__header {
     padding: var(--LAYOUT-DISTANCE-DEFAULT);
+    font-size: var(--FONT-SIZE-TITLE);
     text-align: center;
-}
-
-.c--default-panel__tags {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    gap: var(--LAYOUT-DISTANCE-DEFAULT);
 }
 
 .c--default-panel__links {
@@ -169,6 +214,13 @@ main {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    gap: var(--LAYOUT-DISTANCE-DEFAULT);
+}
+
+.c--default-panel__tags {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
     gap: var(--LAYOUT-DISTANCE-DEFAULT);
 }
 /* endregion DEFAULT-PANEL */
