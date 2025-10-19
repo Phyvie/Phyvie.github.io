@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="CSS-Reset.css">
     <link rel="stylesheet" href="Portfolio.css">
+    <script src="media-strip.js"></script>
     <title> V Then Bergh </title>
 </head>
 <body>
@@ -13,7 +14,7 @@
 <!-- SVG definitions for clip-path -->
 <svg width="0" height="0" style="position: absolute;">
     <defs>
-        <!-- the points marked as 'Q' are the actual corners; the 'L' points before and ''-points afterwards are controls to round the corners -->
+        <!-- the points marked as 'Q' are the actual corners; the 'L' points before and ''-points afterward are controls to round the corners -->
         <clipPath id="rounded-arrow" clipPathUnits="objectBoundingBox">
             <path d="
                 M 0.1,0.5
@@ -108,24 +109,22 @@
             </div>
         </div>
         <div class="c--default-panel__media">
-            <div class="o--media-gallery">
-<!--                <div class="c&#45;&#45;media-gallery__item">-->
-<!--                    <img src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">-->
-<!--                </div>-->
-<!--                <div class="c&#45;&#45;media-gallery__item">-->
-<!--                    <img src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">-->
-<!--                </div>-->
-<!--                <div class="c&#45;&#45;media-gallery__item">-->
-<!--                    <object class="c&#45;&#45;media-gallery__item" data="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" type="application/pdf" width="100%" height="100%">-->
-<!--                        <p> Unable to display PDF.-->
-<!--                            <a href="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf"> open separately instead. </a>-->
-<!--                        </p>-->
-<!--                    </object>-->
-<!--                </div>-->
-                <div class="c--media-gallery__item">
+            <button class="c--media-strip__nav c--media-strip__nav--prev" onclick="scrollMediaStrip(1)"> !ZYKA PREV </button>
+            <button class="c--media-strip__nav c--media-strip__nav--next" onclick="scrollMediaStrip(1)"> !ZYKA NEXT </button>
+
+            <div id ="bachelor-media-strip" class="o--media-strip">
+                <div class="c--media-strip__item">
+                    <img src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
+                </div>
+                <div class="c--media-strip__item">
+                    <img src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
+                </div>
+                <div class="c--media-strip__item">
+                    <img src="#" alt="Page from Thesis PDF">
+                </div>
+                <div class="c--media-strip__item">
                     <iframe src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
                 </div>
-                <!-- !ZyKa PDF.js for self-rendered PDF without the controls from the reader -->
             </div>
         </div>
     </section>
