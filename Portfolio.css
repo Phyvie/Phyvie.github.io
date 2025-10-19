@@ -120,10 +120,12 @@ img:not([class]) {
 /* endregion ICON */
 
 /* region MEDIA-GALLERY */
-.o--media-gallery {
+.o--media-strip {
     display: flex;
     flex-flow: row nowrap;
     overflow: scroll;
+    scroll-behavior: smooth;
+
     gap: var(--LAYOUT-DISTANCE-DEFAULT);
 
     position: relative;
@@ -132,17 +134,41 @@ img:not([class]) {
     padding: var(--LAYOUT-DISTANCE-DEFAULT);
 }
 
-.c--media-gallery__item {
+.c--media-strip__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 1);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.c--media-strip__nav:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.c--media-strip__nav--prev {
+    left: 30px;
+}
+
+.c--media-strip__nav--next {
+    right: 30px;
+}
+
+.c--media-strip__item {
     flex: 0 0 auto;
     width: 100%;
     height: 100%;
 }
 
-.c--media-gallery__item * {
+.c--media-strip__item * {
     object-fit: contain;
 }
 
-.c--media-gallery__item--inactive {
+.c--media-strip__item--inactive {
     display: none;
 }
 /* endregion MEDIA-GALLERY */
@@ -184,6 +210,7 @@ main {
 }
 
 .c--default-panel__media {
+    position: relative;
     flex: 1 0 auto;
     min-width: 55%;
     width: 70vh; /* +ZyKa figure out how to define the width properly here */
