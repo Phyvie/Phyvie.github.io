@@ -122,7 +122,7 @@ function loadImageAndTitle(cardRoot, jsonData) {
         }
         img.alt = jsonData?.image?.alt || img.alt || "";
 
-        console.log(`image loaded for ${cardRoot.id}: ${img.src}}`); //!ZyKa
+        console.log(`image loaded for ${cardRoot.id}: ${img.src}}`); //-ZyKa
     }
 
     // Title (h2) and Type (h3)

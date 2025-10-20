@@ -1,21 +1,104 @@
-export function scrollMediaStripByIndex(galleryName, positions) {
-    var gallery = document.getElementById(galleryName);
-    scrollMediaStrip(gallery, positions * gallery.offsetWidth);
+import {GetDOMElForInputType} from "./DOMFunctions.js";
+
+function scrollMediaStripByIndices(gallery, indices) {
+    const galleryDOMEl = GetDOMElForInputType(gallery);
+    scrollMediaStripByWidth(galleryDOMEl, indices * galleryDOMEl.offsetWidth);
 }
 
-export function scrollMediaStripToIndex(galleryName, index) {
-    var gallery = document.getElementById(galleryName);
-    _private_scrollMediaStripToPosition(gallery, index * gallery.offsetWidth);
+function scrollMediaStripToIndex(gallery, index) {
+    const galleryDOMEl = GetDOMElForInputType(gallery);
+    scrollMediaStripToPosition(galleryDOMEl, index * galleryDOMEl.offsetWidth);
 }
 
-function _private_scrollMediaStrip(gallery, scrollWidth) {
+function scrollMediaStripByWidth(gallery, scrollWidth) {
     gallery.scrollBy({
-            left: direction * scrollAmount,
+            left: scrollWidth,
             behavior: 'smooth'
         }
     )
 }
 
-function _private_scrollMediaStripToPosition(gallery, position) {
+function scrollMediaStripToPosition(gallery, position) {
     gallery.scrollLeft = position;
 }
+
+export function initialiseMediaStrips()
+{
+    console.log("setting up media strips");
+
+    const navButtons = document.querySelectorAll('.js--media-strip__nav');
+
+    navButtons.forEach
+    (
+        navItem =>
+        {
+            NavItem_SetupClick(navItem);
+        }
+    );
+}
+
+function NavItem_SetupClick(navItem) {
+    const mediaStripDomEl = document.getElementById(navItem.dataset.mediastrip);
+    if (!mediaStripDomEl) {
+        throw new Error(`Media strip element with id "${navItem.dataset.mediastrip}" not found.`);
+    }
+
+    const hasScrollItemName = navItem.dataset.scrollitemname !== undefined;
+    const hasScrollIndex = navItem.dataset.scrollindex !== undefined;
+    const hasScrollDirection = navItem.dataset.scrolldirection !== undefined;
+
+    const instructionCount = [hasScrollItemName, hasScrollIndex, hasScrollDirection].filter(Boolean).length;
+    if (instructionCount > 1) {
+        throw new Error("Conflicting scroll instructions for navItem: " + navItem.outerHTML +
+            "\nOnly one of scrollitemname, scrollindex, or scrolldirection should be defined.");
+    }
+
+    let scrollFunction;
+
+    if (hasScrollItemName) {
+        const targetEl = document.getElementById(navItem.dataset.scrollitemname);
+        if (!targetEl) {
+            throw new Error(`Element with id "${navItem.dataset.scrollitemname}" not found for scrollitemname.`);
+        }
+
+        // Get the index of the targetEl among the children of mediaStripDomEl
+        const children = Array.from(mediaStripDomEl.children);
+        const scrollIndex = children.indexOf(targetEl);
+
+        if (scrollIndex === -1) {
+            throw new Error(`Element with id "${navItem.dataset.scrollitemname}" is not a child of the media strip.`);
+        }
+
+        scrollFunction = () => scrollMediaStripToIndex(mediaStripDomEl, scrollIndex);
+    }
+
+    else if (hasScrollIndex) {
+        const scrollIndex = parseInt(navItem.dataset.scrollindex, 10);
+
+        if (isNaN(scrollIndex)) {
+            throw new Error("Invalid scrollindex for navItem: must be a number.");
+        }
+
+        scrollFunction = () => scrollMediaStripToIndex(mediaStripDomEl, scrollIndex);
+    }
+
+    else if (hasScrollDirection) {
+        const direction = parseInt(navItem.dataset.scrolldirection, 10);
+
+        if (isNaN(direction)) {
+            throw new Error("Invalid scrolldirection for navItem: must be a number.");
+        }
+
+        scrollFunction = () => scrollMediaStripByIndices(mediaStripDomEl, direction);
+    }
+
+    if (scrollFunction) {
+        navItem.addEventListener('click', scrollFunction);
+    } else {
+        throw new Error("No scroll instruction provided for navItem: must define one of scrollitemname, scrollindex, or scrolldirection.");
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', initialiseMediaStrips);
+
