@@ -46,15 +46,15 @@
 
 <main>
     <section class="o--default-panel">
-        <div class="c--default-panel__media c--media-container">
+        <div class="c--default-panel__media">
             <img src="#" alt="Image of me">
         </div>
         <div class ="c--default-panel__info-container">
             <h1 class="c--default-panel__header c--about-me__my-name"> V Then Bergh </h1>
-            <div class="c--default-panel__tags c--about_me__tags">
-                <h2 class="o--tag o--tag--emphasize"> Gameplay Programming </h2>
-                <h2 class="o--tag o--tag--emphasize"> Tech Design </h2>
-                <h2 class="o--tag o--tag--emphasize"> Math Visualization </h2>
+            <div class="c--default-panel__tags">
+                <h2 class="o--tag o--tag--emphasize c--tag--about-me"> Gameplay <br class="c--tag--about-me__linebreak"> Programming </h2>
+                <h2 class="o--tag o--tag--emphasize c--tag--about-me"> Tech <br class="c--tag--about-me__linebreak"> Design </h2>
+                <h2 class="o--tag o--tag--emphasize c--tag--about-me"> Math <br class="c--tag--about-me__linebreak"> Visualization </h2>
             </div>
             <div class="c--default-panel__description-container">
                 <p class="c--about_me__description">
@@ -109,22 +109,24 @@
             </div>
         </div>
         <div class="c--default-panel__media">
-            <div class="js--media-strip__nav c--media-strip__nav_button c--media-strip__nav-button--prev" data-mediastrip="bachelor-media-strip" data-scrolldirection="-1"> !ZYKA PREV </div>
-            <div class="js--media-strip__nav c--media-strip__nav_button c--media-strip__nav-button--next" data-mediastrip="bachelor-media-strip" data-scrolldirection="1"> !ZYKA NEXT </div>
+            <div class="o--media-strip__wrapper">
+                <div id ="bachelor-media-strip" class="o--media-strip__content-container">
+                    <div id ="EulerGimbal" class="c--media-strip__item">
+                        <img class="o--media--contain" src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
+                    </div>
+                    <div id="AnotherEulerGimbal" class="c--media-strip__item">
+                        <img class="o--media--contain" src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
+                    </div>
+                    <div class="c--media-strip__item">
+                        <img class="o--media--contain" src="#" alt="Page from Thesis PDF">
+                    </div>
+                    <div class="c--media-strip__item">
+                        <iframe class="o--media--contain" src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
+                    </div>
+                </div>
 
-            <div id ="bachelor-media-strip" class="o--media-strip">
-                <div id ="EulerGimbal" class="c--media-strip__item">
-                    <img src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
-                </div>
-                <div id="AnotherEulerGimbal" class="c--media-strip__item">
-                    <img src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
-                </div>
-                <div class="c--media-strip__item">
-                    <img src="#" alt="Page from Thesis PDF">
-                </div>
-                <div class="c--media-strip__item">
-                    <iframe src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
-                </div>
+                <div class="js--media-strip__nav c--media-strip__nav_button c--media-strip__nav-button--prev" data-mediastrip="bachelor-media-strip" data-scrolldirection="-1"> !ZYKA PREV </div>
+                <div class="js--media-strip__nav c--media-strip__nav_button c--media-strip__nav-button--next" data-mediastrip="bachelor-media-strip" data-scrolldirection="1"> !ZYKA NEXT </div>
             </div>
         </div>
     </section>
@@ -132,7 +134,7 @@
     <div class="c--main__separator"></div>
 
     <section class="o--default-panel">
-        <div class="c--default-panel__media o--media--screen-large">
+        <div class="c--default-panel__media">
             <img src="#" alt="Image of Project">
         </div>
         <div class="c--default-panel__info-container">
@@ -149,60 +151,77 @@
 
     <div class="c--main__separator"></div>
 
-    <section class="o--default-panel o--workflow">
+    <section class="o--workflow">
         <h1 class="c--workflow__header"> Behind the scenes </h1>
-        <div class="c--workflow__main-tools">
-            <h2 class="c--workflow__tools-header"> Main Tools: </h2>
-            <div class="c--workflow__tools-container">
-                <div class="o--tag">
-                    <img class="o--media-icon o--media-icon--font-emphasized" src="Data/Icons/PaperPrototype.png" alt="Paper Prototype">
+<!--        <div class="c&#45;&#45;workflow__main-tools">-->
+<!--            <h2 class="c&#45;&#45;workflow__tools-header"> Main Tools: </h2>-->
+<!--            <div class="c&#45;&#45;workflow__tools-container">-->
+<!--                <div class="o&#45;&#45;tag">-->
+<!--                    <img class="o&#45;&#45;media-icon o&#45;&#45;media-icon&#45;&#45;font-emphasized" src="Data/Icons/PaperPrototype.png" alt="Paper Prototype">-->
+<!--                </div>-->
+<!--                <img class="o&#45;&#45;media-icon o&#45;&#45;media-icon&#45;&#45;font-emphasized" src="Data/Icons/Arrow.png" alt="Arrow">-->
+<!--                <div class="o&#45;&#45;tag">-->
+<!--                    <img class = "o&#45;&#45;media-icon o&#45;&#45;media-icon&#45;&#45;font-emphasized" src="Data/Icons/GDD.png" alt = "Development Plan">-->
+<!--                </div>-->
+<!--                <img class ="o&#45;&#45;media-icon o&#45;&#45;media-icon&#45;&#45;font-emphasized" src="Data/Icons/Arrow.png" alt="Arrow">-->
+<!--                <div class="o&#45;&#45;tag">-->
+<!--                    <img class = "o&#45;&#45;media-icon o&#45;&#45;media-icon&#45;&#45;font-emphasized" src="Data/Icons/Cs.png" alt = "Coding">-->
+<!--                </div>-->
+<!--                <img class ="o&#45;&#45;media-icon o&#45;&#45;media-icon&#45;&#45;font-emphasized" src="Data/Icons/Arrow.png" alt="Arrow">-->
+<!--                <div class="o&#45;&#45;tag">-->
+<!--                    <img class = "o&#45;&#45;media-icon o&#45;&#45;media-icon&#45;&#45;font-emphasized" src="Data/Icons/Unity.png" alt = "Unity">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="o&#45;&#45;scalable-arrow"></div>-->
+<!--        </div>-->
+<!--        <div class="c&#45;&#45;workflow__secondary-tools-header">-->
+<!--            <h2 class="c&#45;&#45;workflow__tools-header"> Secondary Tools: </h2>-->
+<!--            <div class="c&#45;&#45;workflow__tools-container">-->
+<!--                <div class="o&#45;&#45;tag">-->
+<!--                    <img class="o&#45;&#45;media-icon" src="Data/Icons/Git.png" alt="Git">-->
+<!--                </div>-->
+<!--                <div class="o&#45;&#45;tag">-->
+<!--                    <img class="o&#45;&#45;media-icon" src="Data/Icons/Blender.png" alt="Blender">-->
+<!--                </div>-->
+<!--                <div class="o&#45;&#45;tag">-->
+<!--                    <img class="o&#45;&#45;media-icon" src="Data/Icons/Miro.png" alt="Miro">-->
+<!--                </div>-->
+<!--                <div class="o&#45;&#45;tag">-->
+<!--                    <img class="o&#45;&#45;media-icon" src="Data/Icons/Reaper.png" alt="Reaper">-->
+<!--                </div>-->
+<!--                <div class="o&#45;&#45;tag">-->
+<!--                    <img class="o&#45;&#45;media-icon" src="Data/Icons/fmod.png" alt="Fmod">-->
+<!--                </div>-->
+<!--                <div class="o&#45;&#45;tag">-->
+<!--                    <img class="o&#45;&#45;media-icon" src="Data/Icons/Unreal%20Engine.png" alt="Unreal Engine">-->
+<!--                </div>-->
+<!--                <div class="o&#45;&#45;tag">-->
+<!--                    <img class="o&#45;&#45;media-icon" src="Data/Icons/Cpp.png" alt="C++">-->
+<!--                </div>-->
+<!--                <div class="o&#45;&#45;tag">-->
+<!--                    <img class="o&#45;&#45;media-icon" src="Data/Icons/TortoiseSVN.png" alt="Subversion - TortoiseSVN">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="o--media-strip__wrapper">
+            <div id ="workflow-media-strip" class="o--media-strip__content-container">
+                <div id ="PaperPrototype" class="c--media-strip__item c--media-strip__item--half-sized">
+                    <img class="o--media--contain" src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
                 </div>
-                <img class="o--media-icon o--media-icon--font-emphasized" src="Data/Icons/Arrow.png" alt="Arrow">
-                <div class="o--tag">
-                    <img class = "o--media-icon o--media-icon--font-emphasized" src="Data/Icons/GDD.png" alt = "Development Plan">
+                <div id="GameDesignDocument" class="c--media-strip__item c--media-strip__item--half-sized">
+                    <img class="o--media--contain" src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
                 </div>
-                <img class ="o--media-icon o--media-icon--font-emphasized" src="Data/Icons/Arrow.png" alt="Arrow">
-                <div class="o--tag">
-                    <img class = "o--media-icon o--media-icon--font-emphasized" src="Data/Icons/Cs.png" alt = "Coding">
+                <div id="CSS-Code" class="c--media-strip__item c--media-strip__item--half-sized">
+                    <img class="o--media--contain" src="#" alt="Page from Thesis PDF">
                 </div>
-                <img class ="o--media-icon o--media-icon--font-emphasized" src="Data/Icons/Arrow.png" alt="Arrow">
-                <div class="o--tag">
-                    <img class = "o--media-icon o--media-icon--font-emphasized" src="Data/Icons/Unity.png" alt = "Unity">
+                <div id="Unity-Implementation" class="c--media-strip__item c--media-strip__item--half-sized">
+                    <iframe class="o--media--contain" src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
                 </div>
             </div>
-            <div class="o--scalable-arrow"></div>
-        </div>
-        <div class="c--workflow__tools-header">
-            <h2 class="c--workflow__secondary-tools-header"> Secondary Tools: </h2>
-            <div class="c--workflow__tools-container">
-                <div class="o--tag">
-                    <img class="o--media-icon" src="Data/Icons/Git.png" alt="Git">
-                </div>
-                <div class="o--tag">
-                    <img class="o--media-icon" src="Data/Icons/Blender.png" alt="Blender">
-                </div>
-                <div class="o--tag">
-                    <img class="o--media-icon" src="Data/Icons/Miro.png" alt="Miro">
-                </div>
-                <div class="o--tag">
-                    <img class="o--media-icon" src="Data/Icons/Reaper.png" alt="Reaper">
-                </div>
-                <div class="o--tag">
-                    <img class="o--media-icon" src="Data/Icons/fmod.png" alt="Fmod">
-                </div>
-                <div class="o--tag">
-                    <img class="o--media-icon" src="Data/Icons/Unreal%20Engine.png" alt="Unreal Engine">
-                </div>
-                <div class="o--tag">
-                    <img class="o--media-icon" src="Data/Icons/Cpp.png" alt="C++">
-                </div>
-                <div class="o--tag">
-                    <img class="o--media-icon" src="Data/Icons/TortoiseSVN.png" alt="Subversion - TortoiseSVN">
-                </div>
-            </div>
-        </div>
-        <div class="c--workflow__media">
-            <img src="#" alt="Image of Workflow">
+
+<!--            !ZyKa adjust the media-strip to work with half-sized elements -->
+            <div class="js--media-strip__nav c--media-strip__nav_button c--media-strip__nav-button--prev" data-mediastrip="workflow-media-strip" data-scrolldirection="-1"> !ZYKA PREV </div>
+            <div class="js--media-strip__nav c--media-strip__nav_button c--media-strip__nav-button--next" data-mediastrip="workflow-media-strip" data-scrolldirection="1"> !ZYKA NEXT </div>
         </div>
     </section>
 
