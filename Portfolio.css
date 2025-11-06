@@ -28,22 +28,32 @@
     --FONT-SIZE-XS: 0.4rem;
     --FONT-SIZE-SMALL: 0.8rem;
     --FONT-SIZE-EMPHASIZED: 1.2em;
-    --FONT-SIZE-TITLE: 2.5rem;
+    /*--FONT-SIZE-EMPHASIZED: clamp(1.1em, 1.0em + 0.4vw, 4em);*/
+    --FONT-SIZE-TITLE: clamp(2.5rem, 4vw, 4rem);
 
     --ELEMENT-LINE-HEIGHT: 1.8em; /* 1.8em = 1 line-height */
     /* endregion FONTS */
 
     /* region LAYOUT */
-    --LAYOUT-DISTANCE-DEFAULT: 12px;
-    --LAYOUT-DISTANCE-XS: 2px;
-    --LAYOUT-DISTANCE-SMALL: 8px;
-    --LAYOUT-DISTANCE-LARGE: 32px;
-    --LAYOUT-DISTANCE-XL: 96px;
+    --LAYOUT-DISTANCE-LERP-FACTOR: 0.3;
+    --LAYOUT-DISTANCE-DEFAULT:
+            calc(
+                    0.625vw +
+                    var(--LAYOUT-DISTANCE-LERP-FACTOR) * (1rem - 0.625vw)
+            );
+
+    --LAYOUT-DISTANCE-XS: calc(0.2 * var(--LAYOUT-DISTANCE-DEFAULT));
+    --LAYOUT-DISTANCE-SMALL: calc(0.6 * var(--LAYOUT-DISTANCE-DEFAULT));
+    --LAYOUT-DISTANCE-LARGE: calc(2.5 * var(--LAYOUT-DISTANCE-DEFAULT));
+    --LAYOUT-DISTANCE-XL: calc(8 * var(--LAYOUT-DISTANCE-DEFAULT));
 
     --LAYOUT-GAP-DEFAULT: var(--LAYOUT-DISTANCE-DEFAULT);
 
     --LAYOUT-BORDER-RADIUS-CYLINDER: 999px;
     --LAYOUT-BORDER-RADIUS-ELLIPSE: 50%;
+
+    --LAYOUT-TAG-MIN-WIDTH: 10rem;
+    --LAYOUT-TAG-MAX-WIDTH: 20rem;
     /* endregion LAYOUT */
 }
 /* region GLOBAL VARIABLES */
@@ -85,20 +95,39 @@ img:not([class]) {
 
 /* region TAG */
 .o--tag {
-    display: block;
+    flex: 1 1 calc((var(--LAYOUT-TAG-MIN-WIDTH) + var(--LAYOUT-TAG-MAX-WIDTH)) / 2);
+    min-width: var(--LAYOUT-TAG-MIN-WIDTH);
+    max-width: var(--LAYOUT-TAG-MAX-WIDTH);
+
     background-color: var(--COLOR-DECORATION-ELEMENT);
     padding: var(--LAYOUT-DISTANCE-DEFAULT) var(--LAYOUT-DISTANCE-LARGE);
     border-radius: var(--LAYOUT-BORDER-RADIUS-CYLINDER);
 
-    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    text-align: center;
+    text-wrap: nowrap;
 }
 
 .o--tag--emphasize {
     font-size: var(--FONT-SIZE-EMPHASIZED);
 }
 
+.c--tag--about-me__linebreak {
+    display: block;
+}
+
 .o--tag > img {
     display: block;
+    object-fit: contain;
+}
+
+/*!ZyKa*/
+.o--media--contain {
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 /* endregion TAG */
@@ -120,7 +149,11 @@ img:not([class]) {
 /* endregion ICON */
 
 /* region MEDIA-GALLERY */
-.o--media-strip {
+.o--media-strip__wrapper {
+    position: relative;
+}
+
+.o--media-strip__content-container {
     display: flex;
     flex-flow: row nowrap;
     overflow: hidden;
@@ -129,10 +162,11 @@ img:not([class]) {
 
     gap: var(--LAYOUT-DISTANCE-DEFAULT);
 
+    align-items: center;
+
     position: relative;
-    height: 100%;
-    width: 100%;
-    padding: var(--LAYOUT-DISTANCE-DEFAULT);
+    /*!ZyKa*/
+    /*padding: var(--LAYOUT-DISTANCE-DEFAULT);*/
 }
 
 .js--media-strip__nav {}
@@ -161,16 +195,17 @@ img:not([class]) {
     right: 30px;
 }
 
+/*!ZyKa*/
 .c--media-strip__item {
-    flex: 0 0 auto;
-    width: 100%;
-    height: 100%;
+    flex: 0 0 100%;
 
     scroll-snap-align: start;
 }
 
-.c--media-strip__item * {
-    object-fit: contain;
+.c--media-strip__item--half-sized {
+    flex-basis: 50%;
+
+    scroll-snap-align: start;
 }
 
 .c--media-strip__item--inactive {
@@ -194,33 +229,42 @@ main {
 /* region DEFAULT-PANEL */
 .o--default-panel {
     width: 100%;
-    min-height: 200px; /* +ZyKa min-height for panels so that I can see them */
 
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
 
     gap: var(--LAYOUT-DISTANCE-LARGE);
 
     /*border-bottom: 2px solid var(--COLOR-DECORATION-BLOCK);*/
     padding: var(--LAYOUT-DISTANCE-LARGE) var(--LAYOUT-DISTANCE-LARGE);
+
+    justify-content: space-around;
 }
 
 .c--default-panel__media {
+    align-self: center;
+
+    flex: 1 0 500px;
+    aspect-ratio: 4/3;
+    min-width: 500px;
+    /* +ZyKa for very wide (& no-height) screens the min-width is greater than max-width */
+    max-width: calc(80vh * 4/3);
+
     position: relative;
-    flex: 1 0 auto;
-    min-width: 55%;
-    width: 70vh; /* +ZyKa figure out how to define the width properly here */
-    aspect-ratio: 5/3;
 }
 
 .c--default-panel__info-container {
-    flex: 1 1 auto;
+    align-self: stretch;
 
-    max-width: 40%;
+    flex: 1 0 28rem;
+
+    min-width: 28rem;
+    /* ZyKa */
+
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
 
+    justify-content: center;
     gap: var(--LAYOUT-DISTANCE-LARGE);
     padding: var(--LAYOUT-DISTANCE-LARGE) var(--LAYOUT-DISTANCE-XL);
 }
@@ -236,15 +280,55 @@ main {
 
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: center;
+    place-items: center;
+
     gap: var(--LAYOUT-DISTANCE-DEFAULT);
 }
 
 .c--default-panel__tags {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    /*display: grid;*/
+    /*grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));*/
+
     gap: var(--LAYOUT-DISTANCE-DEFAULT);
+
+    justify-content: space-around;
+    align-items: stretch;
+    align-content: stretch;
+}
+
+.c--tag--about-me {
+    container: o--tag--about-me / inline-size;
+}
+
+@container o--tag--about-me (min-width: 14rem) {
+    .c--tag--about-me__linebreak {
+        display: none;
+    }
+}
+
+
+@media (max-width: 1270px) {
+    .o--default-panel {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    .c--default-panel__media {
+        align-self: stretch;
+
+        flex-basis: 0;
+        min-width: 0;
+    }
+
+    .c--default-panel__info-container {
+        align-self: stretch;
+
+        flex-basis: 0;
+        min-width: 0;
+    }
 }
 /* endregion DEFAULT-PANEL */
 
@@ -264,22 +348,13 @@ main {
 .c--about-me__my-name {
     text-align: left;
 }
-
-.c--about-me__tags {
-    justify-content: flex-start;
-}
 /* endregion ABOUT ME */
 
 /* region WORKFLOW */
 /* +ZyKa should this really be a grid? */
 .o--workflow{
-    display: grid;
-    grid-template-columns: 30% 70%;
-    grid-template-areas:
-        "header header"
-        "main-tools media"
-        "secondary-tools media"
-        ;
+    display: flex;
+    flex-flow: column nowrap;
     gap: var(--LAYOUT-GAP-DEFAULT);
 }
 
@@ -411,7 +486,7 @@ main {
 
 
 /* region CONTACT */
-.o--contact{
+.o--contact {
 
 }
 /* endregion CONTACT */
