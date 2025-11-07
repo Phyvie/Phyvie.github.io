@@ -8,14 +8,15 @@ function scrollMediaStripByIndices(gallery, indices) {
             Array.from(galleryDOMEl.children).indexOf(currentChild) :
             galleryDOMEl.children.length - 1;
     let scrollChildIndex = currentChildIndex + indices;
-    scrollChildIndex = Math.min(Math.max(0, scrollChildIndex), galleryDOMEl.children.length - 1);
+    scrollChildIndex = Math.min(Math.max(0, scrollChildIndex), galleryDOMEl.children.length-1);
     galleryDOMEl.scrollLeft = galleryDOMEl.children[scrollChildIndex].offsetLeft;
 }
 
 function scrollMediaStripToIndex(gallery, index) {
     const galleryDOMEl = GetDOMElForInputType(gallery);
-    galleryDOMEl.scrollLeft = galleryDOMEl.children[index];
-    // child.scrollIntoView({}) //!ZyKa
+    index = Math.min(Math.max(0, index), galleryDOMEl.children.length-1);
+    galleryDOMEl.scrollLeft = galleryDOMEl.children[index].offsetLeft;
+    console.log("scrolling to index: " + index);
 }
 
 function scrollMediaStripByWidth(gallery, scrollWidth) {
@@ -34,7 +35,7 @@ export function initialiseMediaStrips()
 {
     console.log("setting up media strips");
 
-    const navButtons = document.querySelectorAll('.js--media-strip__nav');
+    const navButtons = document.querySelectorAll('[data-mediastrip]');
 
     navButtons.forEach
     (
@@ -107,6 +108,4 @@ function NavItem_SetupClick(navItem) {
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', initialiseMediaStrips);
-

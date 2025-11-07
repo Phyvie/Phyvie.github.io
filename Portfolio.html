@@ -68,15 +68,9 @@
                 </p>
             </div>
             <div class="c--default-panel__links">
-                <div class="u--drop-shadow--dark">
-                    <p class ="o--link-arrow"> first link </p>
-                </div>
-                <div class="u--drop-shadow--dark">
-                    <p class="o--link-arrow"> Medium Size link </p>
-                </div>
-                <div class="u--drop-shadow--dark">
-                    <p class="o--link-arrow"> short </p>
-                </div>
+                <p class ="o--link-arrow"> first link </p>
+                <p class="o--link-arrow"> Medium Size link </p>
+                <p class="o--link-arrow"> short </p>
             </div>
         </div>
     </section>
@@ -104,8 +98,8 @@
                 </p>
             </div>
             <div class="c--default-panel__links">
-                <p> more info </p>
-                <p> to project page </p>
+                <p class="o--link-arrow"> more info </p>
+                <p class="o--link-arrow"> to project page </p>
             </div>
         </div>
         <div class="c--default-panel__media">
@@ -143,85 +137,115 @@
                 <p> Description </p>
             </div>
             <div class="c--default-panel__links">
-                <p> more info </p>
-                <p> to project page </p>
+                <p class="o--link-arrow"> more info </p>
+                <p class="o--link-arrow"> to project page </p>
             </div>
         </div>
     </section>
 
     <div class="c--main__separator"></div>
 
-    <section class="o--workflow">
-        <h1 class="c--workflow__header"> Behind the scenes </h1>
-<!--        <div class="c&#45;&#45;workflow__main-tools">-->
-<!--            <h2 class="c&#45;&#45;workflow__tools-header"> Main Tools: </h2>-->
-<!--            <div class="c&#45;&#45;workflow__tools-container">-->
-<!--                <div class="o&#45;&#45;tag">-->
-<!--                    <img class="o&#45;&#45;media-icon o&#45;&#45;media-icon&#45;&#45;font-emphasized" src="Data/Icons/PaperPrototype.png" alt="Paper Prototype">-->
-<!--                </div>-->
-<!--                <img class="o&#45;&#45;media-icon o&#45;&#45;media-icon&#45;&#45;font-emphasized" src="Data/Icons/Arrow.png" alt="Arrow">-->
-<!--                <div class="o&#45;&#45;tag">-->
-<!--                    <img class = "o&#45;&#45;media-icon o&#45;&#45;media-icon&#45;&#45;font-emphasized" src="Data/Icons/GDD.png" alt = "Development Plan">-->
-<!--                </div>-->
-<!--                <img class ="o&#45;&#45;media-icon o&#45;&#45;media-icon&#45;&#45;font-emphasized" src="Data/Icons/Arrow.png" alt="Arrow">-->
-<!--                <div class="o&#45;&#45;tag">-->
-<!--                    <img class = "o&#45;&#45;media-icon o&#45;&#45;media-icon&#45;&#45;font-emphasized" src="Data/Icons/Cs.png" alt = "Coding">-->
-<!--                </div>-->
-<!--                <img class ="o&#45;&#45;media-icon o&#45;&#45;media-icon&#45;&#45;font-emphasized" src="Data/Icons/Arrow.png" alt="Arrow">-->
-<!--                <div class="o&#45;&#45;tag">-->
-<!--                    <img class = "o&#45;&#45;media-icon o&#45;&#45;media-icon&#45;&#45;font-emphasized" src="Data/Icons/Unity.png" alt = "Unity">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="o&#45;&#45;scalable-arrow"></div>-->
-<!--        </div>-->
-<!--        <div class="c&#45;&#45;workflow__secondary-tools-header">-->
-<!--            <h2 class="c&#45;&#45;workflow__tools-header"> Secondary Tools: </h2>-->
-<!--            <div class="c&#45;&#45;workflow__tools-container">-->
-<!--                <div class="o&#45;&#45;tag">-->
-<!--                    <img class="o&#45;&#45;media-icon" src="Data/Icons/Git.png" alt="Git">-->
-<!--                </div>-->
-<!--                <div class="o&#45;&#45;tag">-->
-<!--                    <img class="o&#45;&#45;media-icon" src="Data/Icons/Blender.png" alt="Blender">-->
-<!--                </div>-->
-<!--                <div class="o&#45;&#45;tag">-->
-<!--                    <img class="o&#45;&#45;media-icon" src="Data/Icons/Miro.png" alt="Miro">-->
-<!--                </div>-->
-<!--                <div class="o&#45;&#45;tag">-->
-<!--                    <img class="o&#45;&#45;media-icon" src="Data/Icons/Reaper.png" alt="Reaper">-->
-<!--                </div>-->
-<!--                <div class="o&#45;&#45;tag">-->
-<!--                    <img class="o&#45;&#45;media-icon" src="Data/Icons/fmod.png" alt="Fmod">-->
-<!--                </div>-->
-<!--                <div class="o&#45;&#45;tag">-->
-<!--                    <img class="o&#45;&#45;media-icon" src="Data/Icons/Unreal%20Engine.png" alt="Unreal Engine">-->
-<!--                </div>-->
-<!--                <div class="o&#45;&#45;tag">-->
-<!--                    <img class="o&#45;&#45;media-icon" src="Data/Icons/Cpp.png" alt="C++">-->
-<!--                </div>-->
-<!--                <div class="o&#45;&#45;tag">-->
-<!--                    <img class="o&#45;&#45;media-icon" src="Data/Icons/TortoiseSVN.png" alt="Subversion - TortoiseSVN">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+    <section class="o--default-panel o--default-panel--vertical">
+        <h1 class="c--default-panel__header"> Behind the scenes </h1>
+
+        <div>
+            <!-- +ZyKa can this be deleted? -->
+            <!--class="c--workflow__main-tools"-->
+            <!-- 0ZyKa header name -->
+            <h2 class="c--default-panel__subheader"> My Main Equipment: </h2>
+            <div class="c--workflow__tools-container">
+                <div class="o--tag">
+                    <img class="o--media-icon o--media-icon--font-emphasized js--media-strip__nav"
+                         src="Data/Icons/PaperPrototype.png" alt="Paper Prototype"
+                        data-mediastrip="workflow-media-strip" data-scrollindex="0">
+                </div>
+                <img class="o--media-icon o--media-icon--font-emphasized"
+                     src="Data/Icons/Arrow.png" alt="Arrow">
+                <div class="o--tag">
+                    <img class = "o--media-icon o--media-icon--font-emphasized js--media-strip__nav"
+                         src="Data/Icons/GDD.png" alt = "Development Plan"
+                         data-mediastrip="workflow-media-strip" data-scrollindex="1">
+                </div>
+                <img class ="o--media-icon o--media-icon--font-emphasized"
+                     src="Data/Icons/Arrow.png" alt="Arrow">
+                <div class="o--tag">
+                    <img class = "o--media-icon o--media-icon--font-emphasized js--media-strip__nav"
+                         src="Data/Icons/Cs.png" alt = "Coding"
+                         data-mediastrip="workflow-media-strip" data-scrollindex="2">
+                </div>
+                <img class ="o--media-icon o--media-icon--font-emphasized"
+                     src="Data/Icons/Arrow.png" alt="Arrow">
+                <div class="o--tag">
+                    <img class = "o--media-icon o--media-icon--font-emphasized js--media-strip__nav"
+                         src="Data/Icons/Unity.png" alt = "Unity"
+                         data-mediastrip="workflow-media-strip" data-scrollindex="3">
+                </div>
+            </div>
+            <div class="o--scalable-arrow"></div>
+        </div>
+
         <div class="o--media-strip__wrapper">
             <div id ="workflow-media-strip" class="o--media-strip__content-container o--media-strip__content-container--double-element">
                 <div id ="PaperPrototype" class="c--media-strip__item">
-                    <img class="o--media--contain" src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
+                    <img class="o--media--contain"
+                         src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
                 </div>
                 <div id="GameDesignDocument" class="c--media-strip__item">
-                    <img class="o--media--contain" src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
+                    <img class="o--media--contain"
+                         src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
                 </div>
                 <div id="CSS-Code" class="c--media-strip__item">
-                    <img class="o--media--contain" src="#" alt="Page from Thesis PDF">
+                    <img class="o--media--contain"
+                         src="#" alt="Page from Thesis PDF">
                 </div>
                 <div id="Unity-Implementation" class="c--media-strip__item">
-                    <iframe class="o--media--contain" src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
+                    <iframe class="o--media--contain"
+                            src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
                 </div>
             </div>
 
-<!--            !ZyKa adjust the media-strip to work with half-sized elements -->
             <div class="js--media-strip__nav c--media-strip__nav_button c--media-strip__nav-button--prev" data-mediastrip="workflow-media-strip" data-scrolldirection="-1"> !ZYKA PREV </div>
             <div class="js--media-strip__nav c--media-strip__nav_button c--media-strip__nav-button--next" data-mediastrip="workflow-media-strip" data-scrolldirection="1"> !ZYKA NEXT </div>
+        </div>
+
+        <div>
+            <!-- +ZyKa can this be deleted? -->
+            <!-- class="c&#45;&#45;workflow__secondary-tools-header"-->
+            <h2 class="c--default-panel__subheader"> Occasional Power-ups: </h2>
+            <div class="c--workflow__tools-container">
+                <div class="o--tag">
+                    <img class="o--media-icon"
+                         src="Data/Icons/Git.png" alt="Git">
+                </div>
+                <div class="o--tag">
+                    <img class="o--media-icon"
+                         src="Data/Icons/Blender.png" alt="Blender">
+                </div>
+                <div class="o--tag">
+                    <img class="o--media-icon"
+                         src="Data/Icons/Miro.png" alt="Miro">
+                </div>
+                <div class="o--tag">
+                    <img class="o--media-icon"
+                         src="Data/Icons/Reaper.png" alt="Reaper">
+                </div>
+                <div class="o--tag">
+                    <img class="o--media-icon"
+                         src="Data/Icons/fmod.png" alt="Fmod">
+                </div>
+                <div class="o--tag">
+                    <img class="o--media-icon"
+                         src="Data/Icons/Unreal%20Engine.png" alt="Unreal Engine">
+                </div>
+                <div class="o--tag">
+                    <img class="o--media-icon"
+                         src="Data/Icons/Cpp.png" alt="C++">
+                </div>
+                <div class="o--tag">
+                    <img class="o--media-icon"
+                         src="Data/Icons/TortoiseSVN.png" alt="Subversion - TortoiseSVN">
+                </div>
+            </div>
         </div>
     </section>
 
