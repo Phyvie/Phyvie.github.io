@@ -2,12 +2,20 @@ import {GetDOMElForInputType} from "./DOMFunctions.js";
 
 function scrollMediaStripByIndices(gallery, indices) {
     const galleryDOMEl = GetDOMElForInputType(gallery);
-    scrollMediaStripByWidth(galleryDOMEl, indices * galleryDOMEl.offsetWidth);
+    let currentChild = Array.from(galleryDOMEl.children).find(child => child.offsetLeft >= galleryDOMEl.scrollLeft);
+    let currentChildIndex =
+        currentChild ?
+            Array.from(galleryDOMEl.children).indexOf(currentChild) :
+            galleryDOMEl.children.length - 1;
+    let scrollChildIndex = currentChildIndex + indices;
+    scrollChildIndex = Math.min(Math.max(0, scrollChildIndex), galleryDOMEl.children.length - 1);
+    galleryDOMEl.scrollLeft = galleryDOMEl.children[scrollChildIndex].offsetLeft;
 }
 
 function scrollMediaStripToIndex(gallery, index) {
     const galleryDOMEl = GetDOMElForInputType(gallery);
-    scrollMediaStripToPosition(galleryDOMEl, index * galleryDOMEl.offsetWidth);
+    galleryDOMEl.scrollLeft = galleryDOMEl.children[index];
+    // child.scrollIntoView({}) //!ZyKa
 }
 
 function scrollMediaStripByWidth(gallery, scrollWidth) {
