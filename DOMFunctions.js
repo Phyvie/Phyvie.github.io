@@ -7,6 +7,5 @@ export function GetDOMElForInputType(Identifier){
     {
         console.log("Invalid gallery type: " + Identifier.type + " (expected String or HTMLElement)");
     }
-    console.log(Identifier);
     return Identifier;
 }
