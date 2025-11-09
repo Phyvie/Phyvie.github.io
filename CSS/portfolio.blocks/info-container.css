@@ -1,0 +1,8 @@
+.info-container {
+    display: flex;
+    flex-flow: column nowrap;
+
+    justify-content: center;
+    gap: var(--LAYOUT-DISTANCE-LARGE);
+    padding: var(--LAYOUT-DISTANCE-LARGE) var(--LAYOUT-DISTANCE-XL);
+}

@@ -1,0 +1,17 @@
+.about-me {
+
+}
+
+.about-me__tag {
+    container-name: about-me__tag;
+}
+
+.about-me__tag-br {
+    display: block;
+}
+
+@container about-me__tag (min-width: 12rem) {
+    .about-me__tag-br {
+        display: none;
+    }
+}
