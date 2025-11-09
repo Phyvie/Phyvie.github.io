@@ -1,0 +1,32 @@
+.c--project-card__media {
+
+}
+.c--project-card__description {
+    display: grid;
+    grid-template-areas:
+        "type . role"
+        "dev-context group-size time"
+;
+    padding: var(--LAYOUT-DISTANCE-DEFAULT);
+    color: white;
+}
+
+.c--project-card__type {
+    grid-area: type;
+}
+
+.c--project-card__role {
+    grid-area: role;
+}
+
+.c--project-card__dev-context {
+    grid-area: dev-context;
+}
+
+.c--project-card__group-size {
+    grid-area: group-size;
+}
+
+.c--project-card__time {
+    grid-area: time;
+}

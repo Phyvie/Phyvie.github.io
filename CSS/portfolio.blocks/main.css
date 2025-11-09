@@ -1,0 +1,18 @@
+.main {
+    display: flex;
+    flex-flow: column nowrap;
+
+    background-color: var(--COLOR-BG-WEBSITE);
+
+    padding: var(--LAYOUT-DISTANCE-XL) var(--LAYOUT-DISTANCE-XL);
+    gap: var(--LAYOUT-DISTANCE-XL);
+}
+
+.main__panel {
+    width: 100%;
+}
+
+.main__separator {
+    height: 25px;
+    --COLOR-SEPARATOR: var(--COLOR-ACCENT-DARK);
+}

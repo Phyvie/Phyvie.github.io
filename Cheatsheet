@@ -1,0 +1,12 @@
+justify = main-axis
+justify-content (flex): all individual children
+justify-content (grid): full grid
+justify-items (grid): all children within their cells
+justify-self (grid): self-alignment (overwrites justify-items)e
+
+align = cross-axis
+align-content (flex): for multiple rows/columns
+align-items (flex/grid): all individual children within their row/column
+align-self (flex): self-alignment (overwrites align-items)
+
+place = justify+align

@@ -4,60 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="CSS-Reset.css">
-    <link rel="stylesheet" href="Portfolio.css">
+    <!-- general purpose stylesheets -->
+    <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="stylesheet" href="CSS/global_variables.css">
+    <link rel="stylesheet" href="CSS/common.blocks/separator.css">
+    <link rel="stylesheet" href="CSS/common.blocks/header.css">
+    <link rel="stylesheet" href="CSS/common.blocks/tag.css">
+    <link rel="stylesheet" href="CSS/common.blocks/scroll-container.css">
+
+    <!-- file specific stylesheets -->
+    <link rel="stylesheet" href="CSS/portfolio.blocks/main.css">
+    <link rel="stylesheet" href="CSS/portfolio.blocks/default-panel.css">
+    <link rel="stylesheet" href="CSS/portfolio.blocks/info-container.css">
+    <!-- individual section stylesheets -->
+    <link rel="stylesheet" href="CSS/portfolio.blocks/about-me.css">
+
+    <link rel="stylesheet" href="CSS/debug.css">
+
     <script type="module" src="media-strip.js"> </script>
     <title> V Then Bergh </title>
 </head>
 <body>
 
-<!-- SVG definitions for clip-path -->
-<svg width="0" height="0" style="position: absolute;">
-    <defs>
-        <!-- the points marked as 'Q' are the actual corners; the 'L' points before and ''-points afterward are controls to round the corners -->
-        <clipPath id="rounded-arrow" clipPathUnits="objectBoundingBox">
-            <path d="
-                M 0.1,0.5
-
-                L 0.02, 0.1
-                Q 0.0,0.0
-                0.18, 0.0
-
-                L 0.72, 0.0
-                Q 0.90, 0.0
-                0.92, 0.1
-
-                L 0.98, 0.4
-                Q 1.0,0.5
-                0.98, 0.6
-
-                L 0.92, 0.9
-                Q 0.90, 1.0
-                0.72, 1.0
-
-                L 0.18, 1.0
-                Q 0.0, 1.0
-                0.02, 0.9
-                Z" />
-        </clipPath>
-    </defs>
-</svg>
-
-
-<main>
-    <section class="o--default-panel">
-        <div class="c--default-panel__media">
-            <img src="#" alt="Image of me">
+<main class="main">
+    <section class="default-panel">
+        <div class="default-panel__media">
+            <img class="media media--rounded media--debug" src="#" alt="Image of me">
         </div>
-        <div class ="c--default-panel__info-container">
-            <h1 class="c--default-panel__header c--about-me__my-name"> V Then Bergh </h1>
-            <div class="c--default-panel__tags">
-                <h2 class="o--tag o--tag--emphasize c--tag--about-me"> Gameplay <br class="c--tag--about-me__linebreak"> Programming </h2>
-                <h2 class="o--tag o--tag--emphasize c--tag--about-me"> Tech <br class="c--tag--about-me__linebreak"> Design </h2>
-                <h2 class="o--tag o--tag--emphasize c--tag--about-me"> Math <br class="c--tag--about-me__linebreak"> Visualization </h2>
+        <div class ="default-panel__info-container info-container">
+            <h1 class="header header--left"> V Then Bergh </h1>
+            <div class="flex-tags">
+                <h2 class="flex-tags__tag tag tag--emphasize about-me__tag"> Gameplay <br class="about-me__tag-br"> Programming </h2>
+                <h2 class="flex-tags__tag tag tag--emphasize about-me__tag"> Tech <br class="about-me__tag-br"> Design </h2>
+                <h2 class="flex-tags__tag tag tag--emphasize about-me__tag"> Math <br class="about-me__tag-br"> Visualization </h2>
             </div>
-            <div class="c--default-panel__description-container">
-                <p class="c--about_me__description">
+            <div>
+                <p>
                     This is my introduction sentence.
                     <br>
                     This is the first sentence to describe me.
@@ -67,20 +49,20 @@
                     This is the last sentence of my description.
                 </p>
             </div>
-            <div class="c--default-panel__links">
-                <p class ="o--link-arrow"> first link </p>
-                <p class="o--link-arrow"> Medium Size link </p>
-                <p class="o--link-arrow"> short </p>
+            <div class="default-panel__links flex-tags">
+                <p class ="flex-tags__tag link-arrow"> A very long link, which might in the worst case need two full lines </p>
+                <p class="flex-tags__tag link-arrow"> Medium link </p>
+                <p class="flex-tags__tag link-arrow"> short </p>
             </div>
         </div>
     </section>
 
-    <div class="c--main__separator"></div>
+    <div class="main__separator separator"></div>
 
-    <section class="o--default-panel">
-        <div class="c--default-panel__info-container">
-            <h1 class="c--default-panel__header">  Bachelor Thesis - Rotations </h1>
-            <div class="c--default-panel__description">
+    <section class="default-panel">
+        <div class="default-panel__info-container info-container">
+            <h1 class="header"> Bachelor Thesis - Rotations </h1>
+            <div>
                 <p>
                     Bachelor Thesis - Rotations is an interactive educational website aimed primarily at game developers.
                     <br>
@@ -97,86 +79,88 @@
                     To further improve the accessibility of the project, I am working on an interactive website that combines the explanatory aspects of the thesis with the interactive visualization tool.
                 </p>
             </div>
-            <div class="c--default-panel__links">
-                <p class="o--link-arrow"> more info </p>
-                <p class="o--link-arrow"> to project page </p>
+            <div class="default-panel__links">
+                <p class="link-arrow"> more info </p>
+                <p class="link-arrow"> to project page </p>
             </div>
         </div>
-        <div class="c--default-panel__media">
-            <div class="o--media-strip__wrapper">
-                <div id ="bachelor-media-strip" class="o--media-strip__content-container">
-                    <div id ="EulerGimbal" class="c--media-strip__item">
-                        <img class="o--media--contain" src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
+        <div class="default-panel__media">
+            <!-- the relative wrapper and the scroll-container need to be at 100% width&height -->
+            <div class="default-panel__scroll-container relative-wrapper">
+                <div id ="bachelor-media-strip" class="scroll-container">
+                    <div id ="EulerGimbal" class="scroll-container__item">
+                        <img class="media-cover" src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
+                        <p class="c--media-container__item-description"> ZyKa Screenshot of an Euler gimbal </p>
                     </div>
-                    <div id="AnotherEulerGimbal" class="c--media-strip__item">
-                        <img class="o--media--contain" src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
+                    <div id="AnotherEulerGimbal" class="scroll-container__item">
+                        <img class="media-cover" src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
+                        <p class="c--media-container__item-description"> ZyKa Screenshot of an Euler gimbal </p>
                     </div>
-                    <div class="c--media-strip__item">
-                        <img class="o--media--contain" src="#" alt="Page from Thesis PDF">
+                    <div class="scroll-container__item">
+                        <img class="media-cover" src="#" alt="Page from Thesis PDF">
+                        <p class="c--media-container__item-description"> ZyKa Screenshot of an Euler gimbal </p>
                     </div>
-                    <div class="c--media-strip__item">
-                        <iframe class="o--media--contain" src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
+                    <div class="scroll-container__item">
+                        <iframe class="media-cover" src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
+                        <p class="c--media-container__item-description"> ZyKa Screenshot of an Euler gimbal </p>
                     </div>
                 </div>
 
-                <div class="js--media-strip__nav c--media-strip__nav_button c--media-strip__nav-button--prev" data-mediastrip="bachelor-media-strip" data-scrolldirection="-1"> !ZYKA PREV </div>
-                <div class="js--media-strip__nav c--media-strip__nav_button c--media-strip__nav-button--next" data-mediastrip="bachelor-media-strip" data-scrolldirection="1"> !ZYKA NEXT </div>
+                <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="bachelor-media-strip" data-scrolldirection="-1"> !ZYKA PREV </div>
+                <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="bachelor-media-strip" data-scrolldirection="1"> !ZYKA NEXT </div>
             </div>
         </div>
     </section>
 
-    <div class="c--main__separator"></div>
+    <div class="main__separator separator"></div>
 
-    <section class="o--default-panel">
-        <div class="c--default-panel__media">
+    <section class="default-panel">
+        <div class="default-panel__media">
             <img src="#" alt="Image of Project">
         </div>
-        <div class="c--default-panel__info-container">
-            <h1 class="c--default-panel__header"> Highlight: Project B </h1>
-            <div class="c--default-panel__description">
+        <div class="default-panel__info-container info-container">
+            <h1 class="header"> Highlight: Project B </h1>
+            <div>
                 <p> Description </p>
             </div>
-            <div class="c--default-panel__links">
-                <p class="o--link-arrow"> more info </p>
-                <p class="o--link-arrow"> to project page </p>
+            <div class="default-panel__links">
+                <p class="link-arrow"> more info </p>
+                <p class="link-arrow"> to project page </p>
             </div>
         </div>
     </section>
 
-    <div class="c--main__separator"></div>
+    <div class="main__separator separator"></div>
 
-    <section class="o--default-panel o--default-panel--vertical">
-        <h1 class="c--default-panel__header"> Behind the scenes </h1>
+    <section class="default-panel default-panel--vertical">
+        <h1 class="header"> Behind the scenes </h1>
 
-        <div>
-            <!-- +ZyKa can this be deleted? -->
-            <!--class="c--workflow__main-tools"-->
-            <!-- 0ZyKa header name -->
-            <h2 class="c--default-panel__subheader"> My Main Equipment: </h2>
-            <div class="c--workflow__tools-container">
-                <div class="o--tag">
-                    <img class="o--media-icon o--media-icon--font-emphasized js--media-strip__nav"
+        <div> <!-- wrapper for title & tag-container -->
+            <h2 class="header--lvl2"> My Main Equipment: </h2>
+            <div class="flex-tags">
+                <div class="flex-tags__tag tag">
+                    <img class="tag__img js--media-strip__nav"
                          src="Data/Icons/PaperPrototype.png" alt="Paper Prototype"
                         data-mediastrip="workflow-media-strip" data-scrollindex="0">
                 </div>
-                <img class="o--media-icon o--media-icon--font-emphasized"
+                <img class=" "
                      src="Data/Icons/Arrow.png" alt="Arrow">
-                <div class="o--tag">
-                    <img class = "o--media-icon o--media-icon--font-emphasized js--media-strip__nav"
+                <div class="flex-tags__tag tag">
+                    <img class = "tag__img js--media-strip__nav"
                          src="Data/Icons/GDD.png" alt = "Development Plan"
                          data-mediastrip="workflow-media-strip" data-scrollindex="1">
                 </div>
-                <img class ="o--media-icon o--media-icon--font-emphasized"
+                <img class =" "
                      src="Data/Icons/Arrow.png" alt="Arrow">
-                <div class="o--tag">
-                    <img class = "o--media-icon o--media-icon--font-emphasized js--media-strip__nav"
+                <div class="flex-tags__tag tag">
+                    <img class = "tag__img js--media-strip__nav"
                          src="Data/Icons/Cs.png" alt = "Coding"
                          data-mediastrip="workflow-media-strip" data-scrollindex="2">
                 </div>
-                <img class ="o--media-icon o--media-icon--font-emphasized"
+                <img class =" "
                      src="Data/Icons/Arrow.png" alt="Arrow">
-                <div class="o--tag">
-                    <img class = "o--media-icon o--media-icon--font-emphasized js--media-strip__nav"
+                <div class="flex-tags__tag tag">
+                    <img class = "tag__img js--media-strip__nav"
                          src="Data/Icons/Unity.png" alt = "Unity"
                          data-mediastrip="workflow-media-strip" data-scrollindex="3">
                 </div>
@@ -184,419 +168,216 @@
             <div class="o--scalable-arrow"></div>
         </div>
 
-        <div class="o--media-strip__wrapper">
-            <div id ="workflow-media-strip" class="o--media-strip__content-container o--media-strip__content-container--double-element">
-                <div id ="PaperPrototype" class="c--media-strip__item">
+        <div class="relative-wrapper">
+            <div id ="workflow-media-strip" class="scroll-container scroll-container--two-elements">
+                <div id ="PaperPrototype" class="scroll-container__item">
                     <img class="o--media--contain"
                          src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
                 </div>
-                <div id="GameDesignDocument" class="c--media-strip__item">
+                <div id="GameDesignDocument" class="scroll-container__item">
                     <img class="o--media--contain"
                          src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
                 </div>
-                <div id="CSS-Code" class="c--media-strip__item">
+                <div id="CSS-Code" class="scroll-container__item">
                     <img class="o--media--contain"
                          src="#" alt="Page from Thesis PDF">
                 </div>
-                <div id="Unity-Implementation" class="c--media-strip__item">
+                <div id="Unity-Implementation" class="scroll-container__item">
                     <iframe class="o--media--contain"
                             src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
                 </div>
             </div>
 
-            <div class="js--media-strip__nav c--media-strip__nav_button c--media-strip__nav-button--prev" data-mediastrip="workflow-media-strip" data-scrolldirection="-1"> !ZYKA PREV </div>
-            <div class="js--media-strip__nav c--media-strip__nav_button c--media-strip__nav-button--next" data-mediastrip="workflow-media-strip" data-scrolldirection="1"> !ZYKA NEXT </div>
+            <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="workflow-media-strip" data-scrolldirection="-1"> !ZYKA PREV </div>
+            <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="workflow-media-strip" data-scrolldirection="1"> !ZYKA NEXT </div>
         </div>
 
         <div>
-            <!-- +ZyKa can this be deleted? -->
-            <!-- class="c&#45;&#45;workflow__secondary-tools-header"-->
-            <h2 class="c--default-panel__subheader"> Occasional Power-ups: </h2>
-            <div class="c--workflow__tools-container">
-                <div class="o--tag">
-                    <img class="o--media-icon"
+            <h2 class="header--lvl2"> Occasional Power-ups: </h2>
+            <div class="flex-tags">
+                <div class="flex-tags__tag tag">
+                    <img class=""
                          src="Data/Icons/Git.png" alt="Git">
                 </div>
-                <div class="o--tag">
-                    <img class="o--media-icon"
+                <div class="flex-tags__tag tag">
+                    <img class=""
                          src="Data/Icons/Blender.png" alt="Blender">
                 </div>
-                <div class="o--tag">
-                    <img class="o--media-icon"
+                <div class="flex-tags__tag tag">
+                    <img class=""
                          src="Data/Icons/Miro.png" alt="Miro">
                 </div>
-                <div class="o--tag">
-                    <img class="o--media-icon"
+                <div class="flex-tags__tag tag">
+                    <img class=""
                          src="Data/Icons/Reaper.png" alt="Reaper">
                 </div>
-                <div class="o--tag">
-                    <img class="o--media-icon"
+                <div class="flex-tags__tag tag">
+                    <img class=""
                          src="Data/Icons/fmod.png" alt="Fmod">
                 </div>
-                <div class="o--tag">
-                    <img class="o--media-icon"
+                <div class="flex-tags__tag tag">
+                    <img class=""
                          src="Data/Icons/Unreal%20Engine.png" alt="Unreal Engine">
                 </div>
-                <div class="o--tag">
-                    <img class="o--media-icon"
+                <div class="flex-tags__tag tag">
+                    <img class=""
                          src="Data/Icons/Cpp.png" alt="C++">
                 </div>
-                <div class="o--tag">
-                    <img class="o--media-icon"
+                <div class="flex-tags__tag tag">
+                    <img class=""
                          src="Data/Icons/TortoiseSVN.png" alt="Subversion - TortoiseSVN">
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="c--main__separator"></div>
+    <div class="main__separator separator"></div>
 
-    <section class="o--default-panel o--project-gallery">
-        <h1 class="c--default-panel__header c--project-gallery__header"> Further Projects </h1>
-        <div class="o--project-gallery__project-item c--project-gallery_project-item--first">
-            <div class="c--project-item__media">
-                <img src="#" alt="image/video of project">
-            </div>
-            <div class="c--project-item__description">
-                <p class="c--project-item__type">
-                    project-type
-                </p>
-                <div class="c--project-item__role">
-                    my role
+<!--    +ZyKa o--default-panel && o--project-gallery are clashing -->
+    <section class="default-panel o--project-gallery">
+        <h1 class="header c--project-gallery__header"> Further Projects </h1>
+<!--        !ZyKa classes -->
+        <div class="media-container">
+            <div class="scroll-container__item o--project-gallery__project-item c--project-gallery_project-item--first">
+                <div class="c--project-item__media">
+                    <img src="#" alt="image/video of project">
                 </div>
-                <div class="c--project-item__dev-context">
-                    context
-                </div>
-                <div class="c--project-item__group-size">
-                    5
-                </div>
-                <div class="c--project-item__time">
-                    7 weeks
-                </div>
-            </div>
-        </div>
-        <div class="o--project-gallery__project-item c--project-gallery_project-item--second">
-            <div class="c--project-item__media">
-                <img src="#" alt="image/video of project">
-            </div>
-            <div class="c--project-item__description">
-                <p class="c--project-item__type">
-                    project-type
-                </p>
-                <div class="c--project-item__role">
-                    my role
-                </div>
-                <div class="c--project-item__dev-context">
-                    context
-                </div>
-                <div class="c--project-item__group-size">
-                    5
-                </div>
-                <div class="c--project-item__time">
-                    7 weeks
+                <div class="c--media-container__item-description c--project-item__description">
+                    <p class="c--project-item__type">
+                        project-type
+                    </p>
+                    <div class="c--project-item__role">
+                        my role
+                    </div>
+                    <div class="c--project-item__dev-context">
+                        context
+                    </div>
+                    <div class="c--project-item__group-size">
+                        5
+                    </div>
+                    <div class="c--project-item__time">
+                        7 weeks
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="o--project-gallery__project-item c--project-gallery_project-item--third">
-            <div class="c--project-item__media">
-                <img src="#" alt="image/video of project">
-            </div>
-            <div class="c--project-item__description">
-                <p class="c--project-item__type">
-                    project-type
-                </p>
-                <div class="c--project-item__role">
-                    my role
+            <div class="scroll-container__item o--project-gallery__project-item c--project-gallery_project-item--second">
+                <div class="c--project-item__media">
+                    <img src="#" alt="image/video of project">
                 </div>
-                <div class="c--project-item__dev-context">
-                    context
-                </div>
-                <div class="c--project-item__group-size">
-                    5
-                </div>
-                <div class="c--project-item__time">
-                    7 weeks
-                </div>
-            </div>
-        </div>
-        <div class="o--project-gallery__project-item c--project-gallery_project-item--fourth">
-            <div class="c--project-item__media">
-                <img src="#" alt="image/video of project">
-            </div>
-            <div class="c--project-item__description">
-                <p class="c--project-item__type">
-                    project-type
-                </p>
-                <div class="c--project-item__role">
-                    my role
-                </div>
-                <div class="c--project-item__dev-context">
-                    context
-                </div>
-                <div class="c--project-item__group-size">
-                    5
-                </div>
-                <div class="c--project-item__time">
-                    7 weeks
+                <div class="c--media-container__item-description c--project-item__description">
+                    <p class="c--project-item__type">
+                        project-type
+                    </p>
+                    <div class="c--project-item__role">
+                        my role
+                    </div>
+                    <div class="c--project-item__dev-context">
+                        context
+                    </div>
+                    <div class="c--project-item__group-size">
+                        5
+                    </div>
+                    <div class="c--project-item__time">
+                        7 weeks
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="o--project-gallery__project-item c--project-gallery_project-item--fifth">
-            <div class="c--project-item__media">
-                <img src="#" alt="image/video of project">
-            </div>
-            <div class="c--project-item__description">
-                <p class="c--project-item__type">
-                    project-type
-                </p>
-                <div class="c--project-item__role">
-                    my role
+            <div class="scroll-container__item o--project-gallery__project-item c--project-gallery_project-item--third">
+                <div class="c--project-item__media">
+                    <img src="#" alt="image/video of project">
                 </div>
-                <div class="c--project-item__dev-context">
-                    context
-                </div>
-                <div class="c--project-item__group-size">
-                    5
-                </div>
-                <div class="c--project-item__time">
-                    7 weeks
-                </div>
-            </div>
-        </div>
-        <div class="o--project-gallery__project-item c--project-gallery_project-item--sixth">
-            <div class="c--project-item__media">
-                <img src="#" alt="image/video of project">
-            </div>
-            <div class="c--project-item__description">
-                <p class="c--project-item__type">
-                    project-type
-                </p>
-                <div class="c--project-item__role">
-                    my role
-                </div>
-                <div class="c--project-item__dev-context">
-                    context
-                </div>
-                <div class="c--project-item__group-size">
-                    5
-                </div>
-                <div class="c--project-item__time">
-                    7 weeks
+                <div class="c--media-container__item-description c--project-item__description">
+                    <p class="c--project-item__type">
+                        project-type
+                    </p>
+                    <div class="c--project-item__role">
+                        my role
+                    </div>
+                    <div class="c--project-item__dev-context">
+                        context
+                    </div>
+                    <div class="c--project-item__group-size">
+                        5
+                    </div>
+                    <div class="c--project-item__time">
+                        7 weeks
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <div class="c--main__separator"></div>
-
-    <section class="o--default-panel o--contact">
-        <h1 class="c--default-panel__header"> Contact </h1>
-    </section>
-
-    <!-- DEPRECATED
-    <section class="o--default-panel o--expertise">
-        <h1 class="c--default-panel__header"> Expertise </h1>
-        <div class="c--expertise__domains">
-            <div class="o--expertise-domain">
-                <h2 class="c--expertise-domain__header"> Programming </h2>
-
-                <div class ="o--skill-item">
-                    <img class="c--skill-item__icon" src="#" alt="skill icon">
-                    <h3 class="c--skill-item__header"> name - time </h3>
-                    <p class="c--skill-item__description"> description </p>
+            <div class="scroll-container__item o--project-gallery__project-item c--project-gallery_project-item--fourth">
+                <div class="c--project-item__media">
+                    <img src="#" alt="image/video of project">
                 </div>
-
-                <div class ="o--skill-item">
-                    <img class="c--skill-item__icon" src="#" alt="skill icon">
-                    <h3 class="c--skill-item__header"> name - time </h3>
-                    <p class="c--skill-item__description"> description </p>
-                </div>
-
-                <div class="o--skill-collection">
-                    <img class="c--skill-collection__icon" src="#" alt="skill icon">
-                    <img class="c--skill-collection__icon" src="#" alt="skill icon">
-                    <img class="c--skill-collection__icon" src="#" alt="skill icon">
+                <div class="c--media-container__item-description c--project-item__description">
+                    <p class="c--project-item__type">
+                        project-type
+                    </p>
+                    <div class="c--project-item__role">
+                        my role
+                    </div>
+                    <div class="c--project-item__dev-context">
+                        context
+                    </div>
+                    <div class="c--project-item__group-size">
+                        5
+                    </div>
+                    <div class="c--project-item__time">
+                        7 weeks
+                    </div>
                 </div>
             </div>
-
-            <div class="o--expertise-domain">
-                <h2 class="c--expertise-domain__header"> Design </h2>
-                <div class ="o--skill-item">
-                    <img class="c--skill-item__icon" src="#" alt="skill icon">
-                    <h3 class="c--skill-item__header"> name - time </h3>
-                    <p class="c--skill-item__description"> description </p>
+            <div class="scroll-container__item o--project-gallery__project-item c--project-gallery_project-item--fifth">
+                <div class="c--project-item__media">
+                    <img src="#" alt="image/video of project">
                 </div>
-                <div class ="o--skill-item">
-                    <img class="c--skill-item__icon" src="#" alt="skill icon">
-                    <h3 class="c--skill-item__header"> name - time </h3>
-                    <p class="c--skill-item__description"> description </p>
-                </div>
-                <div class="o--skill-collection">
-                    <img class="c--skill-collection__icon" src="#" alt="skill icon">
-                    <img class="c--skill-collection__icon" src="#" alt="skill icon">
-                    <img class="c--skill-collection__icon" src="#" alt="skill icon">
-                </div>
-            </div>
-
-            <div class="o--expertise-domain">
-                <h2 class="c--expertise-domain__header"> Math </h2>
-                <div class ="o--skill-item">
-                    <img class="c--skill-item__icon" src="#" alt="skill icon">
-                    <h3 class="c--skill-item__header"> name - time </h3>
-                    <p class="c--skill-item__description"> description </p>
-                </div>
-                <div class ="o--skill-item">
-                    <img class="c--skill-item__icon" src="#" alt="skill icon">
-                    <h3 class="c--skill-item__header"> name - time </h3>
-                    <p class="c--skill-item__description"> description </p>
-                </div>
-                <div class="o--skill-collection">
-                    <img class="c--skill-collection__icon" src="#" alt="skill icon">
-                    <img class="c--skill-collection__icon" src="#" alt="skill icon">
-                    <img class="c--skill-collection__icon" src="#" alt="skill icon">
+                <div class="c--media-container__item-description c--project-item__description">
+                    <p class="c--project-item__type">
+                        project-type
+                    </p>
+                    <div class="c--project-item__role">
+                        my role
+                    </div>
+                    <div class="c--project-item__dev-context">
+                        context
+                    </div>
+                    <div class="c--project-item__group-size">
+                        5
+                    </div>
+                    <div class="c--project-item__time">
+                        7 weeks
+                    </div>
                 </div>
             </div>
-
-            <div class="o--expertise-domain">
-                <h2 class="c--expertise-domain__header"> Other </h2>
-                <div class ="o--skill-item">
-                    <img class="c--skill-item__icon" src="#" alt="skill icon">
-                    <h3 class="c--skill-item__header"> name - time </h3>
-                    <p class="c--skill-item__description"> description </p>
+            <div class="scroll-container__item o--project-gallery__project-item c--project-gallery_project-item--sixth">
+                <div class="c--project-item__media">
+                    <img src="#" alt="image/video of project">
                 </div>
-                <div class ="o--skill-item">
-                    <img class="c--skill-item__icon" src="#" alt="skill icon">
-                    <h3 class="c--skill-item__header"> name - time </h3>
-                    <p class="c--skill-item__description"> description </p>
-                </div>
-                <div class="o--skill-collection">
-                    <img class="c--skill-collection__icon" src="#" alt="skill icon">
-                    <img class="c--skill-collection__icon" src="#" alt="skill icon">
-                    <img class="c--skill-collection__icon" src="#" alt="skill icon">
+                <div class="c--media-container__item-description c--project-item__description">
+                    <p class="c--project-item__type">
+                        project-type
+                    </p>
+                    <div class="c--project-item__role">
+                        my role
+                    </div>
+                    <div class="c--project-item__dev-context">
+                        context
+                    </div>
+                    <div class="c--project-item__group-size">
+                        5
+                    </div>
+                    <div class="c--project-item__time">
+                        7 weeks
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    END DEPRECATED -->
 
-    <!-- DEPRECATED
-    <section class="o--default-panel o--project-gallery">
-        <h1 class="c--default-panel__header"> Project Gallery </h1>
-        <div class="c--project-gallery__cards">
-            <div class="o--project-card">
-                <h2 class="c--project-card__title" data-ref="title"> project title </h2>
-                <h3 class="c--project-card__subtitle" data-ref="project-type"> project subtitle </h3>
-                <div class="c--project-card__media">
-                    <img data-ref="image" src ="" alt="">
-                    <video controls data-ref="video" hidden></video>
-                </div>
-                <div class="c--project-card__tools">
-                    <div class="o--tag" data-ref="origin"> origin </div>
-                    <div class="o--tag o--icon-with-label">
-                        <img src="#" alt="#">
-                        <p>
-                            <span data-ref="date"> date </span>
-                            <br>
-                            <span data-ref="time" style="white-space: nowrap"> time </span>
-                        </p>
-                    </div>
-                    <div class="o--tag o--icon-with-label">
-                        <img data-ref="teamIcon" src="" alt="">
-                        <p data-ref="teamSize"></p>
-                    </div>
-                    <div class="c--project-card__tag-container">
-                        <div class="o--tag"> tag 1 </div>
-                        <div class="o--tag"> tag 2 </div>
-                        <div class="o--tag"> tag 3 </div>
-                    </div>
-                </div>
-                <p class="c--project-card__description" data-ref="description"> description </p>
-                <div class="c--project-card__links-container">
-                    <a class="c--project-card__link" target="_self" rel="noopener noreferrer" data-ref="js--projectPageLink">
-                        <img class="c--project_card--link-image" src="#" alt="Project Page ->">
-                    </a>
-                    <a class="c--project-card__link" target="_self" rel="noopener noreferrer" data-ref="js--moreInfoLink">
-                        <img class="c--project_card--link-image" src="#" alt="More Info ->">
-                    </a>
-                </div>
-            </div>
-            <div class="o--project-card">
-                <h2 class="c--project-card__title" data-ref="title"> project title </h2>
-                <h3 class="c--project-card__subtitle" data-ref="project-type"> project subtitle </h3>
-                <div class="c--project-card__media">
-                    <img data-ref="image" src ="" alt="">
-                    <video controls data-ref="video" hidden></video>
-                </div>
-                <div class="c--project-card__tools">
-                    <div class="o--tag" data-ref="origin"> origin </div>
-                    <div class="o--tag o--icon-with-label">
-                        <img src="#" alt="#">
-                        <p>
-                            <span data-ref="date"> date </span>
-                            <br>
-                            <span data-ref="time" style="white-space: nowrap"> time </span>
-                        </p>
-                    </div>
-                    <div class="o--tag o--icon-with-label">
-                        <img data-ref="teamIcon" src="" alt="">
-                        <p data-ref="teamSize"></p>
-                    </div>
-                    <div class="c--project-card__tag-container">
-                        <div class="o--tag"> tag 1 </div>
-                        <div class="o--tag"> tag 2 </div>
-                        <div class="o--tag"> tag 3 </div>
-                    </div>
-                </div>
-                <p class="c--project-card__description" data-ref="description"> description </p>
-                <div class="c--project-card__links-container">
-                    <a class="c--project-card__link" target="_self" rel="noopener noreferrer" data-ref="js--projectPageLink">
-                        <img class="c--project_card--link-image" src="#" alt="Project Page ->">
-                    </a>
-                    <a class="c--project-card__link" target="_self" rel="noopener noreferrer" data-ref="js--moreInfoLink">
-                        <img class="c--project_card--link-image" src="#" alt="More Info ->">
-                    </a>
-                </div>
-            </div>
-            <div class="o--project-card">
-                <h2 class="c--project-card__title" data-ref="title"> project title </h2>
-                <h3 class="c--project-card__subtitle" data-ref="project-type"> project subtitle </h3>
-                <div class="c--project-card__media">
-                    <img data-ref="image" src ="" alt="">
-                    <video controls data-ref="video" hidden></video>
-                </div>
-                <div class="c--project-card__tools">
-                    <div class="o--tag" data-ref="origin"> origin </div>
-                    <div class="o--tag o--icon-with-label">
-                        <img src="#" alt="#">
-                        <p>
-                            <span data-ref="date"> date </span>
-                            <br>
-                            <span data-ref="time" style="white-space: nowrap"> time </span>
-                        </p>
-                    </div>
-                    <div class="o--tag o--icon-with-label">
-                        <img data-ref="teamIcon" src="" alt="">
-                        <p data-ref="teamSize"></p>
-                    </div>
-                    <div class="c--project-card__tag-container">
-                        <div class="o--tag"> tag 1 </div>
-                        <div class="o--tag"> tag 2 </div>
-                        <div class="o--tag"> tag 3 </div>
-                    </div>
-                </div>
-                <p class="c--project-card__description" data-ref="description"> description </p>
-                <div class="c--project-card__links-container">
-                    <a class="c--project-card__link" target="_self" rel="noopener noreferrer" data-ref="js--projectPageLink">
-                        <img class="c--project_card--link-image" src="#" alt="Project Page ->">
-                    </a>
-                    <a class="c--project-card__link" target="_self" rel="noopener noreferrer" data-ref="js--moreInfoLink">
-                        <img class="c--project_card--link-image" src="#" alt="More Info ->">
-                    </a>
-                </div>
-            </div>
-        </div>
+    <div class="main__separator separator"></div>
+
+    <section class="default-panel o--contact">
+        <h1 class="header"> Contact </h1>
     </section>
-    END DEPRECATED -->
 </main>
 
 </body>

@@ -1,0 +1,73 @@
+/* +ZyKa filter out unneeded variables */
+
+:root {
+    /* region MAIN COLORS */
+    --COLOR-DARK: hsl(270, 20%, 10%);
+    --COLOR-LIGHT: hsl(90, 0%, 90%);
+
+    --COLOR-ACCENT-DARK: hsl(263, 33%, 26%);
+    --COLOR-ACCENT-LIGHT: hsl(18, 87%, 30%);
+    /* endregion MAIN COLORS */
+
+    /* region ALL COLORS */
+    --COLOR-BG-WEBSITE: var(--COLOR-DARK);
+    --COLOR-BG-BLOCK: var(--COLOR-DARK);
+    --COLOR-BG-ELEMENT: var(--COLOR-DARK);
+
+    --COLOR-DECORATION-BLOCK: var(--COLOR-ACCENT-DARK);
+    --COLOR-DECORATION-ELEMENT: var(--COLOR-ACCENT-LIGHT);
+
+    --COLOR-TEXT-MAIN: var(--COLOR-LIGHT);
+    --COLOR-TEXT-ACCENT: var(--COLOR-ACCENT-LIGHT);
+    /* endregion ALL COLORS */
+
+    /* region FONTS */
+    --FF-MAIN: sans-serif;
+    --FF-SECONDARY: serif;
+
+    --FONT-SIZE-DEFAULT: 1rem;
+    --FONT-SIZE-XS: 0.4rem;
+    --FONT-SIZE-SMALL: 0.8rem;
+    --FONT-SIZE-EMPHASIZED: 1.2em;
+    /*--FONT-SIZE-EMPHASIZED: clamp(1.1em, 1.0em + 0.4vw, 4em);*/
+    --FONT-SIZE-TITLE: clamp(2.5rem, 4vw, 4rem);
+
+    --ELEMENT-LINE-HEIGHT: 1.8em; /* 1.8em = 1 line-height */
+    /* endregion FONTS */
+
+    /* region LAYOUT */
+    --LAYOUT-DISTANCE-LERP-FACTOR: 0.3;
+    --LAYOUT-DISTANCE-DEFAULT:
+            calc(
+                    0.625vw +
+                    var(--LAYOUT-DISTANCE-LERP-FACTOR) * (1rem - 0.625vw)
+            );
+
+    --LAYOUT-DISTANCE-XS: calc(0.2 * var(--LAYOUT-DISTANCE-DEFAULT));
+    --LAYOUT-DISTANCE-SMALL: calc(0.6 * var(--LAYOUT-DISTANCE-DEFAULT));
+    --LAYOUT-DISTANCE-LARGE: calc(2.5 * var(--LAYOUT-DISTANCE-DEFAULT));
+    --LAYOUT-DISTANCE-XL: calc(8 * var(--LAYOUT-DISTANCE-DEFAULT));
+
+    --LAYOUT-GAP-DEFAULT: var(--LAYOUT-DISTANCE-DEFAULT);
+
+    --LAYOUT-BORDER-RADIUS-CYLINDER: 999px;
+    --LAYOUT-BORDER-RADIUS-ELLIPSE: 50%;
+
+    --LAYOUT-BORDER-RADIUS-DEFAULT: var(--LAYOUT-DISTANCE-DEFAULT);
+    --LAYOUT-BORDER-RADIUS-XS: var(--LAYOUT-DISTANCE-XS);
+    --LAYOUT-BORDER-RADIUS-SMALL: var(--LAYOUT-DISTANCE-SMALL);
+    --LAYOUT-BORDER-RADIUS-LARGE: var(--LAYOUT-DISTANCE-LARGE);
+    --LAYOUT-BORDER-RADIUS-XL: var(--LAYOUT-DISTANCE-XL);
+
+    --LAYOUT-CHILD-MIN-WIDTH: 0rem;
+    --LAYOUT-CHILD-MAX-WIDTH: 0rem;
+    /* endregion LAYOUT */
+
+    /* region ANIMATION */
+    --ANIMATION-DURATION-DEFAULT: 0.3s;
+    --ANIMATION-DURATION-SLOW: 0.6s;
+    --ANIMATION-DURATION-SLOWEST: 1s;
+    --ANIMATION-DURATION-FAST: 0.1s;
+    --ANIMATION-DURATION-FASTER: 0.05s;
+    /* endregion ANIMATION */
+}
