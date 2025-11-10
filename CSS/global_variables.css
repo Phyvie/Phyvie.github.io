@@ -28,9 +28,11 @@
     --FONT-SIZE-DEFAULT: 1rem;
     --FONT-SIZE-XS: 0.4rem;
     --FONT-SIZE-SMALL: 0.8rem;
-    --FONT-SIZE-EMPHASIZED: 1.2em;
-    /*--FONT-SIZE-EMPHASIZED: clamp(1.1em, 1.0em + 0.4vw, 4em);*/
+    /* 0ZyKa rebalance the FONT-SIZES of titles to include both vw and rem*/
     --FONT-SIZE-TITLE: clamp(2.5rem, 4vw, 4rem);
+    --FONT-SIZE-TITLE-LVL2: clamp(1.5rem, 1.5vw, 2.5rem);
+
+    --FONT-SIZE-EMPHASIZED: 1.2em;
 
     --ELEMENT-LINE-HEIGHT: 1.8em; /* 1.8em = 1 line-height */
     /* endregion FONTS */

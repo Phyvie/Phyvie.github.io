@@ -1,6 +1,17 @@
 BEM + styling:
-Blocks => inner geometry (e.g. flex-direction, padding, gaps, ...)
-Elements => outer geometry (e.g. margins)
-Modifiers => manipulates blocks or elements geometry
+Context = A page-specific single use container; always combined with a block; used for naming modifiers within the block
+e.g. --workflow
 
-s-- Styling = classes that are used to style blocks / elements; e.g. color, background, border, ...
+Blocks = multi-use, inner geometry (e.g. flex-direction, padding, gaps, ...)
+e.g. default-panel
+
+Elements = block-dependent, outer geometry (e.g. margins)
+e.g. default-panel__info-container
+
+Modifiers = manipulates blocks or elements geometry
+Modifier hierarchy:
+1. general modifiers; e.g. .header--dark
+2. context dependent modifiers; e.g. .flex-tags__tag--[context-name]
+3. state modifiers; e.g. .button--[state-name]
+
+Utility = reusable classes for specific elements; e.g. .media--rounded, .media--contain

@@ -4,19 +4,26 @@
     flex-flow: row wrap;
     justify-content: space-around;
 
-    align-items: stretch;
+    align-items: center;
     justify-items: stretch;
 
     gap: var(--LAYOUT-DISTANCE-DEFAULT);
 
     --LAYOUT-CHILD-MIN-WIDTH: 10rem;
     --LAYOUT-CHILD-MAX-WIDTH: 20rem;
+
+    --LAYOUT-CHILD-MIN-HEIGHT: 1.8em;
+    --LAYOUT-CHILD-MAX-HEIGHT: 3.6em;
 }
 
 .flex-tags__tag {
     flex: 1 1 calc((var(--LAYOUT-CHILD-MIN-WIDTH) + var(--LAYOUT-CHILD-MAX-WIDTH)) / 2);
     min-width: var(--LAYOUT-CHILD-MIN-WIDTH);
     max-width: var(--LAYOUT-CHILD-MAX-WIDTH);
+
+    min-height: var(--LAYOUT-CHILD-MIN-HEIGHT);
+    max-height: var(--LAYOUT-CHILD-MAX-HEIGHT);
+    overflow: hidden;
 }
 
 .tag {
@@ -32,13 +39,8 @@
     text-wrap: nowrap;
 }
 
-.tag--emphasize {
-    font-size: var(--FONT-SIZE-EMPHASIZED);
-}
-
-.tag__img {
-    display: block;
-    object-fit: contain;
+.tag--small-padding {
+    padding: var(--LAYOUT-DISTANCE-SMALL) var(--LAYOUT-DISTANCE-DEFAULT);
 }
 
 .link-arrow {

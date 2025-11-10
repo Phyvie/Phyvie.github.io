@@ -7,6 +7,7 @@
     <!-- general purpose stylesheets -->
     <link rel="stylesheet" href="CSS/reset.css">
     <link rel="stylesheet" href="CSS/global_variables.css">
+    <link rel="stylesheet" href="CSS/styling/media.css">
     <link rel="stylesheet" href="CSS/common.blocks/separator.css">
     <link rel="stylesheet" href="CSS/common.blocks/header.css">
     <link rel="stylesheet" href="CSS/common.blocks/tag.css">
@@ -18,6 +19,7 @@
     <link rel="stylesheet" href="CSS/portfolio.blocks/info-container.css">
     <!-- individual section stylesheets -->
     <link rel="stylesheet" href="CSS/portfolio.blocks/about-me.css">
+    <link rel="stylesheet" href="CSS/portfolio.blocks/workflow.css">
 
     <link rel="stylesheet" href="CSS/debug.css">
 
@@ -27,7 +29,7 @@
 <body>
 
 <main class="main">
-    <section class="default-panel">
+    <section class="default-panel --about-me">
         <div class="default-panel__media">
             <img class="media media--rounded media--debug" src="#" alt="Image of me">
         </div>
@@ -59,7 +61,7 @@
 
     <div class="main__separator separator"></div>
 
-    <section class="default-panel">
+    <section class="default-panel --bachelor-thesis">
         <div class="default-panel__info-container info-container">
             <h1 class="header"> Bachelor Thesis - Rotations </h1>
             <div>
@@ -79,30 +81,25 @@
                     To further improve the accessibility of the project, I am working on an interactive website that combines the explanatory aspects of the thesis with the interactive visualization tool.
                 </p>
             </div>
-            <div class="default-panel__links">
-                <p class="link-arrow"> more info </p>
-                <p class="link-arrow"> to project page </p>
+            <div class="flex-tags default-panel__links">
+                <p class="flex-tags__tag link-arrow"> more info </p>
+                <p class="flex-tags__tag link-arrow"> to project page </p>
             </div>
         </div>
         <div class="default-panel__media">
-            <!-- the relative wrapper and the scroll-container need to be at 100% width&height -->
-            <div class="default-panel__scroll-container relative-wrapper">
-                <div id ="bachelor-media-strip" class="scroll-container">
-                    <div id ="EulerGimbal" class="scroll-container__item">
-                        <img class="media-cover" src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
-                        <p class="c--media-container__item-description"> ZyKa Screenshot of an Euler gimbal </p>
+            <div class="default-panel__scroll-container scroll-container">
+                <div id ="bachelor-media-strip" class="scroll-container__content-container">
+                    <div id ="EulerGimbal" class="scroll-container__item media--center-container">
+                        <img class="media--contain media--rounded" src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
                     </div>
-                    <div id="AnotherEulerGimbal" class="scroll-container__item">
-                        <img class="media-cover" src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
-                        <p class="c--media-container__item-description"> ZyKa Screenshot of an Euler gimbal </p>
+                    <div id="AnotherEulerGimbal" class="scroll-container__item media--center-container">
+                        <img class="media--contain media--rounded" src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
                     </div>
-                    <div class="scroll-container__item">
-                        <img class="media-cover" src="#" alt="Page from Thesis PDF">
-                        <p class="c--media-container__item-description"> ZyKa Screenshot of an Euler gimbal </p>
+                    <div class="scroll-container__item media--center-container">
+                        <img class="media--contain media--rounded" src="#" alt="Page from Thesis PDF">
                     </div>
-                    <div class="scroll-container__item">
-                        <iframe class="media-cover" src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
-                        <p class="c--media-container__item-description"> ZyKa Screenshot of an Euler gimbal </p>
+                    <div class="scroll-container__item media--center-container">
+                        <iframe class="media--contain media--rounded" src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
                     </div>
                 </div>
 
@@ -114,117 +111,125 @@
 
     <div class="main__separator separator"></div>
 
-    <section class="default-panel">
+    <section class="default-panel --highlight-project-B">
         <div class="default-panel__media">
-            <img src="#" alt="Image of Project">
+            <div class="media--container-center">
+                <img class="media--contain media--rounded"
+                        src="Data/Placeholder-images/Bowser.jpg" alt="Image of Project">
+            </div>
         </div>
         <div class="default-panel__info-container info-container">
             <h1 class="header"> Highlight: Project B </h1>
             <div>
                 <p> Description </p>
             </div>
-            <div class="default-panel__links">
-                <p class="link-arrow"> more info </p>
-                <p class="link-arrow"> to project page </p>
+            <div class="default-panel__links flex-tags">
+                <p class="flex-tags__tag link-arrow"> more info </p>
+                <p class="flex-tags__tag link-arrow"> to project page </p>
             </div>
         </div>
     </section>
 
     <div class="main__separator separator"></div>
 
-    <section class="default-panel default-panel--vertical">
+    <section class="default-panel default-panel--vertical --workflow">
         <h1 class="header"> Behind the scenes </h1>
 
-        <div> <!-- wrapper for title & tag-container -->
+        <div class="default-panel__info-container default-panel__info-container--vertical
+            info-container info-container--no-padding">
             <h2 class="header--lvl2"> My Main Equipment: </h2>
-            <div class="flex-tags">
-                <div class="flex-tags__tag tag">
-                    <img class="tag__img js--media-strip__nav"
+            <div class="flex-tags flex-tags--workflow-primary">
+                <div class="flex-tags__tag tag tag--small-padding">
+                <!-- 0ZyKa adjust size -->
+                    <img class="media--img-in-font"
                          src="Data/Icons/PaperPrototype.png" alt="Paper Prototype"
                         data-mediastrip="workflow-media-strip" data-scrollindex="0">
                 </div>
-                <img class=" "
-                     src="Data/Icons/Arrow.png" alt="Arrow">
-                <div class="flex-tags__tag tag">
-                    <img class = "tag__img js--media-strip__nav"
+                <!-- -ZyKa create and color arrow -->
+<!--                <img class="flex-tags__tag media&#45;&#45;img-in-font"-->
+<!--                     src="Data/Icons/Arrow.png" alt="Arrow">-->
+                <div class="flex-tags__tag tag tag--small-padding">
+                    <img class = "media--img-in-font"
                          src="Data/Icons/GDD.png" alt = "Development Plan"
                          data-mediastrip="workflow-media-strip" data-scrollindex="1">
                 </div>
-                <img class =" "
-                     src="Data/Icons/Arrow.png" alt="Arrow">
-                <div class="flex-tags__tag tag">
-                    <img class = "tag__img js--media-strip__nav"
+<!--                <img class ="flex-tags__tag media&#45;&#45;img-in-font"-->
+<!--                     src="Data/Icons/Arrow.png" alt="Arrow">-->
+                <div class="flex-tags__tag tag tag--small-padding">
+                    <img class = "media--img-in-font"
                          src="Data/Icons/Cs.png" alt = "Coding"
                          data-mediastrip="workflow-media-strip" data-scrollindex="2">
                 </div>
-                <img class =" "
-                     src="Data/Icons/Arrow.png" alt="Arrow">
-                <div class="flex-tags__tag tag">
-                    <img class = "tag__img js--media-strip__nav"
+<!--                <img class ="flex-tags__tag media&#45;&#45;img-in-font"-->
+<!--                     src="Data/Icons/Arrow.png" alt="Arrow">-->
+                <div class="flex-tags__tag tag tag--small-padding">
+                    <img class = "media--img-in-font"
                          src="Data/Icons/Unity.png" alt = "Unity"
                          data-mediastrip="workflow-media-strip" data-scrollindex="3">
                 </div>
             </div>
-            <div class="o--scalable-arrow"></div>
         </div>
 
-        <div class="relative-wrapper">
-            <div id ="workflow-media-strip" class="scroll-container scroll-container--two-elements">
-                <div id ="PaperPrototype" class="scroll-container__item">
-                    <img class="o--media--contain"
-                         src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
+        <div class="default-panel__media">
+            <div class="default-panel__scroll-container scroll-container">
+                <div id ="workflow-media-strip" class="scroll-container__content-container scroll-container__content-container--two-elements">
+                    <div id ="PaperPrototype" class="scroll-container__item media--center-container">
+                        <img class="media--contain media--rounded"
+                             src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
+                    </div>
+                    <div id="GameDesignDocument" class="scroll-container__item media--center-container">
+                        <img class="media--contain media--rounded"
+                             src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
+                    </div>
+                    <div id="CSS-Code" class="scroll-container__item media--center-container">
+                        <img class="media--contain media--rounded"
+                             src="#" alt="Page from Thesis PDF">
+                    </div>
+                    <div id="Unity-Implementation" class="scroll-container__item media--center-container">
+                        <iframe class="media--contain media--rounded"
+                                src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
+                    </div>
                 </div>
-                <div id="GameDesignDocument" class="scroll-container__item">
-                    <img class="o--media--contain"
-                         src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
-                </div>
-                <div id="CSS-Code" class="scroll-container__item">
-                    <img class="o--media--contain"
-                         src="#" alt="Page from Thesis PDF">
-                </div>
-                <div id="Unity-Implementation" class="scroll-container__item">
-                    <iframe class="o--media--contain"
-                            src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
-                </div>
+
+                <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="workflow-media-strip" data-scrolldirection="-1"> !ZYKA PREV </div>
+                <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="workflow-media-strip" data-scrolldirection="1"> !ZYKA NEXT </div>
             </div>
-
-            <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="workflow-media-strip" data-scrolldirection="-1"> !ZYKA PREV </div>
-            <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="workflow-media-strip" data-scrolldirection="1"> !ZYKA NEXT </div>
         </div>
 
-        <div>
+        <div class="default-panel__info-container default-panel__info-container--vertical
+            info-container info-container--no-padding">
             <h2 class="header--lvl2"> Occasional Power-ups: </h2>
-            <div class="flex-tags">
+            <div class="flex-tags flex-tags--workflow-secondary">
                 <div class="flex-tags__tag tag">
-                    <img class=""
+                    <img class="media--img-in-font"
                          src="Data/Icons/Git.png" alt="Git">
                 </div>
                 <div class="flex-tags__tag tag">
-                    <img class=""
+                    <img class="media--img-in-font"
                          src="Data/Icons/Blender.png" alt="Blender">
                 </div>
                 <div class="flex-tags__tag tag">
-                    <img class=""
+                    <img class="media--img-in-font"
                          src="Data/Icons/Miro.png" alt="Miro">
                 </div>
                 <div class="flex-tags__tag tag">
-                    <img class=""
+                    <img class="media--img-in-font"
                          src="Data/Icons/Reaper.png" alt="Reaper">
                 </div>
                 <div class="flex-tags__tag tag">
-                    <img class=""
+                    <img class="media--img-in-font"
                          src="Data/Icons/fmod.png" alt="Fmod">
                 </div>
                 <div class="flex-tags__tag tag">
-                    <img class=""
+                    <img class="media--img-in-font"
                          src="Data/Icons/Unreal%20Engine.png" alt="Unreal Engine">
                 </div>
                 <div class="flex-tags__tag tag">
-                    <img class=""
+                    <img class="media--img-in-font"
                          src="Data/Icons/Cpp.png" alt="C++">
                 </div>
                 <div class="flex-tags__tag tag">
-                    <img class=""
+                    <img class="media--img-in-font"
                          src="Data/Icons/TortoiseSVN.png" alt="Subversion - TortoiseSVN">
                 </div>
             </div>
@@ -236,7 +241,6 @@
 <!--    +ZyKa o--default-panel && o--project-gallery are clashing -->
     <section class="default-panel o--project-gallery">
         <h1 class="header c--project-gallery__header"> Further Projects </h1>
-<!--        !ZyKa classes -->
         <div class="media-container">
             <div class="scroll-container__item o--project-gallery__project-item c--project-gallery_project-item--first">
                 <div class="c--project-item__media">

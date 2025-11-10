@@ -1,0 +1,13 @@
+.flex-tags--workflow-primary {
+    font-size: var(--FONT-SIZE-TITLE-LVL2);
+
+    --LAYOUT-CHILD-MIN-WIDTH: 5rem;
+    --LAYOUT-CHILD-MAX-WIDTH: 7.5rem;
+}
+
+.flex-tags--workflow-secondary {
+    font-size: var(--FONT-SIZE-EMPHASIZED);
+
+    --LAYOUT-CHILD-MIN-WIDTH: 3rem;
+    --LAYOUT-CHILD-MAX-WIDTH: 4rem;
+}

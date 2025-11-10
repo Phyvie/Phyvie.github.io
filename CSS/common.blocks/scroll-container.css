@@ -1,8 +1,12 @@
-.relative-wrapper {
+/* relative wrapper for next/last scroll-buttons */
+.scroll-container {
     position: relative;
 }
 
-.scroll-container {
+.scroll-container__content-container {
+    width: 100%;
+    height: 100%;
+
     display: flex;
     flex-flow: row nowrap;
 
@@ -10,22 +14,24 @@
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 
-    --MEDIA-STRIP__ITEM_FLEX-BASIS: 100%;
+
     --MEDIA-STRIP-GAP: var(--LAYOUT-DISTANCE-LARGE);
+    gap: var(--MEDIA-STRIP-GAP);
+
+    --MEDIA-STRIP__ITEM_FLEX-BASIS: 100%;
 }
 
-.scroll-container--vertical {
+.scroll-container__content-container--vertical {
     flex-flow: column nowrap;
     scroll-snap-type: y mandatory;
 }
 
-.scroll-container--two-elements {
+.scroll-container__content-container--two-elements {
     --MEDIA-STRIP__ITEM_FLEX-BASIS: 50%;
 }
 
 .scroll-container__item {
     flex: 0 0 calc(var(--MEDIA-STRIP__ITEM_FLEX-BASIS) - var(--MEDIA-STRIP-GAP)/2);
-    height: 100%;
 
     scroll-snap-align: start;
 }
@@ -52,8 +58,4 @@
 
 .scroll-container__nav-button--next {
     right: 30px;
-}
-
-.scroll-container__nav-button--inactive {
-    display: none;
 }

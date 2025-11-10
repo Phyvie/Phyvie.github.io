@@ -6,3 +6,7 @@
     gap: var(--LAYOUT-DISTANCE-LARGE);
     padding: var(--LAYOUT-DISTANCE-LARGE) var(--LAYOUT-DISTANCE-XL);
 }
+
+.info-container--no-padding {
+    padding: 0;
+}
