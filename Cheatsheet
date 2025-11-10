@@ -10,3 +10,12 @@ align-items (flex/grid): all individual children within their row/column
 align-self (flex): self-alignment (overwrites align-items)
 
 place = justify+align
+
+
+
+multi-sided-values:
+all sides
+vertical, horizontal
+top, horizontal, bottom
+top, right, bottom, left
+(mnemonic: clockwise from top with combinations)

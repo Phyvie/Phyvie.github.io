@@ -5,9 +5,13 @@
 }
 
 .header--lvl2 {
-    font-size: var(--FONT-SIZE-EMPHASIZED);
+    font-size: var(--FONT-SIZE-TITLE-LVL2);
 }
 
 .header--left {
     text-align: left;
+}
+
+.emphasized {
+    font-size: var(--FONT-SIZE-EMPHASIZED);
 }

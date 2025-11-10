@@ -16,11 +16,13 @@
 }
 
 .default-panel__media {
-    flex: 1 0 500px;
+    flex: 1 1 auto;
+    /* +ZyKa need to fix this sizing, because it currently destroys the scroll-container in --workflow */
     aspect-ratio: 4/3;
     min-width: 500px;
     /* +ZyKa for very wide (& no-height) screens the min-width is greater than max-width */
-    max-width: calc(80vh * 4/3);
+    max-width: calc(120vh * 4/3);
+    /*max-height: 80vh;*/
     overflow: hidden;
 }
 
@@ -30,12 +32,16 @@
 }
 
 .default-panel__info-container {
-    align-self: stretch;
+    width: 100%;
 
     flex: 1 0 28rem;
 
     min-width: 28rem;
     max-width: calc(80vh * 4/3);
+}
+
+.default-panel__info-container--vertical {
+    flex-basis: auto;
 }
 
 .default-panel__links {
@@ -55,8 +61,8 @@
         /* align-self: center */
         align-self: center;
 
-        flex-basis: 0;
-        min-width: 0;
+        /*flex-basis: 0;*/
+        /*min-width: 0;*/
     }
 
     .default-panel__info-container {
