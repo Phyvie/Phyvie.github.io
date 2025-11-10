@@ -4,7 +4,9 @@
 
     justify-content: center;
     gap: var(--LAYOUT-DISTANCE-LARGE);
-    padding: var(--LAYOUT-DISTANCE-LARGE) var(--LAYOUT-DISTANCE-XL);
+
+    /* +ZyKa removed padding, will have to figure out later, how I do proper consistent padding */
+    /*padding: var(--LAYOUT-DISTANCE-DEFAULT);*/
 }
 
 .info-container--no-padding {

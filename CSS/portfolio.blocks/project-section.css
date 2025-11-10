@@ -1,0 +1,65 @@
+/* region DEFAULT-PANEL */
+.project-section {
+    /* +ZyKa removed padding, will have to figure out later, how I do proper consistent padding */
+    /*padding: var(--LAYOUT-DISTANCE-LARGE) var(--LAYOUT-DISTANCE-LARGE);*/
+
+    display: flex;
+    flex-flow: row nowrap;
+
+    justify-content: space-around;
+    align-items: center;
+
+    gap: var(--LAYOUT-DISTANCE-LARGE);
+}
+
+.project-section__media {
+    flex: 1 1 500px;
+    aspect-ratio: 4/3;
+    min-width: 500px;
+    /* +ZyKa for very wide (& no-height) screens the min-width is greater than max-width */
+    max-width: calc(70vh * 4/3);
+    overflow: hidden;
+}
+
+.project-section__scroll-container {
+    width: 100%;
+    height: 100%;
+}
+
+.project-section__info-container {
+    width: 100%;
+
+    flex: 1 0 28rem;
+    align-self: stretch;
+
+    min-width: 28rem;
+}
+
+.project-section__links {
+    margin-top: auto;
+}
+
+/* 0ZyKa widescreen adjustments */
+@media (max-width: 1279px) {
+    .project-section {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+
+    .project-section__media {
+        align-self: center;
+
+        flex-basis: auto;
+    }
+
+    .project-section__info-container {
+        align-self: center;
+
+        flex-basis: auto;
+        min-width: 0;
+
+        /* 0ZyKa removed padding, must add somewhere else again later on */
+        /*padding: 0;*/
+    }
+}

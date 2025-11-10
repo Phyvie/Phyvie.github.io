@@ -12,7 +12,6 @@
     align-content: stretch;
 }
 
-/*!ZyKa project gallery item*/
 .o--project-gallery__project-item {
     border: 2px solid var(--COLOR-ACCENT-DARK);
     border-radius: var(--LAYOUT-BORDER-RADIUS-LARGE);

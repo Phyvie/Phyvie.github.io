@@ -11,5 +11,9 @@
 /* endregion Dev-Visualisation */
 
 /* region Temporary Debug */
-
+.debug {
+    width: 200px;
+    height: 200px;
+    border: 2px solid white;
+}
 /* endregion Temporary Debug */
