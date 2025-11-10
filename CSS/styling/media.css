@@ -7,6 +7,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    /* !ZyKa I should not set a width & height within a container that modifies the child position, unless I can guarantee that this wrapper will always be used as a standalone */
+    width: 100%;
+    height: 100%;
 }
 
 .media--cover {

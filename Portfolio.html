@@ -15,11 +15,11 @@
 
     <!-- file specific stylesheets -->
     <link rel="stylesheet" href="CSS/portfolio.blocks/main.css">
-    <link rel="stylesheet" href="CSS/portfolio.blocks/default-panel.css">
+    <link rel="stylesheet" href="CSS/portfolio.blocks/project-section.css">
     <link rel="stylesheet" href="CSS/portfolio.blocks/info-container.css">
     <!-- individual section stylesheets -->
     <link rel="stylesheet" href="CSS/portfolio.blocks/about-me.css">
-    <link rel="stylesheet" href="CSS/portfolio.blocks/workflow.css">
+    <link rel="stylesheet" href="CSS/portfolio.blocks/workflow-section.css">
 
     <link rel="stylesheet" href="CSS/debug.css">
 
@@ -29,11 +29,11 @@
 <body>
 
 <main class="main">
-    <section class="default-panel --about-me">
-        <div class="default-panel__media">
+    <section class="project-section --about-me">
+        <div class="project-section__media">
             <img class="media media--rounded media--debug" src="#" alt="Image of me">
         </div>
-        <div class ="default-panel__info-container info-container">
+        <div class ="project-section__info-container info-container">
             <h1 class="header header--left"> V Then Bergh </h1>
             <div class="flex-tags">
                 <h2 class="flex-tags__tag tag tag--emphasize about-me__tag"> Gameplay <br class="about-me__tag-br"> Programming </h2>
@@ -51,7 +51,7 @@
                     This is the last sentence of my description.
                 </p>
             </div>
-            <div class="default-panel__links flex-tags">
+            <div class="project-section__links flex-tags">
                 <p class ="flex-tags__tag link-arrow"> A very long link, which might in the worst case need two full lines </p>
                 <p class="flex-tags__tag link-arrow"> Medium link </p>
                 <p class="flex-tags__tag link-arrow"> short </p>
@@ -61,8 +61,8 @@
 
     <div class="main__separator separator"></div>
 
-    <section class="default-panel --bachelor-thesis">
-        <div class="default-panel__info-container info-container">
+    <section class="project-section --bachelor-thesis">
+        <div class="project-section__info-container info-container">
             <h1 class="header"> Bachelor Thesis - Rotations </h1>
             <div>
                 <p>
@@ -81,49 +81,52 @@
                     To further improve the accessibility of the project, I am working on an interactive website that combines the explanatory aspects of the thesis with the interactive visualization tool.
                 </p>
             </div>
-            <div class="flex-tags default-panel__links">
+            <div class="flex-tags project-section__links">
                 <p class="flex-tags__tag link-arrow"> more info </p>
                 <p class="flex-tags__tag link-arrow"> to project page </p>
             </div>
         </div>
-        <div class="default-panel__media">
-            <div class="default-panel__scroll-container scroll-container">
+<!--        !ZYKa adding in this project-section__media seems to not only change the size of the child scroll-container, but also the size of its children -->
+<!--        <div class="project-section__media">-->
+            <div class="project-section__scroll-container scroll-container">
                 <div id ="bachelor-media-strip" class="scroll-container__content-container">
                     <div id ="EulerGimbal" class="scroll-container__item media--center-container">
-                        <img class="media--contain media--rounded" src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
+                        <img class="media--contain media--rounded"
+                             src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
                     </div>
                     <div id="AnotherEulerGimbal" class="scroll-container__item media--center-container">
-                        <img class="media--contain media--rounded" src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
+                        <img class="media--contain media--rounded"
+                             src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
                     </div>
                     <div class="scroll-container__item media--center-container">
-                        <img class="media--contain media--rounded" src="#" alt="Page from Thesis PDF">
+                        <img class="media--contain media--rounded"
+                             src="#" alt="Page from Thesis PDF">
                     </div>
                     <div class="scroll-container__item media--center-container">
-                        <iframe class="media--contain media--rounded" src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
+                        <iframe class="media--contain media--rounded"
+                            src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
                     </div>
                 </div>
 
-                <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="bachelor-media-strip" data-scrolldirection="-1"> !ZYKA PREV </div>
-                <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="bachelor-media-strip" data-scrolldirection="1"> !ZYKA NEXT </div>
-            </div>
+                <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="bachelor-media-strip" data-scrolldirection="-1"> PREV </div>
+                <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="bachelor-media-strip" data-scrolldirection="1"> NEXT </div>
+<!--            </div>-->
         </div>
     </section>
 
     <div class="main__separator separator"></div>
 
-    <section class="default-panel --highlight-project-B">
-        <div class="default-panel__media">
-            <div class="media--container-center">
-                <img class="media--contain media--rounded"
-                        src="Data/Placeholder-images/Bowser.jpg" alt="Image of Project">
-            </div>
+    <section class="project-section --highlight-project-B">
+        <div class="project-section__media media--center-container">
+            <img class="media--cover media--rounded"
+                    src="Data/Placeholder-images/Bowser.jpg" alt="Image of Project">
         </div>
-        <div class="default-panel__info-container info-container">
+        <div class="project-section__info-container info-container">
             <h1 class="header"> Highlight: Project B </h1>
             <div>
                 <p> Description </p>
             </div>
-            <div class="default-panel__links flex-tags">
+            <div class="project-section__links flex-tags">
                 <p class="flex-tags__tag link-arrow"> more info </p>
                 <p class="flex-tags__tag link-arrow"> to project page </p>
             </div>
@@ -132,11 +135,10 @@
 
     <div class="main__separator separator"></div>
 
-    <section class="default-panel default-panel--vertical --workflow">
+    <section class="workflow-section">
         <h1 class="header"> Behind the scenes </h1>
 
-        <div class="default-panel__info-container default-panel__info-container--vertical
-            info-container info-container--no-padding">
+        <div class="info-container">
             <h2 class="header--lvl2"> My Main Equipment: </h2>
             <div class="flex-tags flex-tags--workflow-primary">
                 <div class="flex-tags__tag tag tag--small-padding">
@@ -170,34 +172,31 @@
             </div>
         </div>
 
-        <div class="default-panel__media">
-            <div class="default-panel__scroll-container scroll-container">
-                <div id ="workflow-media-strip" class="scroll-container__content-container scroll-container__content-container--two-elements">
-                    <div id ="PaperPrototype" class="scroll-container__item media--center-container">
-                        <img class="media--contain media--rounded"
-                             src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
-                    </div>
-                    <div id="GameDesignDocument" class="scroll-container__item media--center-container">
-                        <img class="media--contain media--rounded"
-                             src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
-                    </div>
-                    <div id="CSS-Code" class="scroll-container__item media--center-container">
-                        <img class="media--contain media--rounded"
-                             src="#" alt="Page from Thesis PDF">
-                    </div>
-                    <div id="Unity-Implementation" class="scroll-container__item media--center-container">
-                        <iframe class="media--contain media--rounded"
-                                src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
-                    </div>
+        <div class="workflow-section__scroll-container scroll-container">
+            <div id ="workflow-media-strip" class="scroll-container__content-container scroll-container__content-container--two-elements">
+                <div id ="PaperPrototype" class="scroll-container__item media--center-container">
+                    <img class="media--contain media--rounded"
+                         src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
                 </div>
-
-                <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="workflow-media-strip" data-scrolldirection="-1"> !ZYKA PREV </div>
-                <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="workflow-media-strip" data-scrolldirection="1"> !ZYKA NEXT </div>
+                <div id="GameDesignDocument" class="scroll-container__item media--center-container">
+                    <img class="media--contain media--rounded"
+                         src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
+                </div>
+                <div id="CSS-Code" class="scroll-container__item media--center-container">
+                    <img class="media--contain media--rounded"
+                         src="#" alt="Page from Thesis PDF">
+                </div>
+                <div id="Unity-Implementation" class="scroll-container__item media--center-container">
+                    <iframe class="media--contain media--rounded"
+                            src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
+                </div>
             </div>
+
+            <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="workflow-media-strip" data-scrolldirection="-1"> PREV </div>
+            <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="workflow-media-strip" data-scrolldirection="1"> NEXT </div>
         </div>
 
-        <div class="default-panel__info-container default-panel__info-container--vertical
-            info-container info-container--no-padding">
+        <div class="info-container">
             <h2 class="header--lvl2"> Occasional Power-ups: </h2>
             <div class="flex-tags flex-tags--workflow-secondary">
                 <div class="flex-tags__tag tag">
@@ -238,8 +237,7 @@
 
     <div class="main__separator separator"></div>
 
-<!--    +ZyKa o--default-panel && o--project-gallery are clashing -->
-    <section class="default-panel o--project-gallery">
+    <section class= "further-projects-section">
         <h1 class="header c--project-gallery__header"> Further Projects </h1>
         <div class="media-container">
             <div class="scroll-container__item o--project-gallery__project-item c--project-gallery_project-item--first">
@@ -379,8 +377,13 @@
 
     <div class="main__separator separator"></div>
 
-    <section class="default-panel o--contact">
+    <section class="contact-section">
         <h1 class="header"> Contact </h1>
+    </section>
+
+<!--    !ZyKa debug section -->
+    <section class="debug">
+
     </section>
 </main>
 

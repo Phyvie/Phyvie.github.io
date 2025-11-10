@@ -9,11 +9,11 @@
 
     display: flex;
     flex-flow: row nowrap;
+    align-items: center;
 
     overflow: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-
 
     --MEDIA-STRIP-GAP: var(--LAYOUT-DISTANCE-LARGE);
     gap: var(--MEDIA-STRIP-GAP);
@@ -34,6 +34,8 @@
     flex: 0 0 calc(var(--MEDIA-STRIP__ITEM_FLEX-BASIS) - var(--MEDIA-STRIP-GAP)/2);
 
     scroll-snap-align: start;
+
+    background: radial-gradient(circle at center, var(--COLOR-ACCENT-LIGHT) 50%, transparent 100%);
 }
 
 .scroll-container__nav-button {
