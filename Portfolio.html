@@ -86,7 +86,7 @@
                 <p class="flex-tags__tag link-arrow"> to project page </p>
             </div>
         </div>
-<!--        !ZYKa adding in this project-section__media seems to not only change the size of the child scroll-container, but also the size of its children -->
+
 <!--        <div class="project-section__media">-->
             <div class="project-section__scroll-container scroll-container">
                 <div id ="bachelor-media-strip" class="scroll-container__content-container">
@@ -95,23 +95,24 @@
                              src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
                     </div>
                     <div id="AnotherEulerGimbal" class="scroll-container__item media--center-container">
-                        <img class="media--contain media--rounded"
-                             src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
+<!--                        <figure class="media&#45;&#45;center-container">-->
+                            <img class="media--contain media--rounded"
+                                 src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
+<!--                        </figure>-->
                     </div>
                     <div class="scroll-container__item media--center-container">
                         <img class="media--contain media--rounded"
                              src="#" alt="Page from Thesis PDF">
                     </div>
                     <div class="scroll-container__item media--center-container">
-                        <iframe class="media--contain media--rounded"
-                            src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
+
                     </div>
                 </div>
 
                 <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="bachelor-media-strip" data-scrolldirection="-1"> PREV </div>
                 <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="bachelor-media-strip" data-scrolldirection="1"> NEXT </div>
-<!--            </div>-->
-        </div>
+            </div>
+<!--        </div>-->
     </section>
 
     <div class="main__separator separator"></div>
@@ -382,8 +383,30 @@
     </section>
 
 <!--    !ZyKa debug section -->
-    <section class="debug">
+    <div class="scroll-container__content-container scroll-container__content-container--two-elements  debug--outline--green">
+        <div class="scroll-container__item media--center-container  debug--outline--green">
+            <img class="media--contain media--rounded  debug--outline--green"
+                 src ="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="#">
+        </div>
+        <div class="scroll-container__item media--center-container  debug--outline--green">
+            <img class="media--contain media--rounded  debug--outline--green"
+                 src = "Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt ="#">
+        </div>
+    </div>
 
+    <section class="workflow-section">
+        <div class="workflow-section__scroll-container scroll-container">
+            <div class="scroll-container__content-container scroll-container__content-container--two-elements debug--outline--red">
+                <div class="scroll-container__item media--center-container debug--outline--red">
+                    <img class="media--contain media--rounded debug--outline--red"
+                         src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
+                </div>
+                <div class="scroll-container__item media--center-container debug--outline--red">
+                    <img class="media--contain media--rounded debug--outline--red"
+                         src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
+                </div>
+            </div>
+        </div>
     </section>
 </main>
 

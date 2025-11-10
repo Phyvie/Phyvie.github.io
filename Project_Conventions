@@ -1,3 +1,4 @@
+NAMING:
 BEM + styling:
 Context = A page-specific single use container; always combined with a block; used for naming modifiers within the block
 e.g. --workflow
@@ -14,4 +15,6 @@ Modifier hierarchy:
 2. context dependent modifiers; e.g. .flex-tags__tag--[context-name]
 3. state modifiers; e.g. .button--[state-name]
 
-Utility = reusable classes for specific elements; e.g. .media--rounded, .media--contain
+MEDIA-Placement:
+wrapper around each media for placement with corresponding placement class e.g. .media--rounded, .media--contain
+    reason: img-elements themselves change their sizing depending on their placement, thus they can't have backgrounds

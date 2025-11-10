@@ -11,9 +11,36 @@
 /* endregion Dev-Visualisation */
 
 /* region Temporary Debug */
-.debug {
-    width: 200px;
-    height: 200px;
-    border: 2px solid white;
+.debug--outline--green {
+    border: 2px solid green;
+    background: rgba(0, 255, 0, 0.25);
+}
+
+.debug--outline--red {
+    border: 2px solid red;
+    background: rgba(255, 0, 0, 0.25);
+}
+
+.debug-scroll-container__content-container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    --MEDIA-STRIP-GAP: var(--LAYOUT-DISTANCE-LARGE);
+    gap: var(--MEDIA-STRIP-GAP);
+
+    --MEDIA-STRIP__ITEM_FLEX-BASIS: 50%;
+}
+
+.debug-scroll-container__item {
+    flex: 1 1 calc(var(--MEDIA-STRIP__ITEM_FLEX-BASIS) - var(--MEDIA-STRIP-GAP)/2);
+
+    align-self: stretch;
+}
+
+.debug-media--center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* endregion Temporary Debug */
