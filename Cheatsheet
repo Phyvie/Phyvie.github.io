@@ -13,8 +13,12 @@ align-self (flex): self-alignment (overwrites align-items)
 place = justify+align
 
 
-flex-basis > main-axis size
-cross-axis-size > align-self: stretch
+flex-basis >= main-axis size
+cross-axis-size >= align-self: stretch
+
+
+inline-size = writing direction (independent of main & cross-axis)
+block-size = direction of next line (independent of main & cross-axis)
 
 
 MULTI-SIDED-VALUES:
