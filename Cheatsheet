@@ -1,3 +1,4 @@
+FLEX:
 justify = main-axis
 justify-content (flex): all individual children
 justify-content (grid): full grid
@@ -12,8 +13,11 @@ align-self (flex): self-alignment (overwrites align-items)
 place = justify+align
 
 
+flex-basis > main-axis size
+cross-axis-size > align-self: stretch
 
-multi-sided-values:
+
+MULTI-SIDED-VALUES:
 all sides
 vertical, horizontal
 top, horizontal, bottom

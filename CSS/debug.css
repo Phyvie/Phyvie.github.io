@@ -4,43 +4,13 @@
     /*background-color: rgba(148, 112, 219, 0.3);*/
 }
 
-.media--debug {
-    outline: 2px solid rgba(0, 255, 0, 0.5);
-    background-color: rgba(148, 112, 219, 0.3);
+.debug--bg {
+    border: 2px solid rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.2);
 }
+
 /* endregion Dev-Visualisation */
 
 /* region Temporary Debug */
-.debug--outline--green {
-    border: 2px solid green;
-    background: rgba(0, 255, 0, 0.25);
-}
 
-.debug--outline--red {
-    border: 2px solid red;
-    background: rgba(255, 0, 0, 0.25);
-}
-
-.debug-scroll-container__content-container {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-
-    --MEDIA-STRIP-GAP: var(--LAYOUT-DISTANCE-LARGE);
-    gap: var(--MEDIA-STRIP-GAP);
-
-    --MEDIA-STRIP__ITEM_FLEX-BASIS: 50%;
-}
-
-.debug-scroll-container__item {
-    flex: 1 1 calc(var(--MEDIA-STRIP__ITEM_FLEX-BASIS) - var(--MEDIA-STRIP-GAP)/2);
-
-    align-self: stretch;
-}
-
-.debug-media--center-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 /* endregion Temporary Debug */
