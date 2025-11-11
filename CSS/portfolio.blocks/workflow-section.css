@@ -5,7 +5,7 @@
 }
 
 /* !ZyKa check this out; either this or the inherit-size doesn't work as intended */
-.workflow-section__media {
+.workflow-section__scroll-container {
     max-height: 30vh;
 }
 

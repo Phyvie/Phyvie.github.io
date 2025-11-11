@@ -1,4 +1,8 @@
 .inherit-size {
     width: inherit;
     height: inherit;
+    max-width: inherit;
+    max-height: inherit;
+    min-width: inherit;
+    min-height: inherit;
 }
