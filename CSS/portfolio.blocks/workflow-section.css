@@ -4,9 +4,8 @@
     gap: var(--LAYOUT-DISTANCE-LARGE);
 }
 
-/* !ZyKa check this out; either this or the inherit-size doesn't work as intended */
 .workflow-section__scroll-container {
-    max-height: 30vh;
+    max-height: 66vh;
 }
 
 .flex-tags--workflow-primary {
