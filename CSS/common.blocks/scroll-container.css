@@ -32,6 +32,7 @@
 
     scroll-snap-align: start;
 
+    /* !ZyKa remove the background */
     background: rgba(0, 255, 0, 0.25);
 }
 

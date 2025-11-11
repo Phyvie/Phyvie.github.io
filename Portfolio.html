@@ -7,6 +7,7 @@
     <!-- general purpose stylesheets -->
     <link rel="stylesheet" href="CSS/reset.css">
     <link rel="stylesheet" href="CSS/global_variables.css">
+    <link rel="stylesheet" href="CSS/common.blocks/container-utility.css">
     <link rel="stylesheet" href="CSS/styling/media.css">
     <link rel="stylesheet" href="CSS/common.blocks/separator.css">
     <link rel="stylesheet" href="CSS/common.blocks/header.css">
@@ -173,7 +174,7 @@
             </div>
         </div>
 
-        <div class="workflow-section__scroll-container scroll-container">
+        <div class="scroll-container inherit-size">
             <div id ="workflow-media-strip" class="scroll-container__content-container scroll-container__content-container--two-elements">
                 <div id ="PaperPrototype" class="scroll-container__item media--center-container">
                     <img class="media--contain media--rounded"
@@ -383,31 +384,24 @@
     </section>
 
 <!--    !ZyKa debug section -->
-    <div class="scroll-container__content-container scroll-container__content-container--two-elements  debug--outline--green">
-        <div class="scroll-container__item media--center-container  debug--outline--green">
-            <img class="media--contain media--rounded  debug--outline--green"
-                 src ="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="#">
+    <div class="debug-flex-row debug-sized-container debug--bg">
+        <div class="debug--scroll-container__item debug--bg">
+            <img class="debug--media--contain debug--bg"
+                 src="Data/Placeholder-images/Bowser.jpg" alt="Image of Project">
         </div>
-        <div class="scroll-container__item media--center-container  debug--outline--green">
-            <img class="media--contain media--rounded  debug--outline--green"
-                 src = "Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt ="#">
+        <div class="debug--scroll-container__item debug--bg"
+            style="height: 1000px;">
+            <img class="debug--media--contain debug--bg"
+                 src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
         </div>
+        <div class="debug--scroll-container__item debug--bg"
+             style="height: 800px; align-self: stretch">
+            <img class="debug--media--contain debug--bg"
+                 src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
+        </div>
+
     </div>
 
-    <section class="workflow-section">
-        <div class="workflow-section__scroll-container scroll-container">
-            <div class="scroll-container__content-container scroll-container__content-container--two-elements debug--outline--red">
-                <div class="scroll-container__item media--center-container debug--outline--red">
-                    <img class="media--contain media--rounded debug--outline--red"
-                         src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
-                </div>
-                <div class="scroll-container__item media--center-container debug--outline--red">
-                    <img class="media--contain media--rounded debug--outline--red"
-                         src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
-                </div>
-            </div>
-        </div>
-    </section>
 </main>
 
 </body>
