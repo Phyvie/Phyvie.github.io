@@ -14,21 +14,16 @@
             "first first second second"
             "third fourth fifth sixth";
 
-    grid-auto-rows: 1fr;
-    grid-auto-columns: 1fr;
-
     gap: var(--LAYOUT-GAP-DEFAULT);
     align-items: stretch;
 }
 
 .further-projects-section__project-item {
-    aspect-ratio: auto;
+    aspect-ratio: 16/9;
 }
 
 .further-projects-section__first-proj {
     grid-area: first;
-    aspect-ratio: auto;
-    height: 500px;
 }
 
 .further-projects-section__second-proj {
@@ -37,7 +32,6 @@
 
 .further-projects-section__third-proj {
     grid-area: third;
-    width: 500px;
 }
 
 .further-projects-section__fourth-proj {
@@ -50,7 +44,6 @@
 
 .further-projects-section__sixth-proj {
     grid-area: sixth;
-    width: 500px;
 }
 
 
