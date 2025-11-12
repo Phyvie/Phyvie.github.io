@@ -1,0 +1,108 @@
+.project-card {
+    border-radius: var(--LAYOUT-BORDER-RADIUS-LARGE);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card__media {
+
+}
+
+/* region DEPRECATED separated overlay */
+/* will be replaced */
+.project-card__overlay-bottom-line {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: var(--LAYOUT-DISTANCE-DEFAULT);
+    overflow: hidden;
+
+    display: flex;
+    justify-content: space-between;
+
+    background: color-mix(in srgb, var(--COLOR-DARK) 70%, transparent 30%);
+}
+
+.project-card__overlay-left-info-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    max-width: 25%;
+}
+
+.project-card__overlay-info-button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.info-button-icon {
+    background-color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+/* endregion DEPRECATED separated overlay */
+
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    --OVERLAY-BUTTON-HEIGHT: 50px;
+    --OVERLAY-BUTTON-WIDTH: 50px;
+}
+
+.overlay__bottom-line {
+    order: 1;
+
+    padding: var(--LAYOUT-DISTANCE-DEFAULT);
+    background: color-mix(in srgb, var(--COLOR-DARK) 70%, transparent 30%);
+}
+
+.overlay__top-right {
+    position: absolute;
+    top: var(--LAYOUT-DISTANCE-DEFAULT);
+    right: var(--LAYOUT-DISTANCE-DEFAULT);
+    order: -1;
+    z-index: 30;
+}
+
+.overlay__right {
+    align-self: flex-end;
+    width: 25%;
+    transition: transform var(--ANIMATION-DURATION-DEFAULT) ease-in-out;
+
+    height: 100%;
+    padding: calc(var(--OVERLAY-BUTTON-HEIGHT) + var(--LAYOUT-DISTANCE-DEFAULT)) var(--LAYOUT-DISTANCE-DEFAULT);
+    background: color-mix(in srgb, var(--COLOR-DARK) 70%, transparent 30%);
+}
+
+.overlay__right--inactive {
+    transform: translateX(100%);
+    transition: transform var(--ANIMATION-DURATION-DEFAULT) ease-in-out;
+}
+
+.project-card__info-overlay {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.project-card__overlay-bottom-line {
+
+}
+
+.project-information {
+
+}
+
+.project-description {
+
+}

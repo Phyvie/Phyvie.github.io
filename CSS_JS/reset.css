@@ -1,4 +1,4 @@
-/* region CSS-RESET */
+/* region CSS_JS-RESET */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -24,4 +24,4 @@ p, h1, h2, h3, h4, h5, h6 {
     color: var(--COLOR-TEXT-MAIN);
     text-align: justify;
 }
-/* endregion CSS-RESET */
+/* endregion CSS_JS-RESET */

@@ -1,0 +1,21 @@
+.info-container--vertical-center {
+    display: flex;
+    flex-flow: column nowrap;
+
+    justify-content: center;
+    align-items: stretch;
+
+    gap: var(--LAYOUT-DISTANCE-LARGE);
+}
+
+.info-container__info-line {
+    display: flex;
+    flex-flow: row nowrap;
+
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.info-container--no-padding {
+    padding: 0;
+}

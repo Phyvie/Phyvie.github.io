@@ -5,27 +5,28 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- general purpose stylesheets -->
-    <link rel="stylesheet" href="CSS/reset.css">
-    <link rel="stylesheet" href="CSS/global_variables.css">
-    <link rel="stylesheet" href="CSS/common.blocks/container-utility.css">
-    <link rel="stylesheet" href="CSS/styling/media.css">
-    <link rel="stylesheet" href="CSS/common.blocks/separator.css">
-    <link rel="stylesheet" href="CSS/common.blocks/header.css">
-    <link rel="stylesheet" href="CSS/common.blocks/tag.css">
-    <link rel="stylesheet" href="CSS/common.blocks/scroll-container.css">
+    <link rel="stylesheet" href="CSS_JS/reset.css">
+    <link rel="stylesheet" href="CSS_JS/global_variables.css">
+    <link rel="stylesheet" href="CSS_JS/common.blocks/container-utility.css">
+    <link rel="stylesheet" href="CSS_JS/styling/media.css">
+    <link rel="stylesheet" href="CSS_JS/common.blocks/separator.css">
+    <link rel="stylesheet" href="CSS_JS/common.blocks/header.css">
+    <link rel="stylesheet" href="CSS_JS/common.blocks/tag.css">
+    <link rel="stylesheet" href="CSS_JS/common.blocks/scroll-container.css">
 
     <!-- file specific stylesheets -->
-    <link rel="stylesheet" href="CSS/portfolio.blocks/main.css">
-    <link rel="stylesheet" href="CSS/portfolio.blocks/project-section.css">
-    <link rel="stylesheet" href="CSS/portfolio.blocks/info-container.css">
-    <link rel="stylesheet" href="CSS/common.blocks/project-card.css"
+    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/main.css">
+    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/project-section.css">
+    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/info-container.css">
+    <link rel="stylesheet" href="CSS_JS/common.blocks/project-card.css">
+    <script src="CSS_JS/common.blocks/project-card.js"></script>
 
     <!-- individual section stylesheets -->
-    <link rel="stylesheet" href="CSS/portfolio.blocks/about-me.css">
-    <link rel="stylesheet" href="CSS/portfolio.blocks/workflow-section.css">
-    <link rel="stylesheet" href="CSS/portfolio.blocks/further-projects-section.css">
+    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/about-me.css">
+    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/workflow-section.css">
+    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/further-projects-section.css">
 
-    <link rel="stylesheet" href="CSS/debug.css">
+    <link rel="stylesheet" href="CSS_JS/debug.css">
 
     <script type="module" src="media-strip.js"> </script>
     <title> V Then Bergh </title>
@@ -37,7 +38,7 @@
         <div class="project-section__media">
             <img class="media media--rounded media--debug" src="#" alt="Image of me">
         </div>
-        <div class ="project-section__info-container info-container">
+        <div class ="project-section__info-container info-container--vertical-center">
             <h1 class="header header--left"> V Then Bergh </h1>
             <div class="flex-tags">
                 <h2 class="flex-tags__tag tag tag--emphasize about-me__tag"> Gameplay <br class="about-me__tag-br"> Programming </h2>
@@ -66,7 +67,7 @@
     <div class="main__separator separator"></div>
 
     <section class="project-section --bachelor-thesis">
-        <div class="project-section__info-container info-container">
+        <div class="project-section__info-container info-container--vertical-center">
             <h1 class="header"> Bachelor Thesis - Rotations </h1>
             <div>
                 <p>
@@ -124,7 +125,7 @@
             <img class="media--cover media--rounded"
                     src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
         </div>
-        <div class="project-section__info-container info-container">
+        <div class="project-section__info-container info-container--vertical-center">
             <h1 class="header"> Highlight: Project B </h1>
             <div>
                 <p> Description </p>
@@ -141,7 +142,7 @@
     <section class="workflow-section">
         <h1 class="header"> Behind the scenes </h1>
 
-        <div class="info-container">
+        <div class="info-container--vertical-center">
             <h2 class="header--lvl2"> My Main Equipment: </h2>
             <div class="flex-tags flex-tags--workflow-primary">
                 <div class="flex-tags__tag tag tag--small-padding">
@@ -201,7 +202,7 @@
             <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="workflow-media-strip" data-scrolldirection="1"> NEXT </div>
         </div>
 
-        <div class="info-container">
+        <div class="info-container--vertical-center">
             <h2 class="header--lvl2"> Occasional Power-ups: </h2>
             <div class="flex-tags flex-tags--workflow-secondary">
                 <div class="flex-tags__tag tag">
@@ -245,17 +246,41 @@
     <section class= "further-projects-section">
         <h1 class="header"> Further Projects </h1>
         <div class="further-projects-section__cards-grid">
-            <div class="further-projects-section__project-item further-projects-section__first-proj debug--bg">
+            <div class="further-projects-section__project-item further-projects-section__first-proj
+                project-card debug--bg">
+                <div class="project-card__media inherit-size">
+                    <img class="media--cover"
+                         src="Data/Placeholder-images/Bowser.jpg" alt="project-image">
+                </div>
+                <div class="project-card__info-overlay overlay">
+                    <div class="overlay__top-right info-button-icon"> </div>
+
+                    <div class="info-container--vertical-center overlay__right">
+                        <!-- class renames & structure -->
+                        <div class="project-information"> </div>
+                        <p class="project-description"> For this project I coded a tool & mechanic, which allows designers to setup object to be recognised in ingame-screenshots, so that players can discover the game's narrative by creating their photo album of the environment </p>
+                    </div>
+
+                    <div class="overlay__bottom-line info-container__info-line">
+                        <h2 class="header--lvl2">  Project Title  </h2>
+                        <p class="tag"> Unreal Engine </p>
+                    </div>
+                </div>
             </div>
-            <div class="further-projects-section__project-item further-projects-section__second-proj debug--bg">
+            <div class="further-projects-section__project-item further-projects-section__third-proj
+                project-card debug--bg">
             </div>
-            <div class="further-projects-section__project-item further-projects-section__third-proj debug--bg">
+            <div class="further-projects-section__project-item further-projects-section__fourth-proj
+                project-card debug--bg">
             </div>
-            <div class="further-projects-section__project-item further-projects-section__fourth-proj debug--bg">
+            <div class="further-projects-section__project-item further-projects-section__second-proj
+                project-card debug--bg">
             </div>
-            <div class="further-projects-section__project-item further-projects-section__fifth-proj debug--bg">
+            <div class="further-projects-section__project-item further-projects-section__fifth-proj
+                project-card debug--bg">
             </div>
-            <div class="further-projects-section__project-item further-projects-section__sixth-proj debug--bg">
+            <div class="further-projects-section__project-item further-projects-section__sixth-proj
+                project-card debug--bg">
             </div>
 
             <!--            <div class="project-gallery__project-item debug&#45;&#45;further-projects-section__project-item debug&#45;&#45;bg">-->
