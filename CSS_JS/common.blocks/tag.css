@@ -27,14 +27,15 @@
 }
 
 .tag {
-    background-color: var(--COLOR-DECORATION-ELEMENT);
     padding: var(--LAYOUT-DISTANCE-DEFAULT) var(--LAYOUT-DISTANCE-LARGE);
-    border-radius: var(--LAYOUT-BORDER-RADIUS-CYLINDER);
 
     display: flex;
     justify-content: center;
     align-items: center;
-    align-self: stretch;
+
+    background-color: var(--COLOR-DECORATION-ELEMENT);
+    border-radius: var(--LAYOUT-BORDER-RADIUS-CYLINDER);
+
     text-align: center;
     text-wrap: nowrap;
 }

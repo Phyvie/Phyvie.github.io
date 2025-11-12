@@ -23,35 +23,36 @@
 }
 
 .further-projects-section__project-item {
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/9;
+    width: 100%;
 }
 
 .further-projects-section__first-proj {
-    /*grid-area: first;*/
+    grid-area: first;
     grid-row: span 2;
     grid-column: span 2;
 }
 
 .further-projects-section__second-proj {
-    /*grid-area: second;*/
+    grid-area: second;
     grid-row: span 2;
     grid-column: span 2;
 }
 
 .further-projects-section__third-proj {
-    /*grid-area: third;*/
+    grid-area: third;
 }
 
 .further-projects-section__fourth-proj {
-    /*grid-area: fourth;*/
+    grid-area: fourth;
 }
 
 .further-projects-section__fifth-proj {
-    /*grid-area: fifth;*/
+    grid-area: fifth;
 }
 
 .further-projects-section__sixth-proj {
-    /*grid-area: sixth;*/
+    grid-area: sixth;
 }
 
 @container further-projects-section (min-width: 0rem) {
