@@ -30,7 +30,7 @@
 }
 /* region GLOBAL VARIABLES */
 
-/* region CSS-RESET */
+/* region CSS_JS-RESET */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -54,7 +54,7 @@ p, h1, h2, h3, h4, h5, h6 {
     hyphens: auto;
     color: var(--COLOR-TEXT-MAIN);
 }
-/* endregion CSS-RESET */
+/* endregion CSS_JS-RESET */
 
 /* region GeneralModifiers */
 /* +todo: rename these properly */
