@@ -67,6 +67,30 @@
     background: color-mix(in srgb, var(--COLOR-DARK) 70%, transparent 30%);
 }
 
+.overlay__project-title {
+    align-self: center;
+    text-align: center;
+}
+
+.overlay__project-contribution {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+
+    container: overlay__project-contribution / inline-size;
+}
+
+/*@container overlay__project-contribution (max-width: 300px) {*/
+/*    .overlay__project-contribution:first-child {*/
+/*        display: none; */
+/*    }*/
+/*}*/
+
+.overlay__project-contribution p {
+    /*font-size: var(--FONT-SIZE-DEFAULT);*/
+    margin-right: 1ch;
+}
+
 .overlay__top-right {
     position: absolute;
     top: var(--LAYOUT-DISTANCE-DEFAULT);
