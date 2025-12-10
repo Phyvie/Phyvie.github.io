@@ -44,6 +44,10 @@
     padding: var(--LAYOUT-DISTANCE-SMALL) var(--LAYOUT-DISTANCE-DEFAULT);
 }
 
+.tag--no-padding {
+    padding: 0;
+}
+
 .link-arrow {
     display: inline-flex;
 
