@@ -1,5 +1,5 @@
 .project-card {
-    border-radius: var(--LAYOUT-BORDER-RADIUS-LARGE);
+    /*border-radius: var(--LAYOUT-BORDER-RADIUS-LARGE);*/
 
     position: relative;
     overflow: hidden;
@@ -7,6 +7,10 @@
 
 .project-card__media {
 
+}
+
+.project-card__media--B {
+    height: calc(100% - 2rem);
 }
 
 /* region DEPRECATED separated overlay */
@@ -43,8 +47,8 @@
 
 .info-button-icon {
     background-color: white;
-    height: 50px;
-    width: 50px;
+    height: min(12.5%, 50px);
+    aspect-ratio: 1/1;
     border-radius: 50%;
 }
 /* endregion DEPRECATED separated overlay */
@@ -58,33 +62,57 @@
 
     --OVERLAY-BUTTON-HEIGHT: 50px;
     --OVERLAY-BUTTON-WIDTH: 50px;
+
+    container: overlay / inline-size;
 }
 
-.overlay__bottom-line {
-    order: 1;
+.overlay__element-design {
+    overflow: hidden;
 
     padding: var(--LAYOUT-DISTANCE-DEFAULT);
     background: color-mix(in srgb, var(--COLOR-DARK) 70%, transparent 30%);
 }
 
+.overlay__bottom-line--A {
+    order: 1;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.overlay__bottom--C {
+    order: 1;
+    transition: transform var(--ANIMATION-DURATION-DEFAULT) ease-in-out;
+}
+
+.overlay__bottom--inactive {
+    transform: translateY(100%);
+    transition: transform var(--ANIMATION-DURATION-DEFAULT) ease-in-out;
+}
+
 .overlay__project-title {
-    align-self: center;
+    align-self: stretch;
     text-align: center;
+
+    font-size: var(--FONT-SIZE-TITLE-LVL2);
+}
+
+.overlay__project-title--B {
+    position: absolute;
+    top: min(4%, 1rem);
+    left: min(4%, 1.5rem);
+
+    padding: var(--LAYOUT-DISTANCE-SMALL) var(--LAYOUT-DISTANCE-DEFAULT);
+
+    background-color: var(--COLOR-DARK);
 }
 
 .overlay__project-contribution {
-    display: flex;
+    display: inline-flex;
     flex-flow: row nowrap;
     align-items: flex-start;
-
-    container: overlay__project-contribution / inline-size;
 }
-
-/*@container overlay__project-contribution (max-width: 300px) {*/
-/*    .overlay__project-contribution:first-child {*/
-/*        display: none; */
-/*    }*/
-/*}*/
 
 .overlay__project-contribution p {
     /*font-size: var(--FONT-SIZE-DEFAULT);*/
@@ -101,12 +129,25 @@
 
 .overlay__right {
     align-self: flex-end;
-    width: 25%;
     transition: transform var(--ANIMATION-DURATION-DEFAULT) ease-in-out;
 
     height: 100%;
-    padding: calc(var(--OVERLAY-BUTTON-HEIGHT) + var(--LAYOUT-DISTANCE-DEFAULT)) var(--LAYOUT-DISTANCE-DEFAULT);
-    background: color-mix(in srgb, var(--COLOR-DARK) 70%, transparent 30%);
+}
+
+.overlay__right--full {
+    width: 100%;
+}
+
+.overlay__right--A {
+    width: 100%;
+}
+
+.overlay__right--C {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--LAYOUT-DISTANCE-DEFAULT);
+
+    width: 10rem;
 }
 
 .overlay__right--inactive {
@@ -123,10 +164,64 @@
 
 }
 
-.project-information {
+.project-card__information--B {
+    height: 2rem;
+}
 
+.project-information {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+    gap: 1.5rem;
+}
+
+.project-information--B {
+    display: flex;
+    flex-flow: row nowrap;
+
+    justify-content: flex-start;
+}
+
+.project-information--C {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.overlay__headspace {
+    height: var(--OVERLAY-BUTTON-HEIGHT);
 }
 
 .project-description {
+    align-self: center;
+    text-align: center;
+}
 
+.project-information__context,
+.project-information__group-size,
+.project-information__date-time
+{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+:is(
+.project-information__context,
+.project-information__group-size,
+.project-information__date-time) p
+{
+    font-size: var(--FONT-SIZE-SMALL);
+    text-align: center;
+}
+
+@container overlay (max-width: 40rem) {
+    .project-information--B {
+        justify-content: space-between;
+    }
+
+    .overlay__project-highlight {
+        display: none;
+    }
+
+    .overlay__project-title {
+        font-size: var(--FONT-SIZE-DEFAULT);
+    }
 }

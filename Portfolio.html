@@ -143,7 +143,7 @@
         <h1 class="header"> Behind the scenes </h1>
 
         <div class="info-container--vertical-center">
-            <h2 class="header--lvl2"> My Main Equipment: </h2>
+            <h2 class="header--lvl2"> Main Tools: </h2>
             <div class="flex-tags flex-tags--workflow-primary">
                 <div class="flex-tags__tag tag tag--small-padding">
                 <!-- 0ZyKa adjust size -->
@@ -180,6 +180,7 @@
             <div id ="workflow-media-strip"
                  class="scroll-container__content-container scroll-container__content-container--two-elements
                         inherit-size">
+
                 <div id ="PaperPrototype" class="scroll-container__item media-contain-wrapper">
                     <img class="media--contain media-contain--position_center media--rounded"
                          src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
@@ -245,151 +246,100 @@
 
     <section class= "further-projects-section">
         <h1 class="header"> Further Projects </h1>
-        <div class="further-projects-section__cards-grid">
-            <div class="further-projects-section__project-item further-projects-section__first-proj
-                project-card debug--bg">
-                <div class="project-card__media inherit-size">
-                    <img class="media--cover"
-                         src="Data/Placeholder-images/Bowser.jpg" alt="project-image">
-                </div>
-                <div class="project-card__info-overlay overlay">
-                    <div class="overlay__top-right info-button-icon"> </div>
-
-                    <div class="info-container--vertical-center overlay__right overlay__right--inactive">
-                        <!-- class renames & structure -->
-                        <div class="project-information"> </div>
-                        <p class="project-description"> </p>
+        <div id="further-projects-section__cards-grid" class="further-projects-section__cards-grid">
+            <template id="project-card--template--A">
+                <div class="further-projects-section__project-item
+                    project-card debug--bg">
+                    <div class="project-card__media inherit-size">
+                        <img class="media--cover"
+                             src="Data/Placeholder-images/Bowser.jpg" alt="project-image">
                     </div>
+                    <div class="project-card__info-overlay overlay">
+                        <div class="overlay__top-right info-button-icon"> </div>
 
-                    <div class="overlay__bottom-line info-container__info-line">
-                        <h2 class="overlay__project-title header--lvl2">  Project Title  </h2>
-                        <div class="overlay__project-contribution">
-                            <p> highlight: </p>
-                            <p class="tag"> Unreal Engine </p>
+                        <div class="info-container--vertical-center overlay__right overlay__right--A overlay__element-design">
+                            <!-- +ZyKa class renames & structure -->
+                            <div class="project-information">
+                                <div class="project-information__context tag tag--small-padding">
+                                    <img class="media--img-in-font" src="Data/Icons/Cologne%20Game%20Lab.png" alt="link-icon">
+                                    <p> Student <br> Project </p>
+                                </div>
+                                <div class="project-information__group-size tag tag--small-padding">
+                                    <img class="media--img-in-font" src="Data/Icons/Group.png" alt="link-icon">
+                                    <p> 5 </p>
+                                </div>
+                                <div class="project-information__date-time tag tag--small-padding">
+                                    <img class="media--img-in-font" src="Data/Icons/Calendar.png" alt="link-icon">
+                                    <p> 2022 - <br> 7 Weeks </p>
+                                </div>
+                            </div>
+
+                            <div class="project-description">
+                                <p>
+                                    For this walking simulator I programmed the following in Unreal Engine via C++
+                                    <br>
+                                    - A 3D Walking Character Controller (independent of the Unreal Template)
+                                    <br>
+                                    - A Camera Mechanic, such that designers can set up points of interest with description texts.
+                                    <br>
+                                    Once the player photographs them ingame, they get added to a photo album with their description.
+                                    <br>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="overlay__bottom-line--A overlay__element-design">
+                            <h2 class="overlay__project-title header--lvl2">  Project Title  </h2>
+                            <div class="overlay__project-contribution">
+                                <p class="overlay__project-highlight"> highlight: </p>
+                                <p class="tag"> Unreal Engine </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="further-projects-section__project-item further-projects-section__second-proj
-                project-card debug--bg">
-                <div class="project-card__media inherit-size">
-                    <img class="media--cover"
-                         src="Data/Placeholder-images/Bowser.jpg" alt="project-image">
-                </div>
-                <div class="project-card__info-overlay overlay">
-                    <div class="overlay__top-right info-button-icon"> </div>
+            </template>
 
-                    <div class="info-container--vertical-center overlay__right overlay__right--inactive">
-                        <!-- class renames & structure -->
-                        <div class="project-information"> </div>
-                        <p class="project-description"> </p>
+            <template id="project-card--template">
+                <div class="further-projects-section__project-item
+                    project-card debug--bg">
+                    <div class="project-card__media inherit-size">
+                        <img class="media--cover"
+                             src="Data/Placeholder-images/Bowser.jpg" alt="project-image">
                     </div>
+                    <div class="project-card__info-overlay overlay">
+                        <div class="overlay__top-right info-button-icon"> </div>
 
-                    <div class="overlay__bottom-line info-container__info-line">
-                        <h2 class="overlay__project-title header--lvl2">  Project Title  </h2>
-                        <div class="overlay__project-contribution">
-                            <p> highlight: </p>
-                            <p class="tag"> Unreal Engine </p>
+                        <h2 class="overlay__project-title overlay__project-title--B">  Project Title  </h2>
+
+                        <div class="info-container--vertical-center overlay__right overlay__right--A overlay__element-design overlay__right--inactive">
+                            <!-- +ZyKa class renames & structure -->
+                            <div class="overlay__headspace">
+                            </div>
+
+                            <p class="project-description">
+                                We (two programmers) created a game mechanic, where players sing to move objects.
+                                <br>
+                                One designer and two artists created two test levels.
+                            </p>
+                        </div>
+
+                        <div class="project-information project-information--B overlay__element-design">
+                            <div class="project-information__context tag tag--small-padding">
+                                <img class="media--img-in-font" src="Data/Icons/Cologne%20Game%20Lab.png" alt="link-icon">
+                                <p class="project-information__tag-description"> </p>
+                            </div>
+                            <div class="project-information__group-size tag tag--small-padding">
+                                <img class="media--img-in-font" src="Data/Icons/Group.png" alt="link-icon">
+                                <p class="project-information__tag-description"> 5 </p>
+                            </div>
+                            <div class="project-information__date-time tag tag--small-padding">
+                                <img class="media--img-in-font" src="Data/Icons/Calendar.png" alt="link-icon">
+                                <p class="project-information__tag-description"> 7 Weeks </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="further-projects-section__project-item further-projects-section__third-proj
-                project-card debug--bg">
-                <div class="project-card__media inherit-size">
-                    <img class="media--cover"
-                         src="Data/Placeholder-images/Bowser.jpg" alt="project-image">
-                </div>
-                <div class="project-card__info-overlay overlay">
-                    <div class="overlay__top-right info-button-icon"> </div>
-
-                    <div class="info-container--vertical-center overlay__right overlay__right--inactive">
-                        <!-- class renames & structure -->
-                        <div class="project-information"> </div>
-                        <p class="project-description"> </p>
-                    </div>
-
-                    <div class="overlay__bottom-line info-container__info-line">
-                        <h2 class="overlay__project-title header--lvl2">  Project Title  </h2>
-                        <div class="overlay__project-contribution">
-                            <p> highlight: </p>
-                            <p class="tag"> Unreal Engine </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="further-projects-section__project-item further-projects-section__fourth-proj
-                project-card debug--bg">
-                <div class="project-card__media inherit-size">
-                    <img class="media--cover"
-                         src="Data/Placeholder-images/Bowser.jpg" alt="project-image">
-                </div>
-                <div class="project-card__info-overlay overlay">
-                    <div class="overlay__top-right info-button-icon"> </div>
-
-                    <div class="info-container--vertical-center overlay__right overlay__right--inactive">
-                        <!-- class renames & structure -->
-                        <div class="project-information"> </div>
-                        <p class="project-description"> </p>
-                    </div>
-
-                    <div class="overlay__bottom-line info-container__info-line">
-                        <h2 class="overlay__project-title header--lvl2">  Project Title  </h2>
-                        <div class="overlay__project-contribution">
-                            <p> highlight: </p>
-                            <p class="tag"> Unreal Engine </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="further-projects-section__project-item further-projects-section__fifth-proj
-                project-card debug--bg">
-                <div class="project-card__media inherit-size">
-                    <img class="media--cover"
-                         src="Data/Placeholder-images/Bowser.jpg" alt="project-image">
-                </div>
-                <div class="project-card__info-overlay overlay">
-                    <div class="overlay__top-right info-button-icon"> </div>
-
-                    <div class="info-container--vertical-center overlay__right overlay__right--inactive">
-                        <!-- class renames & structure -->
-                        <div class="project-information"> </div>
-                        <p class="project-description"> </p>
-                    </div>
-
-                    <div class="overlay__bottom-line info-container__info-line">
-                        <h2 class="overlay__project-title header--lvl2">  Project Title  </h2>
-                        <div class="overlay__project-contribution">
-                            <p> highlight: </p>
-                            <p class="tag"> Unreal Engine </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="further-projects-section__project-item further-projects-section__sixth-proj
-                project-card debug--bg">
-                <div class="project-card__media inherit-size">
-                    <img class="media--cover"
-                         src="Data/Placeholder-images/Bowser.jpg" alt="project-image">
-                </div>
-                <div class="project-card__info-overlay overlay">
-                    <div class="overlay__top-right info-button-icon"> </div>
-
-                    <div class="info-container--vertical-center overlay__right overlay__right--inactive">
-                        <!-- class renames & structure -->
-                        <div class="project-information"> </div>
-                        <p class="project-description"> </p>
-                    </div>
-
-                    <div class="overlay__bottom-line info-container__info-line">
-                        <h2 class="overlay__project-title header--lvl2">  Project Title  </h2>
-                        <div class="overlay__project-contribution">
-                            <p> highlight: </p>
-                            <p class="tag"> Unreal Engine </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </template>
         </div>
     </section>
 

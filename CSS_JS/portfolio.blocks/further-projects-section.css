@@ -18,7 +18,7 @@
     /*grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));*/
     /*grid-auto-flow: dense;*/
 
-    gap: var(--LAYOUT-GAP-DEFAULT);
+    gap: var(--LAYOUT-DISTANCE-LARGE);
     align-items: stretch;
 }
 
@@ -29,14 +29,10 @@
 
 .further-projects-section__first-proj {
     grid-area: first;
-    grid-row: span 2;
-    grid-column: span 2;
 }
 
 .further-projects-section__second-proj {
     grid-area: second;
-    grid-row: span 2;
-    grid-column: span 2;
 }
 
 .further-projects-section__third-proj {
@@ -68,7 +64,7 @@
     }
 }
 
-@container further-projects-section (min-width: 30rem) {
+@container further-projects-section (min-width: 45rem) {
     .further-projects-section__cards-grid {
         grid-template-areas:
             "first first"
@@ -91,6 +87,14 @@
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/*
+            "first first first first third third"
+            "first first first first fourth fourth"
+            "fifth fifth second second second second"
+            "sixth sixth second second second second";
+
+ */
 
 @container further-projects-section (min-width: 90rem) {
     .further-projects-section__cards-grid {
