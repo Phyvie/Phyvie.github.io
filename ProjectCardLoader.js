@@ -1,4 +1,10 @@
 /**
+ * DEPRECATED -> new version is project-card.js
+ * Responsible for loading data into the project cards.
+ */
+
+//region Public Function for creating Project Cards
+/**
  * Render a single project card by project name (without .json).
  * Example: renderProjectCard("LoneSignal", "#project-cards")
  */
@@ -33,6 +39,17 @@ async function renderProjectCards(projectNames, mountSection = "#project-cards",
 }
 
 //region Helper Functions
+async function loadJsonData(path) {
+    if (!path || typeof path !== "string") {
+        throw new Error("loadJsonData: 'path' must be a non-empty string");
+    }
+    const res = await fetch(path, {cache: "no-cache"});
+    if (!res.ok) {
+        throw new Error(`Failed to load JSON at ${path}: ${res.status} ${res.statusText}`);
+    }
+    return await res.json();
+}
+
 function qDataRef(searchRoot, ref) {
     return searchRoot.querySelector(`[data-ref="${ref}"]`);
 }
@@ -50,18 +67,6 @@ function addIconByName(container, iconName) {
     };
     container.appendChild(img);
 }
-
-async function loadJsonData(path) {
-    if (!path || typeof path !== "string") {
-        throw new Error("loadJsonData: 'path' must be a non-empty string");
-    }
-    const res = await fetch(path, {cache: "no-cache"});
-    if (!res.ok) {
-        throw new Error(`Failed to load JSON at ${path}: ${res.status} ${res.statusText}`);
-    }
-    return await res.json();
-}
-
 //endregion Helper Functions
 
 // region Template Instantiation Functions
@@ -98,7 +103,6 @@ function createCardFromTemplate() {
     }
     return cardRoot;
 }
-
 // endregion Template Instantiation Functions
 
 function fillCardData(cardRoot, jsonData) {
@@ -233,7 +237,6 @@ function loadLinks(cardRoot, jsonData) {
         moreInfoLink.href = jsonData["project-info-url"];
     }
 }
-
 //endregion Card Data Loading Functions
 
 

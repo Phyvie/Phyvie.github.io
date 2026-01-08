@@ -1,7 +1,11 @@
 {
   "project-title": "Lone Signal",
   "version": "1.0.0",
-  "description": "",
+  "description": [
+    "For this narrative walking simulator about an alien planet, I was the sole programmer. ", 
+    "My main responsibility was to implement a photo mechanic, which allows the designers to setup location with perspective puzzles, such that players can take photos of them  in order to get a descriptive text. ", 
+    "Additionally these photos are stored and loaded from the disk, such that players can create a photo-album of their journey. "
+  ],
   "image": {
     "src": "Data/Projects/Lone_Signal/Thumbnail.png",
     "alt": "Lone Signal Project IMG",
