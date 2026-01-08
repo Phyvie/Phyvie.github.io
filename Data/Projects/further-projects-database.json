@@ -1,0 +1,34 @@
+{
+    "projects": [
+        {
+            "name": "first-proj",
+            "gridArea": "first",
+            "dataPath": "./data/first-project/"
+        },
+        {
+            "name": "second-proj",
+            "gridArea": "second", 
+            "dataPath": "./data/second-project/"
+        },
+        {
+            "name": "third-proj",
+            "gridArea": "third",
+            "dataPath": "./data/third-project/"
+        },
+        {
+            "name": "fourth-proj",
+            "gridArea": "fourth",
+            "dataPath": "./data/fourth-project/"
+        },
+        {
+            "name": "fifth-proj",
+            "gridArea": "fifth",
+            "dataPath": "./data/fifth-project/"
+        },
+        {
+            "name": "sixth-proj",
+            "gridArea": "sixth",
+            "dataPath": "./data/sixth-project/"
+        }
+    ]
+}
