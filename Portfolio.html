@@ -252,19 +252,20 @@
                     project-card debug--bg">
                     <div class="project-card__media inherit-size">
                         <img class="media--cover"
-                             src="Data/Placeholder-images/Bowser.jpg" alt="project-image">
+                             src="Data/Placeholder-images/Bowser.jpg" alt="project-image" data-ref="image:thumbnail">
+                        <video class="media--cover" data-ref="video:trailer"></video>
                     </div>
                     <div class="project-card__info-overlay overlay">
                         <div class="overlay__top-right info-button-icon"> </div>
 
-                        <h2 class="overlay__project-title overlay__project-title--B">  Project Title  </h2>
+                        <h2 class="overlay__project-title overlay__project-title--B" data-ref="text:project-title">  Project Title  </h2>
 
                         <div class="info-container--vertical-center overlay__right overlay__right--A overlay__element-design overlay__right--inactive">
                             <!-- +ZyKa class renames & structure -->
                             <div class="overlay__headspace">
                             </div>
 
-                            <p class="project-description">
+                            <p class="project-description" data-ref="multiline-text:description">
                                 We (two programmers) created a game mechanic, where players sing to move objects.
                                 <br>
                                 One designer and two artists created two test levels.
@@ -273,16 +274,16 @@
 
                         <div class="project-information project-information--B overlay__element-design">
                             <div class="project-information__context tag tag--small-padding">
-                                <img class="media--img-in-font" src="Data/Icons/Cologne%20Game%20Lab.png" alt="link-icon">
+                                <img class="media--img-in-font" src="Data/Icons/Cologne%20Game%20Lab.png" alt="link-icon" data-ref="icon:origin">
                                 <p class="project-information__tag-description"> </p>
                             </div>
                             <div class="project-information__group-size tag tag--small-padding">
                                 <img class="media--img-in-font" src="Data/Icons/Group.png" alt="link-icon">
-                                <p class="project-information__tag-description"> 5 </p>
+                                <p class="project-information__tag-description" data-ref="text:team-size"> 5 </p>
                             </div>
                             <div class="project-information__date-time tag tag--small-padding">
                                 <img class="media--img-in-font" src="Data/Icons/Calendar.png" alt="link-icon">
-                                <p class="project-information__tag-description"> 7 Weeks </p>
+                                <p class="project-information__tag-description" data-ref="text:time"> 7 Weeks </p>
                             </div>
                         </div>
                     </div>

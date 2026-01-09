@@ -3,7 +3,7 @@
   "project-type": "Tech Design",
   "version": "1.0.0",
   "description": "",
-  "image": {
+  "thumbnail": {
     "src": "Data/Placeholder-images/HxH.jpg",
     "alt": "Play My Math Project IMG",
     "class": "HoverScale"

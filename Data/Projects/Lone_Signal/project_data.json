@@ -6,21 +6,22 @@
     "My main responsibility was to implement a photo mechanic, which allows the designers to setup location with perspective puzzles, such that players can take photos of them  in order to get a descriptive text. ", 
     "Additionally these photos are stored and loaded from the disk, such that players can create a photo-album of their journey. "
   ],
-  "image": {
+  "thumbnail": {
     "src": "Data/Projects/Lone_Signal/Thumbnail.png",
     "alt": "Lone Signal Project IMG",
     "class": "HoverScale"
   },
-  "project-video": {
-    "src": "Data/Projects/Lone_Signal/Lone_Signal_Trailer.mp4"
+  "trailer": {
+    "src": "Data/Projects/Lone_Signal/Lone_Signal_Trailer.mp4",
+    "alt": "Lone Signal Trailer"
   },
   "highlight": "Narrative Photo Album Mechanic",
   "mechanic-video": {
     "src": "Data/Projects/#.mp4"
   },
   "project-url": "#",
-  "project-info-url": "Data/Projects/Music_Box/Music_Box.html",
-  "project-type": "Multiplayer Puzzle Game",
+  "project-info-url": "Data/Projects/Lone_Signal/Lone_Signal.html",
+  "project-type": "single player narrative game",
   "origin": "Cologne Game Lab",
   "team-size": "5",
   "date": "2022",

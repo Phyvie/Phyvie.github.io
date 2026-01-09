@@ -3,7 +3,7 @@
   "projectType": "Multiplayer Puzzle Game",
   "version": "1.0.0",
   "description": "",
-  "image": {
+  "thumbnail": {
     "src": "Data/Projects/Music_Box/Thumbnail.png",
     "alt": "Music Box Project IMG",
     "class": "HoverScale"
