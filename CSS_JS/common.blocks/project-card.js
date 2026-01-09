@@ -1,7 +1,9 @@
 /**
- * responsible for creating the project cards in the further-projects-section and filling them with data from the corresponding .json files
- * 0ZyKa currently double responsibility; 1. general abstract implementation of creating project cards and 2. loading the data from the database to arrange the layout of the grid
+ * Creates Project Cards and sets up their interactivity.
+ * Uses load-data-refs.js to load data from json files into the project cards.
+ * Not an autonomous script, must be imported by another script to work (e.g. further-projects-section-load-cards.js)
  */
+import {loadDataRefs} from "./load-data-refs.js";
 
 let TEMPLATE_PROJECT_CARD;
 export function FindProjectCardTemplate(){
@@ -21,7 +23,19 @@ export function CreateProjectCard() {
 /*
  * sets up the foldout of the overlay when the user clicks on the info button
  */
+export function LoadProjectCardData(projectCard, jsonFile)
+{
+    console.log("loading data for project card: " + jsonFile["project-title"]);
+    loadDataRefs(projectCard, jsonFile);
+}
+
 function SetupProjectCardInteraction(projectCard)
+{
+    SetupInfoButtonOverlay(projectCard);
+    wireImageToVideo(projectCard.querySelector("[data-ref='image:thumbnail']"), projectCard.querySelector("[data-ref='video:trailer']"));
+}
+
+function SetupInfoButtonOverlay(projectCard)
 {
     const infoButton = projectCard.querySelector('.info-button-icon.overlay__top-right');
     const infoContainer = projectCard.querySelector('.overlay__right--A');
@@ -31,7 +45,39 @@ function SetupProjectCardInteraction(projectCard)
     });
 }
 
-export function LoadProjectCardData(projectCard, jsonFile)
-{
-    console.log("loading data for project card: " + projectCard.id + " from " + jsonFile + "; project-name: " + jsonFile["project-title"]);
+function wireImageToVideo(img, vid) {
+    if (!img || !vid)
+    {
+        console.warn("wireImageToVideo: invalid arguments");
+        return;
+    }
+
+    // Ensure initial state: image visible, video hidden
+    vid.hidden = true;
+
+    img.addEventListener("click", () => {
+        // If no video source is set, do nothing
+        if (!vid.src) return;
+
+        // Swap: hide image, show video, start playing
+        img.style.display = "none";
+        vid.style.display = "block";
+        // Optional: remove hover styling when swapped
+        img.classList.remove("HoverScale");
+
+        // Attempt to play; ignore errors from autoplay policies
+        const p = vid.play();
+        if (p && typeof p.catch === "function") {
+            p.catch(() => {
+            });
+        }
+    });
+
+    // Optional: when the video ends, swap back to the image
+    vid.addEventListener("ended", () => {
+        img.style.display = "block";
+        vid.style.display = "none";
+        img.classList.add("HoverScale");
+    });
 }
+

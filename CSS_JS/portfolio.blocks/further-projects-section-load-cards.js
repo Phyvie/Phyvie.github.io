@@ -33,7 +33,6 @@ async function CreateProjectCards() {
             }
             const jsonData = await response.json();
 
-            //!ZyKa fill the card with the data
             LoadProjectCardData(projectCard, jsonData);
         } catch (error) {
             console.error(`Error loading project ${project.folder}:`, error);

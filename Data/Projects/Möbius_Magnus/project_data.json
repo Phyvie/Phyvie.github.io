@@ -3,7 +3,7 @@
   "project-type": "Cozy Puzzle Game",
   "version": "1.0.0",
   "description": "",
-  "image": {
+  "thumbnail": {
     "src": "Data/Placeholder-images/chrollo%20lucilfer.png",
     "alt": "Möbius Magnus Project IMG",
     "class": "HoverScale"
