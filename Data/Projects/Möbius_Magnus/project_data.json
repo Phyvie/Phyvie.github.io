@@ -5,8 +5,7 @@
   "description": "",
   "thumbnail": {
     "src": "Data/Placeholder-images/chrollo%20lucilfer.png",
-    "alt": "Möbius Magnus Project IMG",
-    "class": "HoverScale"
+    "alt": "Möbius Magnus Project IMG"
   },
   "project-video": {
     "src": "Data/Projects/#.mp4"

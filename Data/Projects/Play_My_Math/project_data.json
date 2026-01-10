@@ -5,8 +5,7 @@
   "description": "",
   "thumbnail": {
     "src": "Data/Placeholder-images/HxH.jpg",
-    "alt": "Play My Math Project IMG",
-    "class": "HoverScale"
+    "alt": "Play My Math Project IMG"
   },
   "project-video": {
     "src": "Data/Projects/#.mp4"

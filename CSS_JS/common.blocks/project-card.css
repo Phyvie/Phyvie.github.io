@@ -16,6 +16,8 @@
     top: 0;
     width: 100%;
     height: 100%;
+
+    pointer-events: none;
 }
 /* endregion project card*/
 
@@ -68,11 +70,13 @@
     z-index: 30;
 }
 
-.info-button-icon {
+.overlay__info-button {
     background-color: white;
     height: min(12.5%, 50px);
     aspect-ratio: 1/1;
     border-radius: 50%;
+
+    pointer-events: all;
 }
 /* endregion info-button */
 
@@ -100,22 +104,16 @@
 
 /* region overlay__bottom */
 .overlay__bottom {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
-    gap: 1.5rem;
+    display: flex;
+    flex-flow: row nowrap;
+
+    justify-content: flex-start;
 }
 
 /* +ZyKa project-card de-active info on video */
 .overlay__bottom--inactive {
     transform: translateY(100%);
     transition: transform var(--ANIMATION-DURATION-DEFAULT) ease-in-out;
-}
-
-.overlay__bottom--B {
-    display: flex;
-    flex-flow: row nowrap;
-
-    justify-content: flex-start;
 }
 
 .project-information__context,
@@ -136,7 +134,7 @@
 }
 
 @container overlay (max-width: 40rem) {
-    .overlay__bottom--B {
+    .overlay__bottom {
         justify-content: space-between;
     }
 
