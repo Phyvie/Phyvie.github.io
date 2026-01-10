@@ -1,8 +1,8 @@
 import {
     FindProjectCardTemplate,
     CreateProjectCard,
-    SetupProjectCardsInteraction,
-    LoadProjectCardData
+    LoadProjectCardData,
+    SetupProjectCardInteraction
 } from "../common.blocks/project-card.js";
 
 async function CreateProjectCards() {
@@ -19,21 +19,23 @@ async function CreateProjectCards() {
 
     for (let project of projects) {
         try {
-            //create the project card from the template
+            //create the project card & attach it
             let projectCardFragment = CreateProjectCard('further-projects-section__' + project.folder);
             let projectCard = projectCardFragment.querySelector('.project-card');
-
             CardParent.appendChild(projectCardFragment);
             projectCard.style.gridArea = project['grid-area'];
 
             //find the project.json file
             const response = await fetch(`Data/Projects/${project.folder}/project_data.json`);
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                console.error(`HTTP error! status: ${response.status}`);
+                continue;
             }
             const jsonData = await response.json();
 
+            //load the data & make the card interactive
             LoadProjectCardData(projectCard, jsonData);
+            SetupProjectCardInteraction(projectCard);
         } catch (error) {
             console.error(`Error loading project ${project.folder}:`, error);
         }
@@ -43,5 +45,4 @@ async function CreateProjectCards() {
 document.addEventListener('DOMContentLoaded', async () => {
     FindProjectCardTemplate();
     await CreateProjectCards();
-    SetupProjectCardsInteraction();
 });

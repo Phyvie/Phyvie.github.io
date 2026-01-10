@@ -10,12 +10,6 @@ export function FindProjectCardTemplate(){
     TEMPLATE_PROJECT_CARD = document.getElementById('template--project-card');
 }
 
-export function SetupProjectCardsInteraction()
-{
-    const projectCards = document.querySelectorAll('.project-card');
-    for (const card of projectCards) {SetupProjectCardInteraction(card); }
-}
-
 export function CreateProjectCard() {
     return TEMPLATE_PROJECT_CARD.content.cloneNode(true);
 }
@@ -29,7 +23,7 @@ export function LoadProjectCardData(projectCard, jsonFile)
     loadDataRefs(projectCard, jsonFile);
 }
 
-function SetupProjectCardInteraction(projectCard)
+export function SetupProjectCardInteraction(projectCard)
 {
     SetupInfoButtonOverlay(projectCard);
     wireImageToVideo(projectCard.querySelector("[data-ref='image:thumbnail']"), projectCard.querySelector("[data-ref='video:trailer']"));
@@ -37,11 +31,11 @@ function SetupProjectCardInteraction(projectCard)
 
 function SetupInfoButtonOverlay(projectCard)
 {
-    const infoButton = projectCard.querySelector('.info-button-icon.overlay__top-right');
+    const infoButton = projectCard.querySelector('.overlay__info-button.overlay__top-right');
     const infoContainer = projectCard.querySelector('.overlay__scroll-in');
 
     infoButton.addEventListener('click', () => {
-        infoContainer.classList.toggle('overlay__right-scroll-in--inactive-right');
+        infoContainer.classList.toggle('overlay__scroll-in--inactive-right');
     });
 }
 
@@ -52,19 +46,19 @@ function wireImageToVideo(img, vid) {
         return;
     }
 
-    img.classList.add("HoverScale");
-    // Ensure initial state: image visible, video hidden
-    vid.hidden = true;
+    if (!vid.src)
+    {
+        console.warn("wireImageToVideo: video source not set");
+        return;
+    }
+
+    img.classList.add("media--hover-scale");
+    img.style.display = "block";
+    vid.style.display = "none";
 
     img.addEventListener("click", () => {
-        // If no video source is set, do nothing
-        if (!vid.src) return;
-
-        // Swap: hide image, show video, start playing
         img.style.display = "none";
         vid.style.display = "block";
-        // Optional: remove hover styling when swapped
-        img.classList.remove("HoverScale");
 
         // Attempt to play; ignore errors from autoplay policies
         const p = vid.play();
@@ -78,7 +72,6 @@ function wireImageToVideo(img, vid) {
     vid.addEventListener("ended", () => {
         img.style.display = "block";
         vid.style.display = "none";
-        img.classList.add("HoverScale");
     });
 }
 
