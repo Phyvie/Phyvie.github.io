@@ -8,8 +8,7 @@
   ],
   "thumbnail": {
     "src": "Data/Projects/Lone_Signal/Thumbnail.png",
-    "alt": "Lone Signal Project IMG",
-    "class": "HoverScale"
+    "alt": "Lone Signal Project IMG"
   },
   "trailer": {
     "src": "Data/Projects/Lone_Signal/Lone_Signal_Trailer.mp4",

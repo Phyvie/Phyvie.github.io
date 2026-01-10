@@ -4,12 +4,15 @@
 
 /* region contain */
 .media-contain-wrapper {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .media--contain {
+    align-self: center;
+    justify-self: center;
+
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;

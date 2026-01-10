@@ -1,6 +1,6 @@
 /* region DEFAULT-PANEL */
 .project-section {
-    /* +ZyKa removed padding, will have to figure out later, how I do proper consistent padding */
+    /* 0ZyKa removed padding, will have to figure out later, how I do proper consistent padding */
     /*padding: var(--LAYOUT-DISTANCE-LARGE) var(--LAYOUT-DISTANCE-LARGE);*/
 
     display: flex;
@@ -32,7 +32,7 @@
     margin-top: auto;
 }
 
-/* 0ZyKa widescreen adjustments */
+/* -ZyKa widescreen adjustments */
 @media (max-width: 1279px) {
     .project-section {
         display: flex;
@@ -51,8 +51,5 @@
 
         flex-basis: auto;
         min-width: 0;
-
-        /* 0ZyKa removed padding, must add somewhere else again later on */
-        /*padding: 0;*/
     }
 }
