@@ -1,6 +1,6 @@
 /**
  * Creates Project Cards and sets up their interactivity.
- * Uses load-data-refs.js to load data from json files into the project cards.
+ * Uses load-data-refs.js to load data from .json files into the project cards.
  * Not an autonomous script, must be imported by another script to work (e.g. further-projects-section-load-cards.js)
  */
 import {loadDataRefs} from "./load-data-refs.js";
@@ -38,10 +38,10 @@ function SetupProjectCardInteraction(projectCard)
 function SetupInfoButtonOverlay(projectCard)
 {
     const infoButton = projectCard.querySelector('.info-button-icon.overlay__top-right');
-    const infoContainer = projectCard.querySelector('.overlay__right--A');
+    const infoContainer = projectCard.querySelector('.overlay__scroll-in');
 
     infoButton.addEventListener('click', () => {
-        infoContainer.classList.toggle('overlay__right--inactive');
+        infoContainer.classList.toggle('overlay__right-scroll-in--inactive-right');
     });
 }
 
@@ -52,6 +52,7 @@ function wireImageToVideo(img, vid) {
         return;
     }
 
+    img.classList.add("HoverScale");
     // Ensure initial state: image visible, video hidden
     vid.hidden = true;
 

@@ -17,7 +17,6 @@
     <!-- file specific stylesheets -->
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/main.css">
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/project-section.css">
-    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/info-container.css">
     <link rel="stylesheet" href="CSS_JS/common.blocks/project-card.css">
     <script type="module" src="CSS_JS/portfolio.blocks/further-projects-section-load-cards.js"> </script>
 
@@ -38,7 +37,7 @@
         <div class="project-section__media">
             <img class="media media--rounded media--debug" src="#" alt="Image of me">
         </div>
-        <div class ="project-section__info-container info-container--vertical-center">
+        <div class ="project-section__info-container flex-col-center">
             <h1 class="header header--left"> V Then Bergh </h1>
             <div class="flex-tags">
                 <h2 class="flex-tags__tag tag tag--emphasize about-me__tag"> Gameplay <br class="about-me__tag-br"> Programming </h2>
@@ -67,7 +66,7 @@
     <div class="main__separator separator"></div>
 
     <section class="project-section --bachelor-thesis">
-        <div class="project-section__info-container info-container--vertical-center">
+        <div class="project-section__info-container flex-col-center">
             <h1 class="header"> Bachelor Thesis - Rotations </h1>
             <div>
                 <p>
@@ -125,7 +124,7 @@
             <img class="media--cover media--rounded"
                     src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
         </div>
-        <div class="project-section__info-container info-container--vertical-center">
+        <div class="project-section__info-container flex-col-center">
             <h1 class="header"> Highlight: Project B </h1>
             <div>
                 <p> Description </p>
@@ -142,11 +141,10 @@
     <section class="workflow-section">
         <h1 class="header"> Behind the scenes </h1>
 
-        <div class="info-container--vertical-center">
+        <div class="flex-col-center">
             <h2 class="header--lvl2"> Main Tools: </h2>
             <div class="flex-tags flex-tags--workflow-primary">
                 <div class="flex-tags__tag tag tag--small-padding">
-                <!-- 0ZyKa adjust size -->
                     <img class="media--img-in-font"
                          src="Data/Icons/PaperPrototype.png" alt="Paper Prototype"
                         data-mediastrip="workflow-media-strip" data-scrollindex="0">
@@ -203,7 +201,7 @@
             <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="workflow-media-strip" data-scrolldirection="1"> NEXT </div>
         </div>
 
-        <div class="info-container--vertical-center">
+        <div class="flex-col-center">
             <h2 class="header--lvl2"> Occasional Power-ups: </h2>
             <div class="flex-tags flex-tags--workflow-secondary">
                 <div class="flex-tags__tag tag">
@@ -248,31 +246,27 @@
         <h1 class="header"> Further Projects </h1>
         <div id="further-projects-section__cards-grid" class="further-projects-section__cards-grid">
             <template id="template--project-card">
-                <div class="further-projects-section__project-item
-                    project-card debug--bg">
+                <div class="further-projects-section__project-item project-card">
                     <div class="project-card__media inherit-size">
-                        <img class="media--cover"
+                        <img class="project-card__media--absolute media--cover"
                              src="Data/Placeholder-images/Bowser.jpg" alt="project-image" data-ref="image:thumbnail">
-                        <video class="media--cover" data-ref="video:trailer"></video>
+                        <video class="project-card__media--absolute media--cover" data-ref="video:trailer">
+                        </video>
                     </div>
-                    <div class="project-card__info-overlay overlay">
+                    <div class="project-card__overlay overlay">
                         <div class="overlay__top-right info-button-icon"> </div>
 
-                        <h2 class="overlay__project-title overlay__project-title--B" data-ref="text:project-title">  Project Title  </h2>
+                        <h2 class="overlay__top-left overlay__project-title" data-ref="text:project-title">  Project Title  </h2>
 
-                        <div class="info-container--vertical-center overlay__right overlay__right--A overlay__element-design overlay__right--inactive">
-                            <!-- +ZyKa class renames & structure -->
-                            <div class="overlay__headspace">
-                            </div>
-
-                            <p class="project-description" data-ref="multiline-text:description">
+                        <div class="overlay__scroll-in overlay__scroll-in--inactive-right overlay__element-design--transparent flex-col-center">
+                            <p class="overlay__project-description" data-ref="multiline-text:description">
                                 We (two programmers) created a game mechanic, where players sing to move objects.
                                 <br>
                                 One designer and two artists created two test levels.
                             </p>
                         </div>
 
-                        <div class="project-information project-information--B overlay__element-design">
+                        <div class="overlay__bottom overlay__bottom--B overlay__element-design--transparent">
                             <div class="project-information__context tag tag--small-padding">
                                 <img class="media--img-in-font" src="Data/Icons/Cologne%20Game%20Lab.png" alt="link-icon" data-ref="icon:origin">
                                 <p class="project-information__tag-description"> </p>
@@ -300,8 +294,6 @@
 
 
     <div class="main__separator separator"></div>
-
-<!--    !ZyKa debug section -->
 </main>
 
 </body>

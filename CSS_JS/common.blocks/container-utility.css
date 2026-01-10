@@ -7,3 +7,13 @@
     min-height: inherit;
     aspect-ratio: inherit;
 }
+
+.flex-col-center {
+    display: flex;
+    flex-flow: column nowrap;
+
+    justify-content: center;
+    align-items: stretch;
+
+    gap: var(--LAYOUT-DISTANCE-LARGE);
+}
