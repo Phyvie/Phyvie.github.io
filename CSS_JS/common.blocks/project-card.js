@@ -6,11 +6,56 @@
 import {loadDataRefs} from "./load-data-refs.js";
 
 let TEMPLATE_PROJECT_CARD;
-export function FindProjectCardTemplate(){
+export function FindProjectCardInHtml()
+{
+    if (TEMPLATE_PROJECT_CARD)
+    {
+        console.warn("FindProjectCardInHtml: template already set -> now overwriting");
+    }
+
     TEMPLATE_PROJECT_CARD = document.getElementById('template--project-card');
     if (!TEMPLATE_PROJECT_CARD) {
-        console.error("FindProjectCardTemplate: template not found");
+        console.warn("FindProjectCardInHtml: template not found");
     }
+}
+
+export async function FindProjectCardTemplateInDocument(templateDocumentPath){
+    if (templateDocumentPath === undefined)
+    {
+        console.error("FindProjectCardTemplateInDocument: templateDocumentPath is undefined");
+        return null;
+    }
+
+    if (TEMPLATE_PROJECT_CARD)
+    {
+        console.warn("AddProjectTemplateToDocumentFromFilePath: template already set -> aborting");
+        return TEMPLATE_PROJECT_CARD;
+    }
+
+    const response = await fetch(templateDocumentPath);
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const templateHTML = await response.text();
+
+    // Create a temporary div to parse the HTML, because templateHTML is a string not a DOM element
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = templateHTML;
+
+    // Extract the template element
+    const templateElement = tempDiv.querySelector('#template--project-card');
+    if (!templateElement) {
+        throw new Error("Template with id 'template--project-card' not found in external file");
+    }
+
+    return templateElement;
+}
+
+export function SetProjectCardTemplateAndAddToHTML(template)
+{
+    document.head.appendChild(template);
+    TEMPLATE_PROJECT_CARD = template;
 }
 
 export function CreateProjectCard() {
@@ -85,6 +130,7 @@ function wireImageToVideo(image, video) {
     image.classList.add("media--hover-scale");
     image.style.display = "block";
     video.style.display = "none";
+    video.controls = true;
 
     image.addEventListener("click", () => {
         image.style.display = "none";
