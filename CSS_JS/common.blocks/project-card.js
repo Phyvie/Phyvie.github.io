@@ -8,9 +8,15 @@ import {loadDataRefs} from "./load-data-refs.js";
 let TEMPLATE_PROJECT_CARD;
 export function FindProjectCardTemplate(){
     TEMPLATE_PROJECT_CARD = document.getElementById('template--project-card');
+    if (!TEMPLATE_PROJECT_CARD) {
+        console.error("FindProjectCardTemplate: template not found");
+    }
 }
 
 export function CreateProjectCard() {
+    if (!TEMPLATE_PROJECT_CARD) {
+        console.error("CreateProjectCard: template is not set");
+    }
     return TEMPLATE_PROJECT_CARD.content.cloneNode(true);
 }
 
@@ -19,49 +25,73 @@ export function CreateProjectCard() {
  */
 export function LoadProjectCardData(projectCard, jsonFile)
 {
+    if (!projectCard || !jsonFile) {
+        console.error("LoadProjectCardData: missing required parameters");
+        return;
+    }
+    
+    if (!jsonFile["project-title"]) {
+        console.warn("LoadProjectCardData: project data missing title");
+    }
+    
     console.log("loading data for project card: " + jsonFile["project-title"]);
     loadDataRefs(projectCard, jsonFile);
 }
 
 export function SetupProjectCardInteraction(projectCard)
 {
+    if (!projectCard) {
+        console.error("SetupProjectCardInteraction: projectCard is null");
+        return;
+    }
+
+    let thumbnail =projectCard.querySelector("[data-ref='image:thumbnail']")
+    let trailer = projectCard.querySelector("[data-ref='video:trailer']");
+
     SetupInfoButtonOverlay(projectCard);
-    wireImageToVideo(projectCard.querySelector("[data-ref='image:thumbnail']"), projectCard.querySelector("[data-ref='video:trailer']"));
+    wireImageToVideo(thumbnail, trailer);
+    wireOverlayToVideo(trailer);
 }
 
 function SetupInfoButtonOverlay(projectCard)
 {
-    const infoButton = projectCard.querySelector('.overlay__info-button.overlay__top-right');
-    const infoContainer = projectCard.querySelector('.overlay__scroll-in');
+    const infoButton = projectCard.querySelector('.overlay__info-button');
+    const infoContainer = projectCard.querySelector('.overlay__scroll-in--right');
+
+    if (!infoButton || !infoContainer)
+    {
+        console.warn("SetupInfoButtonOverlay: missing required elements");
+        return;
+    }
 
     infoButton.addEventListener('click', () => {
-        infoContainer.classList.toggle('overlay__scroll-in--inactive-right');
+        infoContainer.classList.toggle('--inactive');
     });
 }
 
-function wireImageToVideo(img, vid) {
-    if (!img || !vid)
+function wireImageToVideo(image, video) {
+    if (!image || !video)
     {
         console.warn("wireImageToVideo: invalid arguments");
         return;
     }
 
-    if (!vid.src)
+    if (!video.src)
     {
         console.warn("wireImageToVideo: video source not set");
         return;
     }
 
-    img.classList.add("media--hover-scale");
-    img.style.display = "block";
-    vid.style.display = "none";
+    image.classList.add("media--hover-scale");
+    image.style.display = "block";
+    video.style.display = "none";
 
-    img.addEventListener("click", () => {
-        img.style.display = "none";
-        vid.style.display = "block";
+    image.addEventListener("click", () => {
+        image.style.display = "none";
+        video.style.display = "block";
 
         // Attempt to play; ignore errors from autoplay policies
-        const p = vid.play();
+        const p = video.play();
         if (p && typeof p.catch === "function") {
             p.catch(() => {
             });
@@ -69,9 +99,46 @@ function wireImageToVideo(img, vid) {
     });
 
     // Optional: when the video ends, swap back to the image
-    vid.addEventListener("ended", () => {
-        img.style.display = "block";
-        vid.style.display = "none";
+    video.addEventListener("ended", () => {
+        image.style.display = "block";
+        video.style.display = "none";
     });
 }
 
+function wireOverlayToVideo(video)
+{
+    if (!video)
+    {
+        console.warn("wireOverlayToVideo: no video element provided");
+        return;
+    }
+
+    let projectCard = video.closest('.project-card');
+    if (!projectCard)
+    {
+        console.warn("wireOverlayToVideo: project card not found");
+        return;
+    }
+
+    let overlayBottom = projectCard.querySelector('.overlay__bottom');
+    if (!overlayBottom)
+    {
+        console.warn("wireOverlayToVideo: overlay__bottom element not found");
+    }
+
+    let overlayTitle = projectCard.querySelector('.overlay__project-title');
+    if (!overlayTitle)
+    {
+        console.warn("wireOverlayToVideo: overlay__title element not found");
+    }
+
+    video.addEventListener("play", () => {
+        overlayBottom?.classList.add('--inactive');
+        overlayTitle?.classList.add('--inactive');
+    });
+
+    video.addEventListener("pause", () => {
+        overlayBottom?.classList.remove('--inactive');
+        overlayTitle?.classList.remove('--inactive')
+    });
+}

@@ -52,6 +52,11 @@
     left: min(4%, 1.5rem);
 }
 
+.overlay__top-left.--inactive {
+    transition: opacity var(--ANIMATION-DURATION-DEFAULT) ease-in-out;
+    opacity: 0;
+}
+
 .overlay__project-title {
     font-size: var(--FONT-SIZE-TITLE-LVL2);
 
@@ -59,6 +64,8 @@
 
     background-color: var(--COLOR-DARK);
 }
+
+
 /* endregion title */
 
 /* region info-button */
@@ -68,6 +75,11 @@
     right: var(--LAYOUT-DISTANCE-DEFAULT);
     order: -1;
     z-index: 30;
+}
+
+.overlay__top-right.--inactive {
+    transition: opacity var(--ANIMATION-DURATION-DEFAULT) ease-in-out;
+    opacity: 0;
 }
 
 .overlay__info-button {
@@ -81,7 +93,7 @@
 /* endregion info-button */
 
 /* region overlay right-scroll-in */
-.overlay__scroll-in {
+.overlay__scroll-in--right {
     align-self: flex-end;
     transition: transform var(--ANIMATION-DURATION-DEFAULT) ease-in-out;
 
@@ -91,7 +103,7 @@
     width: 100%;
 }
 
-.overlay__scroll-in--inactive-right {
+.overlay__scroll-in--right.--inactive {
     transform: translateX(100%);
     transition: transform var(--ANIMATION-DURATION-DEFAULT) ease-in-out;
 }
@@ -110,10 +122,10 @@
     justify-content: flex-start;
 }
 
-/* +ZyKa project-card de-active info on video */
-.overlay__bottom--inactive {
+.overlay__bottom.--inactive {
     transform: translateY(100%);
     transition: transform var(--ANIMATION-DURATION-DEFAULT) ease-in-out;
+    display: none;
 }
 
 .project-information__context,
