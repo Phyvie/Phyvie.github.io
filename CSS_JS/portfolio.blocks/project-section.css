@@ -1,8 +1,5 @@
 /* region DEFAULT-PANEL */
 .project-section {
-    /* 0ZyKa removed padding, will have to figure out later, how I do proper consistent padding */
-    /*padding: var(--LAYOUT-DISTANCE-LARGE) var(--LAYOUT-DISTANCE-LARGE);*/
-
     display: flex;
     flex-flow: row nowrap;
 
@@ -32,7 +29,7 @@
     margin-top: auto;
 }
 
-/* -ZyKa widescreen adjustments */
+/* smaller screens -> vertical */
 @media (max-width: 1279px) {
     .project-section {
         display: flex;
@@ -53,3 +50,9 @@
         min-width: 0;
     }
 }
+
+@media (max-width: 1559px) {
+
+}
+
+/* -ZyKa widescreen adjustments */

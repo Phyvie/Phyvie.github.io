@@ -3,7 +3,7 @@
     position: relative;
     overflow: hidden;
 
-    border: 1px solid var(--COLOR-ACCENT-DARK);
+    border: 1px solid var(--COLOR-DECORATION-BLOCK);
     border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
 }
 
@@ -33,7 +33,7 @@
 }
 
 .project-card__information {
-    background-color: var(--COLOR-DARK);
+    background-color: var(--COLOR-DECORATION-BLOCK);
 
     display: flex;
     flex-flow: row nowrap;
@@ -64,7 +64,7 @@
 .overlay__element-design--transparent {
     overflow: hidden;
 
-    background: color-mix(in srgb, var(--COLOR-DARK) 70%, transparent 30%);
+    background: color-mix(in srgb, var(--COLOR-BG-BLOCK) 70%, transparent 30%);
 }
 
 /* region title */
@@ -84,7 +84,7 @@
 
     padding: var(--LAYOUT-DISTANCE-SMALL) var(--LAYOUT-DISTANCE-DEFAULT);
 
-    background-color: var(--COLOR-DARK);
+    background-color: var(--COLOR-BG-BLOCK);
 }
 
 
@@ -93,8 +93,8 @@
 /* region info-button */
 .overlay__top-right {
     position: absolute;
-    top: var(--LAYOUT-DISTANCE-DEFAULT);
-    right: var(--LAYOUT-DISTANCE-DEFAULT);
+    top: var(--LAYOUT-DISTANCE-SMALL);
+    right: var(--LAYOUT-DISTANCE-SMALL);
     order: -1;
     z-index: 30;
 }
@@ -106,7 +106,7 @@
 
 .overlay__info-button {
     background-color: white;
-    height: min(12.5%, 50px);
+    height: min(20%, 50px);
     aspect-ratio: 1/1;
     border-radius: 50%;
 
