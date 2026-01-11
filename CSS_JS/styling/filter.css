@@ -1,5 +1,0 @@
-/* -ZyKa currently unused, because I haven't yet figured out how to do apply drop-shadow, sizing & shaping at the same time*/
-.u--drop-shadow--dark {
-    display: inline-block;
-    filter: drop-shadow(3px 3px 3px var(--COLOR-ACCENT-DARK));
-}
