@@ -24,6 +24,7 @@
 
 .further-projects-section__project-item {
     width: 100%;
+    height: max-content;
 }
 
 @container further-projects-section (min-width: 0rem) {
@@ -59,7 +60,7 @@
             "big1 big1 small2"
             "small3 big2 big2"
             "small4 big2 big2";
-        grid-template-columns: 1fr 1.35fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 

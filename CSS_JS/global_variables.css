@@ -26,8 +26,8 @@
     --FONT-SIZE-DEFAULT: 1rem;
     --FONT-SIZE-XS: 0.4rem;
     --FONT-SIZE-SMALL: 0.8rem;
-    --FONT-SIZE-TITLE: clamp(2.5rem, 4vw, 4rem);
-    --FONT-SIZE-TITLE-LVL2: clamp(1.5rem, 1.5vw, 2.5rem);
+    --FONT-SIZE-TITLE: 2.5rem;
+    --FONT-SIZE-TITLE-LVL2: 1.5rem;
 
     --FONT-SIZE-EMPHASIZED: 1.2em;
 
