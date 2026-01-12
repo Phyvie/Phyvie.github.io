@@ -32,7 +32,7 @@
     }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1200px) {
     .project-section {
         flex-flow: row nowrap;
         justify-content: space-around;
@@ -46,5 +46,16 @@
     .project-section__info-container {
         flex: 1 1 50%;
         max-width: 50%;
+    }
+}
+
+.tag--project-section-link {
+    --LAYOUT-TAG-WIDTH: 100%;
+}
+
+@container flex-tags (min-width: 20rem)
+{
+    .tag--project-section-link {
+        --LAYOUT-TAG-WIDTH: 50%;
     }
 }
