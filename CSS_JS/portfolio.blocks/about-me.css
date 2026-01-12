@@ -2,15 +2,43 @@
 
 }
 
-.tag--about-me {
-    container-name: about-me__tag;
+.tag--about-me-skills {
+    --LAYOUT-TAG-WIDTH: 100%;
+    container: tag--about-me-skills / inline-size;
+}
+
+.tag--about-me-links {
+    --LAYOUT-TAG-WIDTH: 100%;
+    container: tag--about-me-link / inline-size;
+}
+
+@container flex-tags (min-width: 20em)
+{
+    .tag--about-me-skills {
+        --LAYOUT-TAG-WIDTH: 50%;
+    }
+
+    .tag--about-me-links {
+        --LAYOUT-TAG-WIDTH: 50%;
+    }
+}
+
+@container flex-tags (min-width: 50em)
+{
+    .tag--about-me-skills {
+        --LAYOUT-TAG-WIDTH: 33%;
+    }
+
+    .tag--about-me-links {
+        --LAYOUT-TAG-WIDTH: 33%;
+    }
 }
 
 .tag--about-me-br {
     display: block;
 }
 
-@container about-me__tag (min-width: 12rem) {
+@container tag--about-me-skills (min-width: 12rem) {
     .tag--about-me-br {
         display: none;
     }
