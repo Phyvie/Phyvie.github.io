@@ -86,8 +86,8 @@
                 </p>
             </div>
             <div class="flex-tags project-section__links">
-                <p class="flex-tags__tag tag--link-arrow"> more info </p>
-                <p class="flex-tags__tag tag--link-arrow"> to project page </p>
+                <p class="flex-tags__tag tag--link-arrow tag--project-section-link"> more info </p>
+                <p class="flex-tags__tag tag--link-arrow tag--project-section-link"> to project page </p>
             </div>
         </div>
 
@@ -130,8 +130,8 @@
                 <p> Description </p>
             </div>
             <div class="project-section__links flex-tags">
-                <p class="flex-tags__tag tag--link-arrow"> more info </p>
-                <p class="flex-tags__tag tag--link-arrow"> to project page </p>
+                <p class="flex-tags__tag tag--link-arrow tag--project-section-link"> more info </p>
+                <p class="flex-tags__tag tag--link-arrow tag--project-section-link"> to project page </p>
             </div>
         </div>
     </section>
@@ -141,31 +141,31 @@
     <section class="main__panel workflow-section">
         <h1 class="header"> Behind the scenes </h1>
 
-        <div class="">
+        <div class="workflow-section__tools-description-container">
             <h2 class="header--lvl2"> Main Tools: </h2>
             <div class="flex-tags flex-tags--workflow-primary">
-                <div class="flex-tags__tag tag tag--small-padding">
+                <div class="flex-tags__tag tag tag--workflow-primary">
                     <img class="media--img-in-font"
                          src="Data/Icons/PaperPrototype.png" alt="Paper Prototype"
                         data-mediastrip="workflow-media-strip" data-scrollindex="0">
                 </div>
 <!--                <img class="flex-tags__tag media&#45;&#45;img-in-font"-->
 <!--                     src="Data/Icons/Arrow.png" alt="Arrow">-->
-                <div class="flex-tags__tag tag tag--small-padding">
+                <div class="flex-tags__tag tag tag--workflow-primary">
                     <img class = "media--img-in-font"
                          src="Data/Icons/GDD.png" alt = "Development Plan"
                          data-mediastrip="workflow-media-strip" data-scrollindex="1">
                 </div>
 <!--                <img class ="flex-tags__tag media&#45;&#45;img-in-font"-->
 <!--                     src="Data/Icons/Arrow.png" alt="Arrow">-->
-                <div class="flex-tags__tag tag tag--small-padding">
+                <div class="flex-tags__tag tag tag--workflow-primary">
                     <img class = "media--img-in-font"
                          src="Data/Icons/Cs.png" alt = "Coding"
                          data-mediastrip="workflow-media-strip" data-scrollindex="2">
                 </div>
 <!--                <img class ="flex-tags__tag media&#45;&#45;img-in-font"-->
 <!--                     src="Data/Icons/Arrow.png" alt="Arrow">-->
-                <div class="flex-tags__tag tag tag--small-padding">
+                <div class="flex-tags__tag tag tag--workflow-primary">
                     <img class = "media--img-in-font"
                          src="Data/Icons/Unity.png" alt = "Unity"
                          data-mediastrip="workflow-media-strip" data-scrollindex="3">
@@ -200,38 +200,38 @@
             <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="workflow-media-strip" data-scrolldirection="1"> NEXT </div>
         </div>
 
-        <div class="">
-            <h2 class="header--lvl2"> Occasional Power-ups: </h2>
+        <div class="workflow-section__tools-description-container">
+            <h2 class="header--lvl2"> Additional Tools: </h2>
             <div class="flex-tags flex-tags--workflow-secondary">
-                <div class="flex-tags__tag tag">
+                <div class="flex-tags__tag tag tag--workflow-secondary">
                     <img class="media--img-in-font"
                          src="Data/Icons/Git.png" alt="Git">
                 </div>
-                <div class="flex-tags__tag tag">
+                <div class="flex-tags__tag tag tag--workflow-secondary">
                     <img class="media--img-in-font"
                          src="Data/Icons/Blender.png" alt="Blender">
                 </div>
-                <div class="flex-tags__tag tag">
+                <div class="flex-tags__tag tag tag--workflow-secondary">
                     <img class="media--img-in-font"
                          src="Data/Icons/Miro.png" alt="Miro">
                 </div>
-                <div class="flex-tags__tag tag">
+                <div class="flex-tags__tag tag tag--workflow-secondary">
                     <img class="media--img-in-font"
                          src="Data/Icons/Reaper.png" alt="Reaper">
                 </div>
-                <div class="flex-tags__tag tag">
+                <div class="flex-tags__tag tag tag--workflow-secondary">
                     <img class="media--img-in-font"
                          src="Data/Icons/fmod.png" alt="Fmod">
                 </div>
-                <div class="flex-tags__tag tag">
+                <div class="flex-tags__tag tag tag--workflow-secondary">
                     <img class="media--img-in-font"
                          src="Data/Icons/Unreal%20Engine.png" alt="Unreal Engine">
                 </div>
-                <div class="flex-tags__tag tag">
+                <div class="flex-tags__tag tag tag--workflow-secondary">
                     <img class="media--img-in-font"
                          src="Data/Icons/Cpp.png" alt="C++">
                 </div>
-                <div class="flex-tags__tag tag">
+                <div class="flex-tags__tag tag tag--workflow-secondary">
                     <img class="media--img-in-font"
                          src="Data/Icons/TortoiseSVN.png" alt="Subversion - TortoiseSVN">
                 </div>
@@ -244,47 +244,7 @@
     <section class= "main__panel further-projects-section">
         <h1 class="header"> Further Projects </h1>
         <div id="further-projects-section__cards-grid" class="further-projects-section__cards-grid">
-            <template id="template--project-card">
-                <div class="further-projects-section__project-item project-card">
-                    <div class="project-card__media-overlay-container">
-                        <div class="project-card__media inherit-size">
-                            <img class="media--cover"
-                                 src="Data/Placeholder-images/Bowser.jpg" alt="project-image" data-ref="image:thumbnail">
-                            <video class="media--cover" data-ref="video:trailer"> </video>
-                        </div>
-                        <div class="project-card__overlay overlay">
-                            <div class="overlay__top-right overlay__info-button media--hover-scale"> </div>
-
-                            <h2 class="overlay__top-left overlay__project-title" data-ref="text:project-title">  Project Title  </h2>
-
-                            <div class="overlay__scroll-in--right --inactive overlay__element-design--transparent ">
-                                <p class="overlay__project-description" data-ref="multiline-text:description">
-                                    We (two programmers) created a game mechanic, where players sing to move objects.
-                                    <br>
-                                    One designer and two artists created two test levels.
-                                </p>
-                            </div>
-
-                            <div class="overlay__bottom overlay__element-design--transparent">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card__information">
-                        <div class="project-information__context tag tag--small-padding">
-                            <img class="media--img-in-font" src="Data/Icons/Cologne%20Game%20Lab.png" alt="link-icon" data-ref="icon:origin">
-                            <p class="project-information__tag-description"> </p>
-                        </div>
-                        <div class="project-information__group-size tag tag--small-padding">
-                            <img class="media--img-in-font" src="Data/Icons/Group.png" alt="link-icon">
-                            <p class="project-information__tag-description" data-ref="text:team-size"> 5 </p>
-                        </div>
-                        <div class="project-information__date-time tag tag--small-padding">
-                            <img class="media--img-in-font" src="Data/Icons/Calendar.png" alt="link-icon">
-                            <p class="project-information__tag-description" data-ref="text:time"> 7 Weeks </p>
-                        </div>
-                    </div>
-                </div>
-            </template>
+            <!-- project cards are loaded in here via "further-projects-section-load-cards.js" -->
         </div>
     </section>
 

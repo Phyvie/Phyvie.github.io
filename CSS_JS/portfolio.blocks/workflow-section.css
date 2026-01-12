@@ -8,16 +8,48 @@
     max-height: 66vh;
 }
 
-.flex-tags--workflow-primary {
-    font-size: var(--FONT-SIZE-TITLE-LVL2);
+.workflow-section__tools-description-container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--LAYOUT-DISTANCE-DEFAULT);
+}
 
-    --LAYOUT-CHILD-MIN-WIDTH: 5rem;
-    --LAYOUT-CHILD-MAX-WIDTH: 7.5rem;
+.flex-tags--workflow-primary {
+    gap: var(--LAYOUT-DISTANCE-LARGE);
 }
 
 .flex-tags--workflow-secondary {
-    font-size: var(--FONT-SIZE-EMPHASIZED);
+    gap: var(--LAYOUT-DISTANCE-DEFAULT);
+}
 
-    --LAYOUT-CHILD-MIN-WIDTH: 3rem;
-    --LAYOUT-CHILD-MAX-WIDTH: 4rem;
+.tag--workflow-primary:hover img {
+    transform: scale(1.1);
+}
+
+.tag--workflow-primary {
+    font-size: var(--FONT-SIZE-TITLE);
+    --LAYOUT-TAG-WIDTH: 100%;
+}
+
+.tag--workflow-secondary {
+    font-size: var(--FONT-SIZE-EMPHASIZED);
+    --LAYOUT-TAG-WIDTH: 50%;
+}
+
+@container flex-tags (min-width: 20rem)
+{
+    .tag--workflow-primary {
+        --LAYOUT-TAG-WIDTH: calc(25% - var(--LAYOUT-DISTANCE-LARGE));
+    }
+
+    .tag--workflow-secondary {
+        --LAYOUT-TAG-WIDTH: calc(12.5% - var(--LAYOUT-DISTANCE-DEFAULT));
+    }
+}
+
+@container flex-tags (min-width: 40rem)
+{
+    .tag--workflow-secondary {
+        --LAYOUT-TAG-WIDTH: 12.5%;
+    }
 }

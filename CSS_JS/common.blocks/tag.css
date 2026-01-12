@@ -31,10 +31,6 @@
     text-wrap: nowrap;
 }
 
-.tag--small-padding {
-    padding: var(--LAYOUT-DISTANCE-SMALL) var(--LAYOUT-DISTANCE-DEFAULT);
-}
-
 .tag--link-arrow {
     display: inline-flex;
 

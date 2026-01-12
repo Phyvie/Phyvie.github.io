@@ -25,6 +25,8 @@
 .further-projects-section__project-item {
     width: 100%;
     height: max-content;
+    justify-self: center;
+    align-self: center;
 }
 
 @container further-projects-section (min-width: 0rem) {
