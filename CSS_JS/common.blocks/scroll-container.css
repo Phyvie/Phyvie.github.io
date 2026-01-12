@@ -1,0 +1,58 @@
+/* relative wrapper for next/last scroll-buttons */
+.scroll-container {
+    position: relative;
+}
+
+.scroll-container__content-container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+
+    overflow: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    --MEDIA-STRIP-GAP: var(--LAYOUT-DISTANCE-LARGE);
+    gap: var(--MEDIA-STRIP-GAP);
+
+    --MEDIA-STRIP__ITEM_FLEX-BASIS: 100%;
+}
+
+.scroll-container__content-container--vertical {
+    flex-flow: column nowrap;
+    scroll-snap-type: y mandatory;
+}
+
+.scroll-container__content-container--two-elements {
+    --MEDIA-STRIP__ITEM_FLEX-BASIS: 50%;
+}
+
+.scroll-container__item {
+    flex: 0 0 calc(var(--MEDIA-STRIP__ITEM_FLEX-BASIS) - var(--MEDIA-STRIP-GAP)/2);
+
+    scroll-snap-align: start;
+}
+
+.scroll-container__nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 1);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.scroll-container__nav-button:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.scroll-container__nav-button--prev {
+    left: 30px;
+}
+
+.scroll-container__nav-button--next {
+    right: 30px;
+}

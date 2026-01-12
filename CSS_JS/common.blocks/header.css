@@ -1,0 +1,17 @@
+.header {
+    padding: var(--LAYOUT-DISTANCE-DEFAULT);
+    font-size: var(--FONT-SIZE-TITLE);
+    text-align: center;
+}
+
+.header--lvl2 {
+    font-size: var(--FONT-SIZE-TITLE-LVL2);
+}
+
+.header--left {
+    text-align: left;
+}
+
+.emphasized {
+    font-size: var(--FONT-SIZE-EMPHASIZED);
+}

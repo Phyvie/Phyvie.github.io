@@ -1,0 +1,86 @@
+.further-projects-section {
+    display: flex;
+    flex-flow: column nowrap;
+
+    container: further-projects-section / inline-size;
+}
+
+.further-projects-section__cards-grid {
+    display: grid;
+
+    /* gets overwritten by container queries */
+    grid-template-areas:
+            "big1 big1 big2 big2"
+            "big1 big1 big2 big2"
+            "small1 small2 small3 small4";
+    grid-template-columns: repeat(4, 1fr);
+    /* alternative version */
+    /*grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));*/
+    /*grid-auto-flow: dense;*/
+
+    gap: var(--LAYOUT-DISTANCE-LARGE);
+    align-items: stretch;
+}
+
+.further-projects-section__project-item {
+    width: 100%;
+    height: max-content;
+    justify-self: center;
+    align-self: center;
+}
+
+@container further-projects-section (min-width: 0rem) {
+    .further-projects-section__cards-grid {
+        grid-template-areas:
+            "big1"
+            "big2"
+            "small1"
+            "small2"
+            "small3"
+            "small4";
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@container further-projects-section (min-width: 45rem) {
+    .further-projects-section__cards-grid {
+        grid-template-areas:
+            "big1 big1"
+            "big1 big1"
+            "big2 big2"
+            "big2 big2"
+            "small1 small2"
+            "small3 small4";
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@container further-projects-section (min-width: 60rem) {
+    .further-projects-section__cards-grid {
+        grid-template-areas:
+            "big1 big1 small1"
+            "big1 big1 small2"
+            "small3 big2 big2"
+            "small4 big2 big2";
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@container further-projects-section (min-width: 90rem) {
+    .further-projects-section__cards-grid {
+        grid-template-areas:
+            "big1 big1 big2 big2"
+            "big1 big1 big2 big2"
+            "small1 small2 small3 small4";
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@container further-projects-section (min-width: 150rem) {
+    .further-projects-section__cards-grid {
+        grid-template-areas:
+            "big1 big1 small1 small2 big2 big2"
+            "big1 big1 small1 small2 big2 big2";
+        grid-template-columns: repeat(6, 1fr);
+    }
+}

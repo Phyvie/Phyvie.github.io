@@ -3,10 +3,9 @@
   "project-type": "Audio Pitch Input",
   "version": "1.0.0",
   "description": "",
-  "image": {
+  "thumbnail": {
     "src": "Data/Placeholder-images/cat-2356021.jpg",
-    "alt": "Bevoiced Project IMG",
-    "class": "HoverScale"
+    "alt": "Bevoiced Project IMG"
   },
   "project-video": {
     "src": "Data/Projects/#.mp4"

@@ -1,0 +1,64 @@
+:root {
+    /* region MAIN COLORS */
+    --COLOR-DARK: hsl(270, 20%, 10%);
+    --COLOR-LIGHT: hsl(90, 0%, 90%);
+
+    --COLOR-ACCENT-DARK: hsl(263, 33%, 26%);
+    --COLOR-ACCENT-LIGHT: hsl(18, 87%, 30%);
+    /* endregion MAIN COLORS */
+
+    /* region ALL COLORS */
+    --COLOR-BG-WEBSITE: var(--COLOR-DARK);
+    --COLOR-BG-BLOCK: var(--COLOR-DARK);
+    --COLOR-BG-ELEMENT: var(--COLOR-DARK);
+
+    --COLOR-DECORATION-BLOCK: var(--COLOR-ACCENT-DARK);
+    --COLOR-DECORATION-ELEMENT: var(--COLOR-ACCENT-LIGHT);
+
+    --COLOR-TEXT-MAIN: var(--COLOR-LIGHT);
+    --COLOR-TEXT-ACCENT: var(--COLOR-ACCENT-LIGHT);
+    /* endregion ALL COLORS */
+
+    /* region FONTS */
+    --FF-MAIN: sans-serif;
+    --FF-SECONDARY: serif;
+
+    --FONT-SIZE-DEFAULT: 1rem;
+    --FONT-SIZE-XS: 0.4rem;
+    --FONT-SIZE-SMALL: 0.8rem;
+    --FONT-SIZE-TITLE: 2.5rem;
+    --FONT-SIZE-TITLE-LVL2: 1.5rem;
+
+    --FONT-SIZE-EMPHASIZED: 1.2em;
+
+    --ELEMENT-LINE-HEIGHT: 1.8em; /* 1.8em = 1 line-height */
+    /* endregion FONTS */
+
+    /* region LAYOUT */
+    --LAYOUT-DISTANCE-XS: clamp(0.125rem, calc(0.5vw + 0.125rem), 0.5rem);
+    --LAYOUT-DISTANCE-SMALL: clamp(0.375rem, calc(1.5vw + 0.25rem), 1rem);
+    --LAYOUT-DISTANCE-DEFAULT: clamp(0.625rem, calc(2.5vw + 0.5rem), 1.5rem);
+    --LAYOUT-DISTANCE-LARGE: clamp(1.875rem, calc(7.5vw + 1rem), 4rem);
+    --LAYOUT-DISTANCE-XL: clamp(6.25rem, calc(15vw + 2rem), 12rem);
+
+    --LAYOUT-BORDER-RADIUS-CYLINDER: 999px;
+    --LAYOUT-BORDER-RADIUS-ELLIPSE: 50%;
+
+    --LAYOUT-BORDER-RADIUS-DEFAULT: var(--LAYOUT-DISTANCE-DEFAULT);
+    --LAYOUT-BORDER-RADIUS-XS: var(--LAYOUT-DISTANCE-XS);
+    --LAYOUT-BORDER-RADIUS-SMALL: var(--LAYOUT-DISTANCE-SMALL);
+    --LAYOUT-BORDER-RADIUS-LARGE: var(--LAYOUT-DISTANCE-LARGE);
+    --LAYOUT-BORDER-RADIUS-XL: var(--LAYOUT-DISTANCE-XL);
+
+    --LAYOUT-CHILD-MIN-WIDTH: 0rem;
+    --LAYOUT-CHILD-MAX-WIDTH: 0rem;
+    /* endregion LAYOUT */
+
+    /* region ANIMATION */
+    --ANIMATION-DURATION-DEFAULT: 0.3s;
+    --ANIMATION-DURATION-SLOW: 0.6s;
+    --ANIMATION-DURATION-SLOWEST: 1s;
+    --ANIMATION-DURATION-FAST: 0.1s;
+    --ANIMATION-DURATION-FASTER: 0.05s;
+    /* endregion ANIMATION */
+}
