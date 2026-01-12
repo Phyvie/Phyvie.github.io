@@ -8,6 +8,7 @@
 
     gap: var(--LAYOUT-DISTANCE-DEFAULT);
 
+    /* !ZyKa adjust the tag-container, so that all children have the same size, but also grow/shrink with the parent and distribute over multiple lines*/
     --LAYOUT-CHILD-MIN-WIDTH: 10rem;
     --LAYOUT-CHILD-MAX-WIDTH: 20rem;
 

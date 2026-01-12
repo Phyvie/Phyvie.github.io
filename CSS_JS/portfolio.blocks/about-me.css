@@ -2,16 +2,16 @@
 
 }
 
-.about-me__tag {
+.tag--about-me {
     container-name: about-me__tag;
 }
 
-.about-me__tag-br {
+.tag--about-me-br {
     display: block;
 }
 
 @container about-me__tag (min-width: 12rem) {
-    .about-me__tag-br {
+    .tag--about-me-br {
         display: none;
     }
 }

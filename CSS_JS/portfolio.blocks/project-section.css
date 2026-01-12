@@ -10,7 +10,7 @@
 }
 
 .project-section__media {
-    flex: 1 1 500px;
+    flex: 1 1 calc(66vh * 4/3);
     aspect-ratio: 4/3;
 
     max-width: calc(66vh * 4/3);
@@ -23,6 +23,8 @@
     flex: 1 1 28rem;
 
     align-self: stretch;
+
+    gap: var(--LAYOUT-DISTANCE-DEFAULT);
 }
 
 .project-section__links {
@@ -51,8 +53,4 @@
     }
 }
 
-@media (max-width: 1559px) {
-
-}
-
-/* -ZyKa widescreen adjustments */
+/*!ZyKa sizing, ensure sizes between 1280px and 1920px don't look weird af */
