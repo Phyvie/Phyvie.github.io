@@ -1,29 +1,32 @@
 /* region DEFAULT-PANEL */
 .project-section {
     display: flex;
-    flex-flow: row nowrap;
-
-    justify-content: space-around;
+    flex-flow: column nowrap;
     align-items: center;
 
     gap: var(--LAYOUT-DISTANCE-LARGE);
 }
 
 .project-section__media {
-    flex: 1 1 calc(66vh * 4/3);
+    /*flex: 1 1 auto;*/
     aspect-ratio: 4/3;
 
-    max-width: calc(66vh * 4/3);
-    max-height: 66vh;
+    /*min-width: 0;*/
+    /*max-width: min(calc(66vh * 4/3), 50vw);*/
+    /*min-height: 0;*/
+    /*max-height: min(66vh, calc(50vw * 3/4));*/
 
     align-self: center;
 }
 
 .project-section__info-container {
-    flex: 1 1 28rem;
-
+    /*flex: 1 1 auto;*/
+    /*min-width: 0;*/
+    /*max-width: max(calc(66vh * 4/3), 50vw);*/
     align-self: stretch;
 
+    display: flex;
+    flex-flow: column nowrap;
     gap: var(--LAYOUT-DISTANCE-DEFAULT);
 }
 
@@ -31,26 +34,18 @@
     margin-top: auto;
 }
 
-/* smaller screens -> vertical */
-@media (max-width: 1279px) {
-    .project-section {
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-    }
-
+/* small-wide screen */
+@media (min-aspect-ratio: 16/9) {
     .project-section__media {
-        align-self: center;
-
-        flex-basis: auto;
-    }
-
-    .project-section__info-container {
-        align-self: center;
-
-        flex-basis: auto;
-        min-width: 0;
+        max-width: min(calc(66vh * 4/3), 80vw);
     }
 }
 
-/*!ZyKa sizing, ensure sizes between 1280px and 1920px don't look weird af */
+/* larger screens -> display media & text horizontally */
+@media (min-width: 1280px) {
+    .project-section {
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+}

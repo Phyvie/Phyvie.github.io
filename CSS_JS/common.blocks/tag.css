@@ -3,31 +3,22 @@
     flex-flow: row wrap;
     justify-content: space-around;
 
-    align-items: center;
-    justify-items: stretch;
+    row-gap: var(--LAYOUT-DISTANCE-DEFAULT);
 
-    gap: var(--LAYOUT-DISTANCE-DEFAULT);
-
-    /* !ZyKa adjust the tag-container, so that all children have the same size, but also grow/shrink with the parent and distribute over multiple lines*/
-    --LAYOUT-CHILD-MIN-WIDTH: 10rem;
-    --LAYOUT-CHILD-MAX-WIDTH: 20rem;
-
-    --LAYOUT-CHILD-MIN-HEIGHT: 1.8em;
-    --LAYOUT-CHILD-MAX-HEIGHT: 3.6em;
+    container: flex-tags / inline-size;
 }
 
 .flex-tags__tag {
-    flex: 1 1 calc((var(--LAYOUT-CHILD-MIN-WIDTH) + var(--LAYOUT-CHILD-MAX-WIDTH)) / 2);
-    min-width: var(--LAYOUT-CHILD-MIN-WIDTH);
-    max-width: var(--LAYOUT-CHILD-MAX-WIDTH);
+    /* This property needs manual adjustment & container queries based on the context; i.e. 1/(tags per row)*100% */
+    --LAYOUT-TAG-WIDTH: 100%;
+    flex: 0 0 calc(var(--LAYOUT-TAG-WIDTH) - var(--LAYOUT-DISTANCE-DEFAULT));
 
-    min-height: var(--LAYOUT-CHILD-MIN-HEIGHT);
-    max-height: var(--LAYOUT-CHILD-MAX-HEIGHT);
-    overflow: hidden;
+    min-height: 1.8em;
+    max-height: 3.6em;
 }
 
 .tag {
-    padding: var(--LAYOUT-DISTANCE-DEFAULT) var(--LAYOUT-DISTANCE-LARGE);
+    padding: var(--LAYOUT-DISTANCE-DEFAULT) var(--LAYOUT-DISTANCE-DEFAULT);
 
     display: flex;
     justify-content: center;
@@ -44,15 +35,11 @@
     padding: var(--LAYOUT-DISTANCE-SMALL) var(--LAYOUT-DISTANCE-DEFAULT);
 }
 
-.tag--no-padding {
-    padding: 0;
-}
-
-.link-arrow {
+.tag--link-arrow {
     display: inline-flex;
 
     background-color: var(--COLOR-ACCENT-LIGHT);
-    padding: var(--LAYOUT-DISTANCE-DEFAULT) var(--LAYOUT-DISTANCE-LARGE);
+    padding: var(--LAYOUT-DISTANCE-DEFAULT) var(--LAYOUT-DISTANCE-DEFAULT);
     clip-path: url(
         "data:image/svg+xml,%3Csvg \
         xmlns='http://www.w3.org/2000/svg'%3E%3CclipPath \
