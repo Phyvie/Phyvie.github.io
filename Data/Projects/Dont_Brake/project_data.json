@@ -3,10 +3,9 @@
   "project-type": "Solo Game Project",
   "version": "1.0.0",
   "description": "",
-  "image": {
+  "thumbnail": {
     "src": "Data/Placeholder-images/mahou-shoujo-madoka-magica-2538.jpg",
-    "alt": "Dont Brake Project IMG",
-    "class": "HoverScale"
+    "alt": "Dont Brake Project IMG"
   },
   "project-video": {
     "src": "Data/Projects/#.mp4"

@@ -3,10 +3,9 @@
   "project-type": "Bachelor Thesis",
   "version": "1.0.0",
   "description": "",
-  "image": {
+  "thumbnail": {
     "src": "Data/Placeholder-images/gowther.jpg",
-    "alt": "Gamification in ADHD Audio File",
-    "class": "HoverScale"
+    "alt": "Gamification in ADHD Audio File"
   },
   "project-video": {
     "src": "Data/Projects/#.mp4"

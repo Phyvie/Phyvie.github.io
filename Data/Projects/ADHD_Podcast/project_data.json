@@ -2,11 +2,10 @@
   "project-title": "ADHD_Gamification",
   "project-type": "Science Podcast",
   "version": "1.0.0",
-  "description": "",
-  "image": {
+  "description": "Podcast about how gamification is used in ADHD diagnosis & treatment.",
+  "thumbnail": {
     "src": "Data/Placeholder-images/gowther.jpg",
-    "alt": "Gamification in ADHD Audio File",
-    "class": "HoverScale"
+    "alt": "Gamification in ADHD Audio File"
   },
   "project-video": {
     "src": "Data/Projects/Gamification in ADHD Diagnosis and Treatment.mp4"
