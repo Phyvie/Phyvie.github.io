@@ -62,6 +62,7 @@
 
     display: flex;
     flex-flow: column nowrap;
+    justify-content: center;
 }
 
 .overlay__element-design--transparent {
@@ -75,8 +76,8 @@
     position: absolute;
     top: var(--LAYOUT-DISTANCE-SMALL);
     left: var(--LAYOUT-DISTANCE-SMALL);
-    /*top: min(5.5%, 1rem);*/
-    /*left: min(5%, 1.5rem);*/
+    /* top: min(5.5%, 1rem); */
+    /* left: min(5%, 1.5rem); */
 }
 
 .overlay__top-left.--inactive {
@@ -126,13 +127,16 @@
 
 /* region overlay right-scroll-in */
 .overlay__scroll-in--right {
-    align-self: flex-end;
-    transition: transform var(--ANIMATION-DURATION-DEFAULT) ease-in-out;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 
     padding-top: var(--OVERLAY-BUTTON-HEIGHT);
+    transition: transform var(--ANIMATION-DURATION-DEFAULT) ease-in-out;
 
-    height: 100%;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .overlay__scroll-in--right.--inactive {
@@ -141,8 +145,9 @@
 }
 
 .overlay__project-description {
-    align-self: center;
+    padding: var(--LAYOUT-DISTANCE-DEFAULT);
     text-align: center;
+    line-height: 1.4;
 }
 /* endregion overlay right-scroll-in */
 
