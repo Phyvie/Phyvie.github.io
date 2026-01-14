@@ -2,12 +2,15 @@
   "project-title": "Möbius Magnus",
   "project-type": "Cozy Puzzle Game",
   "version": "1.0.0",
-  "description": "",
+  "description":
+      [
+        ""
+      ],
   "thumbnail": {
     "src": "Data/Placeholder-images/chrollo%20lucilfer.png",
     "alt": "Möbius Magnus Project IMG"
   },
-  "project-video": {
+  "trailer": {
     "src": "Data/Projects/#.mp4"
   },
   "mechanic-video": {
