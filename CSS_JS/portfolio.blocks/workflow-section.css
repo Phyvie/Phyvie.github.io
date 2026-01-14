@@ -32,7 +32,8 @@
 }
 
 .tag--workflow-secondary {
-    font-size: var(--FONT-SIZE-EMPHASIZED);
+    padding: var(--LAYOUT-DISTANCE-SMALL);
+    font-size: var(--FONT-SIZE-TITLE-LVL2);
     --LAYOUT-TAG-WIDTH: 50%;
 }
 

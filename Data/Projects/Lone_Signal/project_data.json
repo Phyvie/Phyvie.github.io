@@ -8,11 +8,11 @@
     "Over one or multiple playthroughs the players create a photo album to discover the story behind the alien planet. "
   ],
   "thumbnail": {
-    "src": "Data/Projects/Lone_Signal/Thumbnail.png",
+    "src": "Data/Projects/Lone_Signal/Thumbnail2.png",
     "alt": "Lone Signal Project IMG"
   },
   "trailer": {
-    "src": "Data/Projects/Lone_Signal/Lone_Signal_Trailer.mp4",
+    "src": "Data/Projects/Lone_Signal/Shortened_Trailer.mp4",
     "alt": "Lone Signal Trailer"
   },
   "highlight": "Narrative Photo Album Mechanic",
