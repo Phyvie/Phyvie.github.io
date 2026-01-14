@@ -2,12 +2,16 @@
   "project-title": "Dont Brake",
   "project-type": "Solo Game Project",
   "version": "1.0.0",
-  "description": "",
+  "description":
+      [
+        "What was initially a bug in another game I made, turned into my personal passion side-project. ",
+        "Over the years and especially due to many reworks, it has not only taught me about robust coding principles, but also helped developed my level design workflow."
+      ],
   "thumbnail": {
     "src": "Data/Placeholder-images/mahou-shoujo-madoka-magica-2538.jpg",
     "alt": "Dont Brake Project IMG"
   },
-  "project-video": {
+  "trailer": {
     "src": "Data/Projects/#.mp4"
   },
   "mechanic-video": {

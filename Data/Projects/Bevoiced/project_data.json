@@ -2,13 +2,17 @@
   "project-title": "Bevoiced",
   "project-type": "Audio Pitch Input",
   "version": "1.0.0",
-  "description": "",
+  "description":
+      [
+        "My first group game project at university. ",
+        "While the game itself wasn't very successful, we (two programmers, in a team of 5 game devs) managed to implement a mechanic where players control the environment by the pitch of their voice. "
+      ],
   "thumbnail": {
-    "src": "Data/Placeholder-images/cat-2356021.jpg",
+    "src": "Data/Projects/Bevoiced/Thumbnail.png",
     "alt": "Bevoiced Project IMG"
   },
-  "project-video": {
-    "src": "Data/Projects/#.mp4"
+  "trailer": {
+    "src": "Data/Projects/Bevoiced/mechanic_showcase.mp4"
   },
   "mechanic-video": {
     "src": "Data/Projects/#.mp4"

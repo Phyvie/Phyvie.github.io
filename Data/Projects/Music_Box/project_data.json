@@ -2,13 +2,20 @@
   "project-title": "Music Box",
   "projectType": "Multiplayer Puzzle Game",
   "version": "1.0.0",
-  "description": "",
+  "description":
+          [
+            "A musical multiplayer puzzle game. ",
+            "As one of two designers I helped with mechanic design, but mostly focused on in-engine work: ",
+            "- Combining Assets from Art, Programming & Music into Prefabs. ",
+            "- Creation of 15 Levels, 6 of which made it into the final game."
+          ],
   "thumbnail": {
     "src": "Data/Projects/Music_Box/Thumbnail.png",
     "alt": "Music Box Project IMG"
   },
-  "project-video": {
-    "src": "Data/Projects/Music_Box/Gameplay_Video.mp4"
+  "trailer": {
+    "src": "Data/Projects/Music_Box/Teaser_Trailer.mp4",
+    "alt": "Music Box Teaser Trailer"
   },
   "highlight": "Level Design",
   "mechanic-video": {
@@ -20,8 +27,8 @@
   "date": "2023",
   "time": "7 weeks",
   "contributions": [
-    "Level Design",
-    "Mechanic Design (in collab)"
+    "Mechanic Design (in collab)",
+    "Level Design"
   ],
   "tools": [
     "Unity",
