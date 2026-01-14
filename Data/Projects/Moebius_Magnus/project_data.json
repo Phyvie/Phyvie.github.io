@@ -1,0 +1,33 @@
+{
+  "project-title": "Monster Match",
+  "project-type": "Tech Design",
+  "version": "1.0.0",
+  "description":
+      [
+        "As final university group project, we had the choice between seven clients. The one asking for a educational fraction-arithmetic game was the perfect choice for me. ",
+        "As project manager I communicated with the client, ensured the designers blockouts and art assets fit together and ensured the coding stayed on track, partially by coding myself. "
+      ],
+  "thumbnail": {
+    "src": "Data/Projects/Monster_Match/Thumbnail.png",
+    "alt": "Play My Math Project IMG"
+  },
+  "trailer": {
+    "src": "Data/Projects/Monster_Match/mechanic_showcase.mp4"
+  },
+  "mechanic-video": {
+    "src": "Data/Projects/#.mp4"
+  },
+  "origin": "Cologne Game Lab",
+  "team-size": "6",
+  "date": "2024",
+  "time": "7 weeks",
+  "contributions": [
+    "Project Lead",
+    "Tech Design"
+  ],
+  "tools": [
+    "Board Games",
+    "Miro",
+    "Unity"
+  ]
+}
