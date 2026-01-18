@@ -15,7 +15,7 @@ async function CreateProjectCards() {
         {folder: 'Lone_Signal', 'grid-area': 'big2'},
         {folder: 'Music_Box', 'grid-area': 'big1'},
         {folder: 'Monster_Match', 'grid-area': 'small1'},
-        {folder: 'ADHD_Podcast', 'grid-area': 'small2'},
+        {folder: 'Gragoon', 'grid-area': 'small2'},
         {folder: 'Dont_Brake', 'grid-area': 'small3'},
         {folder: 'Bevoiced', 'grid-area': 'small4'}
     ]
