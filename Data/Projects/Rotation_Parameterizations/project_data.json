@@ -2,27 +2,77 @@
   "project-title": "Rotation Parameterizations",
   "project-type": "Bachelor Thesis",
   "version": "1.0.0",
-  "description": "",
-  "thumbnail": {
-    "src": "Data/Placeholder-images/gowther.jpg",
-    "alt": "Gamification in ADHD Audio File"
-  },
-  "trailer": {
-    "src": "Data/Projects/#.mp4"
-  },
-  "mechanic-video": {
-    "src": "Data/Projects/#.mp4"
-  },
   "origin": "Cologne Game Lab",
   "team-size": "1",
   "date": "2025",
   "time": "1 weeks",
-  "contributions": [
-    "Research & Writing",
-    "Recording & Cutting"
+
+  "description":
+  [
+    "Description text for my bachelor thesis",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, ante quis tincidunt tincidunt, libero massa tincidunt erat, quis tincidunt mauris justo quis lectus."
   ],
-  "tools": [
-    "OBS Studio",
-    "DaVinci Resolve"
+
+  "thumbnail": {
+    "src": "Data/Placeholder-images/gowther.jpg",
+    "alt": "Rotation_Parametrization Thumbnail"
+  },
+
+  "project-video": {
+    "src": "#"
+  },
+
+  "WebGL-Build": {
+    "src": "#ZyKa"
+  },
+
+  "git-link": "https://#",
+
+  "image-gallery": [
+    {
+      "src": "/Data/Placeholder-images/Bowser.jpg",
+      "alt": "Image: Euler gimbal",
+      "description": "Euler angles describe orientation as three consecutive rotations. "
+    },
+    {
+      "src": "/Data/Placeholder-images/Bowser.jpg",
+      "alt": "Image: Quaternion represented as a rotation around an axis by a given angle",
+      "description": "The exponential map converts an axis-angle rotation-representation into a quaternion."
+    },
+    {
+      "src": "/Data/Placeholder-images/Bowser.jpg",
+      "alt": "Image: Rotation Matrix",
+      "description": "The columns of a rotation (/transformation) matrix describe where the transformed x, y and z vector are pointing. "
+    },
+    {
+      "src": "/Data/Projects/Rotation_Parameterizations/Thesis_Pages/Summary_Rotation_Parameterizations.png",
+      "alt": "Summary Table of Properties of Rotation Parameterizations",
+      "description": "Summary of the properties of rotation parameterizations"
+    }
+  ],
+
+  "CodeSample1": "https://raw.githubusercontent.com/Phyvie/ProfileWeek_25_Math/refs/heads/main/Assets/Scripts/Extensions/MathExtensions/AngleType.cs",
+
+  "Workflow": [
+    {
+      "src": "/Data/Placeholder-images/Bowser.jpg",
+      "alt": "Image: Initial sketch of the project",
+      "description": "In order to plan projects, I like to start with a visual sketch of the required components"
+    },
+    {
+      "src": "/Data/Placeholder-images/Bowser.jpg",
+      "alt": "Image: Code Diagram",
+      "description": "Depending on the complexity of the project, I create a code diagrams"
+    },
+    {
+      "src": "/Data/Placeholder-images/Bowser.jpg",
+      "alt": "Image: Sample Script",
+      "description": "Some sample code of the project; the entire sourcecode can be found at !ZyKa.github"
+    },
+    {
+      "src": "/Data/Placeholder-images/Bowser.jpg",
+      "alt": "Image: UI-Toolkit",
+      "description": "Throughout the project I newly learned to use unity's UI-Toolkit"
+    }
   ]
 }

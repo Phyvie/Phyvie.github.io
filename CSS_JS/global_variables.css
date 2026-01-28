@@ -3,8 +3,8 @@
     --COLOR-DARK: hsl(270, 20%, 10%);
     --COLOR-LIGHT: hsl(90, 0%, 90%);
 
-    --COLOR-ACCENT-DARK: hsl(263, 33%, 26%);
-    --COLOR-ACCENT-LIGHT: hsl(18, 87%, 30%);
+    --COLOR-ACCENT-DARK: hsl(263, 33%, 30%);
+    --COLOR-ACCENT-LIGHT: hsl(18, 77%, 30%);
     /* endregion MAIN COLORS */
 
     /* region ALL COLORS */
@@ -20,6 +20,7 @@
     /* endregion ALL COLORS */
 
     /* region FONTS */
+    /* +ZyKa Font (especially for tags) */
     --FF-MAIN: sans-serif;
     --FF-SECONDARY: serif;
 

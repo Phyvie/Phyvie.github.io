@@ -9,6 +9,7 @@
 
 .project-section__media {
     aspect-ratio: 4/3;
+    max-width: min(calc(80vh * 4/3), 80vw);
 
     align-self: center;
 }
@@ -19,6 +20,10 @@
     display: flex;
     flex-flow: column nowrap;
     gap: var(--LAYOUT-DISTANCE-DEFAULT);
+}
+
+.project-section__description {
+    padding: var(--LAYOUT-DISTANCE-LARGE) 0;
 }
 
 .project-section__links {
@@ -41,6 +46,7 @@
 
     .project-section__media {
         flex: 1 1 50%;
+        min-width: 0;
     }
 
     .project-section__info-container {

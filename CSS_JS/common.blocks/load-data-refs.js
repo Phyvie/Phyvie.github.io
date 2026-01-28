@@ -1,29 +1,44 @@
-export function loadDataRefs(element, jsonData)
+export function loadDataRefs(targetRootElement, jsonData)
 {
-    const dataRefElements = element.querySelectorAll('[data-ref]');
-    for (const dataRef of dataRefElements) {
-        const refName = dataRef.getAttribute('data-ref');
+    if (!targetRootElement)
+    {
+        console.error("loadDataRefs: targetRootElement is null or undefined");
+        return;
+    }
+
+    if (!jsonData)
+    {
+        console.error("loadDataRefs: jsonData is null or undefined");
+        return;
+    }
+
+    const dataRefElements = targetRootElement.querySelectorAll('[data-ref]');
+    for (const dataRefElement of dataRefElements) {
+        const refName = dataRefElement.getAttribute('data-ref');
         const [type, key] = refName.split(':');
         const data = jsonData[key];
 
         switch (type) {
             case 'text':
-                setTextContent(dataRef, data);
+                setTextContent(dataRefElement, data);
                 break;
             case 'multiline-text':
-                setMultilineText(dataRef, data);
+                setMultilineText(dataRefElement, data);
                 break;
             case 'image':
-                setImageContent(dataRef, data);
+                setImageContent(dataRefElement, data);
                 break;
             case 'icon':
-                setIcon(dataRef, data);
+                setIcon(dataRefElement, data);
                 break;
             case 'link':
-                setLinks(dataRef, data);
+                setLinks(dataRefElement, data);
                 break;
             case 'video':
-                setVideo(dataRef, data);
+                setVideo(dataRefElement, data);
+                break;
+            case 'git':
+                setGitContent(dataRefElement, data);
                 break;
             default:
                 console.error(`Unknown data-ref type: ${type}`);
@@ -31,6 +46,16 @@ export function loadDataRefs(element, jsonData)
         }
 
     }
+}
+
+export async function TryLoadJson(path)
+{
+    const response = await fetch(path);
+    if (!response.ok) {
+        console.error(`HTTP error! status: ${response.status}`);
+        return null;
+    }
+    return await response.json();
 }
 
 function setTextContent(element, text) {
@@ -46,15 +71,53 @@ function setTextContent(element, text) {
     element.textContent = text;
 }
 
+function setMultilineText(element, textArray) {
+    if (!element) {
+        console.warn("setMultilineText: element is null or undefined");
+        return;
+    }
+    if (!Array.isArray(textArray)) {
+        console.warn("setMultilineText: textArray is not an array");
+        return;
+    }
+
+    element.innerHTML = textArray.join('<br>');
+}
+
+function setGitContent(element, gitLink) {
+    fetch(gitLink)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(textContent => {
+            element.textContent = textContent;
+            hljs.highlightElement(element);
+        })
+        .catch(error => console.error(error));
+}
+
 function setImageContent(element, imageData) {
     if (!element) {
         console.warn("setImageContent: element is null or undefined");
+        return;
+    }
+    if (element.tagName !== 'IMG') {
+        console.warn("setImageContent: element is not an image");
         return;
     }
     if (!imageData) {
         console.warn("setImageContent: imageData is null or undefined");
         return;
     }
+
+    element.onerror = function() {
+        console.error(`setImageContent-error: no image at source: ${this.src}`);
+        this.src = '/Data/Placeholder-images/Bowser.jpg';
+    };
+
 
     if (typeof imageData === 'string') {
         element.src = imageData;
@@ -72,19 +135,6 @@ function setImageContent(element, imageData) {
     }
 }
 
-function setMultilineText(element, textArray) {
-    if (!element) {
-        console.warn("setMultilineText: element is null or undefined");
-        return;
-    }
-    if (!Array.isArray(textArray)) {
-        console.warn("setMultilineText: textArray is not an array");
-        return;
-    }
-
-    element.innerHTML = textArray.join('<br>');
-}
-
 function setIcon(element, iconName) {
     if (!element) {
         console.warn("setIcon: element is null or undefined");
@@ -95,19 +145,12 @@ function setIcon(element, iconName) {
         return;
     }
 
-    // Clear existing content
-    element.textContent = "";
+    setImageContent(element, {"src": `Data/Icons/${iconName}.png`, "alt": iconName, "class": "media--img-in-font"});
 
-    const img = document.createElement("img");
-    img.src = `Data/Icons/${iconName}.png`;
-    img.alt = iconName;
-    img.className = "media--img-in-font";
-
-    img.onerror = () => {
-        element.textContent = iconName;
-    };
-
-    element.appendChild(img);
+    element.onerror = function()
+    {
+        console.error(`setIcon-error: no icon found for name: ${iconName}`);
+    }
 }
 
 function setLinks(element, linkData) {

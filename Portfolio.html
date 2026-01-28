@@ -14,26 +14,31 @@
     <link rel="stylesheet" href="CSS_JS/common.blocks/tag.css">
     <link rel="stylesheet" href="CSS_JS/common.blocks/scroll-container.css">
 
+    <script type="module" src="CSS_JS/common.blocks/media-strip.js"> </script>
+
+    <link rel="stylesheet" href="modules/highlight/styles/dark-phy.css">
+    <script src="modules/highlight/highlight.min.js"></script>
+
     <!-- file specific stylesheets -->
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/main.css">
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/project-section.css">
     <link rel="stylesheet" href="CSS_JS/common.blocks/project-card.css">
-    <script type="module" src="CSS_JS/portfolio.blocks/further-projects-section-load-cards.js"> </script>
 
     <!-- individual section stylesheets -->
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/about-me.css">
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/workflow-section.css">
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/further-projects-section.css">
 
+    <script type="module" src="CSS_JS/portfolio.blocks/further-projects-section-load-cards.js"> </script>
+    <script type="module" src="CSS_JS/portfolio.blocks/bachelor-thesis.js"> </script>
     <link rel="stylesheet" href="CSS_JS/debug.css">
 
-    <script type="module" src="media-strip.js"> </script>
     <title> V Then Bergh </title>
 </head>
 <body>
 
 <main class="main">
-    <section class="main__panel project-section --about-me">
+    <section id="about-me" class="main__panel project-section">
         <div class="project-section__media">
             <img class="media--cover media--rounded" src="Data/Placeholder-images/Bowser.jpg" alt="Image of me">
         </div>
@@ -41,10 +46,10 @@
             <h1 class="header header--left"> V Then Bergh </h1>
             <div class="flex-tags">
                 <h2 class="flex-tags__tag tag tag--about-me-skills"> Gameplay <br class="tag--about-me-br"> Programming </h2>
-                <h2 class="flex-tags__tag tag tag--about-me-skills"> Tech <br class="tag--about-me-br"> Design </h2>
+                <h2 class="flex-tags__tag tag tag--about-me-skills"> Mechanics <br class="tag--about-me-br"> Design </h2>
                 <h2 class="flex-tags__tag tag tag--about-me-skills"> Math <br class="tag--about-me-br"> Visualization </h2>
             </div>
-            <div>
+            <div class="project-section__description">
                 <p>
                     This is my introduction sentence.
                     <br>
@@ -65,49 +70,44 @@
 
     <div class="main__separator separator"></div>
 
-    <section class="main__panel project-section --bachelor-thesis">
+    <section id="bachelor-thesis" class="main__panel project-section">
         <div class="project-section__info-container">
             <h1 class="header"> Bachelor Thesis - Rotations </h1>
-            <div>
-                <p>
-                    Bachelor Thesis - Rotations is an interactive educational website aimed primarily at game developers.
-                    <br>
-                    It teaches the mathematics & use cases for different parameterizations of three-dimensional rotations.
-                </p>
-                <br>
-                <p>
-                    The project started as my bachelor thesis, in which I reframed mathematical papers about rotations to the context of game development.
-                    In roughly 8000 words the thesis describes the properties of the four most common parameterizations: rotation vectors, quaternions, euler angles and matrices.
-                    It culminates in a summary table that specifies which parameterization is most suitable for a given use case.
-<!--                    <br>-->
-<!--                    To support the thesis with over 100 images, I created an interactive visualization tool in the unity game engine.-->
-<!--                    <br>-->
-<!--                    To further improve the accessibility of the project, I am working on an interactive website that combines the explanatory aspects of the thesis with the interactive visualization tool.-->
-                </p>
+            <div class="project-section__info-container">
+                <p data-ref="multiline-text:description"></p>
             </div>
             <div class="flex-tags project-section__links">
-                <p class="flex-tags__tag tag--link-arrow tag--project-section-link"> more info </p>
-                <p class="flex-tags__tag tag--link-arrow tag--project-section-link"> to project page </p>
+                <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"> more info </p>
+                <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"> to project page </p>
             </div>
         </div>
 
         <div class="project-section__media">
-            <div class="inherit-size scroll-container">
-                <div id ="bachelor-media-strip" class="inherit-size scroll-container__content-container">
-                    <div id ="EulerGimbal" class="scroll-container__item media-contain-wrapper">
-                        <img class="media--contain media-contain--position_center media--rounded"
-                             src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
+            <div class="u-parent-size scroll-container">
+                <div id ="bachelor-media-strip" class="u-parent-size scroll-container__content-container">
+                    <div id ="EulerGimbal" class="scroll-container__item media-flex-center-wrapper">
+                        <img class="media-figure__img media--contain media--rounded"
+                             src="/Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
                     </div>
-                    <div id="AnotherEulerGimbal" class="scroll-container__item media-contain-wrapper">
-                        <img class="media--contain media-contain--position_center media--rounded"
-                             src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
-                    </div>
-                    <div class="scroll-container__item media-contain-wrapper">
-                        <img class="media--contain media-contain--position_center media--rounded"
-                             src="#" alt="Page from Thesis PDF">
-                    </div>
-                    <div class="scroll-container__item media-contain-wrapper">
 
+                    <div id="AnotherEulerGimbal" class="scroll-container__item media-flex-center-wrapper">
+                        <figure class="u-parent-size media-flex-center-wrapper media-figure">
+                            <img class="media-figure__img media--contain media--rounded"
+                                 src="/Data/Placeholder-images/WideImage.png" alt="Image of Project">
+                            <figcaption class="media-figure__description"> A wide image </figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="scroll-container__item media-flex-center-wrapper" style="text-wrap: nowrap">
+                        <pre class="media-pre-code--left"><code class="language-csharp" data-ref="git:CodeSample1"></code></pre>
+                    </div>
+
+                    <div class="scroll-container__item media-flex-center-wrapper">
+                        <figure class="u-parent-size media-flex-center-wrapper media-figure">
+                            <img class="media-figure__img media--contain media--rounded"
+                                 src="/Data/Placeholder-images/HighImage.jpg" alt="Image of Project">
+                            <figcaption class="media-figure__description"> A High Image </figcaption>
+                        </figure>
                     </div>
                 </div>
 
@@ -122,7 +122,7 @@
     <section class="main__panel project-section --highlight-project-B">
         <div class="project-section__media">
             <img class="media--cover media--rounded"
-                    src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
+                    src="/Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
         </div>
         <div class="project-section__info-container">
             <h1 class="header"> Highlight: Project B </h1>
@@ -130,8 +130,8 @@
                 <p> Description </p>
             </div>
             <div class="project-section__links flex-tags">
-                <p class="flex-tags__tag tag--link-arrow tag--project-section-link"> more info </p>
-                <p class="flex-tags__tag tag--link-arrow tag--project-section-link"> to project page </p>
+                <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"> more info </p>
+                <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"> to project page </p>
             </div>
         </div>
     </section>
@@ -174,25 +174,34 @@
         </div>
 
         <div class="workflow-section__scroll-container scroll-container">
+            <!--                 !ZyKa reactive the --two-elements class-->
             <div id ="workflow-media-strip"
-                 class="scroll-container__content-container scroll-container__content-container--two-elements
+                 class="scroll-container__content-container <!--scroll-container__content-container--two-elements-->
                         inherit-size">
 
-                <div id ="PaperPrototype" class="scroll-container__item media-contain-wrapper">
-                    <img class="media--contain media-contain--position_center media--rounded"
-                         src="Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
+                <div id ="Example0" class="scroll-container__item media-flex-center-wrapper">
+                    <img class="media-figure__img media--contain media--rounded"
+                         src="/Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
                 </div>
-                <div id="GameDesignDocument" class="scroll-container__item media-contain-wrapper">
-                    <img class="media--contain media-contain--position_center media--rounded"
-                         src="Data/Projects/Rotation_Parameterizations/EulerGimbal.png" alt="Image of Project">
+
+                <div id="Example1" class="scroll-container__item media-flex-center-wrapper">
+                    <figure class="u-parent-size media-flex-center-wrapper media-figure">
+                        <img class="media-figure__img media--contain media--rounded"
+                             src="/Data/Placeholder-images/WideImage.png" alt="Image of Project">
+                        <figcaption class="media-figure__description"> A wide image </figcaption>
+                    </figure>
                 </div>
-                <div id="CSS-Code" class="scroll-container__item media-contain-wrapper">
-                    <img class="media--contain media-contain--position_center media--rounded"
-                         src="#" alt="Page from Thesis PDF">
+
+                <div class="scroll-container__item media-flex-center-wrapper" style="text-wrap: nowrap">
+                    <pre class="media-pre-code--left"><code class="language-csharp" data-ref="git:CodeSample1"></code></pre>
                 </div>
-                <div id="Unity-Implementation" class="scroll-container__item media-contain-wrapper">
-                    <iframe class="media--contain media-contain--position_center media--rounded"
-                            src="Data/Projects/Rotation_Parameterizations/Summary_Rotations_Properties.pdf" width="100%" height="100%"></iframe>
+
+                <div class="scroll-container__item media-flex-center-wrapper">
+                    <figure class="u-parent-size media-flex-center-wrapper media-figure">
+                        <img class="media-figure__img media--contain media--rounded"
+                             src="/Data/Placeholder-images/HighImage.jpg" alt="Image of Project">
+                        <figcaption class="media-figure__description"> A High Image </figcaption>
+                    </figure>
                 </div>
             </div>
 
@@ -255,6 +264,10 @@
     </section>
 
     <div class="main__separator separator"></div>
+
+    <div class="debug-section">
+        <h1 class="header"> Debug </h1>
+    </div>
 </main>
 
 </body>
