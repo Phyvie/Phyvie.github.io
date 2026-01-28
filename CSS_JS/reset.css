@@ -16,7 +16,7 @@ font, button, textarea, select {
     font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p, h1, h2, h3, h4, h5, h6, figcaption {
     overflow-wrap: break-word;
     text-wrap: pretty;
     hyphens: auto;

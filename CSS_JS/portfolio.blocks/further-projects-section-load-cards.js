@@ -1,3 +1,5 @@
+import {TryLoadJson} from "../common.blocks/load-data-refs.js";
+
 const TEMPLATE_PROJECT_CARD_PATH = '../../Data/Projects/Project-Card-Template.html';
 
 import {
@@ -29,12 +31,10 @@ async function CreateProjectCards() {
             projectCard.style.gridArea = project['grid-area'];
 
             //find the project.json file
-            const response = await fetch(`Data/Projects/${project.folder}/project_data.json`);
-            if (!response.ok) {
-                console.error(`HTTP error! status: ${response.status}`);
+            const jsonData = await TryLoadJson(`/Data/Projects/${project.folder}/project_data.json`);
+            if (jsonData === null) {
                 continue;
             }
-            const jsonData = await response.json();
 
             //load the data & make the card interactive
             LoadProjectCardData(projectCard, jsonData);
@@ -45,7 +45,16 @@ async function CreateProjectCards() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeOnce);
+}
+else
+{
+    initializeOnce();
+}
+
+async function initializeOnce()
+{
     const projectCardTemplate = await FindProjectCardTemplateInDocument(TEMPLATE_PROJECT_CARD_PATH);
     if (!projectCardTemplate)
     {
@@ -54,4 +63,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     SetProjectCardTemplateAndAddToHTML(projectCardTemplate);
     await CreateProjectCards();
-});
+}

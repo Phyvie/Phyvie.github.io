@@ -8,14 +8,14 @@
         "Throughout the project I familiarised myself with Unreal Engine, as well as the coding of character controllers. "
       ],
   "thumbnail": {
-    "src": "Data/Projects/Gragoon/Thumbnail_Jump.png",
+    "src": "/Data/Projects/Gragoon/Thumbnail_Jump.png",
     "alt": "Dont Brake Project IMG"
   },
   "trailer": {
-    "src": "Data/Projects/Gragoon/Movement_Showcase.mp4"
+    "src": "/Data/Projects/Gragoon/Movement_Showcase.mp4"
   },
   "mechanic-video": {
-    "src": "Data/Projects/#.mp4"
+    "src": "/Data/Projects/#.mp4"
   },
   "origin": "private",
   "team-size": "2",
