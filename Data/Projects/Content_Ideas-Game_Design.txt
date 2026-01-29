@@ -1,0 +1,43 @@
+Goal of Showcasing - Game Design: 
+
++ analogue prototyping: 
++ GDD: 
++ in-engine-work: 
++ mechanics design: 
++ level-design: 
+(+ sound): 
+
+
+Music-Box: 
++ idea generation: 
+	+ 
++ GDD: 
+	+ 
++ in-engine-work: 
+	+ Camera
++ level-design: 
+	+ Initial Mechanic Combinations
+	+ Level Overview
+(+ sound): 
+	+ 
+
+
+
+
+Möbius-Magnus: 
++ idea generation: 
+	+? brainstorming miro-board DONE
+	+ analogue prototypes DONE
+	+ analogue prototype-puzzle DONE
++ GDD: 
+	+ Gameplay-Example DONE
+	+ Unity Timeline -> DONE, can't find anymore
+	+ Bridges (or camera or maybe another part of the GDD) DONE
++ in-engine-work: 
+	+ Shape Database Script
++ level-design: 
+	+ Starting Positions
+(+ sound): 
+	+? Fmod-File
+	+? Sound Scripts
+

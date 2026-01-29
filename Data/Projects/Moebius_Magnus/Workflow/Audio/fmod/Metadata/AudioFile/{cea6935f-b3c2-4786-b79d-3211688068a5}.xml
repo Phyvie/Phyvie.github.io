@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{cea6935f-b3c2-4786-b79d-3211688068a5}">
+		<property name="assetPath">
+			<value>Events/Characters/Death_Warning/Char_Warning-003.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.5118367346938779</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b07fcf7f-5569-48ec-aeec-e11b3edc9a31}</destination>
+		</relationship>
+	</object>
+</objects>

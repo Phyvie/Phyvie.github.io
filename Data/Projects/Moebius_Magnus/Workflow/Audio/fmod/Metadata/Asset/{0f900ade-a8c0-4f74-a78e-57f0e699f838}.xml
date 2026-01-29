@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{0f900ade-a8c0-4f74-a78e-57f0e699f838}">
+		<property name="assetPath">
+			<value>AtmosphereMP3/Deep1/Pulse/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b07fcf7f-5569-48ec-aeec-e11b3edc9a31}</destination>
+		</relationship>
+	</object>
+</objects>

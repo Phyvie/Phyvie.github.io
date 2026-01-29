@@ -4,65 +4,38 @@
  * Not an autonomous script, must be imported by another script to work (e.g. further-projects-section-load-cards.js)
  */
 import {loadDataRefs} from "./load-data-refs.js";
+import { findTemplateInDocument, addTemplateToDocument, createFromTemplate } from "/CSS_JS/common.blocks/template-manager.js";
 
 let TEMPLATE_PROJECT_CARD;
-export function FindProjectCardInHtml()
+let templatePath = "/Data/Projects/Project-Card-Template.html";
+let templateId = 'template--project-card';
+
+export async function LoadProjectCardTemplate()
 {
     if (TEMPLATE_PROJECT_CARD)
     {
-        console.warn("FindProjectCardInHtml: template already set -> now overwriting");
-    }
-
-    TEMPLATE_PROJECT_CARD = document.getElementById('template--project-card');
-    if (!TEMPLATE_PROJECT_CARD) {
-        console.warn("FindProjectCardInHtml: template not found");
-    }
-}
-
-export async function FindProjectCardTemplateInDocument(templateDocumentPath){
-    if (templateDocumentPath === undefined)
-    {
-        console.error("FindProjectCardTemplateInDocument: templateDocumentPath is undefined");
-        return null;
-    }
-
-    if (TEMPLATE_PROJECT_CARD)
-    {
-        console.warn("AddProjectTemplateToDocumentFromFilePath: template already set -> aborting");
+        console.warn("loadProjectCardTemplate: template already loaded; aborting second load");
         return TEMPLATE_PROJECT_CARD;
     }
 
-    const response = await fetch(templateDocumentPath);
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+    TEMPLATE_PROJECT_CARD = await findTemplateInDocument(templatePath, templateId);
+
+    if (!TEMPLATE_PROJECT_CARD)
+    {
+        console.error("loadProjectCardTemplate: failed to load template");
     }
 
-    const templateHTML = await response.text();
-
-    // Create a temporary div to parse the HTML, because templateHTML is a string not a DOM element
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = templateHTML;
-
-    // Extract the template element
-    const templateElement = tempDiv.querySelector('#template--project-card');
-    if (!templateElement) {
-        throw new Error("Template with id 'template--project-card' not found in external file");
-    }
-
-    return templateElement;
+    addTemplateToDocument(TEMPLATE_PROJECT_CARD);
+    return TEMPLATE_PROJECT_CARD;
 }
 
-export function SetProjectCardTemplateAndAddToHTML(template)
-{
-    document.head.appendChild(template);
-    TEMPLATE_PROJECT_CARD = template;
-}
-
+/* create an html-fragment, that is a copy of the TEMPLATE content*/
 export function CreateProjectCard() {
     if (!TEMPLATE_PROJECT_CARD) {
         console.error("CreateProjectCard: template is not set");
+        return null;
     }
-    return TEMPLATE_PROJECT_CARD.content.cloneNode(true);
+    return createFromTemplate(TEMPLATE_PROJECT_CARD);
 }
 
 /*

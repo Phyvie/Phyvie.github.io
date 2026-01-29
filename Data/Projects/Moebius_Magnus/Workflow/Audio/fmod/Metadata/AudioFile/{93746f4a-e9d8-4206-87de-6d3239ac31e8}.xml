@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{93746f4a-e9d8-4206-87de-6d3239ac31e8}">
+		<property name="assetPath">
+			<value>EnvironmentObjectSounds/ShapeSounds/Godmode_Sounds/Shape_Question_H-drum-003.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>6.6089795918367349</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b07fcf7f-5569-48ec-aeec-e11b3edc9a31}</destination>
+		</relationship>
+	</object>
+</objects>

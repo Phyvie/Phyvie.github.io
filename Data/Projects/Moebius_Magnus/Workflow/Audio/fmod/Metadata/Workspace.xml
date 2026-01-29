@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="Workspace" id="{77c03ff1-61ca-4cd4-9fd7-2e844293264c}">
+		<property name="builtBanksOutputDirectory">
+			<value>../Mobius/Assets/Audio/Fmod_Banks</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{cf090eec-d089-4dcc-b687-a2bc50114bcb}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{8de843b1-92d4-4e42-a55d-b383119b19e7}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{3aaee97e-d305-429d-87b3-f73c96f61761}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{015efdec-2ed2-4768-a6fd-461c769dc213}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{968a3fc2-4941-4215-97e6-a9637ffd7639}</destination>
+		</relationship>
+		<relationship name="masterSandboxFolder">
+			<destination>{1b9e3766-08c9-455a-a362-f28d51fe30e6}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{b07fcf7f-5569-48ec-aeec-e11b3edc9a31}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{996e3b29-5cc3-4d57-ad98-9e29d8ae9789}</destination>
+		</relationship>
+		<relationship name="profilerSessionFolder">
+			<destination>{ddbb52a5-dbeb-490f-8ca8-45e35aaf365c}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{89e64354-a63e-432b-b38e-6cb072d745ee}</destination>
+		</relationship>
+	</object>
+</objects>
