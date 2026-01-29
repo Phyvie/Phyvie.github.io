@@ -3,15 +3,19 @@ import {TryLoadJson} from "../common.blocks/load-data-refs.js";
 const TEMPLATE_PROJECT_CARD_PATH = '../../Data/Projects/Project-Card-Template.html';
 
 import {
-    FindProjectCardTemplateInDocument,
-    SetProjectCardTemplateAndAddToHTML,
+    LoadProjectCardTemplate,
     CreateProjectCard,
     LoadProjectCardData,
-    SetupProjectCardInteraction
+    SetupProjectCardInteraction,
 } from "../common.blocks/project-card.js";
 
 async function CreateProjectCards() {
     let CardParent = document.getElementById('further-projects-section__cards-grid');
+    if (!CardParent)
+    {
+        console.error("Failed to find further-projects-section__cards-grid element; aborting CreateProjectCards");
+        return;
+    }
 
     let projects = [
         {folder: 'Lone_Signal', 'grid-area': 'big2'},
@@ -45,22 +49,21 @@ async function CreateProjectCards() {
     }
 }
 
+async function initializeOnce()
+{
+    const projectCardTemplate = await LoadProjectCardTemplate(TEMPLATE_PROJECT_CARD_PATH);
+    if (!projectCardTemplate)
+    {
+        console.error("Failed to load project card template");
+        return;
+    }
+    await CreateProjectCards();
+}
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeOnce);
 }
 else
 {
     initializeOnce();
-}
-
-async function initializeOnce()
-{
-    const projectCardTemplate = await FindProjectCardTemplateInDocument(TEMPLATE_PROJECT_CARD_PATH);
-    if (!projectCardTemplate)
-    {
-        console.error("Failed to load project card template");
-        return;
-    }
-    SetProjectCardTemplateAndAddToHTML(projectCardTemplate);
-    await CreateProjectCards();
 }

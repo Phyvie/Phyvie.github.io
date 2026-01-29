@@ -1,3 +1,5 @@
+TODO: Update Project_Conventions
+
 NAMING:
 BEM + styling:
 Context = A page-specific single use container; always combined with a block; used for naming modifiers within the block
