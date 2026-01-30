@@ -3,14 +3,18 @@
  * Uses load-data-refs.js to load data from .json files into the project cards.
  * Not an autonomous script, must be imported by another script to work (e.g. further-projects-section-load-cards.js)
  */
-import {loadDataRefs} from "./load-data-refs.js";
-import { findTemplateInDocument, addTemplateToDocument, createFromTemplate } from "/CSS_JS/common.blocks/template-manager.js";
+
+import {loadDataRefs} from "../common.blocks/load-data-refs.js";
+import {
+    findTemplateInDocument,
+    addTemplateToDocument,
+    createFragmentFromTemplate,
+    appendTemplateCopyToElement
+} from "../common.blocks/template-manager.js";
 
 let TEMPLATE_PROJECT_CARD;
-let templatePath = "/Data/Projects/Project-Card-Template.html";
-let templateId = 'template--project-card';
 
-export async function LoadProjectCardTemplate()
+export async function LoadProjectCardTemplate(templatePath, templateId)
 {
     if (TEMPLATE_PROJECT_CARD)
     {
@@ -23,19 +27,25 @@ export async function LoadProjectCardTemplate()
     if (!TEMPLATE_PROJECT_CARD)
     {
         console.error("loadProjectCardTemplate: failed to load template");
+        return;
     }
 
     addTemplateToDocument(TEMPLATE_PROJECT_CARD);
     return TEMPLATE_PROJECT_CARD;
 }
 
-/* create an html-fragment, that is a copy of the TEMPLATE content*/
-export function CreateProjectCard() {
+/* create an html-fragment, that holds a copy of the TEMPLATE content*/
+export function CreateProjectCardFragment() {
     if (!TEMPLATE_PROJECT_CARD) {
         console.error("CreateProjectCard: template is not set");
         return null;
     }
-    return createFromTemplate(TEMPLATE_PROJECT_CARD);
+    return createFragmentFromTemplate(TEMPLATE_PROJECT_CARD);
+}
+
+export function AppendProjectCardToElement(element)
+{
+    return appendTemplateCopyToElement(element, TEMPLATE_PROJECT_CARD);
 }
 
 /*

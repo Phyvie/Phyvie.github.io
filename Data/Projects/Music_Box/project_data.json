@@ -10,16 +10,16 @@
             "- Creation of 15 Levels, 6 of which made it into the final game."
           ],
   "thumbnail": {
-    "src": "/Data/Projects/Music_Box/Thumbnail.png",
+    "src": "./Data/Projects/Music_Box/Thumbnail.png",
     "alt": "Music Box Project IMG"
   },
   "trailer": {
-    "src": "/Data/Projects/Music_Box/Teaser_Trailer.mp4",
+    "src": "./Data/Projects/Music_Box/Teaser_Trailer.mp4",
     "alt": "Music Box Teaser Trailer"
   },
   "highlight": "Level Design",
   "mechanic-video": {
-    "src": "/Data/Projects/#.mp4"
+    "src": "./Data/Projects/#.mp4"
   },
   "project-url": "",
   "origin": "Cologne Game Lab",

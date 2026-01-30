@@ -8,14 +8,14 @@
         "While the game itself wasn't very successful, we (two programmers, in a team of 5 game devs) managed to implement a mechanic where players control the environment by the pitch of their voice. "
       ],
   "thumbnail": {
-    "src": "/Data/Projects/Bevoiced/Thumbnail.png",
+    "src": "./Data/Projects/Bevoiced/Thumbnail.png",
     "alt": "Bevoiced Project IMG"
   },
   "trailer": {
-    "src": "/Data/Projects/Bevoiced/mechanic_showcase.mp4"
+    "src": "./Data/Projects/Bevoiced/mechanic_showcase.mp4"
   },
   "mechanic-video": {
-    "src": "/Data/Projects/#.mp4"
+    "src": "./Data/Projects/#.mp4"
   },
   "origin": "Cologne Game Lab",
   "team-size": "5",

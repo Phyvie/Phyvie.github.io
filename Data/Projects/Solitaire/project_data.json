@@ -9,16 +9,16 @@
             "In the further process I advanced the code to be capable of handling different variations of the game. "
           ],
   "thumbnail": {
-    "src": "/Data/Projects/Solitaire/#.png",
+    "src": "./Data/Projects/Solitaire/#.png",
     "alt": "Music Box Project IMG"
   },
   "trailer": {
-    "src": "/Data/Projects/Solitaire/#.mp4",
+    "src": "./Data/Projects/Solitaire/#.mp4",
     "alt": "Music Box Teaser Trailer"
   },
   "highlight": "Level Design",
   "mechanic-video": {
-    "src": "/Data/Projects/#.mp4"
+    "src": "./Data/Projects/#.mp4"
   },
   "project-url": "",
   "origin": "Cologne Game Lab",
