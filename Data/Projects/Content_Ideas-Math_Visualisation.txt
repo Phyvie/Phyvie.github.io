@@ -8,21 +8,18 @@ Goal of Showcasing - Math Visualisation:
 	- matrices DONE
 	- summary table DONE
 - proper code structure
-	- class diagram + github link -> TODO Later (learn UML)
-	- example class -> DONE + TODO Later find proper script
+    - class diagram + github link ->  LATERZyKa Content: learn UML & Create a class diagram
+	- example class -> DONE +  LATERZyKa Content: Find proper Script or Code snippet to showcase math visualisation code structure
 - how the code is made
 	- sketch image -> DONE (for now)
 - UI-Toolkit knowledge
 	- UI-Toolkit image -> DONE (for now)
 	- UI-Toolkit code -> DONE (for now)
 
-
-
 +
 56 euler gimbal internal & external
 69 properties of rotations -> see extra document
 -> exponential map via screenshot
--> 
 
 0
 48 & 50 quaternion lerp vs slerp

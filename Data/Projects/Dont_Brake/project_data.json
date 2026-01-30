@@ -9,14 +9,14 @@
         "as well as it taught me to design levels from experimenting with atomic challenges & composing those to a level. "
       ],
   "thumbnail": {
-    "src": "/Data/Projects/Dont_Brake/Thumbnail.png",
+    "src": "./Data/Projects/Dont_Brake/Thumbnail.png",
     "alt": "Dont Brake Project IMG"
   },
   "trailer": {
-    "src": "/Data/Projects/Dont_Brake/Gameplay_Compilation.mp4"
+    "src": "./Data/Projects/Dont_Brake/Gameplay_Compilation.mp4"
   },
   "mechanic-video": {
-    "src": "/Data/Projects/#.mp4"
+    "src": "./Data/Projects/#.mp4"
   },
   "origin": "private",
   "team-size": "1",

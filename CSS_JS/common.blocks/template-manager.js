@@ -85,7 +85,7 @@ export function addTemplateToDocument(template) {
  * @param {HTMLTemplateElement} template - The template to clone
  * @returns {DocumentFragment|null} A cloned copy of the template content
  */
-export function createFromTemplate(template) {
+export function createFragmentFromTemplate(template) {
     if (!template) {
         console.error("createFromTemplate: template is required");
         return null;
@@ -97,4 +97,44 @@ export function createFromTemplate(template) {
     }
 
     return template.content.cloneNode(true);
+}
+
+export function appendTemplateCopyToElement(element, template)
+{
+    if (!element)
+    {
+        console.error("addTemplateCopyToElement: element is null or undefined");
+        return;
+    }
+    if (!template)
+    {
+        console.error("addTemplateCopyToElement: template is null or undefined");
+        return;
+    }
+    if (!template.content)
+    {
+        console.error("createFromTemplate: template does not have content property");
+        return null;
+    }
+
+    const fragment = template.content.cloneNode(true);
+
+    if (fragment.children.length === 0)
+    {
+        console.warn("appendTemplateCopyToElement: template fragment has no children");
+        return;
+    }
+    if (fragment.children.length === 1)
+    {
+        const singleElement = fragment.firstElementChild;
+        element.appendChild(singleElement);
+        return singleElement;
+    }
+    else if (fragment.children.length > 1)
+    {
+        const wrapper = document.createElement('div');
+        wrapper.appendChild(fragment);
+        element.appendChild(wrapper);
+        return wrapper;
+    }
 }

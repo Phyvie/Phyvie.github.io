@@ -5,10 +5,9 @@
     padding: 0;
     border: 0;
     -webkit-font-smoothing: antialiased;
-    font-family: var(--FF-Main);
 }
 
-img, picture, video, canvas, svg {
+img, picture, video, canvas, svg, iframe {
     display: block;
 }
 

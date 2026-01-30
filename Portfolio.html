@@ -22,7 +22,7 @@
     <!-- file specific stylesheets -->
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/main.css">
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/project-section.css">
-    <link rel="stylesheet" href="CSS_JS/common.blocks/project-card.css">
+    <link rel="stylesheet" href="CSS_JS/project-card/project-card.css">
 
     <!-- individual section stylesheets -->
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/about-me.css">
@@ -87,13 +87,13 @@
                 <div id ="bachelor-media-strip" class="u-parent-size scroll-container__content-container">
                     <div id ="EulerGimbal" class="scroll-container__item media-flex-center-wrapper">
                         <img class="media-figure__img media--contain media--rounded"
-                             src="/Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
+                             src="./Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
                     </div>
 
                     <div id="AnotherEulerGimbal" class="scroll-container__item media-flex-center-wrapper">
                         <figure class="u-parent-size media-flex-center-wrapper media-figure">
                             <img class="media-figure__img media--contain media--rounded"
-                                 src="/Data/Placeholder-images/WideImage.png" alt="Image of Project">
+                                 src="./Data/Placeholder-images/WideImage.png" alt="Image of Project">
                             <figcaption class="media-figure__description"> A wide image </figcaption>
                         </figure>
                     </div>
@@ -105,7 +105,7 @@
                     <div class="scroll-container__item media-flex-center-wrapper">
                         <figure class="u-parent-size media-flex-center-wrapper media-figure">
                             <img class="media-figure__img media--contain media--rounded"
-                                 src="/Data/Placeholder-images/HighImage.jpg" alt="Image of Project">
+                                 src="./Data/Placeholder-images/HighImage.jpg" alt="Image of Project">
                             <figcaption class="media-figure__description"> A High Image </figcaption>
                         </figure>
                     </div>
@@ -122,7 +122,7 @@
     <section class="main__panel project-section --highlight-project-B">
         <div class="project-section__media">
             <img class="media--cover media--rounded"
-                    src="/Data/Placeholder-images/Bowser.jpg" alt="Image of Project">
+                    src="./Data/Placeholder-images/Bowser.jpg" alt="Image of Project">
         </div>
         <div class="project-section__info-container">
             <h1 class="header"> Highlight: Project B </h1>
@@ -174,20 +174,19 @@
         </div>
 
         <div class="workflow-section__scroll-container scroll-container">
-            <!--                 !ZyKa reactive the --two-elements class-->
             <div id ="workflow-media-strip"
-                 class="scroll-container__content-container <!--scroll-container__content-container--two-elements-->
+                 class="scroll-container__content-container scroll-container__content-container--two-elements
                         inherit-size">
 
                 <div id ="Example0" class="scroll-container__item media-flex-center-wrapper">
                     <img class="media-figure__img media--contain media--rounded"
-                         src="/Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
+                         src="./Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
                 </div>
 
                 <div id="Example1" class="scroll-container__item media-flex-center-wrapper">
                     <figure class="u-parent-size media-flex-center-wrapper media-figure">
                         <img class="media-figure__img media--contain media--rounded"
-                             src="/Data/Placeholder-images/WideImage.png" alt="Image of Project">
+                             src="./Data/Placeholder-images/WideImage.png" alt="Image of Project">
                         <figcaption class="media-figure__description"> A wide image </figcaption>
                     </figure>
                 </div>
@@ -199,7 +198,7 @@
                 <div class="scroll-container__item media-flex-center-wrapper">
                     <figure class="u-parent-size media-flex-center-wrapper media-figure">
                         <img class="media-figure__img media--contain media--rounded"
-                             src="/Data/Placeholder-images/HighImage.jpg" alt="Image of Project">
+                             src="./Data/Placeholder-images/HighImage.jpg" alt="Image of Project">
                         <figcaption class="media-figure__description"> A High Image </figcaption>
                     </figure>
                 </div>
@@ -267,11 +266,6 @@
 
     <div id = "debug" class="debug-section">
         <h1 class="header"> Debug </h1>
-        <div id ="debugUnityContainer" style="width: 1280px; height: 720px;">
-
-        </div>
-        <link rel="stylesheet" href="CSS_JS/UnityWebGL/style--new.css">
-        <script type="module" src="ZyKa/Debug.js"></script>
     </div>
 </main>
 

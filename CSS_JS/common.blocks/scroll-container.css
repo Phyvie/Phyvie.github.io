@@ -2,7 +2,7 @@
 .scroll-container {
     position: relative;
     border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
-    /*0ZyKa Colors*/
+    /* LATERZyKa styling-scroll-container: adjust the background-color oft eh scroll-container */
     background: color-mix(var(--COLOR-DECORATION-BLOCK) 50%, var(--COLOR-BG-WEBSITE) 50%);
 
     padding: 0 var(--LAYOUT-DISTANCE-LARGE);
@@ -30,8 +30,7 @@
 }
 
 .scroll-container__content-container--two-elements {
-    /* !ZyKa */
-    --MEDIA-STRIP__ITEM_FLEX-BASIS: 100%;
+    --MEDIA-STRIP__ITEM_FLEX-BASIS: 50%;
 }
 
 .scroll-container__item {
@@ -42,8 +41,8 @@
     padding: var(--LAYOUT-DISTANCE-DEFAULT);
     scroll-snap-align: start;
 
-    /*!ZyKa*/
-    background-color: #fff; 
+    /* LATERZyKa styling-scroll-container: ensure scroll-container-items and their descriptions visibly belong together */
+    background-color: #fff;
 }
 
 .scroll-container__nav-button {

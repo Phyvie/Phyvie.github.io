@@ -1,5 +1,31 @@
+/* region reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+}
+
+font, button, textarea, select {
+    font: inherit;
+}
+/* endregion reset */
+
+body {
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+}
+
+/* region unity-container */
 #unity-container {
-    /* !ZyKa remove and replace with an actual sizing class */
     width: 100%;
     height: 100%;
     position: relative;
@@ -13,13 +39,15 @@
     height: 100%;
     background: #1F1F20
 }
+/* endregion unity-container */
 
+/* region loading bar */
 #unity-loading-bar {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    display: none
+    display: block;
 }
 
 #unity-logo {
@@ -42,34 +70,9 @@
     margin-top: 10px;
     background: url('progress-bar-full-dark.png') no-repeat center
 }
+/* endregion loading bar */
 
-#unity-footer {
-    position: relative
-}
-
-#unity-logo-title-footer {
-    float: left;
-    width: 102px;
-    height: 38px;
-    background: url('unity-logo-title-footer.png') no-repeat center
-}
-
-#unity-build-title {
-    float: right;
-    margin-right: 10px;
-    line-height: 38px;
-    font-family: arial;
-    font-size: 18px
-}
-
-#unity-fullscreen-button {
-    cursor: pointer;
-    float: right;
-    width: 38px;
-    height: 38px;
-    background: url('fullscreen-button.png') no-repeat center
-}
-
+/* region warning */
 #unity-warning {
     position: absolute;
     left: 50%;
@@ -79,3 +82,32 @@
     padding: 10px;
     display: none
 }
+/* endregion warning */
+
+/* region footer */
+#unity-footer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+#unity-logo-title-footer {
+    width: 102px;
+    height: 38px;
+    background: url('unity-logo-title-footer.png') no-repeat center
+}
+
+/* LATERZyKa Styling: Remove this once I figured out how to properly manage the play-button */
+#unity-play-button {
+    width: 110px;
+    height: 38px;
+    background: white;
+}
+
+#unity-fullscreen-button {
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    background: url('fullscreen-button.png') no-repeat center
+}
+/* endregion footer */

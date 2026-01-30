@@ -1,13 +1,13 @@
 import {TryLoadJson} from "../common.blocks/load-data-refs.js";
 
-const TEMPLATE_PROJECT_CARD_PATH = '../../Data/Projects/Project-Card-Template.html';
+const TEMPLATE_PROJECT_CARD_PATH = './CSS_JS/project-card/Project-Card-Template.html';
 
 import {
     LoadProjectCardTemplate,
-    CreateProjectCard,
+    AppendProjectCardToElement,
     LoadProjectCardData,
     SetupProjectCardInteraction,
-} from "../common.blocks/project-card.js";
+} from "../project-card/project-card.js";
 
 async function CreateProjectCards() {
     let CardParent = document.getElementById('further-projects-section__cards-grid');
@@ -29,9 +29,7 @@ async function CreateProjectCards() {
     for (let project of projects) {
         try {
             //create the project card & attach it
-            let projectCardFragment = CreateProjectCard('further-projects-section__' + project.folder);
-            let projectCard = projectCardFragment.querySelector('.project-card');
-            CardParent.appendChild(projectCardFragment);
+            let projectCard = AppendProjectCardToElement(CardParent);
             projectCard.style.gridArea = project['grid-area'];
 
             //find the project.json file
@@ -51,12 +49,7 @@ async function CreateProjectCards() {
 
 async function initializeOnce()
 {
-    const projectCardTemplate = await LoadProjectCardTemplate(TEMPLATE_PROJECT_CARD_PATH);
-    if (!projectCardTemplate)
-    {
-        console.error("Failed to load project card template");
-        return;
-    }
+    await LoadProjectCardTemplate(TEMPLATE_PROJECT_CARD_PATH, 'template--project-card');
     await CreateProjectCards();
 }
 
