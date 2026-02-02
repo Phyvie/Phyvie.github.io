@@ -1,7 +1,20 @@
 /* region DEFAULT-PANEL */
+.project-section__parent {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
 .project-section {
     display: flex;
     flex-flow: column nowrap;
+    align-items: stretch;
+
+    gap: var(--LAYOUT-DISTANCE-DEFAULT);
+}
+
+.project-section__main-content {
+    display: flex;
+    flex-flow: row nowrap;
     align-items: center;
 
     gap: var(--LAYOUT-DISTANCE-LARGE);
@@ -28,6 +41,18 @@
 
 .project-section__links {
     margin-top: auto;
+}
+
+.project-section__workflow {
+    overflow: hidden;
+    width: 100%;
+    margin-top: var(--LAYOUT-DISTANCE-LARGE);
+    transition: max-height 10s ease-in-out;
+}
+
+.project-section__workflow--collapsed {
+    margin-top: 0;
+    max-height: 0;
 }
 
 /* small-wide screen */

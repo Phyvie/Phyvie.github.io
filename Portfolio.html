@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/project-section.css">
     <link rel="stylesheet" href="CSS_JS/project-card/project-card.css">
 
+    <script type="module" src="CSS_JS/portfolio.blocks/project-section.js"></script>
+
     <!-- individual section stylesheets -->
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/about-me.css">
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/workflow-section.css">
@@ -119,26 +121,39 @@
 
     <div class="main__separator separator"></div>
 
-    <section class="main__panel project-section --highlight-project-B">
-        <div class="project-section__media">
-            <img class="media--cover media--rounded"
-                    src="./Data/Placeholder-images/Bowser.jpg" alt="Image of Project">
-        </div>
-        <div class="project-section__info-container">
-            <h1 class="header"> Highlight: Project B </h1>
-            <div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Asperiores dolores eos nam necessitatibus, suscipit vel vitae voluptatum!
-                    A ad consectetur cupiditate, delectus esse exercitationem necessitatibus perferendis quas quasi quos voluptates.
-                </p>
+    <div class="main__panel project-section__parent --highlight-project-B">
+        <section class="project-section --highlight-project-B">
+            <div class="project-section__media">
+                <img class="media--cover media--rounded"
+                     src="./Data/Placeholder-images/Bowser.jpg" alt="Image of Project">
             </div>
-            <div class="project-section__links flex-tags">
-                <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"> more info </p>
-                <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"> to project page </p>
+            <div class="project-section__info-container">
+                <h1 class="header"> Highlight: Project B </h1>
+                <div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Asperiores dolores eos nam necessitatibus, suscipit vel vitae voluptatum!
+                        A ad consectetur cupiditate, delectus esse exercitationem necessitatibus perferendis quas quasi quos voluptates.
+                    </p>
+                </div>
+                <div class="project-section__links flex-tags">
+                    <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"
+                        onclick = "
+                            toggleWorkflowSectionVisibility('highlight-section-B-workflow');
+                            scrollIFrameToPosition('highlight-section-B-workflow', 'second-lorem');
+                        "
+                    > more info
+                    </p>
+                    <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"> to project page </p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <iframe id ="highlight-section-B-workflow"
+                class="project-section__workflow project-section__workflow--collapsed"
+                src="./Data/Projects/Rotation_Parameterizations/Rotation_parameterizations.html">
+        </iframe>
+    </div>
 
     <div class="main__separator separator"></div>
 
@@ -153,6 +168,7 @@
                     <img class="media--img-in-font"
                          src="Data/Icons/PaperPrototype.png" alt="Paper Prototype">
                 </div>
+                <!-- LATERZyKa styling: arrows in workflow -->
 <!--                <img class="flex-tags__tag media&#45;&#45;img-in-font"-->
 <!--                     src="Data/Icons/Arrow.png" alt="Arrow">-->
                 <div class="flex-tags__tag tag tag--workflow-primary"
