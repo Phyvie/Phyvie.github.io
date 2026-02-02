@@ -10,7 +10,7 @@ import {
     addTemplateToDocument,
     createFragmentFromTemplate,
     appendTemplateCopyToElement
-} from "../common.blocks/template-manager.js";
+} from "../templates_and_external_containers/template-manager.js";
 
 let TEMPLATE_PROJECT_CARD;
 
@@ -62,7 +62,6 @@ export function LoadProjectCardData(projectCard, jsonFile)
         console.warn("LoadProjectCardData: project data missing title");
     }
     
-    console.log("loading data for project card: " + jsonFile["project-title"]);
     loadDataRefs(projectCard, jsonFile);
 }
 

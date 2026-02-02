@@ -5,18 +5,24 @@
 
     --COLOR-ACCENT-DARK: hsl(263, 33%, 30%);
     --COLOR-ACCENT-LIGHT: hsl(18, 77%, 30%);
+
+    --COLOR-FADED-DARK: color-mix(in srgb, var(--COLOR-ACCENT-DARK) 40%, var(--COLOR-DARK) 60%);
+    --COLOR-FADED-LIGHT: color-mix(in srgb, var(--COLOR-ACCENT-LIGHT) 40%, var(--COLOR-DARK) 60%);
     /* endregion MAIN COLORS */
 
     /* region ALL COLORS */
     --COLOR-BG-WEBSITE: var(--COLOR-DARK);
-    --COLOR-BG-BLOCK: var(--COLOR-DARK);
+    --COLOR-BG-BLOCK: var(--COLOR-FADED-DARK);
     --COLOR-BG-ELEMENT: var(--COLOR-DARK);
 
     --COLOR-DECORATION-BLOCK: var(--COLOR-ACCENT-DARK);
+    --COLOR-DECORATION-BLOCK-FADED: var(--COLOR-FADED-DARK);
     --COLOR-DECORATION-ELEMENT: var(--COLOR-ACCENT-LIGHT);
+    --COLOR-DECORATION-ELEMENT-FADED: var(--COLOR-FADED-LIGHT);
 
     --COLOR-TEXT-MAIN: var(--COLOR-LIGHT);
     --COLOR-TEXT-ACCENT: var(--COLOR-ACCENT-LIGHT);
+    --COLOR-TEXT-ACTIVE: var(--COLOR-FADED-LIGHT);
     /* endregion ALL COLORS */
 
     /* region FONTS */

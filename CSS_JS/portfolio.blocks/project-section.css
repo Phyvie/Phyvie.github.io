@@ -2,6 +2,11 @@
 .project-section {
     display: flex;
     flex-flow: column nowrap;
+}
+
+.project-section__main-content {
+    display: flex;
+    flex-flow: row nowrap;
     align-items: center;
 
     gap: var(--LAYOUT-DISTANCE-LARGE);
@@ -30,6 +35,32 @@
     margin-top: auto;
 }
 
+.project-section__workflow {
+    overflow: hidden;
+    width: 100%;
+    margin-top: var(--LAYOUT-DISTANCE-LARGE);
+
+    border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
+    /* LATERZyKa styling: adjust the color of the workflow section border */
+    border: 1px solid var(--COLOR-DECORATION-BLOCK);
+    padding: 10px;
+
+    /* TODOZyKa workflow: figure out why animation doesn't properly work & adjust it */
+    transition:
+            margin-top var(--ANIMATION-DURATION-FAST) ease-in-out,
+            height var(--ANIMATION-DURATION-FAST) ease-in-out,
+            max-height var(--ANIMATION-DURATION-FAST) ease-in-out,
+            padding var(--ANIMATION-DURATION-FAST) ease-in-out;
+}
+
+/* LATERZyKa active-system: switch all the [...]--active and [...]--collapsed to just active/collapsed so that they work independent of the class they modify via .[class].--active */
+.project-section__workflow--collapsed {
+    margin-top: 0;
+    max-height: 0;
+    padding: 0;
+    border: 0;
+}
+
 /* small-wide screen */
 @media (orientation: landscape) {
     .project-section__media {
@@ -38,7 +69,7 @@
 }
 
 @media (min-width: 1200px) {
-    .project-section {
+    .project-section__main-content {
         flex-flow: row nowrap;
         justify-content: space-around;
         align-items: center;
