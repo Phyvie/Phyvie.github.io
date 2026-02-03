@@ -40,6 +40,47 @@
 <body>
 
 <main class="main">
+    <div class="main__panel project-section__parent --highlight-project-B">
+        <section id ="project-section-B"
+                class="project-section --highlight-project-B">
+            <div class="project-section__media">
+                <img class="media--cover media--rounded"
+                     src="./Data/Placeholder-images/Bowser.jpg" alt="Image of Project">
+            </div>
+            <div class="project-section__info-container">
+                <h1 class="header"> Highlight: Project B </h1>
+                <div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Asperiores dolores eos nam necessitatibus, suscipit vel vitae voluptatum!
+                        A ad consectetur cupiditate, delectus esse exercitationem necessitatibus perferendis quas quasi quos voluptates.
+                    </p>
+                </div>
+                <div class="project-section__links flex-tags">
+                    <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"
+                       data-cached-content="https://bulbapedia.bulbagarden.net/wiki/Shiny_Stone#mw-content-text"
+                    >
+                        more info
+                    </p>
+                    <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"
+                       <!-- TODOZyKa workflow: Find better method than hardcoding the link here -->
+                        data-cached-content="./Data/Projects/Rotation_Parameterizations/Rotation_parameterizations.html#lorem-ipsum"
+                    > to project page </p>
+                </div>
+            </div>
+        </section>
+
+
+        <script type="module" src="CSS_JS/templates_and_external_containers/external-html-container.js"> </script>
+        <script type="module" src="CSS_JS/portfolio.blocks/project-section-B.js"> </script>
+
+        <div id ="highlight-section-B-workflow"
+             class="project-section__workflow">
+        </div>
+    </div>
+
+    <div class="main__separator separator"></div>
+
     <section id="about-me" class="main__panel project-section">
         <div class="project-section__media">
             <img class="media--cover media--rounded" src="Data/Placeholder-images/Bowser.jpg" alt="Image of me">
@@ -115,154 +156,6 @@
 
                 <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="bachelor-media-strip" data-scrolldirection="-1"> PREV </div>
                 <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="bachelor-media-strip" data-scrolldirection="1"> NEXT </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="main__separator separator"></div>
-
-    <div class="main__panel project-section__parent --highlight-project-B">
-        <section class="project-section --highlight-project-B">
-            <div class="project-section__media">
-                <img class="media--cover media--rounded"
-                     src="./Data/Placeholder-images/Bowser.jpg" alt="Image of Project">
-            </div>
-            <div class="project-section__info-container">
-                <h1 class="header"> Highlight: Project B </h1>
-                <div>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Asperiores dolores eos nam necessitatibus, suscipit vel vitae voluptatum!
-                        A ad consectetur cupiditate, delectus esse exercitationem necessitatibus perferendis quas quasi quos voluptates.
-                    </p>
-                </div>
-                <div class="project-section__links flex-tags">
-                    <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"
-                        onclick = "
-                            toggleWorkflowSectionVisibility('highlight-section-B-workflow');
-                            scrollIFrameToPosition('highlight-section-B-workflow', 'second-lorem');
-                        "
-                    > more info
-                    </p>
-                    <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"> to project page </p>
-                </div>
-            </div>
-        </section>
-
-        <iframe id ="highlight-section-B-workflow"
-                class="project-section__workflow project-section__workflow--collapsed"
-                src="./Data/Projects/Rotation_Parameterizations/Rotation_parameterizations.html">
-        </iframe>
-    </div>
-
-    <div class="main__separator separator"></div>
-
-    <section class="main__panel workflow-section">
-        <h1 class="header"> Behind the scenes </h1>
-
-        <div class="workflow-section__tools-description-container">
-            <h2 class="header--lvl2"> Main Tools: </h2>
-            <div class="flex-tags flex-tags--workflow-primary">
-                <div class="flex-tags__tag tag tag--workflow-primary"
-                     data-mediastrip="workflow-media-strip" data-scrollindex="0">
-                    <img class="media--img-in-font"
-                         src="Data/Icons/PaperPrototype.png" alt="Paper Prototype">
-                </div>
-                <!-- LATERZyKa styling: arrows in workflow -->
-<!--                <img class="flex-tags__tag media&#45;&#45;img-in-font"-->
-<!--                     src="Data/Icons/Arrow.png" alt="Arrow">-->
-                <div class="flex-tags__tag tag tag--workflow-primary"
-                     data-mediastrip="workflow-media-strip" data-scrollindex="1">
-                    <img class = "media--img-in-font"
-                         src="Data/Icons/GDD.png" alt = "Development Plan">
-                </div>
-<!--                <img class ="flex-tags__tag media&#45;&#45;img-in-font"-->
-<!--                     src="Data/Icons/Arrow.png" alt="Arrow">-->
-                <div class="flex-tags__tag tag tag--workflow-primary"
-                     data-mediastrip="workflow-media-strip" data-scrollindex="2">
-                    <img class = "media--img-in-font"
-                         src="Data/Icons/Cs.png" alt = "Coding">
-                </div>
-<!--                <img class ="flex-tags__tag media&#45;&#45;img-in-font"-->
-<!--                     src="Data/Icons/Arrow.png" alt="Arrow">-->
-                <div class="flex-tags__tag tag tag--workflow-primary"
-                     data-mediastrip="workflow-media-strip" data-scrollindex="3">
-                    <img class = "media--img-in-font"
-                         src="Data/Icons/Unity.png" alt = "Unity">
-                </div>
-            </div>
-        </div>
-
-        <div class="workflow-section__scroll-container scroll-container">
-            <div id ="workflow-media-strip"
-                 class="scroll-container__content-container scroll-container__content-container--two-elements
-                        inherit-size">
-
-                <div id ="Example0" class="scroll-container__item media-flex-center-wrapper">
-                    <img class="media-figure__img media--contain media--rounded"
-                         src="./Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
-                </div>
-
-                <div id="Example1" class="scroll-container__item media-flex-center-wrapper">
-                    <figure class="u-parent-size media-flex-center-wrapper media-figure">
-                        <img class="media-figure__img media--contain media--rounded"
-                             src="./Data/Placeholder-images/WideImage.png" alt="Image of Project">
-                        <figcaption class="media-figure__description"> A wide image </figcaption>
-                    </figure>
-                </div>
-
-                <div class="scroll-container__item media-flex-center-wrapper" style="text-wrap: nowrap">
-                    <pre class="media-pre-code--left"><code class="language-csharp" data-ref="git:CodeSample1"></code></pre>
-                </div>
-
-                <div class="scroll-container__item media-flex-center-wrapper">
-                    <figure class="u-parent-size media-flex-center-wrapper media-figure">
-                        <img class="media-figure__img media--contain media--rounded"
-                             src="./Data/Placeholder-images/HighImage.jpg" alt="Image of Project">
-                        <figcaption class="media-figure__description"> A High Image </figcaption>
-                    </figure>
-                </div>
-            </div>
-
-            <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="workflow-media-strip" data-scrolldirection="-1"> PREV </div>
-            <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="workflow-media-strip" data-scrolldirection="1"> NEXT </div>
-        </div>
-
-        <div class="workflow-section__tools-description-container">
-            <h2 class="header--lvl2"> Additional Tools: </h2>
-            <div class="flex-tags flex-tags--workflow-secondary">
-                <div class="flex-tags__tag tag tag--workflow-secondary">
-                    <img class="media--img-in-font"
-                         src="Data/Icons/Git.png" alt="Git">
-                </div>
-                <div class="flex-tags__tag tag tag--workflow-secondary">
-                    <img class="media--img-in-font"
-                         src="Data/Icons/Blender.png" alt="Blender">
-                </div>
-                <div class="flex-tags__tag tag tag--workflow-secondary">
-                    <img class="media--img-in-font"
-                         src="Data/Icons/Miro.png" alt="Miro">
-                </div>
-                <div class="flex-tags__tag tag tag--workflow-secondary">
-                    <img class="media--img-in-font"
-                         src="Data/Icons/Reaper.png" alt="Reaper">
-                </div>
-                <div class="flex-tags__tag tag tag--workflow-secondary">
-                    <img class="media--img-in-font"
-                         src="Data/Icons/fmod.png" alt="Fmod">
-                </div>
-                <div class="flex-tags__tag tag tag--workflow-secondary">
-                    <img class="media--img-in-font"
-                         src="Data/Icons/Unreal%20Engine.png" alt="Unreal Engine">
-                </div>
-                <div class="flex-tags__tag tag tag--workflow-secondary">
-                    <img class="media--img-in-font"
-                         src="Data/Icons/Cpp.png" alt="C++">
-                </div>
-                <div class="flex-tags__tag tag tag--workflow-secondary">
-                    <img class="media--img-in-font"
-                         src="Data/Icons/TortoiseSVN.png" alt="Subversion - TortoiseSVN">
-                </div>
             </div>
         </div>
     </section>

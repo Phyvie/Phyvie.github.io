@@ -47,12 +47,25 @@
     overflow: hidden;
     width: 100%;
     margin-top: var(--LAYOUT-DISTANCE-LARGE);
-    transition: max-height 10s ease-in-out;
+
+    border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
+    /* LATERZyKa styling: adjust the color of the workflow section border */
+    border: 1px solid var(--COLOR-DECORATION-BLOCK);
+    padding: 10px;
+
+    /* TODOZyKa workflow: figure out why animation doesn't properly work & adjust it */
+    transition:
+            margin-top var(--ANIMATION-DURATION-FAST) ease-in-out,
+            height var(--ANIMATION-DURATION-FAST) ease-in-out,
+            max-height var(--ANIMATION-DURATION-FAST) ease-in-out,
+            padding var(--ANIMATION-DURATION-FAST) ease-in-out;
 }
 
 .project-section__workflow--collapsed {
     margin-top: 0;
     max-height: 0;
+    padding: 0;
+    border: 0;
 }
 
 /* small-wide screen */
