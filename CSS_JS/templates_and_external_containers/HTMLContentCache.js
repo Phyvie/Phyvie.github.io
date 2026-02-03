@@ -36,7 +36,7 @@ class HTMLContentCache {
             })
             .catch(error => {
                 this.loadingPromises.delete(url);
-                throw error;
+                console.error(`HTMLContentCache-Error: Failed to load ${url}`, error);
             });
 
         this.loadingPromises.set(url, loadPromise);

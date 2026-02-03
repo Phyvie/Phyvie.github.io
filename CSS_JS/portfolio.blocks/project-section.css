@@ -45,7 +45,6 @@
     border: 1px solid var(--COLOR-DECORATION-BLOCK);
     padding: 10px;
 
-    /* TODOZyKa workflow: figure out why animation doesn't properly work & adjust it */
     transition:
             margin-top var(--ANIMATION-DURATION-FAST) ease-in-out,
             height var(--ANIMATION-DURATION-FAST) ease-in-out,
