@@ -2,9 +2,8 @@
 .scroll-container {
     position: relative;
     border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
-    /* LATERZyKa styling-scroll-container: adjust the background-color oft eh scroll-container */
-    background: color-mix(var(--COLOR-DECORATION-BLOCK) 50%, var(--COLOR-BG-WEBSITE) 50%);
 
+    background: var(--COLOR-DECORATION-BLOCK-FADED);
     padding: 0 var(--LAYOUT-DISTANCE-LARGE);
 }
 
