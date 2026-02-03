@@ -31,6 +31,10 @@
     text-wrap: nowrap;
 }
 
+.tag--active {
+    background-color: var(--COLOR-DECORATION-ELEMENT-FADED);
+}
+
 .tag--link-arrow {
     display: inline-flex;
 

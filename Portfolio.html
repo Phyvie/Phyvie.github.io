@@ -24,8 +24,6 @@
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/project-section.css">
     <link rel="stylesheet" href="CSS_JS/project-card/project-card.css">
 
-    <script type="module" src="CSS_JS/portfolio.blocks/project-section.js"></script>
-
     <!-- individual section stylesheets -->
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/about-me.css">
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/workflow-section.css">
@@ -40,42 +38,56 @@
 <body>
 
 <main class="main">
-    <div class="main__panel project-section__parent --highlight-project-B">
-        <section id ="project-section-B"
-                class="project-section --highlight-project-B">
+    <div id = "debug" class="main__panel debug-section project-section__parent">
+        <script type="module" src="CSS_JS/common.blocks/SwitchableContentContainer.js"> </script>
+        <script type="module" src="ZyKa/debug.js"> </script>
+
+        <h1 class="header"> Debug </h1>
+
+        <div class="project-section">
             <div class="project-section__media">
                 <img class="media--cover media--rounded"
                      src="./Data/Placeholder-images/Bowser.jpg" alt="Image of Project">
             </div>
             <div class="project-section__info-container">
-                <h1 class="header"> Highlight: Project B </h1>
-                <div>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Asperiores dolores eos nam necessitatibus, suscipit vel vitae voluptatum!
-                        A ad consectetur cupiditate, delectus esse exercitationem necessitatibus perferendis quas quasi quos voluptates.
-                    </p>
-                </div>
-                <div class="project-section__links flex-tags">
-                    <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"
-                       data-cached-content="https://bulbapedia.bulbagarden.net/wiki/Shiny_Stone#mw-content-text"
-                    >
-                        more info
-                    </p>
-                    <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"
-                       <!-- TODOZyKa workflow: Find better method than hardcoding the link here -->
-                        data-cached-content="./Data/Projects/Rotation_Parameterizations/Rotation_parameterizations.html#lorem-ipsum"
-                    > to project page </p>
-                </div>
+            <h1 class="header"> Highlight: Project B </h1>
+            <div class="project-section__description">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Asperiores dolores eos nam necessitatibus, suscipit vel vitae voluptatum!
+                    A ad consectetur cupiditate, delectus esse exercitationem necessitatibus perferendis quas quasi quos voluptates.
+                </p>
             </div>
-        </section>
+            <div class="project-section__links flex-tags">
+                <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"
+                   data-cached-content="https://bulbapedia.bulbagarden.net/wiki/Shiny_Stone#mw-content-text"
+                   data-content-container-id ="debug-foldout-A">
+                    foldout-A-long
+                </p>
+                <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"
+                   data-cached-content="./Data/Projects/Rotation_Parameterizations/Rotation_parameterizations.html#lorem-ipsum"
+                   data-content-container-id ="debug-foldout-A">
+                    foldout-A-lorem
+                </p>
+                <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"
+                   data-cached-content="https://bulbapedia.bulbagarden.net/wiki/Shiny_Stone#mw-content-text"
+                   data-content-container-id ="debug-foldout-B">
+                    foldout-B-long
+                </p>
+                <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"
+                   data-cached-content="./Data/Projects/Rotation_Parameterizations/Rotation_parameterizations.html#lorem-ipsum"
+                   data-content-container-id ="debug-foldout-B">
+                    foldout-B-lorem
+                </p>
+            </div>
+        </div>
+        </div>
 
-
-        <script type="module" src="CSS_JS/templates_and_external_containers/external-html-container.js"> </script>
-        <script type="module" src="CSS_JS/portfolio.blocks/project-section-B.js"> </script>
-
-        <div id ="highlight-section-B-workflow"
-             class="project-section__workflow">
+        <div id ="debug-foldout-A"
+             class="project-section__workflow project-section__workflow--collapsed">
+        </div>
+        <div id ="debug-foldout-B"
+             class="project-section__workflow project-section__workflow--collapsed">
         </div>
     </div>
 
@@ -162,6 +174,30 @@
 
     <div class="main__separator separator"></div>
 
+    <div class="main__panel project-section__parent --highlight-project-B">
+        <section id ="project-section-B"
+                 class="project-section --highlight-project-B">
+            <div class="project-section__media">
+                <img class="media--cover media--rounded"
+                     src="./Data/Placeholder-images/Bowser.jpg" alt="Image of Project">
+            </div>
+            <div class="project-section__info-container">
+                <h1 class="header"> Highlight: Project B </h1>
+                <div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Asperiores dolores eos nam necessitatibus, suscipit vel vitae voluptatum!
+                        A ad consectetur cupiditate, delectus esse exercitationem necessitatibus perferendis quas quasi quos voluptates.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <script type="module" src="CSS_JS/portfolio.blocks/project-section-B.js"> </script>
+    </div>
+
+    <div class="main__separator separator"></div>
+
     <section class= "main__panel further-projects-section">
         <h1 class="header"> Further Projects </h1>
         <div id="further-projects-section__cards-grid" class="further-projects-section__cards-grid">
@@ -174,12 +210,6 @@
     <section class="main__panel contact-section">
         <h1 class="header"> Contact </h1>
     </section>
-
-    <div class="main__separator separator"></div>
-
-    <div id = "debug" class="debug-section">
-        <h1 class="header"> Debug </h1>
-    </div>
 </main>
 
 </body>

@@ -11,7 +11,7 @@
  * - none
  */
 
-export async function loadHTMLFromURL(url)
+export async function fetchHTMLFromURL(url)
 {
     try
     {
@@ -28,7 +28,7 @@ export async function loadHTMLFromURL(url)
     }
     catch (error)
     {
-        console.error("loadHTMLFromURL: failed to load " + url + "\n" + error);
+        console.error("fetchHTMLFromURL: failed to load " + url + "\n" + error);
         return null;
     }
 }
