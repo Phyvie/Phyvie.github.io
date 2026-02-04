@@ -1,0 +1,21 @@
+CONTENT for ABOUT-ME:
+- I like: composing elements into visible structures & mechanics design
+    -> analogue & digital game prototyping
+    -> game mechanic flowcharts
+    -> gameplay coding (not fully backend, cause no multiplayer-server-structure or graphics-coding, but also not fully frontend, cause hardly just scripts, but rather systems based on which gameplay can be created)
+    -> math visualisation
+- goal: support other devs:
+    -> improve collaboration between design & programming
+    -> cleanup folder-, template- & level-structure
+    -> simplify/proceduralise processes
+- I like mechanically simple, but skillful games; e.g.:
+    -> platformers & metroidvanias
+    -> deckbuilding- & monster-gathering-games
+    -> music games
+- my experience:
+    -> studied at CGL
+    -> 4 years Unity with C#
+    -> 1 year Unreal with C++
+    -> more added in the section below (with a link)
+
+    
