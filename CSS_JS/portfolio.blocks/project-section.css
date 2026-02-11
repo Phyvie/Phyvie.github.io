@@ -6,7 +6,7 @@
 
 .project-section__main-content {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     align-items: center;
 
     gap: var(--LAYOUT-DISTANCE-LARGE);
@@ -24,11 +24,49 @@
 
     display: flex;
     flex-flow: column nowrap;
-    gap: var(--LAYOUT-DISTANCE-DEFAULT);
+    gap: var(--LAYOUT-DISTANCE-SMALL);
+}
+
+.project-section__title {
+    font-size: var(--FONT-SIZE-TITLE);
 }
 
 .project-section__description {
-    padding: var(--LAYOUT-DISTANCE-LARGE) 0;
+    padding: var(--LAYOUT-DISTANCE-DEFAULT) 0;
+}
+
+.project-section__data-table {
+    margin-left: var(--LAYOUT-DISTANCE-DEFAULT);
+    margin-right: var(--LAYOUT-DISTANCE-DEFAULT);
+    margin-bottom: var(--LAYOUT-DISTANCE-DEFAULT);
+    padding: var(--LAYOUT-DISTANCE-XS) var(--LAYOUT-DISTANCE-SMALL);
+
+    border-radius: var(--LAYOUT-BORDER-RADIUS-SMALL);
+    background-color: var(--COLOR-BG-BLOCK);
+}
+
+.project-section__data-table td,
+.project-section__data-table th
+{
+    padding: 0 var(--LAYOUT-DISTANCE-DEFAULT) 0 var(--LAYOUT-DISTANCE-XS);
+    vertical-align: middle;
+}
+
+.project-section__data-table td:first-child,
+.project-section__data-table th:first-child {
+    width: 1%;
+    white-space: nowrap;
+}
+
+
+.project-section__data-title {
+    font-weight: bold;
+}
+
+.project-section__contributions {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--LAYOUT-DISTANCE-DEFAULT);
 }
 
 .project-section__links {
