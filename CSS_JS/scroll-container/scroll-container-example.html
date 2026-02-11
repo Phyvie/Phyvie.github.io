@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="../reset.css">
+<!-- LATERZyKa scroll-container: might be useful to be independent of global_variables -->
+<!-- requires global_variables.css to adjust the layout correctly -->
+    <link rel="stylesheet" href="../global_variables.css">
+
+    <link rel="stylesheet" href="scroll-container.css">
+    <script type="module" src="scroll-container.js"> </script>
+</head>
+<body style="width: 100vw; ">
+
+<div class="scroll-container"
+     style="width: 100vw; height: 50vh;
+     margin: 5px; border: 1px solid black;
+">
+    <div id ="bachelor-media-strip" class="u-parent-size scroll-container__content-container">
+        <div id="FirstElementId" class="scroll-container__item">
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid aspernatur assumenda dolorem impedit, in magni neque provident sapiente sunt? Ad alias fuga fugit impedit nam nobis odio perspiciatis vel. </p>
+        </div>
+
+        <div id ="SecondElementId" class="scroll-container__item media-flex-center-wrapper">
+            <img class="media-figure__img media--contain media--rounded"
+                 src="" alt="Some Image">
+        </div>
+
+        <div id="ThirdElementId" class="scroll-container__item media-flex-center-wrapper">
+            <figure class="u-parent-size media-flex-center-wrapper media-figure">
+                <img class="media-figure__img media--contain media--rounded"
+                     src="" alt="Image of Project">
+                <figcaption class="media-figure__description"> A wide image </figcaption>
+            </figure>
+        </div>
+
+        <div id="FourthElementId" class="scroll-container__item media-flex-center-wrapper" style="text-wrap: nowrap">
+            <div style="width: 200%; height: 200%; overflow: scroll; background: linear-gradient(to right, red 0%, yellow 50%, green 100%)">
+                <p> This content is too wide for the scroll-container__item, thus the user needs to scroll to see it fully </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="bachelor-media-strip" data-scrolldirection="-1"> PREV </div>
+    <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="bachelor-media-strip" data-scrolldirection="1"> NEXT </div>
+</div>
+
+</body>
+</html>
