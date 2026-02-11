@@ -44,7 +44,7 @@
       "description": "The columns of a rotation (/transformation) matrix describe where the transformed x, y and z vector are pointing. "
     },
     {
-      "src": "./Data/Projects/Rotations/Thesis_Pages/Summary_Rotation_Parameterizations.png",
+      "src": "./Projects/Rotations/Thesis_Pages/Summary_Rotation_Parameterizations.png",
       "alt": "Summary Table of Properties of Rotation Parameterizations",
       "description": "Summary of the properties of rotation parameterizations"
     }

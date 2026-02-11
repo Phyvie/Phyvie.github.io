@@ -33,9 +33,9 @@ export function embedGame(containerElement, config)
     iframe.style.height = '100%';
     iframe.style.border = 'none';
 
-    if (containerElement.innerHTML.trim() !== '')
+    if (containerElement.innerHTML.replace(/<!--[\s\S]*?-->/g, '').trim() !== '')
     {
-        console.warn('embedGame: containerElement is not empty; existing content will be removed');
+        console.warn('embedGame: containerElement is not empty; existing content will be removed: \n ' + containerElement.innerHTML + '\n');
         containerElement.innerHTML = '';
     }
 

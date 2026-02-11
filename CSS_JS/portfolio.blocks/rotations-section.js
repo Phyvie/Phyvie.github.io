@@ -6,14 +6,14 @@ import {embedGame} from "../UnityWebGL/unity-webgl-iframe-creator.js";
 async function initialize()
 {
     let bachelor_thesis_section = document.getElementById('rotations')
-    let jsonData = await TryLoadJson("/Data/Projects/Rotations/project_data.json");
+    let jsonData = await TryLoadJson("/Projects/Rotations/project_data.json");
     loadDataRefs(bachelor_thesis_section, jsonData);
 
     createSwitchableContentContainer(HTMLContentCache, 'rotations-workflow');
     embedGame(document.querySelector("#rotations").querySelector('.project-section__media'),
         {
             iFramePath: "CSS_JS/UnityWebGL/unity-webgl-iframe.html",
-            buildPath: "./Data/Projects/Rotations/Content/Build",
+            buildPath: "./Projects/Rotations/Content/Build",
             buildName: "WebBuild",
             companyName: "",
             productName: "Rotation_Parameterization_Visualisation",
