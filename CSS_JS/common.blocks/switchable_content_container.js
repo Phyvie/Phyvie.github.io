@@ -143,20 +143,20 @@ class Switchable_content_container {
 
     async switchActiveAccessor(container, newAccessor)
     {
+        if (this.activeAccessor)
+        {
+            this.activeAccessor.classList.remove("tag--active");
+        }
+
         //special case: set content inactive if the user wants to undo active accessor via clicking again the active accessor
-        if (this.activeAccessor && this.activeAccessor === newAccessor)
+        if (this.activeAccessor === newAccessor)
         {
             this.contentContainer.innerHTML = "";
-            this.activeAccessor.classList.remove("tag--active");
             this.activeAccessor = null;
             this.contentContainer.classList.add("project-section__workflow--collapsed");
             return;
         }
 
-        if (this.activeAccessor)
-        {
-            this.activeAccessor.classList.remove("tag--active");
-        }
         this.activeAccessor = newAccessor;
         this.activeAccessor.classList.add("tag--active");
         await this.loadContent(this.contentContainer, newAccessor.getAttribute("data-cached-content"));
@@ -189,7 +189,7 @@ class Switchable_content_container {
             
             container.innerHTML = content;
             container.classList.remove("--loading");
-            this.reinitializeScripts(container);
+            this.reinitializeScripts(container, contentUrl);
         }
         catch (error)
         {
@@ -199,16 +199,16 @@ class Switchable_content_container {
         }
     }
 
-    reinitializeScripts(targetElement)
+    reinitializeScripts(targetElement, originalURL)
     {
         const scripts = targetElement.querySelectorAll('script');
         for (const oldScript of scripts)
         {
-            this.reinitializeScript(oldScript);
+            this.reinitializeScript(oldScript, originalURL);
         }
     }
 
-    reinitializeScript(oldScript)
+    reinitializeScript(oldScript, originalURL)
     {
         const newScript = document.createElement('script');
         Array.from(oldScript.attributes).forEach(
@@ -217,7 +217,26 @@ class Switchable_content_container {
 
         if (oldScript.textContent)
         {
-            newScript.textContent = oldScript.textContent;
+            if (oldScript.type === 'module')
+            {
+                const absoluteOriginalURL = new URL(originalURL, document.baseURI).href;
+
+                const URLAdjustedCode = oldScript.textContent.replace(
+                    /(from\s+['"])([^'"]+)(['"])/g,
+                    (match, prefix, path, suffix) =>
+                    {
+                        const absoluteUrl = new URL(path, absoluteOriginalURL).href;
+                        return prefix + absoluteUrl + suffix;
+                    }
+                )
+
+                const blob = new Blob([URLAdjustedCode], {type: 'application/javascript'});
+                newScript.src = URL.createObjectURL(blob);
+            }
+            else
+            {
+                newScript.textContent = oldScript.textContent;
+            }
         }
 
         oldScript.parentNode.replaceChild(newScript, oldScript)

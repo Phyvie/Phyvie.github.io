@@ -33,7 +33,7 @@ async function CreateProjectCards() {
             projectCard.style.gridArea = project['grid-area'];
 
             //find the project.json file
-            const jsonData = await TryLoadJson(`/Data/Projects/${project.folder}/project_data.json`);
+            const jsonData = await TryLoadJson(`/Projects/${project.folder}/project_data.json`);
             if (jsonData === null) {
                 continue;
             }

@@ -1,17 +1,27 @@
 Goal of Showcasing - Math Visualisation: 
 - interactability: 
-	- WebGL build 
-- can visualise mathematics
-	- euler gimbal internal & external DONE
-	- exponential map DONe (might need to redo)
-- has knowledge of mathematics / rotation properties
-	- matrices DONE
-	- summary table DONE
+	- WebGL build
+- visualise mathematics
+    - inspiration image
+    - sketch image -> DONE (for now)
+    - individual 3D-assets
+    - individual shaders
+    - in-scene setup
+    - finished images
+        - euler gimbal internal & external DONE
+	    - exponential map Done (might need to redo)
+
+- thesis-writing / theoretical knowledge:
+    - rotation-bug
+    - research-image
+    - example thesis page
+    - summary table properties
+    - trying in own visualisation
+
 - proper code structure
     - class diagram + github link ->  LATERZyKa Content: learn UML & Create a class diagram
 	- example class -> DONE +  LATERZyKa Content: Find proper Script or Code snippet to showcase math visualisation code structure
-- how the code is made
-	- sketch image -> DONE (for now)
+
 - UI-Toolkit knowledge
 	- UI-Toolkit image -> DONE (for now)
 	- UI-Toolkit code -> DONE (for now)

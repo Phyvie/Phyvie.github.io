@@ -1,5 +1,5 @@
-import {embedGame} from "../../../../CSS_JS/UnityWebGL/unity-webgl-iframe-creator.js";
-import {iFrameHtmlPath} from "../../../../CSS_JS/UnityWebGL/unity-webgl-iframe-creator.js";
+import {embedGame} from "../../../CSS_JS/UnityWebGL/unity-webgl-iframe-creator.js";
+import {iFrameHtmlPath} from "../../../CSS_JS/UnityWebGL/unity-webgl-iframe-creator.js";
 
 function initialize()
 {

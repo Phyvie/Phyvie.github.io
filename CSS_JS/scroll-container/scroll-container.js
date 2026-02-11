@@ -31,11 +31,20 @@ function scrollMediaStripToPosition(gallery, position) {
     gallery.scrollLeft = position;
 }
 
-export function initialiseMediaStrips()
+export function initializeScrollContainersInDocument()
 {
-    console.log("setting up media strips");
+    initializeScrollContainer(document);
+}
 
-    const navButtons = document.querySelectorAll('[data-mediastrip]');
+export function initializeScrollContainer(rootElement)
+{
+    if (!rootElement || !(rootElement instanceof HTMLElement || rootElement instanceof Document)) {
+        throw new Error("Invalid root element: must be a HTMLElement.");
+    }
+
+    console.log("setting up scroll container for root element: " + rootElement.id);
+
+    const navButtons = rootElement.querySelectorAll('[data-mediastrip]');
 
     navButtons.forEach
     (
@@ -107,5 +116,3 @@ function NavItem_SetupClick(navItem) {
         throw new Error("No scroll instruction provided for navItem: must define one of scrollitemname, scrollindex, or scrolldirection.");
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {initialiseMediaStrips()}, {once: true});
