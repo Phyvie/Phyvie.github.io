@@ -7,6 +7,10 @@
     padding: var(--LAYOUT-DISTANCE-SMALL) var(--LAYOUT-DISTANCE-LARGE);
 }
 
+.scroll-container--limit-height {
+    max-height: 66vh; 
+}
+
 /* container for the content which is actually scrolling */
 .scroll-container__content-container {
     display: flex;
