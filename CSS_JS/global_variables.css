@@ -51,6 +51,7 @@
     --LAYOUT-BORDER-RADIUS-CYLINDER: 999px;
     --LAYOUT-BORDER-RADIUS-ELLIPSE: 50%;
 
+    /* LATERZyKa styling: Do these actually make sense, given that most elements require their own specific border radii */
     --LAYOUT-BORDER-RADIUS-DEFAULT: var(--LAYOUT-DISTANCE-DEFAULT);
     --LAYOUT-BORDER-RADIUS-XS: var(--LAYOUT-DISTANCE-XS);
     --LAYOUT-BORDER-RADIUS-SMALL: var(--LAYOUT-DISTANCE-SMALL);

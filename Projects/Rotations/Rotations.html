@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../CSS_JS/reset.css">
     <link rel="stylesheet" href="../../CSS_JS/global_variables.css">
     <link rel="stylesheet" href="../../CSS_JS/common.blocks/header.css">
+    <link rel="stylesheet" href="../../CSS_JS/styling/media.css">
 
     <link rel="stylesheet" href="../../CSS_JS/scroll-container/scroll-container.css">
     <script type="module" src="../../CSS_JS/scroll-container/scroll-container.js"> </script>
@@ -31,10 +32,6 @@
 
 <section id="Thesis-Writing"
          class="main__panel">
-    <script type="module">
-        import {initializeScrollContainer} from "../../CSS_JS/scroll-container/scroll-container.js";
-        initializeScrollContainer(document.getElementById('Thesis-Writing'))
-    </script>
     <h1 class="header"> Thesis Writing </h1>
     <p> A short description what this section is describing / what type of workflow and which results are described
         here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium corporis fugit impedit libero,
@@ -43,31 +40,79 @@
 
     <div class="scroll-container">
         <div id="writing-scroll-container" class="u-parent-size scroll-container__content-container">
-            <div id="rotation-bug" class="scroll-container__item">
-                <img src="" alt="image: dragon rotates very wildly">
+            <div id="rotation-bug" class="scroll-container__item media-flex-center-wrapper">
+                <figure class="media-figure media--rounded">
+                    <img src="./Content/workflow-writing/SpinToWin.gif" alt="image: dragon rotates very wildly"
+                         class="media--contain">
+                    <figcaption class="media-figure__description">
+                        My motivation to research rotation parameterisations originated from bugs in coding a movement controller.
+                    </figcaption>
+                </figure>
             </div>
 
-            <div id="research-image" class="scroll-container__item">
-                <img src="" alt="image: research image">
+            <div id="research-plan" class="scroll-container__item">
+                <figure class="media-figure media--rounded">
+                    <img src="./Content/workflow-writing/research-plan.png" alt="image: research image"
+                    class="media--contain">
+                    <figcaption class="media-figure__description">
+                        To start researching I created a plan which game development relevant topics I need to take notes on.
+                    </figcaption>
+                </figure>
             </div>
 
-            <div id="example-thesis-page" class="scroll-container__item">
-                <img src="" alt="image: example of a thesis page">
+            <div id="research-source" class="scroll-container__item">
+                <figure class="media-figure media--rounded">
+                    <img src="" alt="image: research-source-example"
+                         class="media--contain">
+                    <figcaption class="media-figure__description">
+                        To gain an extensive understanding I consulted not only game dev sources, but also mathematical sources.
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div id="research-notes" class="scroll-container__item">
+                <figure class="media-figure media--rounded">
+                    <img src="" alt="image: research-notes"
+                         class="media--contain">
+                    <figcaption class="media-figure__description">
+                        An example of the notes I took during my research.
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div id="thesis-page" class="scroll-container__item">
+                <figure class="media-figure media--rounded">
+                    <img src="" alt="image: example of a thesis page">
+                    <figcaption class="media-figure__description">
+                        The resulting page in my thesis.
+                    </figcaption>
+                </figure>
             </div>
 
             <div id="properties-summary" class="scroll-container__item">
-                <img src="" alt="image: summary table of the properties of rotation-parameterisations">
+                <figure class="media-figure media--rounded">
+                    <img src="" alt="image: summary table">
+                    <figcaption class="media-figure__description">
+                        My thesis culminates in a comparative summary table of rotation parameterization properties, as well as the use-cases emerging for each one.
+                    </figcaption>
+                </figure>
             </div>
 
             <div id="exponential-map" class="exponential-map">
-                <img src="" alt="image: exponential map">
+                <figure class="media-figure media--rounded">
+                    <img src="" alt="image: specific example">
+                    <figcaption class="media-figure__description">
+                        A common example for the usefulness of different parameterization is the difference between rotation-vectors and quaternions.
+                        While the former can store rotations of more than 360° degrees and add simultaneous rotational velocities together, it can't combine sequential rotations into a single one. Quaternions on the other hand are limited to rotations of <360°, but are capable of combining two sequential rotations into a single one.
+                    </figcaption>
+                </figure>
             </div>
         </div>
 
-        <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="writing-scroll-container" data-scrolldirection="-1">
+        <div class="scroll-container__nav-button scroll-container__nav-button--prev" data-scroll="prev">
             PREV
         </div>
-        <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="writing-scroll-container" data-scrolldirection="1">
+        <div class="scroll-container__nav-button scroll-container__nav-button--next" data-scroll="next">
             NEXT
         </div>
     </div>
@@ -77,8 +122,6 @@
 
 <section id="Backend-Math-Code"
          class="main__panel">
-<!--    <script type="module"> import {initializeScrollContainer} from "../../CSS_JS/scroll-container/scroll-container.js";-->
-<!--    initializeScrollContainer(document.getElementById('Backend-Math-Code')) </script>-->
     <h1 class="header"> Backend Math Code </h1>
     <p> A short description what this section is describing / what type of workflow and which results are described
         here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium corporis fugit impedit libero,
@@ -108,10 +151,10 @@
             </div>
         </div>
 
-        <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="code-scroll-container" data-scrolldirection="-1">
+        <div class="scroll-container__nav-button scroll-container__nav-button--prev" data-scroll="prev">
             PREV
         </div>
-        <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="code-scroll-container" data-scrolldirection="1">
+        <div class="scroll-container__nav-button scroll-container__nav-button--next" data-scroll="next">
             NEXT
         </div>
     </div>
@@ -155,10 +198,10 @@
             </div>
         </div>
 
-        <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="mathvis-scroll-container" data-scrolldirection="-1">
+        <div class="scroll-container__nav-button scroll-container__nav-button--prev" data-scroll="prev">
             PREV
         </div>
-        <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="mathvis-scroll-container" data-scrolldirection="1">
+        <div class="scroll-container__nav-button scroll-container__nav-button--next" data-scroll="next">
             NEXT
         </div>
     </div>
@@ -197,10 +240,10 @@
             </div>
         </div>
 
-        <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="user-interface-scroll-container" data-scrolldirection="-1">
+        <div class="scroll-container__nav-button scroll-container__nav-button--prev" data-scroll="prev">
             PREV
         </div>
-        <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="user-interface-scroll-container" data-scrolldirection="1">
+        <div class="scroll-container__nav-button scroll-container__nav-button--next" data-scroll="next">
             NEXT
         </div>
     </div>
