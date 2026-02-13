@@ -7,7 +7,7 @@
  * - keep a map links->html-content
  *
  * connections:
- * - any frontend script that needs to access from another html-page. e.g., external-html-container.js
+ * - any frontend script that needs to access from another html-page. e.g., switchable_content_container.js
  */
 class HTMLContentCache {
     constructor() {

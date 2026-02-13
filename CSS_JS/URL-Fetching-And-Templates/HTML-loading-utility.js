@@ -11,7 +11,7 @@
  * - none
  */
 
-export async function fetchHTMLFromURL(url)
+export async function fetchHTMLElementFromURL(url)
 {
     try
     {
