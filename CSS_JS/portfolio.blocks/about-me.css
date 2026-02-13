@@ -25,14 +25,14 @@
 
 @media (max-width: 1199px)
 {
-    @container flex-tags (min-width: 40em)
+    @container flex-tags (min-width: 50em)
     {
         .tag--about-me-skills {
-            --LAYOUT-TAG-WIDTH: 33%;
+            --LAYOUT-TAG-WIDTH: 25%;
         }
 
         .tag--about-me-links {
-            --LAYOUT-TAG-WIDTH: 33%;
+            --LAYOUT-TAG-WIDTH: 25%;
         }
     }
 }
@@ -42,11 +42,11 @@
     @container flex-tags (min-width: 50em)
     {
         .tag--about-me-skills {
-            --LAYOUT-TAG-WIDTH: 33%;
+            --LAYOUT-TAG-WIDTH: 25%;
         }
 
         .tag--about-me-links {
-            --LAYOUT-TAG-WIDTH: 33%;
+            --LAYOUT-TAG-WIDTH: 25%;
         }
     }
 }

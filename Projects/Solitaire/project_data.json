@@ -1,0 +1,37 @@
+{
+  "project-title": "Solitaire_Variations",
+  "projectType": "Singleplayer Card Game",
+  "version": "1.0.0",
+  "description":
+          [
+            "As a christmas gift for my relatives, I coded solitaire variants. ",
+            "For that purpose I first downloaded an existing unity-version of the game & familiarised myself with the code & plugins used (incl. Zenject and UniRX). ",
+            "In the further process I advanced the code to be capable of handling different variations of the game. "
+          ],
+  "thumbnail": {
+    "src": "./Projects/Solitaire/#.png",
+    "alt": "Music Box Project IMG"
+  },
+  "trailer": {
+    "src": "./Projects/Solitaire/#.mp4",
+    "alt": "Music Box Teaser Trailer"
+  },
+  "highlight": "Level Design",
+  "mechanic-video": {
+    "src": "./Projects/#.mp4"
+  },
+  "project-url": "",
+  "origin": "Cologne Game Lab",
+  "team-size": "5",
+  "date": "2023",
+  "time": "7 weeks",
+  "contributions": [
+    "Mechanic Design (in collab)",
+    "Level Design"
+  ],
+  "tools": [
+    "Unity",
+    "Miro",
+    "Libre_Office"
+  ]
+}

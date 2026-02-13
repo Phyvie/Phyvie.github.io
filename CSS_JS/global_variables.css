@@ -33,7 +33,7 @@
     --FONT-SIZE-DEFAULT: 1rem;
     --FONT-SIZE-XS: 0.4rem;
     --FONT-SIZE-SMALL: 0.8rem;
-    --FONT-SIZE-TITLE: 2.5rem;
+    --FONT-SIZE-TITLE: 2.0rem;
     --FONT-SIZE-TITLE-LVL2: 1.5rem;
 
     --FONT-SIZE-EMPHASIZED: 1.2em;
@@ -51,6 +51,7 @@
     --LAYOUT-BORDER-RADIUS-CYLINDER: 999px;
     --LAYOUT-BORDER-RADIUS-ELLIPSE: 50%;
 
+    /* LATERZyKa styling: Do these actually make sense, given that most elements require their own specific border radii */
     --LAYOUT-BORDER-RADIUS-DEFAULT: var(--LAYOUT-DISTANCE-DEFAULT);
     --LAYOUT-BORDER-RADIUS-XS: var(--LAYOUT-DISTANCE-XS);
     --LAYOUT-BORDER-RADIUS-SMALL: var(--LAYOUT-DISTANCE-SMALL);

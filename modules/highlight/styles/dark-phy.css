@@ -1,11 +1,20 @@
+pre {
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    min-height: 100%;
+}
+
 pre code.hljs {
+    width: max-content;
+    min-width: 100%;
+    height: max-content;
+    min-height: 100%;
+
     display: block;
     overflow: hidden;
-    padding: 1em
-}
-code.hljs {
-    width: max-content;
-    padding: 3px 5px
+
+    padding: 3px 5px;
 }
 /*
 

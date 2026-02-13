@@ -1,0 +1,55 @@
+CONTENT for ABOUT-ME:
+- I like: composing elements into visible structures & mechanics design
+    -> analogue & digital game prototyping
+    -> game mechanic flowcharts
+    -> gameplay coding (not fully backend, cause no multiplayer-server-structure or graphics-coding, but also not fully frontend, cause hardly just scripts, but rather systems based on which gameplay can be created)
+    -> math visualisation
+- goal: support other devs:
+    -> improve collaboration between design & programming
+    -> cleanup folder-, template- & level-structure
+    -> simplify/proceduralise processes
+- I like mechanically simple, but skillful games; e.g.:
+    -> platformers & metroidvanias
+    -> deckbuilding- & monster-gathering-games
+    -> music games
+- my experience:
+    -> studied at CGL
+    -> 4 years Unity with C#
+    -> 1 year Unreal with C++
+    -> more added in the section below (with a link)
+
+
+
+CONTENT for ROTATIONS:
+- Hook:
+    -> Quaternion vs Euler vs Rot Vectors vs Matrices
+    -> Rotations mathsy complicated
+
+- Basic Info:
+    -> Bachelor Thesis for theory
+    -> Visualisation via Tool
+
+- Contributions, Workflow & Tech used:
+    - Coding:
+        -> Planning (Miro)
+        -> Mathematical backend: coding of rotation classes (C#)
+        -> Coding Architecture (C#)
+    - Design?:
+        -> Folder, Prefab & Scene Organisation (Unity)
+    - Visualising:
+        -> Planning (Krita)
+        -> Object Modeling (Blender) (Python export script)
+        -> Creating UI (UI-Toolkit)
+
+Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why?
+In my bachelor thesis, and the accompanying unity-project tool, I analyse & visualise the different use cases of rotation parametrizations.
+In 77 pages (including over 100 images) I analysed the properties & main usage of each rotation parameterization. (graded 1.3).
+Accompanying the theoretical work, I developed a visualisation tool in Unity, that enables user to vary parameters to improve their understanding how that affects the resulting rotation. (graded 1.0).
+
+Information Table:
+    -> Dev Context: Bachelor Thesis
+    -> Group Size: 1
+    -> Date: Summer 2025
+
+My Project Contributions:
+    - Coding:

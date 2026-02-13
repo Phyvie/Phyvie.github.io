@@ -18,18 +18,27 @@ function GetConfigFromParent()
     try
     {
         //Method1: Try accessing the iframe element directly
-        if (window.frameElement)
+        if (!window)
         {
-            const configJson = window.frameElement.getAttribute("data-game-config");
-            if (configJson)
-            {
-                return JSON.parse(configJson);
-            }
+            throw new Error("Failed to get game config from parent iframe: window is null");
         }
+        if (!window.frameElement)
+        {
+            throw new Error("Failed to get game config from parent iframe: window.frameElement is null");
+        }
+
+        const configJson = window.frameElement.getAttribute("data-game-config");
+
+        if (!configJson)
+        {
+            throw new Error("Failed to get game config from parent iframe: data-game-config attribute is missing");
+        }
+
+        return JSON.parse(configJson);
     }
     catch (error)
     {
-        console.error("Failed to get game config from parent iframe: ", error);
+        console.error("Failed to get game config from parent iframe: \n", error);
         return null;
     }
 }
@@ -94,3 +103,5 @@ else
 {
     await initialise();
 }
+
+window.initialiseUnityWebGLHTMLLoader = initialise;

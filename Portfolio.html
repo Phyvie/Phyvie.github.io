@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title> Portfolio - Valentin Then Bergh </title>
+
     <!-- general purpose stylesheets -->
     <link rel="stylesheet" href="CSS_JS/reset.css">
     <link rel="stylesheet" href="CSS_JS/global_variables.css">
@@ -12,9 +15,9 @@
     <link rel="stylesheet" href="CSS_JS/common.blocks/separator.css">
     <link rel="stylesheet" href="CSS_JS/common.blocks/header.css">
     <link rel="stylesheet" href="CSS_JS/common.blocks/tag.css">
-    <link rel="stylesheet" href="CSS_JS/common.blocks/scroll-container.css">
 
-    <script type="module" src="CSS_JS/common.blocks/media-strip.js"> </script>
+    <link rel="stylesheet" href="CSS_JS/scroll-container/scroll-container.css">
+    <script defer type="module" src="CSS_JS/scroll-container/scroll-container.js"> </script>
 
     <link rel="stylesheet" href="modules/highlight/styles/dark-phy.css">
     <script src="modules/highlight/highlight.min.js"></script>
@@ -22,18 +25,21 @@
     <!-- file specific stylesheets -->
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/main.css">
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/project-section.css">
+    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/contribution-section.css">
     <link rel="stylesheet" href="CSS_JS/project-card/project-card.css">
 
     <!-- individual section stylesheets -->
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/about-me.css">
+
+    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/rotations-section.css">
+    <script defer type="module" src="CSS_JS/portfolio.blocks/rotations-section.js"> </script>
+
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/workflow-section.css">
+
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/further-projects-section.css">
+    <script defer type="module" src="CSS_JS/portfolio.blocks/further-projects-section-load-cards.js"> </script>
 
-    <script type="module" src="CSS_JS/portfolio.blocks/further-projects-section-load-cards.js"> </script>
-    <script type="module" src="CSS_JS/portfolio.blocks/bachelor-thesis.js"> </script>
     <link rel="stylesheet" href="CSS_JS/debug.css">
-
-    <title> V Then Bergh </title>
 </head>
 <body>
 
@@ -43,83 +49,122 @@
             <img class="media--cover media--rounded" src="Data/Placeholder-images/Bowser.jpg" alt="Image of me">
         </div>
         <div class ="project-section__info-container">
-            <h1 class="header header--left"> V Then Bergh </h1>
+            <h1 class="header header--left"> Valentin Then Bergh </h1>
             <div class="flex-tags">
                 <h2 class="flex-tags__tag tag tag--about-me-skills"> Gameplay <br class="tag--about-me-br"> Programming </h2>
                 <h2 class="flex-tags__tag tag tag--about-me-skills"> Mechanics <br class="tag--about-me-br"> Design </h2>
+                <h2 class="flex-tags__tag tag tag--about-me-skills"> Tech <br class="tag--about-me-br"> Design </h2>
                 <h2 class="flex-tags__tag tag tag--about-me-skills"> Math <br class="tag--about-me-br"> Visualization </h2>
             </div>
             <div class="project-section__description">
                 <p>
-                    This is my introduction sentence.
+                    As a game designer and programmer, I specialize in composing game elements into logically coherent structures. Due to this characteristic, I enjoy working as an intermediary between designers and programmers: On the design side, I contribute ideas & logic to new game mechanics, before I translate the systems into flowcharts that programmers can readily implement. On the programming side, I build design-heavy gameplay systems and organize assets to empower designers in crafting gameplay more easily. <br>
                     <br>
-                    This is the first sentence to describe me.
+                    Due to my focus on gameplay mechanics, I am especially drawn to work on ludic and minimalistic games, such as platformers, metroidvanias, card-/monster-gatherers, logic puzzles, and music games. <br>
                     <br>
-                    This is the second sentence to describe me.
+                    I studied at the Cologne Game Lab, where I collaborated on multiple group projects spanning several weeks each. Throughout these, I gained experience in the collaborative use of Unity (C#, 4 years), Unreal Engine (C++, 1 year), as well as organizational tools, like Git, Miro, and more. <br>
                     <br>
-                    This is the last sentence of my description.
+                    For the future, I'd like to learn how to contribute these skills in a professional environment. Therefore, I am currently seeking internships as a tech designer to learn more about industry standards, especially the pipeline from designing to programming game mechanics.
                 </p>
             </div>
             <div class="project-section__links flex-tags">
-                <p class ="flex-tags__tag tag tag--link-arrow tag--about-me-links"> A little bit longer link </p>
-                <p class="flex-tags__tag tag tag--link-arrow tag--about-me-links"> Medium link </p>
-                <p class="flex-tags__tag tag tag--link-arrow tag--about-me-links"> short </p>
+                <p class ="flex-tags__tag tag tag--link-arrow tag--about-me-links"> Contact-E-Mail </p>
+                <p class="flex-tags__tag tag tag--link-arrow tag--about-me-links"> Curriculum Vitae </p>
             </div>
         </div>
     </section>
 
     <div class="main__separator separator"></div>
 
-    <section id="bachelor-thesis"
+    <section id="rotations"
         class ="main__panel project-section">
         <div class="project-section__main-content">
+            <div class="project-section__media">
+                <!-- rotations-section.js loads the WebGL build in here -->
+            </div>
             <div class="project-section__info-container">
-                <h1 class="header"> Bachelor Thesis - Rotations </h1>
-                <div class="project-section__description">
-                    <p data-ref="multiline-text:description"></p>
+                <h1 class="project-section__title"> Rotations </h1>
+                <div class="">
+                    <!-- NOWZyKa project-section: layout A -->
+                    <table class="project-section__data-table">
+                        <tr>
+                            <th> Genre: </th>
+                            <td> Math Visualisation Tool </td>
+                        </tr>
+                        <tr>
+                            <th> Dev-Context: </th>
+                            <td> Bachelor-Thesis </td>
+                        </tr>
+                        <tr>
+                            <th> Time - Team-Size </th>
+                            <td> Summer 2025 - Solo </td>
+                        </tr>
+<!--                        <tr>-->
+<!--                            <th> <img src="./Data/Icons/Group.png" alt="Group-Size: " class="media--img-in-font"> </th>-->
+<!--                            <td> 1 </td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th> <img src="./Data/Icons/Calendar.png" alt="Dev-Data" class="media--img-in-font"> </th>-->
+<!--                            <td> Summer 2025 </td>-->
+<!--                        </tr>-->
+                        <tr>
+                            <th> Tools </th>
+                            <td>
+                                <div style="display:flex; flex-flow: row nowrap">
+                                    <div class="tag">
+                                        <img src="./Data/Icons/Unity.png" class="media--img-in-font" alt="Unity">
+                                    </div>
+                                    <div class="tag">
+                                        <img src="./Data/Icons/Cs.png" class="media--img-in-font" alt="C#">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <p class = "project-section__description" data-ref="multiline-text:description"></p>
+                    <h2 class="header--lvl2"> contributions & tools: </h2>
+                    <ul>
+                        <li
+                                data-cached-content="./Projects/Rotations/Rotations.html#Thesis-Writing"
+                                data-content-container-id="rotations-workflow">
+                            Thesis Writing
+                        </li>
+                        <li
+                                data-cached-content="./Projects/Rotations/Rotations.html#Backend-Math-Code"
+                                data-content-container-id="rotations-workflow">
+                            Coding Rotation Mathematics
+                        </li>
+                        <li
+                                data-cached-content="./Projects/Rotations/Rotations.html#Math-Visualisation"
+                                data-content-container-id="rotations-workflow">
+                            Modeling Visualisation
+                        </li>
+                        <li
+                                data-cached-content="./Projects/Rotations/Rotations.html#User-Interface"
+                                data-content-container-id="rotations-workflow">
+                            User Interface
+                        </li>
+                    </ul>
                 </div>
+
+                <!-- NOWZyKa project-section: layout-B -->
+<!--                <div class="project-section__data-line flex-tags">-->
+<!--                    <p class="flex-tags__tag tag tag&#45;&#45;rotations"> Bachelor Thesis </p>-->
+<!--                    <p class="flex-tags__tag tag tag&#45;&#45;rotations media-flex-center-wrapper" style="position: relative; color: black; z-index: 30">-->
+<!--                        <img src="./Data/Icons/Group.png" alt="Group-size: " class="u-parent-size media&#45;&#45;contain" style="position: absolute; display: inline-block; z-index: 0" >-->
+<!--                        <span style="position: relative; z-index: 10;">1</span>-->
+<!--                    </p>-->
+<!--                    <p class="flex-tags__tag tag tag&#45;&#45;rotations">  </p>-->
+<!--                </div>-->
                 <div class="flex-tags project-section__links">
                     <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"
-                        data-cached-content="./Data/Projects/Rotation_Parameterizations/Rotation_parameterizations.html#example-text"
+                        data-cached-content="./Projects/Rotations/Rotation_parameterizations.html#example-text"
                         data-content-container-id="rotations-workflow"
                     > more info </p>
                     <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"
-                        data-cached-content="./Data/Projects/Rotation_Parameterizations/Rotation_parameterizations.html#lorem-ipsum"
+                       data-cached-content="./Projects/Rotations/Rotation_parameterizations.html#lorem-ipsum"
                        data-content-container-id="rotations-workflow"
                     > to project page </p>
-                </div>
-            </div>
-            <div class="project-section__media">
-                <div class="u-parent-size scroll-container">
-                    <div id ="bachelor-media-strip" class="u-parent-size scroll-container__content-container">
-                        <div id ="EulerGimbal" class="scroll-container__item media-flex-center-wrapper">
-                            <img class="media-figure__img media--contain media--rounded"
-                                 src="./Data/Projects/Rotation_Parameterizations/Thumbnail.png" alt="Image of Project">
-                        </div>
-
-                        <div id="AnotherEulerGimbal" class="scroll-container__item media-flex-center-wrapper">
-                            <figure class="u-parent-size media-flex-center-wrapper media-figure">
-                                <img class="media-figure__img media--contain media--rounded"
-                                     src="./Data/Placeholder-images/WideImage.png" alt="Image of Project">
-                                <figcaption class="media-figure__description"> A wide image </figcaption>
-                            </figure>
-                        </div>
-
-                        <div class="scroll-container__item media-flex-center-wrapper" style="text-wrap: nowrap">
-                            <pre class="media-pre-code--left"><code class="language-csharp" data-ref="git:CodeSample1"></code></pre>
-                        </div>
-
-                        <div class="scroll-container__item media-flex-center-wrapper">
-                            <figure class="u-parent-size media-flex-center-wrapper media-figure">
-                                <img class="media-figure__img media--contain media--rounded"
-                                     src="./Data/Placeholder-images/HighImage.jpg" alt="Image of Project">
-                                <figcaption class="media-figure__description"> A High Image </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-
-                    <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--prev" data-mediastrip="bachelor-media-strip" data-scrolldirection="-1"> PREV </div>
-                    <div class="js--media-strip__nav scroll-container__nav-button scroll-container__nav-button--next" data-mediastrip="bachelor-media-strip" data-scrolldirection="1"> NEXT </div>
                 </div>
             </div>
         </div>
@@ -133,8 +178,7 @@
 
     <div id="project-section-B"
             class="main__panel project-section">
-        <script type="module" src="CSS_JS/portfolio.blocks/project-section-B.js"> </script>
-        <section class="project-section__main-content --highlight-project-B">
+        <section class="project-section__main-content">
             <div class="project-section__media">
                 <img class="media--cover media--rounded"
                      src="./Data/Placeholder-images/Bowser.jpg" alt="Image of Project">

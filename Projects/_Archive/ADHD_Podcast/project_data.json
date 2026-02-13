@@ -1,0 +1,25 @@
+{
+  "project-title": "ADHD_Gamification",
+  "project-type": "Science Podcast",
+  "version": "1.0.0",
+  "description": "Podcast about how gamification is used in ADHD diagnosis & treatment.",
+  "thumbnail": {
+    "src": "Data/Placeholder-images/gowther.jpg",
+    "alt": "Gamification in ADHD Audio File"
+  },
+  "trailer": {
+    "src": "./Projects/Gamification in ADHD Diagnosis and Treatment.mp4"
+  },
+  "origin": "Cologne Game Lab",
+  "team-size": "1",
+  "date": "2023",
+  "time": "1 weeks",
+  "contributions": [
+    "Research & Writing",
+    "Recording & Cutting"
+  ],
+  "tools": [
+    "OBS Studio",
+    "DaVinci Resolve"
+  ]
+}
