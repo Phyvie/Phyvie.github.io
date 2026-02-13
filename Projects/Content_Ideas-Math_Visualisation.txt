@@ -1,6 +1,19 @@
-Goal of Showcasing - Math Visualisation: 
+DEPRECATED: for new version see Rotations.html
+
+Goal of Showcasing - Math Visualisation:
 - interactability: 
 	- WebGL build
+
+
+(  LATERZyKa Rotation-Content: consider whether this content is necessary or not
+- thesis-writing / theoretical knowledge:
+    - rotation-bug
+    - research-image
+    - example thesis page
+    - summary table properties
+    - trying in own visualisation
+)
+
 - visualise mathematics
     - inspiration image
     - sketch image -> DONE (for now)
@@ -11,14 +24,7 @@ Goal of Showcasing - Math Visualisation:
         - euler gimbal internal & external DONE
 	    - exponential map Done (might need to redo)
 
-- thesis-writing / theoretical knowledge:
-    - rotation-bug
-    - research-image
-    - example thesis page
-    - summary table properties
-    - trying in own visualisation
-
-- proper code structure
+- backend code:
     - class diagram + github link ->  LATERZyKa Content: learn UML & Create a class diagram
 	- example class -> DONE +  LATERZyKa Content: Find proper Script or Code snippet to showcase math visualisation code structure
 

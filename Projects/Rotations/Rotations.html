@@ -7,39 +7,59 @@
 
     <title> Rotation Parameterization </title>
 
+    <!-- general purpose stylesheets and scripts -->
     <link rel="stylesheet" href="../../CSS_JS/reset.css">
     <link rel="stylesheet" href="../../CSS_JS/global_variables.css">
     <link rel="stylesheet" href="../../CSS_JS/common.blocks/header.css">
     <link rel="stylesheet" href="../../CSS_JS/styling/media.css">
 
+    <!-- reusable elements: stylesheets and scripts-->
     <link rel="stylesheet" href="../../CSS_JS/scroll-container/scroll-container.css">
     <script type="module" src="../../CSS_JS/scroll-container/scroll-container.js"> </script>
 
-    <script type="module" src="CSS_JS/rotation_webGL_loader.js"></script>
+    <link rel="stylesheet" href="../../modules/highlight/styles/dark-phy.css">
+    <script src="../../modules/highlight/highlight.min.js"></script>
 
     <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/main.css">
     <link rel="stylesheet" href="../../CSS_JS/common.blocks/separator.css">
+    <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/contribution-section.css">
 </head>
 <body class="main">
 
 <section id="build-section"
          class="main__panel">
+    <script type="module">
+        import {embedGame} from "../../CSS_JS/UnityWebGL/unity-webgl-iframe-creator.js";
+        import {iFrameHtmlPath} from "../../CSS_JS/UnityWebGL/unity-webgl-iframe-creator.js";
+
+        embedGame(document.querySelector("#unity-webGL-container"),
+                {
+                    iFramePath: iFrameHtmlPath,
+                    buildPath: "./Content/Build",
+                    buildName: "WebBuild",
+                    companyName: "",
+                    productName: "Rotation_Parameterization_Visualisation",
+                    productVersion: "1.0.0",
+                })
+    </script>
     <div class="project-section__media"
          id="unity-webGL-container"></div>
 </section>
 
 <div class="main__separator separator"></div>
 
+<!-- LATERZyKa Rotation-Content: Consider whether the thesis-writing part is relevant or not -->
+<!--
 <section id="Thesis-Writing"
-         class="main__panel">
+         class="main__panel contribution-section">
     <h1 class="header"> Thesis Writing </h1>
     <p> A short description what this section is describing / what type of workflow and which results are described
         here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium corporis fugit impedit libero,
         magnam necessitatibus nulla quia quis quod reprehenderit similique temporibus tenetur ut. Aliquid cumque ducimus
         maiores sapiente similique. </p>
 
-    <div class="scroll-container">
-        <div id="writing-scroll-container" class="u-parent-size scroll-container__content-container">
+    <div class="scroll-container contribution-section__scroll-container">
+        <div id="writing-scroll-container" class="u-parent-size scroll-container__content-container scroll-container__content-container--two-elements">
             <div id="rotation-bug" class="scroll-container__item media-flex-center-wrapper">
                 <figure class="media-figure media--rounded">
                     <img src="./Content/workflow-writing/SpinToWin.gif" alt="image: dragon rotates very wildly"
@@ -119,35 +139,137 @@
 </section>
 
 <div class="main__separator separator"></div>
+-->
 
 <section id="Backend-Math-Code"
-         class="main__panel">
+         class="main__panel contribution-section">
     <h1 class="header"> Backend Math Code </h1>
-    <p> A short description what this section is describing / what type of workflow and which results are described
-        here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium corporis fugit impedit libero,
-        magnam necessitatibus nulla quia quis quod reprehenderit similique temporibus tenetur ut. Aliquid cumque ducimus
-        maiores sapiente similique. </p>
+    <p>
+        <b  class="emphasized"> Problem: </b> Visualization of Rotation Parameterization, including interactivity, meant that the data & math function need to be as accessible as possible. <br>
+        <b  class="emphasized"> Not a Solution: </b> While creating wrappers for the unity-inbuild-classes would have been possible, unity doesn't support all parameterizations directly (e.g. no rotation-vector-class). <br>
+        <b  class="emphasized"> Solution: </b> Thus, for the sake of consistency and more control, I decided to write my own math library, meaning I had to research all the mathematical functions & implement them. <br>
+        <b  class="emphasized"> Example below: </b> The following scroll-container shows my workflow exemplified based on my research and implementation of the exponential map of quaternions. </p> <br>
 
-    <div class="scroll-container">
-        <div id="code-scroll-container" class="u-parent-size scroll-container__content-container">
+    <div class="scroll-container contribution-section__scroll-container">
+        <div id="code-scroll-container" class="u-inherit-size scroll-container__content-container scroll-container__content-container--two-elements">
             <div id="" class="scroll-container__item">
-                <img src="" alt="image: ">
+                <div class="scroll-container__item-content">
+                    <!-- NOWZyKa Rotation-Content: Research -->
+                    <!-- https://people.csail.mit.edu/bkph/articles/Quaternions.pdf -->
+                    <object data="./Content/workflow-coding/Grassia_Practical_Parameterization_of_Rotations.pdf" type="application/pdf" width="100%" height="100%">
+                        <img src="./Content/workflow-coding/Grassia.PNG" alt="image: example of a pdf used as research source">
+                        <p> Download the original PDF: https://people.csail.mit.edu/bkph/articles/Quaternions.pdf </p>
+                    </object>
+                </div>
+                <div class="scroll-container__item-description">
+                    <p>
+                        <b class="emphasized"> Step 1 — Research: </b> For a full overview I read not only game dev sources, but also math sources. <br>
+                        <b class="emphasized"> image-legend: </b> θ is the angle of a rotation, v is the axis of rotation. The exponential map forms a quaternion from a rotation vector: the first three quaternion entries are the rotation-axis scaled by cos(θ/2), and the fourth is sin(θ/2). <br>
+                        <b class="emphasized"> full-source: </b> Grassia 1998, Practical Parameterization of Rotation <a href="https://www.cs.cmu.edu/~spiff/moedit99/expmap.pdf"> https://www.cs.cmu.edu/~spiff/moedit99/expmap.pdf </a>
+                    </p>
+                </div>
             </div>
+
+            <!-- TODOZyKa Rotation-Content: Consider Motivation image -> why unity-matrix/-quaternion isn't enough -->
+<!--            <div id="" class="scroll-container__item">-->
+<!--                <img src="" alt="image: ">-->
+<!--            </div>-->
 
             <div id="code-structure-plan" class="scroll-container__item">
-                <img src="" alt="image: code-structure planning">
+                <div class="scroll-container__item-content media-flex-center-wrapper">
+                    <img src="Content/workflow-coding/Class_Overview.PNG" alt="image: code-structure planning"
+                         class="media--cover" style="object-position: left">
+                </div>
+                <div class="scroll-container__item-description">
+                    <p> <b class="emphasized"> Step 2 — Structure Diagram: </b> Based on the gathered knowledge I created an overview of the needed classes & their connections.  </p>
+                </div>
             </div>
 
-            <div id="code-structure-result" class="scroll-container__item">
-                <img src="" alt="image: code-structure result">
+            <!-- TODOZyKa Rotation-Content: Consider whether learning UML is worth it -->
+<!--            <div id="code-structure-result" class="scroll-container__item">-->
+<!--                <img src="" alt="image: code-structure result">-->
+<!--            </div>-->
+
+            <div id="math-script-example" class="scroll-container__item">
+                <div class="scroll-container__item-content">
+                    <script>
+                        async function loadGitContent()
+                        {
+                            let codeElement = document.querySelector("#math-script-example pre code");
+
+                            let gitFetchPromise = await fetch("https://raw.githubusercontent.com/Phyvie/Rotations/refs/heads/main/Assets/Scripts/RotParams/RotParams_Quaternion.cs");
+
+                            if (!gitFetchPromise.ok)
+                            {
+                                throw new Error("math-script-example: Could not fetch github-link");
+                            }
+
+                            codeElement.textContent = await gitFetchPromise.text();
+                            hljs.highlightElement(codeElement);
+                        }
+                        if (document.readyState === 'loading')
+                        {
+                            document.addEventListener("DOMContentLoaded", loadGitContent);
+                        }
+                        else
+                        {
+                            loadGitContent();
+                        }
+                    </script>
+                    <pre><code class="language-csharp">
+                    int ThisCodeShouldGetReplacedByTheScriptAbove = 5;
+                </code></pre>
+                </div>
+                <div class="scroll-container__item-description">
+                    <p> <b class="emphasized"> Step 3 — Backend Coding: </b> The "RotParams_Quaternion"-script contains the parameters of a quaternion, as well as additional accesors (e.g. AngleInRadian) and the math function. However, it includes no visualization or UI.  <br>
+                        <!-- TODOZyKa rotations-content: This part about quaternion exponential function is very confusing -->
+                        <b class="emphasized"> The exponential map </b> is implemented twice; Once in the RotParams_Quaternion-constructor(Vector3 inAxis, ...) and once slightly different in the exp() function. <!-- TODOZyKa rotation-content: I have to mark these sections in the code or highlight it differently -->
+                    </p>
+                </div>
             </div>
 
-            <div id="" class="scroll-container__item">
-                <img src="" alt="image: ">
+            <div id="math-script-usage-example" class="scroll-container__item">
+                <div class="scroll-container__item-content">
+                    <script>
+                        async function loadGitContent()
+                        {
+                            let codeElement = document.querySelector("#math-script-usage-example pre code");
+
+                            let gitFetchPromise = await fetch("https://raw.githubusercontent.com/Phyvie/Rotations/refs/heads/main/Assets/Scripts/RotVis/RotVis_Quaternion.cs");
+
+                            if (!gitFetchPromise.ok)
+                            {
+                                throw new Error("math-script-example: Could not fetch github-link");
+                            }
+
+                            codeElement.textContent = await gitFetchPromise.text();
+                            hljs.highlightElement(codeElement);
+                        }
+                        if (document.readyState === 'loading')
+                        {
+                            document.addEventListener("DOMContentLoaded", loadGitContent);
+                        }
+                        else
+                        {
+                            loadGitContent();
+                        }
+                    </script>
+                    <pre><code class="language-csharp">
+                    int thisShouldGetReplacedByTheScriptAbove = 5;
+                </code></pre>
+                </div>
+                <div class="scroll-container__item-description">
+                    <p> <b class="emphasized"> Step 4 — Usage in frontend: </b> RotVis_Quaternion is the frontend script responsible for visualizing a quaternion rotation; Thus it connects data from RotParams_Quaternion to Vis_[...]-objects for visualisation. </p>
+                </div>
             </div>
 
-            <div id="" class="scroll-container__item">
-                <img src="" alt="image: ">
+            <div id="exponential-map-visual" class="scroll-container__item">
+                <div class="scroll-container__item-content media-flex-center-wrapper">
+                    <img src="./Content/image_gallery/ExponentialMap01.png" alt="image: Comparison of two rotations displayed as quaternions" class="media--contain" style="align-self: start; padding-top: 1rem; ">
+                </div>
+                <div class="scroll-container__item-description">
+                    <p> <b class="emphasized"> Example </b> (in combination with the other worksteps): The plane is rotated by the two unit quaternions, which share a rotation axis (yellow), but differ in their angle. </p>
+                </div>
             </div>
         </div>
 
@@ -164,37 +286,103 @@
 <div class="main__separator separator"></div>
 
 <section id="Math-Visualisation"
-         class="main__panel">
+         class="main__panel contribution-section">
     <h1 class="header"> Mathematics Visualisation </h1>
-    <p> A short description what this section is describing / what type of workflow and which results are described
-        here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium corporis fugit impedit libero,
-        magnam necessitatibus nulla quia quis quod reprehenderit similique temporibus tenetur ut. Aliquid cumque ducimus
-        maiores sapiente similique. </p>
+    <p>
+        <b  class="emphasized"> Problem: </b> Visualise multiple different parameterizations of rotations.  <br>
+        <b  class="emphasized"> Solution: </b> Start from sketches how to visualise, then build rotation-independent math-visualisation object; Lastly piece them together. <br>
+        <b  class="emphasized"> Example below: </b> Focuses mostly on Euler angles visualized as gimbal.
+        <br>
+    </p>
 
-    <div class="scroll-container">
-        <div id="mathvis-scroll-container" class="u-parent-size scroll-container__content-container">
+    <div class="scroll-container contribution-section__scroll-container">
+        <div id="mathvis-scroll-container" class="u-inherit-size scroll-container__content-container scroll-container__content-container--two-elements">
             <div id="inspiration-eater" class="scroll-container__item">
-                <img src="" alt="image: Inspiration: Quaternions from eater.net/quaternions">
+                <div class="scroll-container__item-content media-flex-center-wrapper">
+                    <img src="Content/workflow-modeling/euler_gimbal_inspiration.gif" alt="image: Inspiration for the visualization" class="media--contain" style="align-self: start; padding-top: 1rem; ">
+                </div>
+                <div class="scroll-container__item-description">
+                    <p> <b class="emphasized"> Step 1 — Inspiration: </b> For Euler angles I found a youtube-video explaining gimbal-lock, which served as my reference & inspiration.<br> <b class="emphasized"> Original Source: </b> https://www.youtube.com/watch?v=zc8b2Jo7mno </p>
+                </div>
             </div>
 
             <div id="sketch-visuals" class="scroll-container__item">
-                <img src="" alt="image: sketch how I want my project to look">
+                <div class="scroll-container__item-content media-flex-center-wrapper">
+                    <img src="./Content/workflow-modeling/Visualization_Planning.png" alt="image: sketch how I want my project to look" class="media--contain" style="align-self: start; padding-top: 1rem; ">
+                </div>
+                <div class="scroll-container__item-description">
+                    <p> <b class="emphasized"> Step 2 — Planning: </b> I start projects by sketching visuals and noting to-dos. <br>
+                        <b class="emphasized"> Above: </b> Plans for 3 visualizations (quaternions and axis-angle share one). Runtime gizmos for in-scene parameter manipulation - the dark-blue-curved arrows in the axis-angle and matrix visualization - were initially planned but deprioritized. </p>
+                </div>
             </div>
 
-            <div id="3d-assets" class="scroll-container__item">
-                <img src="" alt="image: individual 3D-assets OR directory of 3D-assets">
+            <div id="blender-assets" class="scroll-container__item">
+                <div class="scroll-container__item-content media-flex-center-wrapper">
+                    <img src="./Content/workflow-modeling/modeling_blender.PNG" alt="image: sketch how I want my project to look" class="media--contain" style="align-self: start; padding-top: 1rem; ">
+                </div>
+                <div class="scroll-container__item-description">
+                    <p> <b class="emphasized"> Step 3 — Modeling: </b> Though I have worked with proprietary modeling software (maya) before, I decided that for this project I learn blender to have a comparison to a freeware modeling program. <br>
+                </div>
+            </div>
+
+            <div id="unity-imported-assets" class="scroll-container__item">
+                <div class="scroll-container__item-content media-flex-center-wrapper">
+                    <img src="./Content/workflow-modeling/Unity_Imported.jpg" alt="image: sketch how I want my project to look" class="media--contain" style="align-self: start; padding-top: 1rem; ">
+                </div>
+                <div class="scroll-container__item-description">
+                    <p> <b class="emphasized"> Step 4 — Blender-To-Unity </b> I had to export the meshes from blender and import to Unity. <br>
+                        <b class="emphasized"> Problem: </b> Blenders & Unity's coordinate system are different. The default blender exporter rotates whole objects, but not individual meshes. Exporting each mesh as its own .fbx would have been too much work. Thus, the blender exporter was no option. <br>
+                        <b class="emphasized"> Solution: </b> I wrote my own blender-to-unity exporter, using matrices to convert the coordinate systems.
+                    </p>
+                </div>
+            </div>
+
+            <div id="unity-object" class="scroll-container__item">
+                <div class="scroll-container__item-content media-flex-center-wrapper">
+                    <img src="./Content/workflow-modeling/Unity_Scene_Hierarchy.png" alt="image: sketch how I want my project to look" class="media--contain" style="align-self: start; padding-top: 1rem; ">
+                </div>
+                <div class="scroll-container__item-description">
+                    <p> <b class="emphasized"> Step 5 — Unity-Scene-Hierarchy </b> In Unity the unity scene hierarchy the gimbal rings are nested. The Parent-Object RotVis_EulerGimbal has the script "RotVis_EulerAngle" that references the individual elements (top of inspector), the settings (middle of inspector) and accesses the underlying Parameterization (bottom of the inspector) <br>
+                    </p>
+                </div>
             </div>
 
             <div id="shaders" class="scroll-container__item">
-                <img src="" alt="image: shaders for angles etc.">
+                <div class="scroll-container__item-content media-flex-center-wrapper">
+                    <img src="./Content/workflow-modeling/Shader_Graph.png" alt="image: sketch how I want my project to look" class="media--contain" style="align-self: start; padding-top: 1rem; ">
+                </div>
+                <div class="scroll-container__item-description">
+                    <p> <b class="emphasized"> Step 6 — Shaders: </b> Since I like seeing visual networks, I used shader-graph for the angle-shaders. However, to keep it more orderly, I wrote the more complicated math functions as custom-hlsl-functions. e.g., IsValueInModRange calculates whether an angle is between two other angles respecting the modular nature of angles. <br>
+                    </p>
+                </div>
             </div>
 
-            <div id="editor-setup" class="scroll-container__item">
-                <img src="" alt="image: Editor-Setup: Prefabs & Scene-Hierarchy">
+            <div id="shader-showcase" class="scroll-container__item">
+                <div class="scroll-container__item-content media-flex-center-wrapper">
+                    <img src="" alt="gif: Individual angle shader during bug-testing"></img>
+                </div>
+                <div class="scroll-container__item-description">
+                    <p> <b class="emphasized"> Example </b> A rotation-shader during bug-testing. </p>
+                </div>
             </div>
 
-            <div id="SixthElementId" class="scroll-container__item">
-                <img src="" alt="image: final result, axis-angle">
+            <div id="shader-access" class="scroll-container__item">
+                <div class="scroll-container__item-content media-flex-center-wrapper">
+                    <img src="" alt="image: shader access hierarchy" class="media--contain" style="align-self: start; padding-top: 1rem; ">
+                </div>
+                <div class="scroll-container__item-description">
+                    <p> <b class="emphasized"> Step 7 — Access Shaders: </b> To test the shader (& for reusability) its values must be manipulatable from an individual gimbal-ring. However, once the full gimbal is assembled, it should be the central hub for setting up the colors of so that I don't have to continuously switch between the individual gimbal-ring-gameObjects when I adjust the colours. <br>
+                    </p>
+                </div>
+            </div>
+
+            <div id="euler-gimbal-visualisation" class="scroll-container__item">
+                <div class="scroll-container__item-content media-flex-center-wrapper">
+                    <img src="./Content/workflow-modeling/Euler_Angle_Usage.gif" alt="gif: Example of Euler-Gimbal Manipulation"></img>
+                </div>
+                <div class="scroll-container__item-description">
+                    <p> <b class="emphasized"> Example </b> In combination with the UI, the user can adjust the Euler angles freely. </p>
+                </div>
             </div>
         </div>
 
@@ -210,15 +398,15 @@
 <div class="main__separator separator"></div>
 
 <section id="User-Interface"
-         class="main__panel">
+         class="main__panel contribution-section">
     <h1 class="header"> Frontend User Interface </h1>
     <p> A short description what this section is describing / what type of workflow and which results are described
         here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium corporis fugit impedit libero,
         magnam necessitatibus nulla quia quis quod reprehenderit similique temporibus tenetur ut. Aliquid cumque ducimus
         maiores sapiente similique. </p>
 
-    <div class="scroll-container">
-        <div id="user-interface-scroll-container" class="u-parent-size scroll-container__content-container">
+    <div class="scroll-container contribution-section__scroll-container">
+        <div id="user-interface-scroll-container" class="u-inherit-size scroll-container__content-container scroll-container__content-container--two-elements">
             <div id="UI-planning-sketch" class="scroll-container__item">
                 <img src="" alt="image: sketch how the UI is planned">
             </div>
@@ -232,7 +420,7 @@
             </div>
 
             <div id="ui-binding">
-                <img src="" alt="ui-binding">
+                <img src="" alt="image: UI-binding">
             </div>
 
             <div id="UI-result" class="scroll-container__item">

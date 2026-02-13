@@ -1,6 +1,6 @@
 import {loadDataRefs, TryLoadJson} from "../common.blocks/load-data-refs.js";
 import {createSwitchableContentContainer} from "../common.blocks/switchable_content_container.js";
-import HTMLContentCache from "../templates_and_external_containers/HTMLContentCache.js";
+import HTMLContentCache from "../URL-Fetching-And-Templates/HTMLContentCache.js";
 import {embedGame} from "../UnityWebGL/unity-webgl-iframe-creator.js";
 
 async function initialize()

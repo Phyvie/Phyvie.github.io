@@ -10,7 +10,7 @@ import {
     addTemplateToDocument,
     createFragmentFromTemplate,
     appendTemplateCopyToElement
-} from "../templates_and_external_containers/template-manager.js";
+} from "../URL-Fetching-And-Templates/template-manager.js";
 
 let TEMPLATE_PROJECT_CARD;
 

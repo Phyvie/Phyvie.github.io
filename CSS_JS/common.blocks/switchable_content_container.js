@@ -186,8 +186,9 @@ class Switchable_content_container {
             if (this.currentUrl !== contentUrl) {
                 return;
             }
-            
-            container.innerHTML = content;
+
+            let URLAdjustedContent = await makeURLsAbsolute(content, contentUrl);
+            container.innerHTML = URLAdjustedContent;
             container.classList.remove("--loading");
             this.reinitializeScripts(container, contentUrl);
         }
@@ -199,16 +200,16 @@ class Switchable_content_container {
         }
     }
 
-    reinitializeScripts(targetElement, originalURL)
+    reinitializeScripts(targetElement)
     {
         const scripts = targetElement.querySelectorAll('script');
         for (const oldScript of scripts)
         {
-            this.reinitializeScript(oldScript, originalURL);
+            this.reinitializeScript(oldScript);
         }
     }
 
-    reinitializeScript(oldScript, originalURL)
+    reinitializeScript(oldScript)
     {
         const newScript = document.createElement('script');
         Array.from(oldScript.attributes).forEach(
@@ -219,17 +220,6 @@ class Switchable_content_container {
         {
             if (oldScript.type === 'module')
             {
-                const absoluteOriginalURL = new URL(originalURL, document.baseURI).href;
-
-                const URLAdjustedCode = oldScript.textContent.replace(
-                    /(from\s+['"])([^'"]+)(['"])/g,
-                    (match, prefix, path, suffix) =>
-                    {
-                        const absoluteUrl = new URL(path, absoluteOriginalURL).href;
-                        return prefix + absoluteUrl + suffix;
-                    }
-                )
-
                 const blob = new Blob([URLAdjustedCode], {type: 'application/javascript'});
                 newScript.src = URL.createObjectURL(blob);
             }
@@ -249,6 +239,30 @@ class Switchable_content_container {
         this.activeAccessor = null;
         // Note: unregistration happens via the wrapped destroy method
     }
+}
+
+async function makeURLsAbsolute(textContent, originalRootURL)
+{
+    const absoluteOriginalURL = new URL(originalRootURL, document.baseURI).href;
+
+    let adjustedContent = textContent;
+
+    //replace imports for scripts
+    adjustedContent = adjustedContent.replace(
+        /(from\s+['"])([^'"]+)(['"])/g,
+        (match, prefix, path, suffix) => {
+            const absoluteUrl = new URL(path, absoluteOriginalURL).href;
+            return prefix + absoluteUrl + suffix;
+        }
+    );
+
+    //replace src and href for images & stylesheets
+    adjustedContent = adjustedContent.replace(
+        /(href|src)\s*=\s*['"]?([^'"]+)['"]?/g, (match, prefix, path) => {
+        const absoluteURL = new URL(path, absoluteOriginalURL).href;
+        return prefix + '="' + absoluteURL + '"';
+    })
+    return adjustedContent;
 }
 
 // Factory function - delegate to the manager
