@@ -1,12 +1,11 @@
 {
   "project-title": "Monster Match",
-  "project-type": "Tech Design",
+  "project-type": "Educational Game",
   "version": "1.0.0",
-  "description":
-      [
-        "As final university group project, we had the choice between seven clients. The one asking for a educational fraction-arithmetic game was the perfect choice for me. ",
-        "As project manager I communicated with the client, ensured the designers blockouts and art assets fit together and ensured the coding stayed on track, partially by coding myself. "
-      ],
+  "origin": "Cologne Game Lab",
+  "team-size": "6",
+  "date": "2024",
+  "time": "7w",
   "thumbnail": {
     "src": "./Projects/Monster_Match/Thumbnail.png",
     "alt": "Play My Math Project IMG"
@@ -14,20 +13,43 @@
   "trailer": {
     "src": "./Projects/Monster_Match/mechanic_showcase.mp4"
   },
-  "mechanic-video": {
-    "src": "./Projects/#.mp4"
-  },
-  "origin": "Cologne Game Lab",
-  "team-size": "6",
-  "date": "2024",
-  "time": "7 weeks",
+  "main-contribution": "game designer - educational",
   "contributions": [
     "Project Lead",
     "Tech Design"
+  ],
+  "description": [
+    "As final university group project, we had the choice between seven clients. The one asking for a educational fraction-arithmetic game was the perfect choice for me. ",
+    "As project manager I communicated with the client, ensured the designers blockouts and art assets fit together and ensured the coding stayed on track, partially by coding myself. "
+  ],
+  "tags": [
+    {
+      "name": "Unity",
+      "relevance": "2"
+    },
+    {
+      "name": "collaborative-project",
+      "relevance": "3"
+    },
+    {
+      "name": "programming",
+      "relevance": "1"
+    },
+    {
+      "name": "mechanic design",
+      "relevance": "4"
+    },
+    {
+      "name": "educational",
+      "relevance": "4"
+    }
   ],
   "tools": [
     "Board Games",
     "Miro",
     "Unity"
-  ]
+  ],
+  "mechanic-video": {
+    "src": "./Projects/#.mp4"
+  }
 }

@@ -35,6 +35,10 @@
     padding: var(--LAYOUT-DISTANCE-DEFAULT) 0;
 }
 
+.project-section__post-desc-link {
+    float: right;
+}
+
 .project-section__data-table {
     margin-left: var(--LAYOUT-DISTANCE-DEFAULT);
     margin-right: var(--LAYOUT-DISTANCE-DEFAULT);
@@ -71,6 +75,10 @@
 
 .project-section__links {
     margin-top: auto;
+}
+
+.flex-tags--project-section-links {
+    justify-content: end;
 }
 
 .project-section__workflow {

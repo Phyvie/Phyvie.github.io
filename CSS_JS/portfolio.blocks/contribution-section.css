@@ -1,7 +1,151 @@
 .contribution-section {
+}
+
+.scroll-container--contribution-section {
 
 }
 
-.contribution-section__scroll-container {
-    height: 60vh;
+.scroll-container__content-container--contributions-section {
+}
+
+.contribution-section__scroll-container-nav-button {
+}
+
+.described-item {
+    /* TODOZyKa scroll-container: this width should not be set in described item itself, but rather somewhere in a sizing class */
+    width: 100%;
+}
+
+.described-item__content {
+    aspect-ratio: 3/2;
+    overflow: auto;
+}
+
+.described-item__description {
+    overflow: auto;
+}
+
+/* mobile-portrait */
+@media
+{
+    @container scroll-container (max-width: 599px)
+    {
+        .scroll-container__content-container--contributions-section {
+            /*outline: var(--DEBUG-MEDIA-QUERY-OUTLINE-SMALL-PORTRAIT);*/
+
+            height: auto;
+        }
+
+        .described-item__content {
+            width: 100%;
+        }
+
+        .described-item__description {
+            max-height: 30vh;
+            width: 100%;
+
+            padding: var(--LAYOUT-DISTANCE-SMALL);
+        }
+    }
+}
+
+/* mobile landscape & desktop-half-height */
+@media (max-height: 599px) and (min-aspect-ratio: 4/3){
+    .scroll-container--contribution-section {
+        /*height: 90vh;*/
+        height: auto;
+        padding: var(--LAYOUT-DISTANCE-SMALL);
+
+        container: contribution-scroll-container / inline-size;
+    }
+
+    .scroll-container__content-container--contributions-section {
+        /*outline: var(--DEBUG-MEDIA-QUERY-OUTLINE-SMALL-LANDSCAPE);*/
+
+        height: auto;
+    }
+
+    .described-item {
+        padding: var(--LAYOUT-DISTANCE-SMALL);
+
+        height: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    .described-item__content {
+        flex: 0 0 50%;
+        width: auto;
+        height: 100%;
+        max-height: 80vh;
+    }
+
+    /* LATERZyKa styling: add a scroll-signalizer */
+    .described-item__description {
+        flex: 0 0 50%;
+        width: auto;
+        contain: size paint;
+        padding: 0 var(--LAYOUT-DISTANCE-SMALL);
+    }
+}
+
+/* large-screen */
+@media (min-height: 600px) or (max-aspect-ratio: 4/3){
+    @container scroll-container (min-width: 600px) {
+        .scroll-container__content-container--contributions-section {
+            /*outline: var(--DEBUG-MEDIA-QUERY-OUTLINE-PC);*/
+        }
+
+        .scroll-container__item--contribution-section {
+            height: fit-content;
+        }
+
+        .described-item {
+            width: 100%;
+            height: fit-content;
+        }
+
+        .described-item__content {
+            width: 100%;
+            max-height: 60vh; /* adjustment for small, but wide screens */
+        }
+
+        .described-item__description {
+            width: 100%;
+            height: calc(var(--ELEMENT-LINE-HEIGHT) * 4.5);
+            max-height: 30vh; /* adjustment for small, but wide screens */
+            overflow: auto;
+        }
+
+        /* scroll-container-child-count */ /* PLCHZyKa SCSS: replace with SCSS */
+        @container scroll-container (min-width: 1100px) {
+            .scroll-container__content-container--contributions-section {
+                --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 2;
+            }
+        }
+
+        @container scroll-container (min-width: 1650px) {
+            .scroll-container__content-container--contributions-section {
+                --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 3;
+            }
+        }
+
+        @container scroll-container (min-width: 2200px) {
+            .scroll-container__content-container--contributions-section {
+                --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 4;
+            }
+        }
+
+        @container scroll-container (min-width: 2750px) {
+            .scroll-container__content-container--contributions-section {
+                --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 5;
+            }
+        }
+
+        @container scroll-container (min-width: 3300px) {
+            .scroll-container__content-container--contributions-section {
+                --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 6;
+            }
+        }
+    }
 }

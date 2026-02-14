@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title> Portfolio - Valentin Then Bergh </title>
+
+    <!-- general purpose stylesheets & JavaScripts -->
+    <link rel="stylesheet" href="CSS_JS/reset.css">
+    <link rel="stylesheet" href="CSS_JS/global_variables.css">
+
+    <link rel="stylesheet" href="CSS_JS/styling/media.css">
+    <link rel="stylesheet" href="CSS_JS/common.blocks/header.css">
+    <link rel="stylesheet" href="CSS_JS/common.blocks/tag.css">
+
+    <link rel="stylesheet" href="CSS_JS/scroll-container/scroll-container.css">
+    <script defer type="module" src="CSS_JS/scroll-container/scroll-container.js"></script>
+
+    <script type="module" src="CSS_JS/common.blocks/switchable_content_container.js"></script>
+
+    <link rel="stylesheet" href="modules/highlight/styles/dark-phy.css">
+    <script src="modules/highlight/highlight.min.js"></script>
+
+    <!-- project-/file-specific stylesheets & JavaScripts -->
+    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/main.css">
+    <link rel="stylesheet" href="CSS_JS/project-card/project-card.css">
+    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/project-section.css">
+    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/contribution-section.css">
+
+    <!-- individual section stylesheets -->
+    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/about-me.css">
+    <link rel="stylesheet" href="Projects/Rotations/CSS_JS/rotations-section.css">
+    <script defer type="module" src="Projects/Rotations/CSS_JS/rotations-section.js"></script>
+    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/further-projects-section.css">
+    <script defer type="module" src="CSS_JS/portfolio.blocks/further-projects-section.js"></script>
+
+    <link rel="stylesheet" href="CSS_JS/debug.css">
+</head>
+<body>
+
+<main class="main">
+    <section id="about-me" class="main__panel project-section project-section__main-content">
+        <div class="project-section__media media--relative-wrapper" style="aspect-ratio: 1/1; flex-basis: 30%; border-radius: 5vw">
+            <!-- LATERZyKa styling: the image of me is too big, I don't wanna be that big visible on my Portfolio page, a little image of me should be enough -->
+            <img class="media--rounded" src="Data/Placeholder/Bowser.jpg" alt="Image of me" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -48%) scale(0.4);">
+<!--            <img class="media&#45;&#45;rounded" src="Data/Placeholder/Placeholder_me_0.jpg" alt="Image of me" style="top: 50%; left: 50%; transform: translate(-35%, -35%);">-->
+<!--            <img class="media&#45;&#45;rounded" src="Data/Placeholder/Placeholder_me_1.jpg" alt="Image of me" style="top: 50%; left: 50%; transform: scale(0.75) translate(-45%, -50%);">-->
+        </div>
+        <div class="project-section__info-container">
+            <h1 class="header header--left"> Valentin Then Bergh </h1>
+            <div class="flex-tags">
+                <h2 class="flex-tags__tag tag tag--about-me-skills"> Gameplay <br class="tag--about-me-br"> Programming
+                </h2>
+                <h2 class="flex-tags__tag tag tag--about-me-skills"> Mechanics <br class="tag--about-me-br"> Design
+                </h2>
+                <h2 class="flex-tags__tag tag tag--about-me-skills"> Tech <br class="tag--about-me-br"> Design </h2>
+                <h2 class="flex-tags__tag tag tag--about-me-skills"> Math <br class="tag--about-me-br"> Visualization
+                </h2>
+            </div>
+            <div class="project-section__description">
+                <p>
+                    <span class="emphasized"> My Work: </span> As a tech designer, I specialize in composing game design elements into logically coherent
+                    structures. Due to this characteristic, I enjoy working as an intermediary between designers and
+                    programmers: On the design side, I contribute ideas & logic to new game mechanics, before I
+                    translate the systems into flowcharts that programmers can readily implement. On the programming
+                    side, I build design-heavy gameplay systems and organize assets to empower designers in crafting
+                    gameplay more easily. <br>
+                    <br>
+                    <span class="emphasized"> My Genres: </span> Due to my focus on gameplay mechanics, I am especially drawn to work on ludic and minimalistic
+                    games. Some specific genres include: platformers, metroidvanias, card-/monster-gatherers, logic puzzles, and music games.
+                    <br>
+                    <br>
+                    <span class="emphasized"> My Experience: </span> I studied at the Cologne Game Lab, where I collaborated on multiple group projects spanning several
+                    weeks each. Throughout these, I gained experience in the collaborative use of Unity (C#, 4 years),
+                    Unreal Engine (C++, 1 year), as well as organizational tools, like Git, Miro, and more. <br>
+                    <br>
+                    <span class="emphasized"> My Plans: </span> For the future, I'd like to learn how to contribute these skills in a professional environment.
+                    Therefore, I am currently seeking internships as a tech designer to learn more about industry
+                    standards, especially the pipeline from designing to programming game mechanics.
+                </p>
+            </div>
+            <div class="project-section__links flex-tags">
+                <p class="flex-tags__tag tag tag--link-arrow tag--about-me-links"> Contact-E-Mail </p>
+                <p class="flex-tags__tag tag tag--link-arrow tag--about-me-links"> Curriculum Vitae </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="main__separator"></div>
+
+    <section id="rotations"
+             class="main__panel project-section">
+        <!--    <script type="module">-->
+        <!--        import {loadDataRefs, TryLoadJson} from "../../CSS_JS/common.blocks/load-data-refs.js";-->
+        <!--        import {-->
+        <!--            embedWebGLIFrame,-->
+        <!--            minimalWebGLIFramePath,-->
+        <!--            startEmbeddedGame-->
+        <!--        } from "../../CSS_JS/UnityWebGL/unity-embed-webGL-iframe.js";-->
+        <!--        import {resolveRelativeUrlsInJson} from "../../CSS_JS/URL-Fetching-And-Templates/HTML_URL_Utility.js";-->
+        <!--        async function initialize() {-->
+        <!--            let headerSection = document.getElementById('rotations')-->
+        <!--            let jsonData = await TryLoadJson("./project_data.json");-->
+        <!--            jsonData = resolveRelativeUrlsInJson('./project_data.json', jsonData);-->
+
+        <!--            loadDataRefs(headerSection, jsonData);-->
+
+        <!--            let webGLIFrame = embedWebGLIFrame(headerSection.querySelector('#WebGL-Build'), minimalWebGLIFramePath, jsonData.WebGLConfig);-->
+
+        <!--            const scrollContainer = headerSection.querySelector('.scroll-container');-->
+        <!--            const VideoScroller = headerSection.querySelector('[data-scriptName="video-toggle"]');-->
+        <!--            const WebGLScroller = scrollContainer.querySelector('[data-scriptName="webgl-scroller"]');-->
+        <!--            const video = scrollContainer.querySelector('video');-->
+
+        <!--            scrollContainer.addEventListener('click', (event) => {-->
+        <!--                if (event.target === WebGLScroller)-->
+        <!--                {-->
+        <!--                    startEmbeddedGame(webGLIFrame);-->
+        <!--                }-->
+        <!--                if (event.target === VideoScroller)-->
+        <!--                {-->
+        <!--                    video.paused ? video.play() : video.pause();-->
+        <!--                }-->
+        <!--                /* help the user by automatically pausing when they switch to smth else, such that no more audio is running in the background; though it also disabled them from listening while trying themselves what they listen to */-->
+        <!--                else /* if(event.target !== VideoScroller) */-->
+        <!--                {-->
+        <!--                    video.pause();-->
+        <!--                }-->
+        <!--            });-->
+        <!--        }-->
+        <!--        initialize();-->
+        <!--    </script>-->
+        <div class="project-section__main-content">
+            <div class="project-section__media">
+                <div class="scroll-container">
+                    <div class="scroll-container__content-container">
+                        <div id="rotation-main-video" class="scroll-container__item">
+                            <video src="../../Data/Placeholder/More%20JarJar%20Than%20Yoda.mp4" style="width: 100%; height: 100%" loop></video>
+                        </div>
+                        <div id="WebGL-Build" class="scroll-container__item">
+                            <!--                        WebGL-Build is loaded in here-->
+                        </div>
+                    </div>
+                    <div class="scroll-container__bottom_navigation_line">
+                        <div class="scroll-container__bot_nav_line_button"
+                             data-scriptName="video-toggle"
+                             data-scroll="#rotation-main-video"> Play Video </div>
+                        <div class="scroll-container__bot_nav_line_button"
+                             data-scriptName="webgl-scroller"
+                             data-scroll="#WebGL-Build"> Try Yourself </div>
+                    </div>
+                </div>
+                <!-- rotations-section.js loads the WebGL build in here -->
+            </div>
+            <div class="project-section__info-container">
+                <h1 class="project-section__title" data-ref="text:project-title"></h1>
+                <table class="project-section__data-table">
+                    <tr>
+                        <th> Genre: </th>
+                        <td data-ref="text:project-type"></td>
+                    </tr>
+                    <tr>
+                        <th> Dev-Context:</th>
+                        <td data-ref="text:origin"></td>
+                    </tr>
+                    <tr>
+                        <th> Time - Team-Size</th>
+                        <td><span data-ref="text:time"></span> - <span data-ref="text:team-size"> </span></td>
+                    </tr>
+                    <!--                    <tr>-->
+                    <!--                        <th> <img src="./Data/Icons/Group.png" alt="Group-Size: " class="media&#45;&#45;img-in-font"> </th>-->
+                    <!--                        <td> 1 </td>-->
+                    <!--                    </tr>-->
+                    <!--                    <tr>-->
+                    <!--                        <th> <img src="./Data/Icons/Calendar.png" alt="Dev-Data" class="media&#45;&#45;img-in-font"> </th>-->
+                    <!--                        <td> Summer 2025 </td>-->
+                    <!--                    </tr>-->
+                    <!--                    <tr>-->
+                    <!--                        <th> Tools</th>-->
+                    <!--                        <td>-->
+                    <!--                            <div style="display:flex; flex-flow: row nowrap">-->
+                    <!--                                <div class="tag">-->
+                    <!--                                    <img src="./Data/Icons/Unity.png" class="media&#45;&#45;img-in-font" alt="Unity">-->
+                    <!--                                </div>-->
+                    <!--                                <div class="tag">-->
+                    <!--                                    <img src="./Data/Icons/Cs.png" class="media&#45;&#45;img-in-font" alt="C#">-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </td>-->
+                    <!--                    </tr>-->
+                    <tr>
+                        <th> my role:</th>
+                        <td data-ref="contributions:contributions"></td>
+                    </tr>
+                </table>
+                <!-- region layout alternative to project-section__data-table -->
+                <!--                <div class="project-section__data-line flex-tags">-->
+                <!--                    <p class="flex-tags__tag tag tag&#45;&#45;rotations"> Bachelor Thesis </p>-->
+                <!--                    <p class="flex-tags__tag tag tag&#45;&#45;rotations media-flex-center-wrapper" style="position: relative; color: black; z-index: 30">-->
+                <!--                        <img src="./Data/Icons/Group.png" alt="Group-size: " class="u-parent-size media&#45;&#45;contain" style="position: absolute; display: inline-block; z-index: 0" >-->
+                <!--                        <span style="position: relative; z-index: 10;">1</span>-->
+                <!--                    </p>-->
+                <!--                    <p class="flex-tags__tag tag tag&#45;&#45;rotations"> </p>-->
+                <!--                </div>-->
+                <!-- endregion -->
+                <p class="project-section__description" data-ref="text:description"> </p>
+                <!--        region layout alternative: separate contribution & tools section -->
+                <!--            <div class="project-section__contributions">-->
+                <!--                <h2 class="header&#45;&#45;lvl2"> contributions & tools: </h2>-->
+                <!--                <ul>-->
+                <!--                    <li-->
+                <!--                            data-cached-content="./Projects/Rotations/Rotations.html#Thesis-Writing"-->
+                <!--                            data-cached-container-id="rotations-workflow">-->
+                <!--                        Thesis Writing-->
+                <!--                    </li>-->
+                <!--                    <li-->
+                <!--                            data-cached-content="./Projects/Rotations/Rotations.html#Backend-Math-Code"-->
+                <!--                            data-cached-container-id="rotations-workflow">-->
+                <!--                        Coding Rotation Mathematics-->
+                <!--                    </li>-->
+                <!--                    <li-->
+                <!--                            data-cached-content="./Projects/Rotations/Rotations.html#Math-Visualisation"-->
+                <!--                            data-cached-container-id="rotations-workflow">-->
+                <!--                        Modeling Visualisation-->
+                <!--                    </li>-->
+                <!--                    <li-->
+                <!--                            data-cached-content="./Projects/Rotations/Rotations.html#User-Interface"-->
+                <!--                            data-cached-container-id="rotations-workflow">-->
+                <!--                        User Interface-->
+                <!--                    </li>-->
+                <!--                </ul>-->
+                <!--            </div>-->
+                <!--            endregion layout alternative: separate contribution & tools section-->
+                <div class="project-section__links flex-tags flex-tags--project-section-links">
+                    <a class="flex-tags__tag tag tag--link-arrow tag--project-section-link" href="./Projects/Rotations/Rotations.html"> discover more </a>
+                </div>
+            </div>
+        </div>
+        <div id="rotations-workflow"
+             class="project-section__workflow project-section__workflow--collapsed">
+            <!-- This is where further explanation about the workflow or individual results of the project are added -->
+        </div>
+    </section>
+
+    <div class="main__separator"></div>
+
+    <!-- region highlight-section B -->
+    <!-- LATERZyKa moebius: reactivate and fill in the moebius content -->
+<!--    <div id="project-section-B"-->
+<!--         class="main__panel project-section">-->
+<!--        <section class="project-section__main-content">-->
+<!--            <div class="project-section__media">-->
+<!--                <img class="media&#45;&#45;cover media&#45;&#45;rounded"-->
+<!--                     src="./Data/Placeholder/Bowser.jpg" alt="Image of Project">-->
+<!--            </div>-->
+<!--            <div class="project-section__info-container">-->
+<!--                <h1 class="header"> Highlight: Project B </h1>-->
+<!--                <div>-->
+<!--                    <p>-->
+<!--                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.-->
+<!--                        Asperiores dolores eos nam necessitatibus, suscipit vel vitae voluptatum!-->
+<!--                        A ad consectetur cupiditate, delectus esse exercitationem necessitatibus perferendis quas quasi-->
+<!--                        quos voluptates.-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--                <div class="project-section__links flex-tags">-->
+<!--                    <p class="flex-tags__tag tag tag&#45;&#45;link-arrow tag&#45;&#45;project-section-link"> more info </p>-->
+<!--                    <p class="flex-tags__tag tag tag&#45;&#45;link-arrow tag&#45;&#45;project-section-link"> to project page </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+<!--        <div class="project-section__workflow project-section__workflow&#45;&#45;collapsed"></div>-->
+<!--    </div>-->
+
+<!--    <div class="main__separator"></div>-->
+    <!-- endregion highlight-section B -->
+
+    <section class="main__panel further-projects-section" data-filter-container-parent="further_projects_section__cards-container">
+        <h1 class="header"> Further Skills & Projects </h1>
+
+        <h2 class="emphasized"> Skills: <span style="font-size: var(--FONT-SIZE-SMALL)"> (click to filter projects) </span> </h2>
+        <div class="further-projects-section__filter-trigger-container">
+            <div class="further-projects-section__filter-trigger-category">
+                <p class="further-projects-section__filter-trigger-category-header"> Engines: </p>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="Unity"> Unity </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="Unreal Engine"> Unreal Engine </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="other engine"> other engine </div>
+            </div>
+
+            <div class="further-projects-section__filter-trigger-category">
+                <p class="further-projects-section__filter-trigger-category-header"> Team- & Project-Size: </p>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="collaborative-project"> collaborative project </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="collaborative-mechanic"> collaborative mechanic </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="solo-project"> solo-project </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="solo-mechanic"> solo-mechanic </div>
+            </div>
+
+            <div class="further-projects-section__filter-trigger-category">
+                <p class="further-projects-section__filter-trigger-category-header"> My Role: </p>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="programming"> programming </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="mechanic design"> mechanic design </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="level design"> level design </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="audio"> audio </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="visuals"> visuals </div>
+            </div>
+
+            <div class="further-projects-section__filter-trigger-category">
+                <p class="further-projects-section__filter-trigger-category-header"> Other: </p>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="educational"> educational game </div>
+            </div>
+        </div>
+        <div id="further-projects-section__cards-container" class="further-projects-section__cards-container--autogrid" data-filter-container="further_projects_section__cards-container">
+            <!-- project cards are loaded in here via "further-projects-section.js" -->
+        </div>
+    </section>
+</main>
+
+</body>
+</html>
