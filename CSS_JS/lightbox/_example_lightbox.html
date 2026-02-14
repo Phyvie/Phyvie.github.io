@@ -1,0 +1,70 @@
+<!--
+Purpose:
+The Lightbox serves to show specific content of the page in larger or unfold extra information for specific content.
+
+Public API usage:
+1. Copy the lightboxOverlay element below
+2. To open the lightBox call "openLightbox(content)";
+    - If content is an HTMLElement: it will be appended directly (not cloned)
+    - If content is a string: it will be inserted as innerHTML
+    - Other types will be converted to string via innerHTML
+3. lightbox can be closed by:
+    - clicking the close button
+    - clicking on the transparent overlay
+    - pressing ESC
+
+Responsibilities:
+Show a fullscreen overlay that is at the absolute center and can display any content passed into it.
+
+Dependencies & Dependents:
+- reset.css
+- global_variables.css
+
+Non-Responsibilities:
+the lightbox does not automatically include any content
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> _example_lightbox </title>
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../global_variables.css">
+    <link rel="stylesheet" href="./lightbox.css">
+
+    <script type="module" src="./lightbox.js"></script>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div id="lightbox__overlay" class="lightbox__overlay">
+    <div class="lightbox__content-container">
+        <button class="lightbox__close-btn" id="closeLightbox">&times;</button>
+        <div class="lightbox__content" id="lightboxBody">
+            <!-- Content will be loaded here dynamically -->
+        </div>
+    </div>
+</div>
+
+<div id="example_img_container" style="margin: 0 25vw; width: 50vw; display: flex; flex-flow: row nowrap; justify-content: space-between; gap: 10px; background-color: gray; ">
+    <div style="flex: 1 1 100%; background-color: red; aspect-ratio: 1/1"> </div>
+    <div style="flex: 1 1 100%; background-color: green; aspect-ratio: 1/1"> </div>
+    <div style="flex: 1 1 100%; background-color: blue; aspect-ratio: 1/1"> </div>
+    <div style="flex: 1 1 100%; background-color: yellow; aspect-ratio: 1/1"> </div>
+</div>
+
+<script type="module">
+    import {openLightbox} from "./lightbox.js";
+
+    let img_container = document.getElementById("example_img_container");
+    for (let img of img_container.children) {
+        img.addEventListener("click", () => {
+            openLightbox(img.cloneNode(true));
+        })
+    }
+</script>
+
+</body>
+</html>

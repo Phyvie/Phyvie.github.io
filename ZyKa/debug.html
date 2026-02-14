@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Debug </title>
+
+    <link rel="stylesheet" href="../CSS_JS/reset.css">
+    <link rel="stylesheet" href="../CSS_JS/global_variables.css">
+    <link rel="stylesheet" href="../CSS_JS/styling/media.css">
+    <link rel="stylesheet" href="../CSS_JS/common.blocks/tag.css">
+    <link rel="stylesheet" href="../CSS_JS/project-card/project-card.css">
+
+    <link rel="stylesheet" href="debug.css">
+    <script type="module" src="./debug.js"></script>
+</head>
+
+<script type="module">
+    import {AppendProjectCardToElement, LoadProjectCardData, SetupProjectCardInteraction} from "../CSS_JS/project-card/project-card.js";
+    import jsonData from "../CSS_JS/project-card/_example_project_data.json" with { type: "json"};
+    import {openLightbox} from "./debug.js";
+
+    async function loadProjectCards()
+    {
+        for (let i = 0; i < 3; i++)
+        {
+            const projectCard = AppendProjectCardToElement(document.querySelector("body"))
+            LoadProjectCardData(projectCard, jsonData);
+            SetupProjectCardInteraction(projectCard);
+
+            const projectCardLightboxButton = projectCard.querySelector('[data-more-info-button]');
+            projectCardLightboxButton.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                openLightbox(projectCard.cloneNode(true));
+            })
+        }
+    }
+
+    if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', loadProjectCards);}
+    else { loadProjectCards();}
+</script>
+
+<body style="margin: 0 20vw; height: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr)); gap: 5rem">
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+{
+  "project-title": "Missing Title",
+  "project-type": "Missing Type",
+  "version": "-1",
+  "origin": "Missing Origin",
+  "team-size": "Missing Team Size",
+  "date": "Missing Date",
+  "time": "Missing Time",
+  "thumbnail": {
+    "src": "Missing Thumbnail src",
+    "alt": "Missing Alt"
+  },
+  "trailer": {
+    "src": "Missing Trailer src",
+    "alt": "Missing alt"
+  },
+  "git-link": "optional",
+  "project-page-link": "optional",
+  "project-info-link": "optional",
+  "main-contribution": "Missing Main Contribution",
+  "contributions": {
+    "containerID": "rotations-workflow",
+    "contributions": [
+      {
+        "name": "Missing Contribution Name",
+        "link": "Missing Contribution Link"
+      }
+    ]
+  },
+  "description": [
+    "Missing Description"
+  ],
+  "tags": [
+    {
+      "name": "Missing Tag Name",
+      "relevance": "-1"
+    }
+  ],
+  "tools": [
+    {
+      "name": "Missing Tool Name"
+    }
+  ]
+}

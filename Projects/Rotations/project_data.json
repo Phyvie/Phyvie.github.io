@@ -1,45 +1,89 @@
 {
   "project-title": "Rotation Parameterizations",
-  "project-type": "Bachelor Thesis",
+  "project-type": "Educational Tool",
   "version": "1.0.0",
   "origin": "Cologne Game Lab",
   "team-size": "1",
   "date": "2025",
-  "time": "1 weeks",
-
-  "description":
-  [
-    "Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? In my bachelor thesis, and the accompanying unity-project tool, I analyse & visualise the different use cases of rotation parametrizations."
-  ],
-
+  "time": "3 months",
   "thumbnail": {
-    "src": "Data/Placeholder-images/gowther.jpg",
+    "src": "",
     "alt": "Rotation_Parametrization Thumbnail"
   },
-
-  "project-video": {
-    "src": "#"
+  "trailer": {
+    "src": "Missing Trailer Path",
+    "alt": "Missing Trailer"
   },
-
-  "WebGL-Build": {
-    "src": "#"
-  },
-
   "git-link": "https://#",
-
+  "main-contribution": "Design & Code Educational Tool",
+  "contributions": {
+    "containerID": "rotations-workflow",
+    "contributions": [
+      {
+        "name": "Coding Rotation Mechanics",
+        "link": "_./Projects/Rotations/Rotations.html#Backend-Math-Code"
+      },
+      {
+        "name": "Modeling Visualisation",
+        "link": "_./Projects/Rotations/Rotations.html#Math-Visualisation"
+      },
+      {
+        "name": "User Interface",
+        "link": "_./Projects/Rotations/Rotations.html#User-Interface"
+      }
+    ]
+  },
+  "description": [
+    "Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? In my bachelor thesis, and the accompanying interactive tool, I analyse & visualise the varying properties and resulting use cases of rotation parametrizations."
+  ],
+  "tags": [
+    {
+      "name": "Unity",
+      "relevance": "4"
+    },
+    {
+      "name": "solo-project",
+      "relevance": "5"
+    },
+    {
+      "name": "programming",
+      "relevance": "5"
+    },
+    {
+      "name": "visuals",
+      "relevance": "2"
+    },
+    {
+      "name": "educational",
+      "relevance": "4"
+    }
+  ],
+  "tools": "Missing Tools",
+  "WebGLConfig": {
+    "arguments": [],
+    "dataUrl": "./Content/Build/WebBuild.data",
+    "loader": "./Content/Build/WebBuild.loader.js",
+    "frameworkUrl": "./Content/Build/WebBuild.framework.js",
+    "codeUrl": "./Content/Build//WebBuild.wasm",
+    "streamingAssetsUrl": "StreamingAssets",
+    "companyName": "",
+    "productName": "Rotation_Parametrization_Visualiser",
+    "productVersion": "1.0.0"
+  },
+  "TODOZyKa json-data": "figure out a better system to put the links in here",
   "image-gallery": [
     {
-      "src": "./Data/Placeholder-images/Bowser.jpg",
+      "src": "./Data/Placeholder/Bowser.jpg",
       "alt": "Image: Euler gimbal",
       "description": "Euler angles describe orientation as three consecutive rotations. "
     },
     {
-      "src": "./Data/Placeholder-images/Bowser.jpg",
+      "src": "./Data/Placeholder/Bowser.jpg",
       "alt": "Image: Quaternion represented as a rotation around an axis by a given angle",
       "description": "The exponential map converts an axis-angle rotation-representation into a quaternion."
     },
     {
-      "src": "./Data/Placeholder-images/Bowser.jpg",
+      "src": "./Data/Placeholder/Bowser.jpg",
       "alt": "Image: Rotation Matrix",
       "description": "The columns of a rotation (/transformation) matrix describe where the transformed x, y and z vector are pointing. "
     },
@@ -49,27 +93,25 @@
       "description": "Summary of the properties of rotation parameterizations"
     }
   ],
-
   "CodeSample1": "https://raw.githubusercontent.com/Phyvie/ProfileWeek_25_Math/refs/heads/main/Assets/Scripts/Extensions/MathExtensions/AngleType.cs",
-
   "Workflow": [
     {
-      "src": "./Data/Placeholder-images/Bowser.jpg",
+      "src": "./Data/Placeholder/Bowser.jpg",
       "alt": "Image: Initial sketch of the project",
       "description": "In order to plan projects, I like to start with a visual sketch of the required components"
     },
     {
-      "src": "./Data/Placeholder-images/Bowser.jpg",
+      "src": "./Data/Placeholder/Bowser.jpg",
       "alt": "Image: Code Diagram",
       "description": "Depending on the complexity of the project, I create a code diagrams"
     },
     {
-      "src": "./Data/Placeholder-images/Bowser.jpg",
+      "src": "./Data/Placeholder/Bowser.jpg",
       "alt": "Image: Sample Script",
       "description": "Some sample code of the project; the entire sourcecode can be found at [...].github"
     },
     {
-      "src": "./Data/Placeholder-images/Bowser.jpg",
+      "src": "./Data/Placeholder/Bowser.jpg",
       "alt": "Image: UI-Toolkit",
       "description": "Throughout the project I newly learned to use unity's UI-Toolkit"
     }
