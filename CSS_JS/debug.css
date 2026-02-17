@@ -16,42 +16,31 @@
 
 /* region Temporary Debug */
 .debug-section {
-
+    align-self: center;
 }
 
-.debug-info-button-icon {
-    background-color: white;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 30; /* Higher than overlay text */
-    cursor: pointer;
+.parent {
+    width: 50vw;
+
+    display: flex;
+    flex-flow: row nowrap;
+
+    background-color: mediumpurple;
+    border: 3px solid purple;
+    padding: 15px;
 }
 
-.debug-info-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 25%;
-    height: 100%;
-    z-index: 20; /* Higher than section, lower than button */
-    display: none; /* Hidden by default */
-    box-sizing: border-box;
-    padding: 70px 20px 20px 20px; /* Top padding to avoid button overlap */
+.child {
+    width: 100%;
+
+    padding: 15px;
+    background-color: gray;
+    border: 5px solid yellow;
 }
 
-.debug-info-overlay.show {
-    display: block;
-}
+.child-text {
+    max-height: calc(var(--ELEMENT-LINE-HEIGHT)*3.5);
 
-.debug-info-overlay p {
-    color: white;
-    margin: 0;
-    z-index: 10; /* Lower than button */
-    position: relative;
+    overflow: auto;
 }
 /* endregion Temporary Debug */
