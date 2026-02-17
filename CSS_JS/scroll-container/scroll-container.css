@@ -15,7 +15,7 @@
     flex-flow: row nowrap;
     align-items: stretch;
 
-    /* !!!ZyKa scroll-container: figure out why this influences the sizes of elements */
+    /* ToDoZyKa scroll-container: should decide whether to remove this, such that it is clear whether overflow needs to be set in individual stylings or not */
     overflow: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
@@ -40,9 +40,8 @@
     flex: 0 0 calc(100% / var(--SCROLL-CONTAINER-VISIBLE-CHILD-COUNT) - var(--SCROLL-CONTAINER-ITEM-GAP)/2 * min(1, var(--SCROLL-CONTAINER-GAP-COUNT)));
     min-width: 0; /* ensures the flex can be smaller than it's min content -> necessary to use overflow */
 
-    /* !!!ZyKa scroll-container: figure out why this influences the sizes of elements */
+    /* ToDoZyKa scroll-container: should decide whether to remove this, such that it is clear whether overflow needs to be set in individual stylings or not */
     overflow: auto;
-
     scroll-snap-align: start;
 
     /* LATERZyKa styling-scroll-container: ensure scroll-container-items and their descriptions visibly belong together */
