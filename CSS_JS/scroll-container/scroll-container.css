@@ -3,7 +3,7 @@
     position: relative;
     display: flex;
 
-    padding: var(--LAYOUT-DISTANCE-SMALL) var(--LAYOUT-DISTANCE-SMALL);
+    padding: var(--LAYOUT-DISTANCE-SMALL);
 
     border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
     background: var(--COLOR-DECORATION-BLOCK-FADED);
@@ -15,15 +15,15 @@
     flex-flow: row nowrap;
     align-items: stretch;
 
+    /* !!!ZyKa scroll-container: figure out why this influences the sizes of elements */
     overflow: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 
-    --SCROLL-CONTAINER-ITEM-GAP: var(--LAYOUT-DISTANCE-LARGE);
+    --SCROLL-CONTAINER-ITEM-GAP: var(--LAYOUT-DISTANCE-DEFAULT);
     gap: var(--SCROLL-CONTAINER-ITEM-GAP);
 
     --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 1;
-    height: 100%;
 }
 
 .scroll-container__content-container--vertical {
@@ -33,15 +33,14 @@
     width: 100%;
 }
 
-.scroll-container__content-container--two-elements {
-    --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 2;
-}
-
 .scroll-container__item {
     position: relative;
 
-    flex: 0 0 calc(100% / var(--SCROLL-CONTAINER-VISIBLE-CHILD-COUNT) - var(--SCROLL-CONTAINER-ITEM-GAP)/2);
+    --SCROLL-CONTAINER-GAP-COUNT: calc(var(--SCROLL-CONTAINER-VISIBLE-CHILD-COUNT) - 1);
+    flex: 0 0 calc(100% / var(--SCROLL-CONTAINER-VISIBLE-CHILD-COUNT) - var(--SCROLL-CONTAINER-ITEM-GAP)/2 * min(1, var(--SCROLL-CONTAINER-GAP-COUNT)));
     min-width: 0; /* ensures the flex can be smaller than it's min content -> necessary to use overflow */
+
+    /* !!!ZyKa scroll-container: figure out why this influences the sizes of elements */
     overflow: auto;
 
     scroll-snap-align: start;
@@ -49,21 +48,6 @@
     /* LATERZyKa styling-scroll-container: ensure scroll-container-items and their descriptions visibly belong together */
     background-color: var(--COLOR-DECORATION-BLOCK);
     border-radius: var(--LAYOUT-BORDER-RADIUS-SMALL);
-}
-
-.scroll-container__item-content {
-    overflow: auto;
-    width: 100%;
-    aspect-ratio: 3/2;
-}
-
-.scroll-container__item-description {
-    overflow: auto;
-    width: 100%;
-
-    /* LATERZyKa styling: adjust colors, such that there aren't 50 different version of the transparent color */
-    background-color: color-mix(in srgb, var(--COLOR-DECORATION-BLOCK) 100%, transparent 0%);
-    padding: var(--LAYOUT-DISTANCE-SMALL);
 }
 
 .scroll-container__nav-button {
