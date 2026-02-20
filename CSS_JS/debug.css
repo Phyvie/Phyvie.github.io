@@ -17,24 +17,5 @@
 
 /* region Temporary Debug */
 .debug-section {
-    align-self: center;
-}
-
-.parent {
-    height: 100px;
-    width: 80vw;
-
-    display: flex;
-    flex-flow: row nowrap;
-
-    --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 2;
-    --SCROLL-CONTAINER-ITEM-GAP: 20px;
-
-    gap: var(--SCROLL-CONTAINER-ITEM-GAP);
-}
-
-.child {
-    --SCROLL-CONTAINER-GAP-COUNT: calc(var(--SCROLL-CONTAINER-VISIBLE-CHILD-COUNT) - 1);
-    flex: 0 0 calc(100% / var(--SCROLL-CONTAINER-VISIBLE-CHILD-COUNT) - var(--SCROLL-CONTAINER-ITEM-GAP)/2 * min(1, var(--SCROLL-CONTAINER-GAP-COUNT)));
 }
 /* endregion Temporary Debug */

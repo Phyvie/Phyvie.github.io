@@ -1,5 +1,4 @@
 .contribution-section {
-
 }
 
 .scroll-container--contribution-section {
@@ -7,155 +6,147 @@
 }
 
 .scroll-container__content-container--contributions-section {
-    --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 1;
 }
 
 .contribution-section__scroll-container-nav-button {
-
 }
 
 .described-item {
-    display: flex;
-    flex-direction: column;
-
-    max-width: 100%;
+    /* TODOZyKa scroll-container: this width should not be set in described item itself, but rather somewhere in a sizing class */
+    width: 100%;
 }
 
 .described-item__content {
-    overflow: auto;
     aspect-ratio: 3/2;
+    overflow: auto;
 }
 
 .described-item__description {
     overflow: auto;
-
-    /* LATERZyKa styling: adjust colors, such that there aren't 50 different version of the transparent color */
-    background-color: color-mix(in srgb, var(--COLOR-DECORATION-BLOCK) 100%, transparent 0%);
 }
 
 /* mobile landscape & desktop-half-height */
-@media (max-height: 599px){
+@media (max-height: 599px) and (max-width: 899px){
     /* !!!ZyKa styling: adjust this height for different content-heights */
     .scroll-container--contribution-section {
+        /*height: 90vh;*/
         height: auto;
-        min-height: max-content;
-        max-height: 60vh;
         padding: var(--LAYOUT-DISTANCE-SMALL);
 
         container: contribution-scroll-container / inline-size;
     }
 
     .scroll-container__content-container--contributions-section {
+        outline: var(--DEBUG-MEDIA-QUERY-OUTLINE-SMALL-LANDSCAPE);
+
         height: auto;
     }
 
     .described-item {
-        align-self: center;
         padding: var(--LAYOUT-DISTANCE-SMALL);
 
         height: 100%;
         display: flex;
-        flex-direction: row;
-        align-items: center;
+        flex-flow: row nowrap;
     }
 
     .described-item__content {
-        width: 60%;
-        overflow-y: scroll;
+        flex: 0 0 50%;
+        width: auto;
+        height: 100%;
+        max-height: 80vh;
+        /* !!!ZyKa described-item: increasing window height = more space for image, less for text = weird scaling behaviour */
     }
 
     /* LATERZyKa styling: add a scroll-signalizer */
     .described-item__description {
-        width: 40%;
-        height: auto;
-        max-height: 100%;
-        overflow-y: auto;
-
+        flex: 0 0 50%;
+        width: auto;
+        contain: size paint;
         padding: 0 var(--LAYOUT-DISTANCE-SMALL);
-    }
-
-    @container contribution-scroll-container (min-width: 1500px) {
-        .scroll-container__content-container--contributions-section {
-            --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 2;
-        }
-
-        @container contribution-scroll-container (min-width: 2400px) {
-            .scroll-container__content-container--contributions-section {
-                --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 3;
-            }
-        }
     }
 }
 
 /* mobile-portrait */
-@media (min-height: 600px) and (max-width: 899px)
+@media (min-height: 600px)
 {
-    .described-item__content {
-        width: 100%;
-    }
+    @container scroll-container (max-width: 599px)
+    {
+        .scroll-container__content-container--contributions-section {
+            outline: var(--DEBUG-MEDIA-QUERY-OUTLINE-SMALL-PORTRAIT);
 
-    .described-item__description {
-        height: auto;
-        max-height: 30vh;
-        width: 100%;
+            height: auto;
+        }
 
-        padding: var(--LAYOUT-DISTANCE-SMALL);
+        .described-item__content {
+            width: 100%;
+        }
+
+        .described-item__description {
+            max-height: 30vh;
+            width: 100%;
+
+            padding: var(--LAYOUT-DISTANCE-SMALL);
+        }
     }
 }
 
-@media (min-height: 600px) and (min-width: 900px){
-    .scroll-container--contribution-section {
-        height: 80vh;
-        max-height: 80vh;
+/* large-screen */
+@media (min-height: 600px) or (min-width: 900px){
+    @container scroll-container (min-width: 600px) {
+        .scroll-container__content-container--contributions-section {
+            outline: var(--DEBUG-MEDIA-QUERY-OUTLINE-PC);
+        }
 
-        container: contribution-scroll-container / size;
-    }
+        /* NOWZyKa scroll-container: this should be scroll-container__item--contribution-section */
+        .scroll-container__item--contribution-section {
+            height: fit-content;
+        }
 
-    .scroll-container__content-container--contributions-section {
-        height: auto;
-    }
+        .described-item {
+            width: 100%;
+            height: fit-content;
+        }
 
-    .described-item {
-        height: auto;
-        padding: var(--LAYOUT-DISTANCE-SMALL);
-    }
+        .described-item__content {
+            width: 100%;
+            max-height: 60vh; /* adjustment for small, but wide screens */
+        }
 
-    .described-item__content {
-        width: 100%;
-        height: 720px;
-    }
+        .described-item__description {
+            width: 100%;
+            /* NOWZyKa scroll-container: figure out how to adjust this height depending on how wide the screen is */
+            height: calc(var(--ELEMENT-LINE-HEIGHT) * 4.5);
+            max-height: 30vh; /* adjustment for small, but wide screens */
+            overflow: auto;
+        }
 
-    .described-item__description {
-        max-height: calc(var(--ELEMENT-LINE-HEIGHT) * 4.5);
-    }
-
-    /* scroll-container-child-count */ /* PLCHZyKa SCSS: replace with SCSS */
-    @container contribution-scroll-container (min-width: 900px) {
-        @container contribution-scroll-container (aspect-ratio >= 2/1) {
+        /* scroll-container-child-count */ /* PLCHZyKa SCSS: replace with SCSS */
+        @container scroll-container (min-width: 1100px) {
             .scroll-container__content-container--contributions-section {
                 --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 2;
             }
         }
 
-        @container contribution-scroll-container (aspect-ratio >= 3/1) {
+        @container scroll-container (min-width: 1650px) {
             .scroll-container__content-container--contributions-section {
                 --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 3;
             }
         }
 
-        @container contribution-scroll-container (aspect-ratio >= 4/1) {
+        @container scroll-container (min-width: 2200px) {
             .scroll-container__content-container--contributions-section {
                 --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 4;
             }
         }
 
-        @container contribution-scroll-container (aspect-ratio >= 5/1) {
+        @container scroll-container (min-width: 2750px) {
             .scroll-container__content-container--contributions-section {
                 --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 5;
             }
         }
 
-        @container contribution-scroll-container (aspect-ratio >= 6/1) {
+        @container scroll-container (min-width: 3300px) {
             .scroll-container__content-container--contributions-section {
                 --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 6;
             }

@@ -1,3 +1,5 @@
+import {GetPathFromPortfolioRoot} from "../../PortfolioRootPath.js";
+
 export function loadDataRefs(targetRootElement, jsonData)
 {
     if (!targetRootElement)
@@ -40,11 +42,13 @@ export function loadDataRefs(targetRootElement, jsonData)
             case 'git':
                 setGitContent(dataRefElement, data);
                 break;
+            case 'contributions':
+                setContributions(dataRefElement, data);
+                break;
             default:
                 console.error(`Unknown data-ref type: ${type}`);
                 break;
         }
-
     }
 }
 
@@ -85,6 +89,11 @@ function setMultilineText(element, textArray) {
 }
 
 function setGitContent(element, gitLink) {
+    if (!element) {
+        console.warn("setGitContent: element is null or undefined");
+        return;
+    }
+
     fetch(gitLink)
         .then(response => {
             if (!response.ok) {
@@ -97,6 +106,18 @@ function setGitContent(element, gitLink) {
             hljs.highlightElement(element);
         })
         .catch(error => console.error(error));
+}
+
+function setAttribute(element, attribute) {
+    if(!element) {
+        console.warn("setAttribute: element is null or undefined");
+        return;
+    }
+    if(!attribute) {
+        console.warn("setAttribute: attribute is null or undefined");
+    }
+
+    element.setAttribute(attribute.name, attribute.value);
 }
 
 function setImageContent(element, imageData) {
@@ -205,5 +226,28 @@ function setVideo(element, videoData) {
     }
     if (videoData.muted !== undefined) {
         element.muted = videoData.muted;
+    }
+}
+
+function setContributions(element, contributions) {
+    if (!element) {
+        console.warn("setContributions: element is null or undefined");
+        return;
+    }
+    if (!contributions) {
+        console.warn("setContributions: contributions is null or undefined");
+        return;
+    }
+
+    let containerID = contributions.containerID;
+    for (let contribution of contributions.contributions)
+    {
+        let contributionElement = document.createElement('span');
+        element.appendChild(contributionElement);
+
+        contributionElement.innerHTML = contribution.name;
+        contributionElement.setAttribute('data-cached-container-id', containerID);
+        contributionElement.setAttribute('data-cached-content', GetPathFromPortfolioRoot(contribution.link));
+        element.innerHTML += ",<br>"
     }
 }

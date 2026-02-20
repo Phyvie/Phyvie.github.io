@@ -10,29 +10,6 @@
  * - provide "LoadAndStartWebGLGame" function as a proxy to loader.js::createUnityInstance
  */
 
-export function createWebGLConfig(buildPath, buildName, companyName, productName, productVersion, bannerFunction) {
-    if (!buildPath || !buildName || buildPath.length === 0 || buildName.length === 0) {
-        console.error("createWebGLConfig: buildPath or buildName is null or empty");
-        return;
-    }
-
-    let fullPath = `${buildPath}/${buildName}`;
-
-    var config = {
-        arguments: [],
-        dataUrl: `${fullPath}.data`,
-        frameworkUrl: `${fullPath}.framework.js`,
-        loader: `${fullPath}.loader.js`,
-        codeUrl: `${fullPath}.wasm`,
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: companyName,
-        productName: productName,
-        productVersion: productVersion,
-        showBanner: bannerFunction
-    };
-    return config;
-}
-
 export function unityShowBanner(warningBanner, msg, type) {
     if (!warningBanner)
     {
@@ -64,13 +41,13 @@ export function unityShowBanner(warningBanner, msg, type) {
     updateBannerVisibility();
 }
 
-export async function PutWebGLGameOntoElement(config, gameCanvas)
+export async function LoadWebGLScriptOntoElement(config, gameContainer)
 {
     await new Promise((resolve, reject) => {
         const script = document.createElement("script");
         script.src = config.loader;
         
-        gameCanvas.appendChild(script);
+        gameContainer.appendChild(script);
 
         script.onload = resolve;
         script.onerror = reject;

@@ -1,22 +1,26 @@
 /* relative wrapper for next/last scroll-buttons */
 .scroll-container {
     position: relative;
+    /* TODOZyKa scroll-container: check whether this flex has any purpose */
     display: flex;
 
     padding: var(--LAYOUT-DISTANCE-SMALL);
 
     border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
     background: var(--COLOR-DECORATION-BLOCK-FADED);
+
+    container: scroll-container / inline-size;
 }
 
 /* container for the content which is actually scrolling */
 .scroll-container__content-container {
+    width: 100%;
+
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch;
 
-    /* ToDoZyKa scroll-container: should decide whether to remove this, such that it is clear whether overflow needs to be set in individual stylings or not */
-    overflow: hidden;
+    overflow: scroll;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 
@@ -37,11 +41,9 @@
     position: relative;
 
     --SCROLL-CONTAINER-GAP-COUNT: calc(var(--SCROLL-CONTAINER-VISIBLE-CHILD-COUNT) - 1);
+    /* 100% is the full visible width; divide it by the number of items to have them on screen & subtract the gap, such that everything is fully visible */
     flex: 0 0 calc(100% / var(--SCROLL-CONTAINER-VISIBLE-CHILD-COUNT) - var(--SCROLL-CONTAINER-ITEM-GAP)/2 * min(1, var(--SCROLL-CONTAINER-GAP-COUNT)));
     min-width: 0; /* ensures the flex can be smaller than it's min content -> necessary to use overflow */
-
-    /* ToDoZyKa scroll-container: should decide whether to remove this, such that it is clear whether overflow needs to be set in individual stylings or not */
-    overflow: auto;
     scroll-snap-align: start;
 
     /* LATERZyKa styling-scroll-container: ensure scroll-container-items and their descriptions visibly belong together */

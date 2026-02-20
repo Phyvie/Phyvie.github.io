@@ -11,6 +11,7 @@
  * - none
  */
 
+/* loads and parses HTML Content from a given URL */
 export async function fetchHTMLElementFromURL(url)
 {
     try

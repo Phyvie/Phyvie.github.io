@@ -3,10 +3,10 @@ Default HTML container for hosting a unity-webgl-build as an iframe on any websi
 
 purpose: offer a default html-DOM-structure that can host unity-web-gl-builds
 includes: game-canvas, loading-bar, unity-logo, fullscreen-button, ...
-requires: unity-webgl-build passed in as attribute named 'data-game-config' (usually happens via unity-webgl-iframe-creator.js)
+requires: unity-webgl-build passed in as attribute named 'data-game-config' (usually happens via unity-embed-webGL-iframe.js)
 connections:
-    - unity-webgl-iframe-creator.js, which creates an iframe for unity builds; this is the default for passing into unity-webgl-iframe-creator.js::embedGame
-    - unity-webgl-into-html-loader.js, which automatically connects the html-elements with the unity-webgl-build.
+    - unity-embed-webGL-iframe.js, which creates an iframe for unity builds; this is the default for passing into unity-embed-webGL-iframe.js::embedGame
+    - unity-webgl-iframe-connector-minimal.js, which automatically connects the html-elements with the unity-webgl-build.
 -->
 
 <!DOCTYPE html>
@@ -14,8 +14,8 @@ connections:
 <head>
     <meta charset="UTF-8">
     <title> Unity WebGL Game </title>
-    <link rel="stylesheet" href="style--new.css">
-    <script defer type="module" src="unity-webgl-into-html-loader.js"></script>
+    <link rel="stylesheet" href="webgl-iframe-minimal.css">
+    <script defer type="module" src="unity-webgl-iframe-connector-minimal.js"></script>
 </head>
 
 <body>
@@ -35,12 +35,6 @@ connections:
         </div>
 
         <div id="unity-warning"></div>
-
-        <div id="unity-footer">
-            <div id="unity-logo-title-footer"></div>
-            <div id="unity-play-button"></div>
-            <div id="unity-fullscreen-button"></div>
-        </div>
     </div>
 </body>
 </html>
