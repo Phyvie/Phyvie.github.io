@@ -1,19 +1,19 @@
 {
   "project-title": "Rotation Parameterizations",
-  "project-type": "Bachelor Thesis",
-  "version": "1.0.0",
+  "project-type": "Math Visualisation Tool",
   "origin": "Cologne Game Lab",
   "team-size": "1",
   "date": "2025",
-  "time": "1 weeks",
+  "time": "3 months",
+  "version": "1.0.0",
 
   "description":
   [
-    "Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? In my bachelor thesis, and the accompanying unity-project tool, I analyse & visualise the different use cases of rotation parametrizations."
+    "Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? In my bachelor thesis, and the accompanying interactive tool, I analyse & visualise the varying properties and resulting use cases of rotation parametrizations."
   ],
 
   "thumbnail": {
-    "src": "Data/Placeholder-images/gowther.jpg",
+    "src": "",
     "alt": "Rotation_Parametrization Thumbnail"
   },
 
@@ -26,6 +26,26 @@
   },
 
   "git-link": "https://#",
+
+  "TODOZyKa json-data": "figure out a better system to put the links in here",
+  "contributions": {
+    "containerID": "rotations-workflow",
+    "contributions":
+    [
+      {
+        "name": "Coding Rotation Mechanics",
+        "link": ".P/Projects/Rotations/Rotations.html#Backend-Math-Code"
+      },
+      {
+        "name": "Modeling Visualisation",
+        "link": ".P/Projects/Rotations/Rotations.html#Math-Visualisation"
+      },
+      {
+        "name": "User Interface",
+        "link": ".P/Projects/Rotations/Rotations.html#User-Interface"
+      }
+    ]
+  },
 
   "image-gallery": [
     {

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="CSS_JS/common.blocks/tag.css">
 
     <link rel="stylesheet" href="CSS_JS/scroll-container/scroll-container.css">
-    <script defer type="module" src="CSS_JS/scroll-container/scroll-container.js"> </script>
+    <script defer type="module" src="CSS_JS/scroll-container/scroll-container.js"></script>
 
     <link rel="stylesheet" href="modules/highlight/styles/dark-phy.css">
     <script src="modules/highlight/highlight.min.js"></script>
@@ -32,12 +32,9 @@
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/about-me.css">
 
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/rotations-section.css">
-    <script defer type="module" src="CSS_JS/portfolio.blocks/rotations-section.js"> </script>
-
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/workflow-section.css">
-
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/further-projects-section.css">
-    <script defer type="module" src="CSS_JS/portfolio.blocks/further-projects-section-load-cards.js"> </script>
+    <script defer type="module" src="CSS_JS/portfolio.blocks/further-projects-section-load-cards.js"></script>
 
     <link rel="stylesheet" href="CSS_JS/debug.css">
 </head>
@@ -45,44 +42,50 @@
 
 <main class="main">
 
-    <section class="debug-section">
-        <div class="parent debug--bg">
-            <div class="child debug--bg">
+<!--    <section class="debug-section main__panel">-->
+<!--    </section>-->
 
-            </div>
-            <div class="child debug--bg">
-
-            </div>
-        </div>
-    </section>
-
-    <div class="main__separator separator"></div>
+<!--    <div class="main__separator separator"></div>-->
 
     <section id="about-me" class="main__panel project-section project-section__main-content">
         <div class="project-section__media">
             <img class="media--cover media--rounded" src="Data/Placeholder-images/Bowser.jpg" alt="Image of me">
         </div>
-        <div class ="project-section__info-container">
+        <div class="project-section__info-container">
             <h1 class="header header--left"> Valentin Then Bergh </h1>
             <div class="flex-tags">
-                <h2 class="flex-tags__tag tag tag--about-me-skills"> Gameplay <br class="tag--about-me-br"> Programming </h2>
-                <h2 class="flex-tags__tag tag tag--about-me-skills"> Mechanics <br class="tag--about-me-br"> Design </h2>
+                <h2 class="flex-tags__tag tag tag--about-me-skills"> Gameplay <br class="tag--about-me-br"> Programming
+                </h2>
+                <h2 class="flex-tags__tag tag tag--about-me-skills"> Mechanics <br class="tag--about-me-br"> Design
+                </h2>
                 <h2 class="flex-tags__tag tag tag--about-me-skills"> Tech <br class="tag--about-me-br"> Design </h2>
-                <h2 class="flex-tags__tag tag tag--about-me-skills"> Math <br class="tag--about-me-br"> Visualization </h2>
+                <h2 class="flex-tags__tag tag tag--about-me-skills"> Math <br class="tag--about-me-br"> Visualization
+                </h2>
             </div>
             <div class="project-section__description">
                 <p>
-                    As a game designer and programmer, I specialize in composing game elements into logically coherent structures. Due to this characteristic, I enjoy working as an intermediary between designers and programmers: On the design side, I contribute ideas & logic to new game mechanics, before I translate the systems into flowcharts that programmers can readily implement. On the programming side, I build design-heavy gameplay systems and organize assets to empower designers in crafting gameplay more easily. <br>
+                    <span class="emphasized"> My Work: </span> As a tech designer, I specialize in composing game design elements into logically coherent
+                    structures. Due to this characteristic, I enjoy working as an intermediary between designers and
+                    programmers: On the design side, I contribute ideas & logic to new game mechanics, before I
+                    translate the systems into flowcharts that programmers can readily implement. On the programming
+                    side, I build design-heavy gameplay systems and organize assets to empower designers in crafting
+                    gameplay more easily. <br>
                     <br>
-                    Due to my focus on gameplay mechanics, I am especially drawn to work on ludic and minimalistic games, such as platformers, metroidvanias, card-/monster-gatherers, logic puzzles, and music games. <br>
+                    <span class="emphasized"> My Genres: </span> Due to my focus on gameplay mechanics, I am especially drawn to work on ludic and minimalistic
+                    games. Some specific genres include: platformers, metroidvanias, card-/monster-gatherers, logic puzzles, and music games.
                     <br>
-                    I studied at the Cologne Game Lab, where I collaborated on multiple group projects spanning several weeks each. Throughout these, I gained experience in the collaborative use of Unity (C#, 4 years), Unreal Engine (C++, 1 year), as well as organizational tools, like Git, Miro, and more. <br>
                     <br>
-                    For the future, I'd like to learn how to contribute these skills in a professional environment. Therefore, I am currently seeking internships as a tech designer to learn more about industry standards, especially the pipeline from designing to programming game mechanics.
+                    <span class="emphasized"> My Experience: </span> I studied at the Cologne Game Lab, where I collaborated on multiple group projects spanning several
+                    weeks each. Throughout these, I gained experience in the collaborative use of Unity (C#, 4 years),
+                    Unreal Engine (C++, 1 year), as well as organizational tools, like Git, Miro, and more. <br>
+                    <br>
+                    <span class="emphasized"> My Plans: </span> For the future, I'd like to learn how to contribute these skills in a professional environment.
+                    Therefore, I am currently seeking internships as a tech designer to learn more about industry
+                    standards, especially the pipeline from designing to programming game mechanics.
                 </p>
             </div>
             <div class="project-section__links flex-tags">
-                <p class ="flex-tags__tag tag tag--link-arrow tag--about-me-links"> Contact-E-Mail </p>
+                <p class="flex-tags__tag tag tag--link-arrow tag--about-me-links"> Contact-E-Mail </p>
                 <p class="flex-tags__tag tag tag--link-arrow tag--about-me-links"> Curriculum Vitae </p>
             </div>
         </div>
@@ -91,77 +94,55 @@
     <div class="main__separator separator"></div>
 
     <section id="rotations"
-        class ="main__panel project-section">
+             class="main__panel project-section">
+        <script defer type="module" src="CSS_JS/portfolio.blocks/rotations-section.js"></script>
         <div class="project-section__main-content">
             <div class="project-section__media">
                 <!-- rotations-section.js loads the WebGL build in here -->
             </div>
             <div class="project-section__info-container">
-                <h1 class="project-section__title"> Rotations </h1>
-                <div class="">
-                    <!-- NOWZyKa project-section: layout A -->
-                    <table class="project-section__data-table">
-                        <tr>
-                            <th> Genre: </th>
-                            <td> Math Visualisation Tool </td>
-                        </tr>
-                        <tr>
-                            <th> Dev-Context: </th>
-                            <td> Bachelor-Thesis </td>
-                        </tr>
-                        <tr>
-                            <th> Time - Team-Size </th>
-                            <td> Summer 2025 - Solo </td>
-                        </tr>
-<!--                        <tr>-->
-<!--                            <th> <img src="./Data/Icons/Group.png" alt="Group-Size: " class="media--img-in-font"> </th>-->
-<!--                            <td> 1 </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <th> <img src="./Data/Icons/Calendar.png" alt="Dev-Data" class="media--img-in-font"> </th>-->
-<!--                            <td> Summer 2025 </td>-->
-<!--                        </tr>-->
-                        <tr>
-                            <th> Tools </th>
-                            <td>
-                                <div style="display:flex; flex-flow: row nowrap">
-                                    <div class="tag">
-                                        <img src="./Data/Icons/Unity.png" class="media--img-in-font" alt="Unity">
-                                    </div>
-                                    <div class="tag">
-                                        <img src="./Data/Icons/Cs.png" class="media--img-in-font" alt="C#">
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                    <p class = "project-section__description" data-ref="multiline-text:description"></p>
-                    <h2 class="header--lvl2"> contributions & tools: </h2>
-                    <ul>
-                        <li
-                                data-cached-content="./Projects/Rotations/Rotations.html#Thesis-Writing"
-                                data-content-container-id="rotations-workflow">
-                            Thesis Writing
-                        </li>
-                        <li
-                                data-cached-content="./Projects/Rotations/Rotations.html#Backend-Math-Code"
-                                data-content-container-id="rotations-workflow">
-                            Coding Rotation Mathematics
-                        </li>
-                        <li
-                                data-cached-content="./Projects/Rotations/Rotations.html#Math-Visualisation"
-                                data-content-container-id="rotations-workflow">
-                            Modeling Visualisation
-                        </li>
-                        <li
-                                data-cached-content="./Projects/Rotations/Rotations.html#User-Interface"
-                                data-content-container-id="rotations-workflow">
-                            User Interface
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- NOWZyKa project-section: layout-B -->
+                <h1 class="project-section__title" data-ref="text:project-title"> </h1>
+                <!-- NOWZyKa project-section: layout A -->
+                <table class="project-section__data-table">
+                    <tr>
+                        <th> Genre:</th>
+                        <td data-ref="text:project-type"> </td>
+                    </tr>
+                    <tr>
+                        <th> Dev-Context:</th>
+                        <td data-ref="text:origin"> </td>
+                    </tr>
+                    <tr>
+                        <th> Time - Team-Size</th>
+                        <td> <span data-ref="text:time"></span>-<span data-ref="text:team-size"> </span></td>
+                    </tr>
+<!--                    <tr>-->
+<!--                        <th> <img src="./Data/Icons/Group.png" alt="Group-Size: " class="media&#45;&#45;img-in-font"> </th>-->
+<!--                        <td> 1 </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <th> <img src="./Data/Icons/Calendar.png" alt="Dev-Data" class="media&#45;&#45;img-in-font"> </th>-->
+<!--                        <td> Summer 2025 </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <th> Tools</th>-->
+<!--                        <td>-->
+<!--                            <div style="display:flex; flex-flow: row nowrap">-->
+<!--                                <div class="tag">-->
+<!--                                    <img src="./Data/Icons/Unity.png" class="media&#45;&#45;img-in-font" alt="Unity">-->
+<!--                                </div>-->
+<!--                                <div class="tag">-->
+<!--                                    <img src="./Data/Icons/Cs.png" class="media&#45;&#45;img-in-font" alt="C#">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+                    <tr>
+                        <th> my role: </th>
+                        <td data-ref="contributions:contributions">  </td>
+                    </tr>
+                </table>
+                <!-- region layout alternative to project-section__data-table -->
 <!--                <div class="project-section__data-line flex-tags">-->
 <!--                    <p class="flex-tags__tag tag tag&#45;&#45;rotations"> Bachelor Thesis </p>-->
 <!--                    <p class="flex-tags__tag tag tag&#45;&#45;rotations media-flex-center-wrapper" style="position: relative; color: black; z-index: 30">-->
@@ -170,54 +151,89 @@
 <!--                    </p>-->
 <!--                    <p class="flex-tags__tag tag tag&#45;&#45;rotations">  </p>-->
 <!--                </div>-->
-                <div class="flex-tags project-section__links">
-                    <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"
-                        data-cached-content="./Projects/Rotations/Rotation_parameterizations.html#example-text"
-                        data-content-container-id="rotations-workflow"
-                    > more info </p>
-                    <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"
-                       data-cached-content="./Projects/Rotations/Rotation_parameterizations.html#lorem-ipsum"
-                       data-content-container-id="rotations-workflow"
-                    > to project page </p>
-                </div>
+                <!-- endregion -->
+                <p class="project-section__description" data-ref="multiline-text:description"></p>
+<!--                 region layout alternative: separate contribution & tools section -->
+<!--                <div class="project-section__contributions">-->
+<!--                    <h2 class="header&#45;&#45;lvl2"> contributions & tools: </h2>-->
+<!--                    <ul>-->
+<!--                        <li-->
+<!--                                data-cached-content="./Projects/Rotations/Rotations.html#Thesis-Writing"-->
+<!--                                data-cached-container-id="rotations-workflow">-->
+<!--                            Thesis Writing-->
+<!--                        </li>-->
+<!--                        <li-->
+<!--                                data-cached-content="./Projects/Rotations/Rotations.html#Backend-Math-Code"-->
+<!--                                data-cached-container-id="rotations-workflow">-->
+<!--                            Coding Rotation Mathematics-->
+<!--                        </li>-->
+<!--                        <li-->
+<!--                                data-cached-content="./Projects/Rotations/Rotations.html#Math-Visualisation"-->
+<!--                                data-cached-container-id="rotations-workflow">-->
+<!--                            Modeling Visualisation-->
+<!--                        </li>-->
+<!--                        <li-->
+<!--                                data-cached-content="./Projects/Rotations/Rotations.html#User-Interface"-->
+<!--                                data-cached-container-id="rotations-workflow">-->
+<!--                            User Interface-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--                endregion layout alternative: separate contribution & tools section-->
+<!--                region layout alternative: separate links section -->
+<!--                <div class="flex-tags project-section__links">-->
+<!--                    <p class="flex-tags__tag tag tag&#45;&#45;link-arrow tag&#45;&#45;project-section-link"-->
+<!--                       data-cached-content="./Projects/Rotations/Rotation_parameterizations.html#example-text"-->
+<!--                       data-cached-container-id="rotations-workflow"-->
+<!--                    > more info </p>-->
+<!--                    <p class="flex-tags__tag tag tag&#45;&#45;link-arrow tag&#45;&#45;project-section-link"-->
+<!--                       data-cached-content="./Projects/Rotations/Rotation_parameterizations.html#lorem-ipsum"-->
+<!--                       data-cached-container-id="rotations-workflow"-->
+<!--                    > discover further </p>-->
+<!--                </div>-->
+<!--                 endregion layout alternative: separate links section -->
             </div>
         </div>
         <div id="rotations-workflow"
-                class="project-section__workflow project-section__workflow--collapsed">
+             class="project-section__workflow project-section__workflow--collapsed">
             <!-- This is where further explanation about the workflow or individual results of the project are added -->
         </div>
     </section>
 
     <div class="main__separator separator"></div>
 
-    <div id="project-section-B"
-            class="main__panel project-section">
-        <section class="project-section__main-content">
-            <div class="project-section__media">
-                <img class="media--cover media--rounded"
-                     src="./Data/Placeholder-images/Bowser.jpg" alt="Image of Project">
-            </div>
-            <div class="project-section__info-container">
-                <h1 class="header"> Highlight: Project B </h1>
-                <div>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Asperiores dolores eos nam necessitatibus, suscipit vel vitae voluptatum!
-                        A ad consectetur cupiditate, delectus esse exercitationem necessitatibus perferendis quas quasi quos voluptates.
-                    </p>
-                </div>
-                <div class="project-section__links flex-tags">
-                    <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"> more info </p>
-                    <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"> to project page </p>
-                </div>
-            </div>
-        </section>
-        <div class="project-section__workflow project-section__workflow--collapsed"></div>
-    </div>
+    <!-- region highlight-section B -->
+    <!-- LATERZyKa moebius: reactivate and fill in the moebius content -->
+<!--    <div id="project-section-B"-->
+<!--         class="main__panel project-section">-->
+<!--        <section class="project-section__main-content">-->
+<!--            <div class="project-section__media">-->
+<!--                <img class="media&#45;&#45;cover media&#45;&#45;rounded"-->
+<!--                     src="./Data/Placeholder-images/Bowser.jpg" alt="Image of Project">-->
+<!--            </div>-->
+<!--            <div class="project-section__info-container">-->
+<!--                <h1 class="header"> Highlight: Project B </h1>-->
+<!--                <div>-->
+<!--                    <p>-->
+<!--                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.-->
+<!--                        Asperiores dolores eos nam necessitatibus, suscipit vel vitae voluptatum!-->
+<!--                        A ad consectetur cupiditate, delectus esse exercitationem necessitatibus perferendis quas quasi-->
+<!--                        quos voluptates.-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--                <div class="project-section__links flex-tags">-->
+<!--                    <p class="flex-tags__tag tag tag&#45;&#45;link-arrow tag&#45;&#45;project-section-link"> more info </p>-->
+<!--                    <p class="flex-tags__tag tag tag&#45;&#45;link-arrow tag&#45;&#45;project-section-link"> to project page </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+<!--        <div class="project-section__workflow project-section__workflow&#45;&#45;collapsed"></div>-->
+<!--    </div>-->
 
-    <div class="main__separator separator"></div>
+<!--    <div class="main__separator separator"></div>-->
+    <!-- endregion highlight-section B -->
 
-    <section class= "main__panel further-projects-section">
+    <section class="main__panel further-projects-section">
         <h1 class="header"> Further Projects </h1>
         <div id="further-projects-section__cards-grid" class="further-projects-section__cards-grid">
             <!-- project cards are loaded in here via "further-projects-section-load-cards.js" -->

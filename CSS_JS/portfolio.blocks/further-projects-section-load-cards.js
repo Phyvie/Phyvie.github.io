@@ -1,7 +1,5 @@
 import {TryLoadJson} from "../common.blocks/load-data-refs.js";
 
-const TEMPLATE_PROJECT_CARD_PATH = './CSS_JS/project-card/Project-Card-Template.html';
-
 import {
     LoadProjectCardTemplate,
     AppendProjectCardToElement,
@@ -49,7 +47,6 @@ async function CreateProjectCards() {
 
 async function initializeOnce()
 {
-    await LoadProjectCardTemplate(TEMPLATE_PROJECT_CARD_PATH, 'template--project-card');
     await CreateProjectCards();
 }
 

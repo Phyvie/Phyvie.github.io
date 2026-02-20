@@ -1,7 +1,7 @@
 /* script for creating ContentContainer that can switch their content to content from another HTML-page
  *
  * how to use:
- * - add "data-cached-content="page-url#elementid" & "data-content-container-id="id_of_content-container"" to any element that should trigger a content switch
+ * - add "data-cached-content="page-url#elementid" & "data-cached-container-id="id_of_content-container"" to any element that should trigger a content switch
  * - call createSwitchableContentContainer(HTMLContentCache, containerID, options) to initialise the interactivity
  */
 
@@ -75,7 +75,7 @@ class SwitchableContentContainerManager {
         const clickedAccessor = event.target.closest('[data-cached-content]');
         if (!clickedAccessor) return;
 
-        const targetContainerId = clickedAccessor.getAttribute('data-content-container-id');
+        const targetContainerId = clickedAccessor.getAttribute('data-cached-container-id');
         if (!targetContainerId) return;
 
         const container = this.containers.get(targetContainerId);

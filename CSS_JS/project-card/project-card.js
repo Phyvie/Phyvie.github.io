@@ -12,6 +12,8 @@ import {
     appendTemplateCopyToElement
 } from "../URL-Fetching-And-Templates/template-manager.js";
 
+let TEMPLATE_PATH = import.meta.resolve("./Project-Card-Template.html");
+let TEMPLATE_NAME = "template--project-card";
 let TEMPLATE_PROJECT_CARD;
 
 export async function LoadProjectCardTemplate(templatePath, templateId)
@@ -169,4 +171,17 @@ function wireOverlayToVideo(video)
         overlayBottom?.classList.remove('--inactive');
         overlayTitle?.classList.remove('--inactive')
     });
+}
+
+async function initialize()
+{
+    await LoadProjectCardTemplate(TEMPLATE_PATH, TEMPLATE_NAME);
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener("DOMContentLoaded", initialize);
+}
+else
+{
+    await initialize();
 }

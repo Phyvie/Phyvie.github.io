@@ -13,6 +13,8 @@
 }
 
 .project-section__media {
+    background-color: deeppink;
+
     aspect-ratio: 4/3;
     max-width: min(calc(80vh * 4/3), 80vw);
 
