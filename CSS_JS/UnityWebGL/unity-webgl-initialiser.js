@@ -44,6 +44,7 @@ export function unityShowBanner(warningBanner, msg, type) {
 export function validateUnityWebGLConfig(config) {
     const requiredProperties = [
         "arguments",
+        "loader",
         "dataUrl",
         "frameworkUrl",
         "codeUrl",
@@ -88,7 +89,7 @@ export async function LoadWebGLScriptOntoElement(config, gameContainer)
     await new Promise((resolve, reject) => {
         const script = document.createElement("script");
         script.src = config.loader;
-        
+
         gameContainer.appendChild(script);
 
         script.onload = resolve;
