@@ -60,12 +60,13 @@
             let webGLIFrame = embedWebGLIFrame(headerSection.querySelector('.project-section__media'), minimalWebGLIFramePath, jsonData.WebGLConfig);
             // webGLIFrame.addEventListener('load', () => startEmbeddedGame(webGLIFrame));
 
-            headerSection.querySelector('.project-section__title').onclick = startEmbeddedGame(webGLIFrame);
+            document.getElementById('debug-play').addEventListener('click', () => startEmbeddedGame(webGLIFrame));
         }
 
         initialize();
     </script>
     <div class="project-section__main-content">
+        <div id = "debug-play" style="height: 200px; width: 200px; background-color: blue"></div>
         <div class="project-section__media">
             <!-- rotations-section.js loads the WebGL build in here -->
         </div>

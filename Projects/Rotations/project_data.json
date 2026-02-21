@@ -23,9 +23,10 @@
 
   "WebGLConfig": {
       "arguments": [],
-      "dataUrl": "./Build/WebBuild.data",
-      "frameworkUrl": "./Build/WebBuild.framework.js",
-      "codeUrl": "./Build//WebBuild.wasm",
+      "dataUrl": "./Content/Build/WebBuild.data",
+      "loader": "./Content/Build/WebBuild.loader.js",
+      "frameworkUrl": "./Content/Build/WebBuild.framework.js",
+      "codeUrl": "./Content/Build//WebBuild.wasm",
       "streamingAssetsUrl": "StreamingAssets",
       "companyName": "",
       "productName": "Rotation_Parametrization_Visualiser",

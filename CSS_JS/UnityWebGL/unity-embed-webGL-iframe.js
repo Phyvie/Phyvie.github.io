@@ -48,6 +48,7 @@ export function embedWebGLIFrame(containerElement, iFramePath, webGLConfig)
     }
     if (validateUnityWebGLConfig(webGLConfig).isValid !== true)
     {
+        // !!!ZyKa WebGLBuild: need to validate the URL's & a proper error message if they are wrong
         console.error("embedGame: webGLConfig is invalid; check unity-embed-webGL-iframe.js for a valid config example");
         return;
     }
@@ -92,11 +93,14 @@ export const minimalWebGLIFramePath = new URL("./unity-webgl-iframe-minimal.html
 function exampleEmbedding(){
     let gameFrame_Spin_Hook = embedWebGLIFrame(document.querySelector("#name_of_container_element"),
         {
-            iFramePath: "CSS_JS/UnityWebGL/unity-webgl-iframe-minimal.html", //or another .html-file which includes the necessities to load a webgl-game
-            buildPath: "./Path/To/Build_Data",
-            buildName: "Name_of_the_four_build_files", //e.g. "Build" for Build.data, Build.framework.js, Build.loader.js, Build.wasm
-            companyName: "Company_Name",
-            productName: "Product_Name",
-            productVersion: "0.0.0",
-        })
+            "arguments": [],
+            "dataUrl": "./Build/WebBuild.data",
+            "loader": "./Build/WebBuild.loader.js",
+            "frameworkUrl": "./Build/WebBuild.framework.js",
+            "codeUrl": "./Build//WebBuild.wasm",
+            "streamingAssetsUrl": "StreamingAssets",
+            "companyName": "",
+            "productName": "Rotation_Parametrization_Visualiser",
+            "productVersion": "1.0.0"
+    });
 }

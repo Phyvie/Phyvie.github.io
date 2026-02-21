@@ -95,8 +95,7 @@ window.addEventListener("message", async (event) =>
     switch (event.data.message)
     {
         case "initialise":
-            console.log("initialise message received");
-            console.log(event.data.webGLConfig);
+            console.log(`initialise message received with object: ${JSON.stringify(event.data.webGLConfig)}`);
             webGLConfig = event.data.webGLConfig;
             await LoadWebGLScriptOntoElement(webGLConfig, gameCanvas);
             break;
