@@ -7,24 +7,28 @@
 
     <title> Rotation Parameterization </title>
 
-    <!-- general purpose stylesheets and scripts -->
+    <!-- general purpose stylesheets & JavaScripts -->
     <link rel="stylesheet" href="../../CSS_JS/reset.css">
     <link rel="stylesheet" href="../../CSS_JS/global_variables.css">
-    <link rel="stylesheet" href="../../CSS_JS/common.blocks/header.css">
+
     <link rel="stylesheet" href="../../CSS_JS/styling/media.css">
     <link rel="stylesheet" href="../../CSS_JS/common.blocks/header.css">
     <link rel="stylesheet" href="../../CSS_JS/common.blocks/tag.css">
 
-    <!-- reusable elements: stylesheets and scripts-->
     <link rel="stylesheet" href="../../CSS_JS/scroll-container/scroll-container.css">
     <script type="module" src="../../CSS_JS/scroll-container/scroll-container.js"></script>
+
+    <script type="module" src="../../CSS_JS/common.blocks/switchable_content_container.js"></script>
 
     <link rel="stylesheet" href="../../modules/highlight/styles/dark-phy.css">
     <script src="../../modules/highlight/highlight.min.js"></script>
 
+    <!-- project-/file-specific stylesheets & JavaScripts -->
     <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/main.css">
-    <link rel="stylesheet" href="../../CSS_JS/common.blocks/separator.css">
+    <link rel="stylesheet" href="../../CSS_JS/project-card/project-card.css">
+    <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/project-section.css">
     <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/contribution-section.css">
+
 
     <!-- TODOZyKa rotations-section: figure out where to put which css -->
     <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/project-section.css">
@@ -38,12 +42,25 @@
          class="main__panel project-section">
     <script type="module">
         import {loadDataRefs, TryLoadJson} from "../../CSS_JS/common.blocks/load-data-refs.js";
+        import {
+            embedWebGLIFrame,
+            minimalWebGLIFramePath,
+            startEmbeddedGame
+        } from "../../CSS_JS/UnityWebGL/unity-embed-webGL-iframe.js";
+        import {resolveRelativeUrlsInJson} from "../../CSS_JS/URL-Fetching-And-Templates/HTML_URL_Utility.js";
 
         async function initialize()
         {
-            let bachelor_thesis_section = document.getElementById('rotations')
+            let headerSection = document.getElementById('rotations')
             let jsonData = await TryLoadJson("./project_data.json");
-            loadDataRefs(bachelor_thesis_section, jsonData);
+            jsonData = resolveRelativeUrlsInJson('./project_data.json', jsonData);
+
+            loadDataRefs(headerSection, jsonData);
+
+            let webGLIFrame = embedWebGLIFrame(headerSection.querySelector('.project-section__media'), minimalWebGLIFramePath, jsonData.WebGLConfig);
+            // webGLIFrame.addEventListener('load', () => startEmbeddedGame(webGLIFrame));
+
+            headerSection.querySelector('.project-section__title').onclick = startEmbeddedGame(webGLIFrame);
         }
 
         initialize();
@@ -104,46 +121,40 @@
             <!--                    <p class="flex-tags__tag tag tag&#45;&#45;rotations">  </p>-->
             <!--                </div>-->
             <!-- endregion -->
-            <p class="project-section__description" data-ref="multiline-text:description"></p>
-            <!--                 region layout alternative: separate contribution & tools section -->
-            <!--                <div class="project-section__contributions">-->
-            <!--                    <h2 class="header&#45;&#45;lvl2"> contributions & tools: </h2>-->
-            <!--                    <ul>-->
-            <!--                        <li-->
-            <!--                                data-cached-content="./Projects/Rotations/Rotations.html#Thesis-Writing"-->
-            <!--                                data-cached-container-id="rotations-workflow">-->
-            <!--                            Thesis Writing-->
-            <!--                        </li>-->
-            <!--                        <li-->
-            <!--                                data-cached-content="./Projects/Rotations/Rotations.html#Backend-Math-Code"-->
-            <!--                                data-cached-container-id="rotations-workflow">-->
-            <!--                            Coding Rotation Mathematics-->
-            <!--                        </li>-->
-            <!--                        <li-->
-            <!--                                data-cached-content="./Projects/Rotations/Rotations.html#Math-Visualisation"-->
-            <!--                                data-cached-container-id="rotations-workflow">-->
-            <!--                            Modeling Visualisation-->
-            <!--                        </li>-->
-            <!--                        <li-->
-            <!--                                data-cached-content="./Projects/Rotations/Rotations.html#User-Interface"-->
-            <!--                                data-cached-container-id="rotations-workflow">-->
-            <!--                            User Interface-->
-            <!--                        </li>-->
-            <!--                    </ul>-->
-            <!--                </div>-->
-            <!--                endregion layout alternative: separate contribution & tools section-->
-            <!--                region layout alternative: separate links section -->
-            <!--                <div class="flex-tags project-section__links">-->
-            <!--                    <p class="flex-tags__tag tag tag&#45;&#45;link-arrow tag&#45;&#45;project-section-link"-->
-            <!--                       data-cached-content="./Projects/Rotations/Rotation_parameterizations.html#example-text"-->
-            <!--                       data-cached-container-id="rotations-workflow"-->
-            <!--                    > more info </p>-->
-            <!--                    <p class="flex-tags__tag tag tag&#45;&#45;link-arrow tag&#45;&#45;project-section-link"-->
-            <!--                       data-cached-content="./Projects/Rotations/Rotation_parameterizations.html#lorem-ipsum"-->
-            <!--                       data-cached-container-id="rotations-workflow"-->
-            <!--                    > discover further </p>-->
-            <!--                </div>-->
-            <!--                 endregion layout alternative: separate links section -->
+<!--            <p class="project-section__description" data-ref="multiline-text:description"> </p>-->
+            <p class="project-section__description"> Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? In my bachelor thesis, and the accompanying interactive tool, I analyse & visualise the varying properties and resulting use cases of rotation parametrizations. </p>
+<!--        region layout alternative: separate contribution & tools section -->
+<!--            <div class="project-section__contributions">-->
+<!--                <h2 class="header&#45;&#45;lvl2"> contributions & tools: </h2>-->
+<!--                <ul>-->
+<!--                    <li-->
+<!--                            data-cached-content="./Projects/Rotations/Rotations.html#Thesis-Writing"-->
+<!--                            data-cached-container-id="rotations-workflow">-->
+<!--                        Thesis Writing-->
+<!--                    </li>-->
+<!--                    <li-->
+<!--                            data-cached-content="./Projects/Rotations/Rotations.html#Backend-Math-Code"-->
+<!--                            data-cached-container-id="rotations-workflow">-->
+<!--                        Coding Rotation Mathematics-->
+<!--                    </li>-->
+<!--                    <li-->
+<!--                            data-cached-content="./Projects/Rotations/Rotations.html#Math-Visualisation"-->
+<!--                            data-cached-container-id="rotations-workflow">-->
+<!--                        Modeling Visualisation-->
+<!--                    </li>-->
+<!--                    <li-->
+<!--                            data-cached-content="./Projects/Rotations/Rotations.html#User-Interface"-->
+<!--                            data-cached-container-id="rotations-workflow">-->
+<!--                        User Interface-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--            endregion layout alternative: separate contribution & tools section-->
+<!--        region layout alternative: separate links section-->
+            <div class="project-section__links flex-tags flex-tags--project-section-links">
+                <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"> discover more </p>
+            </div>
+<!--        endregion layout alternative: separate links section-->
         </div>
     </div>
     <div id="rotations-workflow"
@@ -152,7 +163,7 @@
     </div>
 </section>
 
-<div class="main__separator separator"></div>
+<div class="main__separator"></div>
 
 <!-- LATERZyKa Rotation-Content: Consider whether the thesis-writing part is relevant or not -->
 <!--
@@ -252,7 +263,7 @@
     </div>
 </section>
 
-<div class="main__separator separator"></div>
+<div class="main__separator"></div>
 -->
 
 <section id="Backend-Math-Code"
@@ -435,7 +446,7 @@
 
 </section>
 
-<div class="main__separator separator"></div>
+<div class="main__separator"></div>
 
 <section id="Math-Visualisation"
          class="main__panel contribution-section">
@@ -689,7 +700,7 @@
     </div>
 </section>
 
-<div class="main__separator separator"></div>
+<div class="main__separator"></div>
 
 <section id="User-Interface"
          class="main__panel contribution-section">

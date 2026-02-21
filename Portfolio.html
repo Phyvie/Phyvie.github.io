@@ -7,32 +7,32 @@
 
     <title> Portfolio - Valentin Then Bergh </title>
 
-    <!-- general purpose stylesheets -->
+    <!-- general purpose stylesheets & JavaScripts -->
     <link rel="stylesheet" href="CSS_JS/reset.css">
     <link rel="stylesheet" href="CSS_JS/global_variables.css">
-    <link rel="stylesheet" href="CSS_JS/common.blocks/container-utility.css">
+
     <link rel="stylesheet" href="CSS_JS/styling/media.css">
-    <link rel="stylesheet" href="CSS_JS/common.blocks/separator.css">
     <link rel="stylesheet" href="CSS_JS/common.blocks/header.css">
     <link rel="stylesheet" href="CSS_JS/common.blocks/tag.css">
 
     <link rel="stylesheet" href="CSS_JS/scroll-container/scroll-container.css">
     <script defer type="module" src="CSS_JS/scroll-container/scroll-container.js"></script>
 
+    <script type="module" src="CSS_JS/common.blocks/switchable_content_container.js"></script>
+
     <link rel="stylesheet" href="modules/highlight/styles/dark-phy.css">
     <script src="modules/highlight/highlight.min.js"></script>
 
-    <!-- file specific stylesheets -->
+    <!-- project-/file-specific stylesheets & JavaScripts -->
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/main.css">
+    <link rel="stylesheet" href="CSS_JS/project-card/project-card.css">
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/project-section.css">
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/contribution-section.css">
-    <link rel="stylesheet" href="CSS_JS/project-card/project-card.css">
 
     <!-- individual section stylesheets -->
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/about-me.css">
-
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/rotations-section.css">
-    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/workflow-section.css">
+    <script defer type="module" src="CSS_JS/portfolio.blocks/rotations-section.js"></script>
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/further-projects-section.css">
     <script defer type="module" src="CSS_JS/portfolio.blocks/further-projects-section-load-cards.js"></script>
 
@@ -45,7 +45,7 @@
 <!--    <section class="debug-section main__panel">-->
 <!--    </section>-->
 
-<!--    <div class="main__separator separator"></div>-->
+<!--    <div class="main__separator"></div>-->
 
     <section id="about-me" class="main__panel project-section project-section__main-content">
         <div class="project-section__media">
@@ -91,11 +91,10 @@
         </div>
     </section>
 
-    <div class="main__separator separator"></div>
+    <div class="main__separator"></div>
 
     <section id="rotations"
              class="main__panel project-section">
-        <script defer type="module" src="CSS_JS/portfolio.blocks/rotations-section.js"></script>
         <div class="project-section__main-content">
             <div class="project-section__media">
                 <!-- rotations-section.js loads the WebGL build in here -->
@@ -200,7 +199,7 @@
         </div>
     </section>
 
-    <div class="main__separator separator"></div>
+    <div class="main__separator"></div>
 
     <!-- region highlight-section B -->
     <!-- LATERZyKa moebius: reactivate and fill in the moebius content -->
@@ -230,7 +229,7 @@
 <!--        <div class="project-section__workflow project-section__workflow&#45;&#45;collapsed"></div>-->
 <!--    </div>-->
 
-<!--    <div class="main__separator separator"></div>-->
+<!--    <div class="main__separator"></div>-->
     <!-- endregion highlight-section B -->
 
     <section class="main__panel further-projects-section">

@@ -51,7 +51,7 @@ function LoadConfigDataFromFrameIntoObject()
 }
 */
 
-async function StartWebGLGame()
+export async function StartWebGLGame()
 {
     LoadAndStartWebGLGame(
         gameCanvas, webGLConfig,
@@ -65,7 +65,8 @@ async function StartWebGLGame()
     )
 }
 
-/* alternative version to initialise via the attributes; ; kept because I don't know whether the website host accepts postMessage & addEventListener("message", ...)
+/* region deprecated */
+/* alternative version to initialise via the attributes; kept because I don't know whether the website host accepts postMessage & addEventListener("message", ...)
 async function oldInitialise()
 {
     try {
