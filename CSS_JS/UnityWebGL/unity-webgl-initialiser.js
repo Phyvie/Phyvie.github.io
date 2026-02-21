@@ -41,6 +41,48 @@ export function unityShowBanner(warningBanner, msg, type) {
     updateBannerVisibility();
 }
 
+export function validateUnityWebGLConfig(config) {
+    const requiredProperties = [
+        "arguments",
+        "dataUrl",
+        "frameworkUrl",
+        "codeUrl",
+        "streamingAssetsUrl",
+        "companyName",
+        "productName",
+        "productVersion"
+    ];
+
+    // Parse JSON if it's a string
+    let jsonObject;
+    try {
+        jsonObject = typeof config === 'string' ? JSON.parse(config) : config;
+    } catch (error) {
+        return {
+            isValid: false,
+            error: "Invalid JSON format",
+            missingProperties: []
+        };
+    }
+    // ensure JSON file is an object
+    if (typeof jsonObject !== 'object' || jsonObject === null) {
+        return {
+            isValid: false,
+            error: "Input is not a valid object",
+            missingProperties: []
+        };
+    }
+
+    const missingProperties = requiredProperties.filter(prop => !(prop in jsonObject));
+    const isValid = missingProperties.length === 0;
+
+    return {
+        isValid,
+        missingProperties,
+        error: isValid ? null : `Missing ${missingProperties.length} required property(ies)`
+    };
+}
+
 export async function LoadWebGLScriptOntoElement(config, gameContainer)
 {
     await new Promise((resolve, reject) => {

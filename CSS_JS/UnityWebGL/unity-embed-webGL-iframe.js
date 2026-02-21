@@ -12,21 +12,46 @@
  * - config should include: buildPath, buildName, companyName, productName, productVersion
  * example:
  * - embedGame(document.querySelector("#name_of_container_element"),
- *     {
- *         iFramePath: "CSS_JS/UnityWebGL/unity-webgl-iframe-minimal.html", //or another .html-file which includes the necessities to load a webgl-game
- *         buildPath: "./Path/To/Build_Data",
- *         buildName: "Name_of_the_four_build_files", //e.g. "Build" for Build.data, Build.framework.js, Build.loader.js, Build.wasm
- *         companyName: "Company_Name",
- *         productName: "Product_Name",
- *         productVersion: "0.0.0",
- *     })
+      {
+          "arguments": [],
+          "dataUrl": "./Build/WebBuild.data",
+          "frameworkUrl": "./Build/WebBuild.framework.js",
+          "codeUrl": "./Build//WebBuild.wasm",
+          "streamingAssetsUrl": "StreamingAssets",
+          "companyName": "",
+          "productName": "Rotation_Parametrization_Visualiser",
+          "productVersion": "1.0.0"
+      })
  *
  * connections:
  * - HTML-document that can load webgl (default: unity-webgl-iframe-minimal.html)
  */
 
+import {validateUnityWebGLConfig} from "./unity-webgl-initialiser.js";
+
 export function embedWebGLIFrame(containerElement, iFramePath, webGLConfig)
 {
+    if (!containerElement || !(containerElement instanceof HTMLElement))
+    {
+        console.error("embedGame: containerElement is not an HTMLElement; aborting embedGame");
+        return;
+    }
+    if (!iFramePath)
+    {
+        console.error("embedGame: iFramePath is null or undefined; aborting embedGame");
+        return;
+    }
+    if (!webGLConfig)
+    {
+        console.error("embedGame: webGLConfig is null or undefined; aborting embedGame");
+        return;
+    }
+    if (validateUnityWebGLConfig(webGLConfig).isValid !== true)
+    {
+        console.error("embedGame: webGLConfig is invalid; check unity-embed-webGL-iframe.js for a valid config example");
+        return;
+    }
+
     const iframe = document.createElement('iframe');
     iframe.src = iFramePath;
     iframe.style.width = '100%';
@@ -43,15 +68,20 @@ export function embedWebGLIFrame(containerElement, iFramePath, webGLConfig)
     // alternative version of passing the config via attribute; kept because I don't know whether the website host accepts postMessage & addEventListener("message", ...)
     // iframe.setAttribute('data-game-config', JSON.stringify(webGLConfig));
 
-    iframe.onload = function() {
+    iframe.addEventListener("load", () => {
         iframe.contentWindow.postMessage({message: "initialise", webGLConfig: webGLConfig}, window.location.origin);
-    }
+    });
 
     containerElement.appendChild(iframe);
     iframe.contentWindow.name = "unityWindow";
 
     return iframe;
     //anything further regarding the loading of the game happens via the .js-script inside the created iframe; (default .js-script: unity-webgl-into-html-loader)
+}
+
+export function startEmbeddedGame(iframe)
+{
+    iframe.contentWindow.postMessage({message: "start-game"}, window.location.origin);
 }
 
 export const minimalWebGLIFramePath = new URL("./unity-webgl-iframe-minimal.html", import.meta.url).href;

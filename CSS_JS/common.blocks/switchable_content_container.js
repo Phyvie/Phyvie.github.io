@@ -31,7 +31,7 @@ class SwitchableContentContainerManager {
             return this.containers.get(containerID);
         }
 
-        const container = new Switchable_content_container();
+        const container = new SwitchableContentContainer();
         container.init(HTMLContentCache, containerID, options);
         
         this.registerContainer(containerID, container);
@@ -100,7 +100,7 @@ const globalEventManager = new SwitchableContentContainerManager();
  * - SwitchableContentEventManager -> forwards clicks to the SwitchableContentContainer
  * - backend content cache (typically HTMLContentCache)
  */
-class Switchable_content_container {
+class SwitchableContentContainer {
     constructor() {
         this.contentCache = null;
         this.contentContainer = null;
