@@ -1,30 +1,29 @@
 ## PHASE 1 - DEFINITION
 
 ### 1. XY-Chain:
-- a
-- b
-- c
+- showcase coding to viewer
 
 ### 2. Description
-| **input** | **behaviour** | **output** |
-|-----------|---------------|------------|
-|           |               |            |
+| **input** | **behaviour**          | **constraints**       | **output**                |
+|-----------|------------------------|-----------------------|---------------------------|
+| full code | highlight correct code | no more than 15 lines | showcase of 15 code lines |
 
 ### 3. Rice:
 | Reach (#use-cases) | Impact (0-3) | Confidence | Est. Effort |
 |--------------------|--------------|------------|-------------|
-|                    |              |            |             |
--> use-cases * impact <= 5 = backlog 
+| 2                  | 2            | medium     | 2 hours     |
+-> switch (use-case * impact): 
+- <=3: brute-force <= 1h or backlog
+- 4-6: acceptable solution <= 1day or backlog
+- \>=7: elegant solution
 
 ### 4. Kill Duck: 
 am I creating this, only because it ... (strike-through wrong ones)
-- ... is intellectually interesting?
-- ... appears cool?  
-- ... is fun to make?  
-- ... helps an imaginary future? 
--> any yes = backlog
-
-### NOWZyKa Workflow: is definition clear?
+- ~~... is intellectually interesting?~~
+- ~~... appears cool?~~  
+- ~~... is fun to make?~~  
+- ~~... helps an imaginary future?~~ 
+-> (yes > rice-value) => backlog
 
 # ________
 
@@ -32,22 +31,33 @@ am I creating this, only because it ... (strike-through wrong ones)
 
 ### Research: 
 switch (complexity): 
- - **pre-built**: quick-check for reuse
- - **similar**: similarity-table 
+ - ~~**pre-built**: quick-check for reuse~~
+ - ~~**similar**: similarity-table~~ 
  - **custom feature**: 
   - research <=min(0.5days, 3 answer) -> comparison table 
-  - choose one and test <=(0.5day, working test) -> result table
- - **custom system**:
-   - research <=(2days, 3 answers) -> comparison table
-   - choose 2 test each <=(1.5 days, working test) -> result table
+  - choose one and test <=(0.5day, acceptable test) -> result table
+ - ~~**custom system**:~~
+   - ~~research <=(2days, 3 answers) -> comparison table~~
+   - ~~choose 2 test each <=(1.5 days, acceptable test) -> result table~~
+
+| solution         | advantage               | disadvantage                   |
+|------------------|-------------------------|--------------------------------|
+| as img           | styling control         | not copyable                   |
+|                  | annotatable             | needs comments for annotations |
+|                  |                         | poor accessibility             |
+|                  |                         | -> not cody                    |
+| highlighted text | partial styling control | no styling control             |
+|                  | copyable                |                                |
+|                  | accessible              |                                |
+|                  |                         |                                |
 
 ### NOWZyKa Workflow: is research done?
 
 ### Happy-Path: 
 - **simple** (<= 1hour): pseudo-code lines
-- **default** (<= 1day): flowchart & rubber-duck
-- **complex** (week): separate into tasks
-- **refactor**: check current documentation, goto corresponding case
+- ~~**default** (<= 1day): flowchart & rubber-duck~~
+- ~~**complex** (week): separate into tasks~~
+- ~~**refactor**: check current documentation, goto corresponding case~~
 
 ### Kill Duck
 - am I using this solution, only because it ...
