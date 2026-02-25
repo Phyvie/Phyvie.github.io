@@ -1,8 +1,6 @@
 /* relative wrapper for next/last scroll-buttons */
 .scroll-container {
     position: relative;
-    /* TODOZyKa scroll-container: check whether this flex has any purpose */
-    display: flex;
 
     padding: var(--LAYOUT-DISTANCE-SMALL);
 
@@ -51,7 +49,7 @@
     border-radius: var(--LAYOUT-BORDER-RADIUS-SMALL);
 }
 
-.scroll-container__nav-button {
+.scroll-container__absolute_nav_button {
     width: 100px;
     height: 100px;
 
@@ -98,3 +96,6 @@
 .scroll-container__nav-button--next::before {
     clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
 }
+/* region example-additional styling */
+
+/* endregion example-additional styling */

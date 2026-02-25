@@ -1,16 +1,23 @@
-#debug-main {
+.debug-main {
     background-color: darkslategray;
     padding: 0 30vw;
 }
 
-.debug-wrapper {
-    display: flex;
+.debug-scroll-container {
+    width: 100%;
+    flex: 1 0 100%;
 }
 
-.debug-float {
-    float: right;
-    height: 100%;
+.debug-scroll-container__bottom_navigation{
+    width: 100%;
+    height: auto;
     display: flex;
-    align-items: flex-end;
-    shape-outside: inset(calc(100% - 100px) 0 0);
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.debug-scroll-container__bottom_nav_button {
+    padding: var(--LAYOUT-DISTANCE-SMALL);
+    background-color: var(--COLOR-DECORATION-ELEMENT);
+    border-radius: var(--LAYOUT-BORDER-RADIUS-CYLINDER);
 }
