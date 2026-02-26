@@ -80,6 +80,9 @@ export function embedWebGLIFrame(containerElement, iFramePath, webGLConfig)
     //anything further regarding the loading of the game happens via the .js-script inside the created iframe; (default .js-script: unity-webgl-into-html-loader)
 }
 
+/* uses postMessage to send the "start-game" message to the iframe;
+ * if the game is already started - i.e. gameInstance is not null - the message is ignored
+ */
 export function startEmbeddedGame(iframe)
 {
     iframe.contentWindow.postMessage({message: "start-game"}, window.location.origin);

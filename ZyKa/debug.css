@@ -7,17 +7,3 @@
     width: 100%;
     flex: 1 0 100%;
 }
-
-.debug-scroll-container__bottom_navigation{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-}
-
-.debug-scroll-container__bottom_nav_button {
-    padding: var(--LAYOUT-DISTANCE-SMALL);
-    background-color: var(--COLOR-DECORATION-ELEMENT);
-    border-radius: var(--LAYOUT-BORDER-RADIUS-CYLINDER);
-}

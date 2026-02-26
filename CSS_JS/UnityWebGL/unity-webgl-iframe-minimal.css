@@ -16,7 +16,7 @@ font, button, textarea, select {
 }
 /* endregion reset */
 
-body {
+html, body {
     width: 100%;
     height: 100%;
 

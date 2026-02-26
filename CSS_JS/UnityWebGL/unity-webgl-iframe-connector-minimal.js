@@ -100,7 +100,10 @@ window.addEventListener("message", async (event) =>
             await LoadWebGLScriptOntoElement(webGLConfig, gameCanvas);
             break;
         case "start-game":
-            await StartWebGLGame();
+            if (!gameInstance)
+            {
+                await StartWebGLGame();
+            }
             break;
         default:
             console.error("Received unknown message: " + event.data.message);
