@@ -85,20 +85,28 @@
             data-scroll="gallery:25%"                  (legacy ID, scroll 25% of the way)
         -->
 
-        <div class="debug-scroll-container__bottom_navigation">
-            <div class="debug-scroll-container__bottom_nav_button"
+        <div class="scroll-container__bottom_navigation_line">
+            <div class="scroll-container__bot_nav_line_button"
                  data-scroll="prev"> prev </div>
-            <div class="debug-scroll-container__bottom_nav_button"
+            <div class="scroll-container__bot_nav_line_button"
                  data-scroll="#FirstElementId"> showFirst </div>
-            <div class="debug-scroll-container__bottom_nav_button"
-                 data-scroll="#SecondElementId" onclick="document.getElementById('SecondElementId').querySelector('video').play()"> showSecond </div>
-            <div class="debug-scroll-container__bottom_nav_button"
+            <div class="scroll-container__bot_nav_line_button"
+                 data-scroll="#SecondElementId"> showSecond </div>
+            <div class="scroll-container__bot_nav_line_button"
                  data-scroll="#ThirdElementId"> showThird </div>
-            <div class="debug-scroll-container__bottom_nav_button"
-                 data-scroll="next" onclick="document.getElementById('SecondElementId').querySelector('video').pause()"> next </div>
+            <div class="scroll-container__bot_nav_line_button"
+                 data-scroll="next"> next </div>
+            <script defer>
+                document.getElementById('[name]-scroll-container__content').addEventListener('scroll', (e) => {
+                    console.log(e.detail);
+                    if (e.detail.command.value !== '#SecondElementId')
+                    {
+                        document.getElementById('SecondElementId').querySelector('video').pause();
+                    }
+                });
+            </script>
         </div>
     </div>
 </div>
-
 </body>
 </html>

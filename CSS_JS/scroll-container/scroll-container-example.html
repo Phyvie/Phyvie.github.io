@@ -3,6 +3,16 @@
     the data-attributes to setup a scroll-container interaction are explained below
     a single import of the scroll-container.js is sufficient, as it sets subscribes to the global click-event than handles the rest by itself
 -->
+<!--
+    When a scroll-button is clicked, the scroll-container dispatches a "new CustomEvent('scroll-command', {
+        detail: {
+            container: container,
+            command: command
+        },
+        bubbles: true
+    });"
+    from the container that gets scrolled
+-->
 
 
 <!-- ToDoZyKa scroll-container: Mark which width/height must be set up manually & which ones are already included -->

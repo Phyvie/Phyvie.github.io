@@ -117,38 +117,50 @@ on-hover show-controls controls:
 |                                                                                  |                              |                               |
 => use video over gif (if necessary, fake gif via controls)
 
-### implement cases into Solution (from Happy-Path)
+```mermaid 
+sequenceDiagram
+    User ->> NavButton: click
+    NavButton ->> ScrollContainer: clickEvent - via global handeler
+    ScrollContainer ->> ScrollContainer: executeScrollCommand
+    ScrollContainer ->> EventSystem: dispatchScrollCommand(event)
+    EventSystem ->> ScrollContainer: onScrollCommand(event)
+    ScrollContainer ->> VideoElement: if(event.detail.command.value !== "videoElement") videoElement.pause() 
+```
 
 ### Kill Duck: 
-- implementable without further thinking?
-- is it "boring"?
-  - common patterns?
-  - no surprises?
-  - obvious error handling?
-  - backwards-compatible?
+- ~~implementable without further thinking?~~
+- ~~is it "boring"?~~
+  - ~~common patterns?~~
+  - ~~no surprises?~~
+  - ~~obvious error handling?~~
+  - ~~backwards-compatible?~~
 
-### NOWZyKa Workflow: confirm solution design
+==> LaterZyKa creating all of this takes forever, when I already clearly know my plan, because I have tested it; I have probably done this the wrong way round, as I first tested my plan, then noted it down properly. 
 
 # ________
 
 ## PHASE 3 - IMPLEMENTATION
 
 ### Happy-Path: 
-- implement feature-documentation
-- implement solution
-- implement happy-path test
-- compare with design
+- ~~implement feature-documentation~~
+- ~~implement solution~~
+- ~~implement happy-path test~~
+- ~~compare with design~~  
+==> didn't implement feature documentation beforehand
+==> haven't yet checked how test automation works
+==> strayed from design by putting video play/pause on the button at the bottom
 
 ### NowZyKa workflow: test success? continue!
 
 ### Edge-Cases: 
-- implement edge-case-documentation
-- implement edge-case test
-- implement solution
-    - parameterize if necessary
-    - extract if necessary
-    - rename new variables/functions
-    - no structural changes (= no abstraction, no extra classes)
+- ~~implement edge-case-documentation~~
+- ~~implement edge-case test~~
+- ~~implement solution~~
+    - ~~parameterize if necessary~~
+    - ~~extract if necessary~~
+    - ~~rename new variables/functions~~
+    - ~~no structural changes (= no abstraction, no extra classes)~~
+=> full edge-case avoidance (e.g. ensuring video/webGL breaking don't lead to general break) would be a ton of extra work
 
 ### NowZyKa workflow: tests succeed? continue!
 
@@ -156,21 +168,31 @@ on-hover show-controls controls:
 
 ## PHASE 4 - POSTMORTEM:
 
-### compare: 
-
-| planned | executed |
-|---------|----------|
-|         |          
-
 work problems list: 
-- meow
+- strayed from the plan a few times 
+  - research: on-hover -> show controls etc., but later no controls
+  - visual-plan: play-pause as element in middle, but later no element in middle ==> could still implement
+- flowchart etc. took a lot of time
+  - most flowcharted feature were already tested beforehand & not too complicated (e.g. scroll-container sending event)  
+  ==> I probably shouldn't flowchart simple already tested features
+  - coded during testing phase
+  ==> some coding must be allowed to test/learn what I read online
+- didn't implement all edge-case solution, because they weren't added to the visual/flowchart
 
 success list: 
-- meow
+- considerations at start, helped clear thoughts and focus on one specific plan
+- implementation worked mostly friction-free due to
+  - properly researched how things work
+  - tested in a different file on small scale first
+  - had a visual plan in front of me
 
 | estimated time | actual time |
 |----------------|-------------|
-|                |             |
+| 2 hours        | 1day        | 
+==> see above, some stuff took longer than it should; 
+==> but also having a clear visual & structural plan instead of wildly coding made work more pleasant
+
+==> this whole workstep was not planned into my miro-todo-structure
 
 ### recheck alternatives
 

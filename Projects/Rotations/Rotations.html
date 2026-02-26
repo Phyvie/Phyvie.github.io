@@ -1,3 +1,13 @@
+<!--
+
+-->
+
+<!-- pre-main-commit-tests:
+check video working,
+check WebGL build working
+check scrolling works
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +42,7 @@
 
     <!-- TODOZyKa rotations-section: figure out where to put which css -->
     <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/project-section.css">
-    <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/rotations-section.css">
+    <link rel="stylesheet" href="CSS_JS/rotations-section.css">
 
     <link rel="stylesheet" href="../../CSS_JS/project-card/project-card.css">
 </head>
@@ -40,33 +50,67 @@
 
 <section id="rotations"
          class="main__panel project-section">
-    <script type="module">
-        import {loadDataRefs, TryLoadJson} from "../../CSS_JS/common.blocks/load-data-refs.js";
-        import {
-            embedWebGLIFrame,
-            minimalWebGLIFramePath,
-            startEmbeddedGame
-        } from "../../CSS_JS/UnityWebGL/unity-embed-webGL-iframe.js";
-        import {resolveRelativeUrlsInJson} from "../../CSS_JS/URL-Fetching-And-Templates/HTML_URL_Utility.js";
+    <script type="module" src="CSS_JS/rotations-section.js"></script>
+<!--    <script type="module">-->
+<!--        import {loadDataRefs, TryLoadJson} from "../../CSS_JS/common.blocks/load-data-refs.js";-->
+<!--        import {-->
+<!--            embedWebGLIFrame,-->
+<!--            minimalWebGLIFramePath,-->
+<!--            startEmbeddedGame-->
+<!--        } from "../../CSS_JS/UnityWebGL/unity-embed-webGL-iframe.js";-->
+<!--        import {resolveRelativeUrlsInJson} from "../../CSS_JS/URL-Fetching-And-Templates/HTML_URL_Utility.js";-->
+<!--        async function initialize() {-->
+<!--            let headerSection = document.getElementById('rotations')-->
+<!--            let jsonData = await TryLoadJson("./project_data.json");-->
+<!--            jsonData = resolveRelativeUrlsInJson('./project_data.json', jsonData);-->
 
-        async function initialize() {
-            let headerSection = document.getElementById('rotations')
-            let jsonData = await TryLoadJson("./project_data.json");
-            jsonData = resolveRelativeUrlsInJson('./project_data.json', jsonData);
+<!--            loadDataRefs(headerSection, jsonData);-->
 
-            loadDataRefs(headerSection, jsonData);
+<!--            let webGLIFrame = embedWebGLIFrame(headerSection.querySelector('#WebGL-Build'), minimalWebGLIFramePath, jsonData.WebGLConfig);-->
 
-            let webGLIFrame = embedWebGLIFrame(headerSection.querySelector('.project-section__media'), minimalWebGLIFramePath, jsonData.WebGLConfig);
-            // webGLIFrame.addEventListener('load', () => startEmbeddedGame(webGLIFrame));
+<!--            const scrollContainer = headerSection.querySelector('.scroll-container');-->
+<!--            const VideoScroller = headerSection.querySelector('[data-scriptName="video-toggle"]');-->
+<!--            const WebGLScroller = scrollContainer.querySelector('[data-scriptName="webgl-scroller"]');-->
+<!--            const video = scrollContainer.querySelector('video');-->
 
-            document.getElementById('debug-play').addEventListener('click', () => startEmbeddedGame(webGLIFrame));
-        }
-
-        initialize();
-    </script>
+<!--            scrollContainer.addEventListener('click', (event) => {-->
+<!--                if (event.target === WebGLScroller)-->
+<!--                {-->
+<!--                    startEmbeddedGame(webGLIFrame);-->
+<!--                }-->
+<!--                if (event.target === VideoScroller)-->
+<!--                {-->
+<!--                    video.paused ? video.play() : video.pause();-->
+<!--                }-->
+<!--                /* help the user by automatically pausing when they switch to smth else, such that no more audio is running in the background; though it also disabled them from listening while trying themselves what they listen to */-->
+<!--                else /* if(event.target !== VideoScroller) */-->
+<!--                {-->
+<!--                    video.pause();-->
+<!--                }-->
+<!--            });-->
+<!--        }-->
+<!--        initialize();-->
+<!--    </script>-->
     <div class="project-section__main-content">
-        <div id="debug-play" style="height: 200px; width: 200px; background-color: blue"></div>
         <div class="project-section__media">
+            <div class="scroll-container">
+                <div class="scroll-container__content-container">
+                    <div id="rotation-main-video" class="scroll-container__item">
+                        <video src="../../Data/Placeholder/More%20JarJar%20Than%20Yoda.mp4" style="width: 100%; height: 100%" loop></video>
+                    </div>
+                    <div id="WebGL-Build" class="scroll-container__item">
+<!--                        WebGL-Build is loaded in here-->
+                    </div>
+                </div>
+                <div class="scroll-container__bottom_navigation_line">
+                    <div class="scroll-container__bot_nav_line_button"
+                         data-scriptName="video-toggle"
+                        data-scroll="#rotation-main-video"> Play Video </div>
+                    <div class="scroll-container__bot_nav_line_button"
+                         data-scriptName="webgl-scroller"
+                        data-scroll="#WebGL-Build"> Try Yourself </div>
+                </div>
+            </div>
             <!-- rotations-section.js loads the WebGL build in here -->
         </div>
         <div class="project-section__info-container">
@@ -427,7 +471,6 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                 </div>
             </div>
         </div>
-
 
         <div class="scroll-container__absolute_nav_button scroll-container__nav-button--prev" data-scroll="prev"></div>
         <div class="scroll-container__absolute_nav_button scroll-container__nav-button--next" data-scroll="next"></div>

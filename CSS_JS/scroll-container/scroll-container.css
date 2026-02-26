@@ -18,7 +18,7 @@
     flex-flow: row nowrap;
     align-items: stretch;
 
-    overflow: scroll;
+    overflow: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 
@@ -47,6 +47,20 @@
     /* LATERZyKa styling-scroll-container: ensure scroll-container-items and their descriptions visibly belong together */
     background-color: var(--COLOR-DECORATION-BLOCK);
     border-radius: var(--LAYOUT-BORDER-RADIUS-SMALL);
+}
+
+.scroll-container__bottom_navigation_line {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+.scroll-container__bot_nav_line_button {
+    padding: var(--LAYOUT-DISTANCE-SMALL);
+    background-color: var(--COLOR-DECORATION-ELEMENT);
+    border-radius: var(--LAYOUT-BORDER-RADIUS-CYLINDER);
 }
 
 .scroll-container__absolute_nav_button {
