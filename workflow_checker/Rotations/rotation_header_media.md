@@ -188,7 +188,7 @@ success list:
 
 | estimated time | actual time |
 |----------------|-------------|
-| 2 hours        | 1day        | 
+| 2 hours        | 1 day       | 
 ==> see above, some stuff took longer than it should; 
 ==> but also having a clear visual & structural plan instead of wildly coding made work more pleasant
 

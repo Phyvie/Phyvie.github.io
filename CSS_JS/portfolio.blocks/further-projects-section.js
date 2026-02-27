@@ -1,11 +1,11 @@
 import {TryLoadJson} from "../common.blocks/load-data-refs.js";
 
 import {
-    LoadProjectCardTemplate,
     AppendProjectCardToElement,
     LoadProjectCardData,
     SetupProjectCardInteraction,
 } from "../project-card/project-card.js";
+import {GetPathFromPortfolioRoot} from "../../PortfolioRootPath.js";
 
 async function CreateProjectCards() {
     let CardParent = document.getElementById('further-projects-section__cards-grid');
@@ -24,6 +24,7 @@ async function CreateProjectCards() {
         {folder: 'Bevoiced', 'grid-area': 'small4'}
     ]
 
+    const ProjectFolderURL = GetPathFromPortfolioRoot("_./Projects/");
     for (let project of projects) {
         try {
             //create the project card & attach it
@@ -31,7 +32,8 @@ async function CreateProjectCards() {
             projectCard.style.gridArea = project['grid-area'];
 
             //find the project.json file
-            const jsonData = await TryLoadJson(`/Projects/${project.folder}/project_data.json`);
+            const projectDataURL = new URL(`${project.folder}/project_data.json`, ProjectFolderURL).href;
+            const jsonData = await TryLoadJson(projectDataURL);
             if (jsonData === null) {
                 continue;
             }

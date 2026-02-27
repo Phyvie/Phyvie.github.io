@@ -1,7 +1,7 @@
 /**
  * Creates Project Cards and sets up their interactivity.
  * Uses load-data-refs.js to load data from .json files into the project cards.
- * Not an autonomous script, must be imported by another script to work (e.g. further-projects-section-load-cards.js)
+ * Not an autonomous script, must be imported by another script to work (e.g. further-projects-section.js)
  */
 
 import {loadDataRefs} from "../common.blocks/load-data-refs.js";
@@ -12,8 +12,8 @@ import {
     appendTemplateCopyToElement
 } from "../URL-Fetching-And-Templates/template-manager.js";
 
-let TEMPLATE_PATH = import.meta.resolve("./Project-Card-Template.html");
-let TEMPLATE_NAME = "template--project-card";
+const PROJECT_CARD_TEMPLATE_PATH = new URL("./Project-Card-Template.html", import.meta.url).href;
+const PROJECT_CARD_TEMPLATE_ID = "template--project-card";
 let TEMPLATE_PROJECT_CARD;
 
 export async function LoadProjectCardTemplate(templatePath, templateId)
@@ -175,7 +175,7 @@ function wireOverlayToVideo(video)
 
 async function initialize()
 {
-    await LoadProjectCardTemplate(TEMPLATE_PATH, TEMPLATE_NAME);
+    await LoadProjectCardTemplate(PROJECT_CARD_TEMPLATE_PATH, PROJECT_CARD_TEMPLATE_ID);
 }
 
 if (document.readyState === 'loading') {

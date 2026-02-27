@@ -1,0 +1,39 @@
+<!--
+1. AppendProject Card appends a copy of the project-card-template saved in project-card.js->PROJECT_CARD_TEMPLATE_PATH#PROJECT_CARD_TEMPLATE_ID
+2. TryLoadJson tries to load & return a json-File stored at the specific location (relative or absolute)
+3. LoadProjectCardData replaces the placeholder in the project card with the data specified in the json file
+
+For an example of data look at: /
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> project-card-loading example </title>
+
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../global_variables.css">
+    <link rel="stylesheet" href="../styling/media.css">
+    <link rel="stylesheet" href="../common.blocks/tag.css">
+    <link rel="stylesheet" href="./project-card.css">
+</head>
+
+<script type="module">
+    import {AppendProjectCardToElement, LoadProjectCardData} from "./project-card.js";
+    import jsonData from "./_example_project_data.json" with { type: "json"};
+
+    async function loadSingleProjectCard()
+    {
+        const projectCard = AppendProjectCardToElement(document.querySelector("body"))
+        LoadProjectCardData(projectCard, jsonData);
+    }
+
+    if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', loadSingleProjectCard);}
+    else { loadSingleProjectCard();}
+</script>
+
+<body style="margin: 0 25vw; height: 50vh;">
+
+</body>
+</html>

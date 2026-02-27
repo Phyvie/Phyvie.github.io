@@ -1,0 +1,69 @@
+{
+  "project-title": "Some example title",
+  "project-type": "Collaborative Game Jam",
+  "origin": "Best Game Jam",
+  "team-size": "5",
+  "date": "1999",
+  "time": "1 week",
+  "version": "1.2.3",
+
+  "description":
+  [
+    "This is a game jam project, which was made by 5 people in one week. ",
+    "During that time we added a lot of features. ",
+    "The game even won some jam award"
+  ],
+
+  "thumbnail": {
+    "src": "../../Data/Placeholder/Bowser.jpg",
+    "alt": "The Thumbnail"
+  },
+
+  "project-video": {
+    "src": "../../Data/Placeholder/More JarJar Than Yoda.mp4"
+  },
+
+  "WebGLConfig": {
+      "arguments": [],
+      "dataUrl": "./Content/Build/WebBuild.data",
+      "loader": "./Content/Build/WebBuild.loader.js",
+      "frameworkUrl": "./Content/Build/WebBuild.framework.js",
+      "codeUrl": "./Content/Build//WebBuild.wasm",
+      "streamingAssetsUrl": "StreamingAssets",
+      "companyName": "",
+      "productName": "The Game Jam Game",
+      "productVersion": "1.2.3"
+  },
+
+  "tags": [
+    {"name": "unity", "relevance": "4"},
+    {"name": "solo-project", "relevance": "5"},
+    {"name": "programming", "relevance": "5"},
+    {"name": "visuals", "relevance": "2"},
+    {"name": "educational project", "relevance": "4"}
+  ],
+
+  "git-link": "https://#",
+
+  "TODOZyKa json-data": "figure out a better system to put the links in here",
+  "contributions": {
+    "containerID": "rotations-workflow",
+    "contributions":
+    [
+      {
+        "name": "Coding Rotation Mechanics",
+        "link": "_./Projects/Rotations/Rotations.html#Backend-Math-Code"
+      },
+      {
+        "name": "Modeling Visualisation",
+        "link": "_./Projects/Rotations/Rotations.html#Math-Visualisation"
+      },
+      {
+        "name": "User Interface",
+        "link": "_./Projects/Rotations/Rotations.html#User-Interface"
+      }
+    ]
+  },
+
+  "some other data": "can be written here"
+}

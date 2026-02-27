@@ -21,17 +21,13 @@
     "src": "./Projects/#.mp4"
   },
   "project-url": "",
-  "origin": "Cologne Game Lab",
-  "team-size": "5",
-  "date": "2023",
-  "time": "7 weeks",
-  "contributions": [
-    "Mechanic Design (in collab)",
-    "Level Design"
-  ],
-  "tools": [
-    "Unity",
-    "Miro",
-    "Libre_Office"
+  "origin": "private",
+  "team-size": "1",
+  "date": "2025",
+  "time": "1 weeks",
+  "tags": [
+    {"name": "unity", "relevance": "3"},
+    {"name": "solo-project", "relevance": "3"},
+    {"name": "programming", "relevance": "4"}
   ]
 }

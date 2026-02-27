@@ -34,5 +34,10 @@
     "Unity",
     "Miro",
     "Libre_Office"
+  ],
+  "tags": [
+    {"name": "unity", "relevance": "4"},
+    {"name": "collaborative-project", "relevance": "4"},
+    {"name": "level design", "relevance": "4"}
   ]
 }

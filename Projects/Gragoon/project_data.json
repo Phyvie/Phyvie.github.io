@@ -27,5 +27,10 @@
   "tools": [
     "Unreal Engine",
     "C++"
+  ],
+  "tags": [
+    {"name": "unreal", "relevance": "2"},
+    {"name": "collaborative-mechanic", "relevance": "3"},
+    {"name": "programming", "relevance": "3"}
   ]
 }
