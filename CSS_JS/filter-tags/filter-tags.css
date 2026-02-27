@@ -1,4 +1,4 @@
-.debug-main {
+.example {
     background-color: gray;
     padding: 0 25vw;
     display: flex;
@@ -6,7 +6,7 @@
     gap: 100px;
 }
 
-.debug__filter-container {
+.example__filter-container {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -17,7 +17,7 @@
     height: 50px;
 }
 
-.debug-grid {
+.example__item-grid {
     width: 100%;
     height: auto;
 
@@ -26,11 +26,14 @@
     gap: 20px;
 }
 
-.debug__item {
+.example__item {
     background-color: darkslategray;
     height: 50px;
 }
 
-.debug__item.--hidden {
+.filterable {
+}
+
+.filterable.--hidden {
     display: none;
 }

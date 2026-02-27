@@ -8,7 +8,7 @@ import {
 import {GetPathFromPortfolioRoot} from "../../PortfolioRootPath.js";
 
 async function CreateProjectCards() {
-    let CardParent = document.getElementById('further-projects-section__cards-grid');
+    let CardParent = document.getElementById('further-projects-section__cards-container');
     if (!CardParent)
     {
         console.error("Failed to find further-projects-section__cards-grid element; aborting CreateProjectCards");
@@ -30,8 +30,7 @@ async function CreateProjectCards() {
             //create the project card & attach it
             let projectCard = AppendProjectCardToElement(CardParent);
             projectCard.id = project.folder;
-
-            // projectCard.style.gridArea = project['grid-area'];
+            projectCard.classList.add('further-projects-section__project-item--flex');
 
             //find the project.json file
             const projectDataURL = new URL(`${project.folder}/project_data.json`, ProjectFolderURL).href;
@@ -43,6 +42,8 @@ async function CreateProjectCards() {
             //load the data & make the card interactive
             LoadProjectCardData(projectCard, jsonData);
             SetupProjectCardInteraction(projectCard);
+
+
         } catch (error) {
             console.error(`Error loading project ${project.folder}:`, error);
         }

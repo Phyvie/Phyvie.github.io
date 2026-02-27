@@ -87,6 +87,7 @@
 
 .overlay__project-title {
     font-size: var(--FONT-SIZE-TITLE-LVL2);
+    font-weight: bold;
 
     padding: var(--LAYOUT-DISTANCE-SMALL) var(--LAYOUT-DISTANCE-DEFAULT);
 
@@ -97,6 +98,8 @@
 @container project-card (max-width: 40rem) {
     .overlay__project-title {
         font-size: var(--FONT-SIZE-DEFAULT);
+        font-weight: bold;
+
         padding: 1% var(--LAYOUT-DISTANCE-DEFAULT);
     }
 }
