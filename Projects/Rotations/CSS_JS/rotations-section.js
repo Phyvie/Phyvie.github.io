@@ -9,13 +9,14 @@ import HTMLContentCache from "../../../CSS_JS/URL-Fetching-And-Templates/HTMLCon
 async function initialize()
 {
     let headerSection = document.getElementById('rotations')
-    let jsonData = await TryLoadJson(new URL("../project_data.json", import.meta.url).href);
+    let absoluteJsonURL = new URL("../project_data.json", import.meta.url).href;
+    let jsonData = await TryLoadJson(absoluteJsonURL);
     if (!jsonData)
     {
         console.error("Failed to load project_data.json");
         return;
     }
-    jsonData = resolveRelativeUrlsInJson('./project_data.json', jsonData);
+    jsonData = resolveRelativeUrlsInJson(absoluteJsonURL, jsonData);
 
     loadDataRefs(headerSection, jsonData);
 

@@ -136,7 +136,7 @@ function setImageContent(element, imageData) {
 
     element.onerror = function() {
         console.error(`setImageContent-error: no image at source: ${this.src}`);
-        this.src = '/Data/Placeholder-images/Bowser.jpg';
+        this.src = '/Data/Placeholder/Bowser.jpg';
     };
 
 

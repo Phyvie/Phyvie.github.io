@@ -30,5 +30,12 @@
   "tools": [
     "Unity",
     "C#"
+  ],
+  "tags": [
+    {"name": "unity", "relevance": "2"},
+    {"name": "solo-project", "relevance": "3"},
+    {"name": "programming", "relevance": "2"},
+    {"name": "level design", "relevance": "2"},
+    {"name": "mechanic design", "relevance": "1"}
   ]
 }

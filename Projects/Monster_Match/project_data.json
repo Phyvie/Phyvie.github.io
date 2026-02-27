@@ -29,5 +29,12 @@
     "Board Games",
     "Miro",
     "Unity"
+  ],
+  "tags": [
+    {"name": "unity", "relevance": "2"},
+    {"name": "collaborative-project", "relevance": "3"},
+    {"name": "programming", "relevance": "1"},
+    {"name": "mechanic design", "relevance": "4"},
+    {"name": "educational project", "relevance": "4"}
   ]
 }

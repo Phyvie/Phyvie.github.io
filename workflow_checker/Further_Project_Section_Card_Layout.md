@@ -1,36 +1,36 @@
 ## PHASE 1 - DEFINITION
 
 ### 1. XY-Chain:
-- a
-- b
-- c
+- show a relevant skill
 
 ### 2. Description
-| **input** | **behaviour** | **constraints** | **output** |
-|-----------|---------------|-----------------|------------|
-|           |               |                 |            |
+| **input**            | **behaviour**              | **constraints**    | **output**       |
+|----------------------|----------------------------|--------------------|------------------|
+| user clicks on skill | project cards get filtered | 5 sec impression!  | skill is visible |
+|                      |                            | no visual overflow | additional info  |
 
 ### 3. Rice:
 | Reach (#use-cases) | Impact (0-3) | Confidence | Est. Effort |
 |--------------------|--------------|------------|-------------|
-|                    |              |            |             |
-Begin-Time: 
+| 3                  | 3            | medium     | 1day        |
+Begin-Time: 2026 Feb.27, 01:01
 Finish-Time: 
 
 -> switch (use-case * impact): 
-- <=3: brute-force <= 1h or backlog
-- 4-6: acceptable solution <= 1day or backlog
+- ~~<=3: brute-force <= 1h or backlog~~
+- ~~4-6: acceptable solution <= 1day or backlog~~
 - \>=7: elegant solution
 
 ### 4. Kill Duck: 
 am I creating this, only because it ... (strike-through wrong ones)
-- ... is intellectually interesting?
-- ... appears cool?  
-- ... is fun to make?  
-- ... helps an imaginary future? 
+- ~~... is intellectually interesting?~~
+- ~~... appears cool?~~  
+- ~~... is fun to make?~~  
+- ~~... helps an imaginary future?~~ 
 -> any yes = backlog
 
 ### NOWZyKa Workflow: : Summary : 
+I need a visual structure that directly leads the beholders attention to the relevant feature. Additionally, more information must be available, but without instant information overflow. 
 
 # ________
 
@@ -38,20 +38,23 @@ am I creating this, only because it ... (strike-through wrong ones)
 
 ### Research: 
 switch (complexity): 
- - **pre-built**: quick-check for reuse
  - **similar**: similarity-table 
- - **custom feature**: 
-  - research <=min(0.5days, 3 answer) -> comparison table 
-  - choose one and test <=(0.5day, acceptable test) -> result table
- - **custom system**:
-   - research <=(2days, 3 answers) -> comparison table
-   - choose 2 test each <=(1.5 days, acceptable test) -> result table
 
-| solution | advantage | disadvantage |
-|----------|-----------|--------------|
-|          |           |              |
-|          |           |              |
+relevant to show: 
+- img
+- media
+- info-block
+- description
+- feature showcase (e.g. flowchart)
 
+how to display info: 
+
+| solution   | advantage           | disadvantage        |
+|------------|---------------------|---------------------|
+| below card |                     |                     |
+|            |                     |                     |
+| on card    |                     |                     |
+|            |                     |                     |
 
 ### NOWZyKa Workflow: is research done?
 ### Research Summary: 

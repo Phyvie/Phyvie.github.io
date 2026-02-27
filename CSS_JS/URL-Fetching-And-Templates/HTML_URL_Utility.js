@@ -58,13 +58,9 @@ export function scrollIFrameToPosition(iframe_id, scroll_id){
     iframe.contentWindow.scrollTo(scroll_element.offsetLeft, scroll_element.offsetTop);
 }
 
-export function resolveRelativeUrlsInJson(jsonLocation, jsonData) {
+export function resolveRelativeUrlsInJson(absoluteJsonURL, jsonData) {
     // Deep clone the data to avoid modifying the original
-    const resolvedData = JSON.parse(JSON.stringify(jsonData));
-
-    // Create a base URL from the JSON file location
-    const jsonUrl = new URL(jsonLocation, window.location.href);
-    const baseUrl = jsonUrl.href.substring(0, jsonUrl.href.lastIndexOf('/') + 1);
+    const resolvedData = structuredClone(jsonData);
 
     // Recursive function to process all string values
     function processObject(obj) {
@@ -76,7 +72,7 @@ export function resolveRelativeUrlsInJson(jsonLocation, jsonData) {
             if (typeof obj[key] === 'string' &&
                 (obj[key].startsWith('./') || obj[key].startsWith('../'))) {
                 try {
-                    obj[key] = new URL(obj[key], baseUrl).href;
+                    obj[key] = new URL(obj[key], absoluteJsonURL).href;
                 } catch (e) {
                     console.warn(`Could not resolve URL: ${obj[key]}`, e);
                 }

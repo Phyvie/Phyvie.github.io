@@ -324,7 +324,6 @@ function sendScrollCommandEvent(clickedButton, container, command) {
         bubbles: true
     });
     container.dispatchEvent(event);
-    console.log("!!!ZyKa dispatched: ", event.detail);
 }
 /* endregion [data-scroll]-management */
 

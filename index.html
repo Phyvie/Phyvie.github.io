@@ -32,11 +32,9 @@
     <!-- individual section stylesheets -->
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/about-me.css">
     <link rel="stylesheet" href="Projects/Rotations/CSS_JS/rotations-section.css">
-    <!-- !!!ZyKa rotation-content: This script works perfectly fine in Rotations.html, but results in MIME-type-error in Portfolio.html -->
     <script defer type="module" src="Projects/Rotations/CSS_JS/rotations-section.js"></script>
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/further-projects-section.css">
-    <!-- TODOZyKa BUG: this script leads to some 404 errors -->
-<!--    <script defer type="module" src="CSS_JS/portfolio.blocks/further-projects-section-load-cards.js"></script>-->
+    <script defer type="module" src="CSS_JS/portfolio.blocks/further-projects-section.js"></script>
 
     <link rel="stylesheet" href="CSS_JS/debug.css">
 </head>
@@ -51,7 +49,7 @@
 
     <section id="about-me" class="main__panel project-section project-section__main-content">
         <div class="project-section__media">
-            <img class="media--cover media--rounded" src="Data/Placeholder-images/Bowser.jpg" alt="Image of me">
+            <img class="media--cover media--rounded" src="Data/Placeholder/Bowser.jpg" alt="Image of me">
         </div>
         <div class="project-section__info-container">
             <h1 class="header header--left"> Valentin Then Bergh </h1>
@@ -97,7 +95,6 @@
 
     <section id="rotations"
              class="main__panel project-section">
-        <script type="module" src="CSS_JS/rotations-section.js"></script>
         <!--    <script type="module">-->
         <!--        import {loadDataRefs, TryLoadJson} from "../../CSS_JS/common.blocks/load-data-refs.js";-->
         <!--        import {-->
@@ -212,8 +209,7 @@
                 <!--                    <p class="flex-tags__tag tag tag&#45;&#45;rotations"> </p>-->
                 <!--                </div>-->
                 <!-- endregion -->
-                <!--            <p class="project-section__description" data-ref="multiline-text:description"> </p>-->
-                <p class="project-section__description"> Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? In my bachelor thesis, and the accompanying interactive tool, I analyse & visualise the varying properties and resulting use cases of rotation parametrizations. </p>
+                <p class="project-section__description" data-ref="text:description"> </p>
                 <!--        region layout alternative: separate contribution & tools section -->
                 <!--            <div class="project-section__contributions">-->
                 <!--                <h2 class="header&#45;&#45;lvl2"> contributions & tools: </h2>-->
@@ -241,11 +237,9 @@
                 <!--                </ul>-->
                 <!--            </div>-->
                 <!--            endregion layout alternative: separate contribution & tools section-->
-                <!--        region layout alternative: separate links section-->
                 <div class="project-section__links flex-tags flex-tags--project-section-links">
-                    <p class="flex-tags__tag tag tag--link-arrow tag--project-section-link"> discover more </p>
+                    <a class="flex-tags__tag tag tag--link-arrow tag--project-section-link" href="./Projects/Rotations/Rotations.html"> discover more </a>
                 </div>
-                <!--        endregion layout alternative: separate links section-->
             </div>
         </div>
         <div id="rotations-workflow"
@@ -263,7 +257,7 @@
 <!--        <section class="project-section__main-content">-->
 <!--            <div class="project-section__media">-->
 <!--                <img class="media&#45;&#45;cover media&#45;&#45;rounded"-->
-<!--                     src="./Data/Placeholder-images/Bowser.jpg" alt="Image of Project">-->
+<!--                     src="./Data/Placeholder/Bowser.jpg" alt="Image of Project">-->
 <!--            </div>-->
 <!--            <div class="project-section__info-container">-->
 <!--                <h1 class="header"> Highlight: Project B </h1>-->
@@ -290,7 +284,7 @@
     <section class="main__panel further-projects-section">
         <h1 class="header"> Further Projects </h1>
         <div id="further-projects-section__cards-grid" class="further-projects-section__cards-grid">
-            <!-- project cards are loaded in here via "further-projects-section-load-cards.js" -->
+            <!-- project cards are loaded in here via "further-projects-section.js" -->
         </div>
     </section>
 </main>

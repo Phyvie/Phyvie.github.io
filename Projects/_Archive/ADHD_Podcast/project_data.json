@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Podcast about how gamification is used in ADHD diagnosis & treatment.",
   "thumbnail": {
-    "src": "Data/Placeholder-images/gowther.jpg",
+    "src": "Data/Placeholder/gowther.jpg",
     "alt": "Gamification in ADHD Audio File"
   },
   "trailer": {
