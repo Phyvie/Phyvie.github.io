@@ -16,12 +16,12 @@ async function CreateProjectCards() {
     }
 
     let projects = [
-        {folder: 'Lone_Signal', 'grid-area': 'big2'},
-        {folder: 'Music_Box', 'grid-area': 'big1'},
-        {folder: 'Monster_Match', 'grid-area': 'small1'},
-        {folder: 'Gragoon', 'grid-area': 'small2'},
-        {folder: 'Dont_Brake', 'grid-area': 'small3'},
-        {folder: 'Bevoiced', 'grid-area': 'small4'}
+        {folder: 'Lone_Signal'},
+        {folder: 'Music_Box'},
+        {folder: 'Monster_Match'},
+        {folder: 'Gragoon'},
+        {folder: 'Dont_Brake'},
+        {folder: 'Bevoiced'}
     ]
 
     const ProjectFolderURL = GetPathFromPortfolioRoot("_./Projects/");
@@ -30,7 +30,8 @@ async function CreateProjectCards() {
             //create the project card & attach it
             let projectCard = AppendProjectCardToElement(CardParent);
             projectCard.id = project.folder;
-            projectCard.style.gridArea = project['grid-area'];
+
+            // projectCard.style.gridArea = project['grid-area'];
 
             //find the project.json file
             const projectDataURL = new URL(`${project.folder}/project_data.json`, ProjectFolderURL).href;

@@ -45,36 +45,23 @@ relevant to show:
 - media
 - info-block
 - description
-- feature showcase (e.g. flowchart)
+- feature showcase (e.g. flowchart) -> max.1
 
-how to display info: 
+how to display info: -> see miro->Further_Projects_Section
 
-| solution   | advantage           | disadvantage        |
-|------------|---------------------|---------------------|
-| below card |                     |                     |
-|            |                     |                     |
-| on card    |                     |                     |
-|            |                     |                     |
-
-### NOWZyKa Workflow: is research done?
 ### Research Summary: 
+Stop worrying too much about which info should be where, just make a scroll-container
 
 ### Happy-Path: 
-- **simple** (<= 1hour): pseudo-code lines
 - **default** (<= 1day): flowchart & rubber-duck
-- **complex** (week): separate into tasks
-- **refactor**: check current documentation, goto corresponding case
 
 ### Kill Duck
 - am I using this solution, only because it ...
-- ... is intellectually interesting?
-- ... appears cool?
-- ... is fun to make?
-- ... helps an imaginary future?
+- ~~... is intellectually interesting?~~
+- ~~... appears cool?~~
+- ~~... is fun to make?~~
+- ~~... helps an imaginary future?~~
 -> any yes = kill
-
-### NOWZyKa Workflow: confirm happy-path
-### Happy-Path Summary:
 
 ### Edge-Cases: 
 - 5 min brainstorm (technical issues, user stupidity, internal curruption) into frequency-impact-time-list: 

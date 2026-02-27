@@ -40,7 +40,7 @@
     background-color: var(--COLOR-DECORATION-BLOCK);
 
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
 
     justify-content: flex-start;
     padding: var(--LAYOUT-DISTANCE-SMALL);
@@ -74,8 +74,8 @@
 /* region title */
 .overlay__top-left {
     position: absolute;
-    top: var(--LAYOUT-DISTANCE-SMALL);
-    left: var(--LAYOUT-DISTANCE-SMALL);
+    top: var(--LAYOUT-DISTANCE-XS);
+    left: var(--LAYOUT-DISTANCE-XS);
     /* top: min(5.5%, 1rem); */
     /* left: min(5%, 1.5rem); */
 }
@@ -90,16 +90,51 @@
 
     padding: var(--LAYOUT-DISTANCE-SMALL) var(--LAYOUT-DISTANCE-DEFAULT);
 
-    background-color: var(--COLOR-BG-BLOCK);
+    border-radius: var(--LAYOUT-BORDER-RADIUS-SMALL);
+    background-color: color-mix(in srgb, var(--COLOR-BG-BLOCK) 90%, transparent 10%);
 }
 
 @container project-card (max-width: 40rem) {
     .overlay__project-title {
         font-size: var(--FONT-SIZE-DEFAULT);
-        padding: var(--LAYOUT-DISTANCE-XS) var(--LAYOUT-DISTANCE-DEFAULT);
+        padding: 1% var(--LAYOUT-DISTANCE-DEFAULT);
     }
 }
 /* endregion title */
+
+/* region main-role */
+.overlay__main-role {
+    position: absolute;
+    bottom: var(--LAYOUT-DISTANCE-XS);
+    left: var(--LAYOUT-DISTANCE-XS);
+
+    font-size: var(--FONT-SIZE-TITLE-LVL2);
+
+    padding: var(--LAYOUT-DISTANCE-SMALL) var(--LAYOUT-DISTANCE-DEFAULT);
+
+    border-radius: var(--LAYOUT-BORDER-RADIUS-SMALL);
+    background-color: color-mix(in srgb, var(--COLOR-BG-BLOCK) 90%, transparent 10%);
+}
+
+.overlay__main-role.--inactive {
+    transition: opacity var(--ANIMATION-DURATION-DEFAULT) ease-in-out;
+    opacity: 0;
+}
+
+.overlay__main-role.--video-controls-active {
+    transition: bottom var(--ANIMATION-DURATION-DEFAULT) ease-in-out;
+    bottom: 30px;
+}
+
+
+@container project-card (max-width: 40rem) {
+    .overlay__main-role {
+        font-size: var(--FONT-SIZE-DEFAULT);
+        padding: var(--LAYOUT-DISTANCE-XS) var(--LAYOUT-DISTANCE-DEFAULT);
+    }
+}
+/* endregion main-role */
+
 
 /* region info-button */
 .overlay__top-right {
@@ -188,10 +223,12 @@
 .project-card__bottom-line {
     padding: var(--LAYOUT-DISTANCE-XS);
     gap: var(--LAYOUT-DISTANCE-XS);
+
+    align-items: center;
 }
 
 .tag--project-card {
-    padding: var(--LAYOUT-DISTANCE-XS);
+    padding: 1% var(--LAYOUT-DISTANCE-XS);
 }
 
 .tag--project-card-link {
