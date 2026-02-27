@@ -16,7 +16,7 @@ export function loadDataRefs(targetRootElement, jsonData)
 
     const dataRefElements = targetRootElement.querySelectorAll('[data-ref]');
     for (const dataRefElement of dataRefElements) {
-        const refName = dataRefElement.getAttribute('data-ref');
+        const refName = dataRefElement.getAttribute('Data-ref');
         const [type, key] = refName.split(':');
         const data = jsonData[key];
 
@@ -24,14 +24,11 @@ export function loadDataRefs(targetRootElement, jsonData)
             case 'text':
                 setTextContent(dataRefElement, data);
                 break;
-            case 'multiline-text':
-                setMultilineText(dataRefElement, data);
-                break;
             case 'image':
                 setImageContent(dataRefElement, data);
                 break;
             case 'icon':
-                setIcon(dataRefElement, data);
+                trySetIcon(dataRefElement, data);
                 break;
             case 'link':
                 setLinks(dataRefElement, data);
@@ -72,20 +69,14 @@ function setTextContent(element, text) {
         return;
     }
 
-    element.textContent = text;
-}
-
-function setMultilineText(element, textArray) {
-    if (!element) {
-        console.warn("setMultilineText: element is null or undefined");
-        return;
+    if (Array.isArray(text))
+    {
+        element.innerHTML = text.join('<br>');
     }
-    if (!Array.isArray(textArray)) {
-        console.warn("setMultilineText: textArray is not an array");
-        return;
+    else
+    {
+        element.textContent = text;
     }
-
-    element.innerHTML = textArray.join('<br>');
 }
 
 function setGitContent(element, gitLink) {
@@ -106,18 +97,6 @@ function setGitContent(element, gitLink) {
             hljs.highlightElement(element);
         })
         .catch(error => console.error(error));
-}
-
-function setAttribute(element, attribute) {
-    if(!element) {
-        console.warn("setAttribute: element is null or undefined");
-        return;
-    }
-    if(!attribute) {
-        console.warn("setAttribute: attribute is null or undefined");
-    }
-
-    element.setAttribute(attribute.name, attribute.value);
 }
 
 function setImageContent(element, imageData) {
@@ -156,7 +135,33 @@ function setImageContent(element, imageData) {
     }
 }
 
-function setIcon(element, iconName) {
+const IconRegistry = new Map([
+    ['Arrow', '/Data/Icons/arrow.png'],
+    ['Blender', '/Data/Icons/Blender.png'],
+    ['Calender', '/Data/Icons/Calender.png'],
+    ['Cologne Game Lab', '/Data/Icons/Cologne Game Lab.png'],
+    ['Cpp', '/Data/Icons/Cpp.png'],
+    ['cs', '/Data/Icons/cs.png'],
+    ['fmod', '/Data/Icons/fmod.png'],
+    ['GDD', '/Data/Icons/GDD.png'],
+    ['Git', '/Data/Icons/Git.png'],
+    ['googledocs', '/Data/Icons/googledocs.png'],
+    ['Group', '/Data/Icons/Group.png'],
+    ['Libre_Office', '/Data/Icons/Libre_Office.png'],
+    ['Link_arrow', '/Data/Icons/Link_arrow.png'],
+    ['Miro', '/Data/Icons/Miro.png'],
+    ['PaperPrototype', '/Data/Icons/PaperPrototype.png'],
+    ['Person', '/Data/Icons/Person.png'],
+    ['private', '/Data/Icons/private.png'],
+    ['Reaper', '/Data/Icons/Reaper.png'],
+    ['Subversion', '/Data/Icons/Subversion.png'],
+    ['Tortoise', '/Data/Icons/Tortoise.png'],
+    ['Unity', '/Data/Icons/Unity.png'],
+    ['Unreal Engine', '/Data/Icons/Unreal Engine.png'],
+])
+
+
+function trySetIcon(element, iconName) {
     if (!element) {
         console.warn("setIcon: element is null or undefined");
         return;
@@ -166,11 +171,26 @@ function setIcon(element, iconName) {
         return;
     }
 
-    setImageContent(element, {"src": `Data/Icons/${iconName}.png`, "alt": iconName, "class": "media--img-in-font"});
-
-    element.onerror = function()
+    if (IconRegistry.has(iconName))
     {
-        console.error(`setIcon-error: no icon found for name: ${iconName}`);
+        const IconPath = IconRegistry.get(iconName);
+        const imgElement = document.createElement('img');
+        imgElement.className = "media--img-in-font";
+        element.appendChild(imgElement);
+        const descElement = document.createElement('p');
+        element.appendChild(descElement);
+
+        setImageContent(imgElement, {"src": IconPath, "alt": iconName, "class": "media--img-in-font"});
+        element.onerror = function()
+        {
+            console.warn(`setIcon-error: no icon found for name: ${iconName}`);
+        }
+        return true;
+    }
+    else
+    {
+        element.innerHTML = iconName;
+        return false;
     }
 }
 
@@ -246,8 +266,8 @@ function setContributions(element, contributions) {
         element.appendChild(contributionElement);
 
         contributionElement.innerHTML = contribution.name;
-        contributionElement.setAttribute('data-cached-container-id', containerID);
-        contributionElement.setAttribute('data-cached-content', GetPathFromPortfolioRoot(contribution.link));
+        contributionElement.setAttribute('Data-cached-container-id', containerID);
+        contributionElement.setAttribute('Data-cached-content', GetPathFromPortfolioRoot(contribution.link));
         element.innerHTML += ",<br>"
     }
 }

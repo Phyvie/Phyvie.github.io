@@ -1,9 +1,12 @@
-<!--
-    example how to implement a scroll-container, including the DOM-hierarchy, stylesheets, scripts and data-attributes
-    the data-attributes to setup a scroll-container interaction are explained below
-    a single import of the scroll-container.js is sufficient, as it sets subscribes to the global click-event than handles the rest by itself
+<!-- IMPLEMENTATION-EXAMPLE:
+    The following file shows how a scroll-container can be implemented.
+    All values that are set within an elements style="..." attribute are not setup in the scroll-container.css file
+
+    Make sure to import all relevant stylesheets (the same ones as in this file)
+    To set up the scroll-behaviour a single single import of the scroll-container.js is sufficient, as it sets subscribes to the global click-event than handles the rest by itself
+    To set up a scroll-button, see the attribute description below
 -->
-<!--
+<!-- "SCROLL-COMMAND"-EVENT:
     When a scroll-button is clicked, the scroll-container dispatches a "new CustomEvent('scroll-command', {
         detail: {
             container: container,
@@ -14,8 +17,6 @@
     from the container that gets scrolled
 -->
 
-
-<!-- ToDoZyKa scroll-container: Mark which width/height must be set up manually & which ones are already included -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +78,7 @@
         </div>
     </div>
 
-    <!-- Navigation Buttons
+    <!-- SCROLL NAVIGATION BUTTONS / SCROLL-ATTRIBUTES / SCROLL-COMMANDS
     syntax: data-scroll="[scroll-container-string]:[command-string]"
 
     scroll-container-string can be:

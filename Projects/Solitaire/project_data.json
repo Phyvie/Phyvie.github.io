@@ -24,7 +24,7 @@
   "origin": "private",
   "team-size": "1",
   "date": "2025",
-  "time": "1 weeks",
+  "time": "1w",
   "tags": [
     {"name": "unity", "relevance": "3"},
     {"name": "solo-project", "relevance": "3"},

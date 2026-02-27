@@ -135,7 +135,7 @@ sequenceDiagram
   - ~~obvious error handling?~~
   - ~~backwards-compatible?~~
 
-==> LaterZyKa creating all of this takes forever, when I already clearly know my plan, because I have tested it; I have probably done this the wrong way round, as I first tested my plan, then noted it down properly. 
+==> creating all of this takes forever, when I already clearly know my plan, because I have tested it; I have probably done this the wrong way round, as I first tested my plan, then noted it down properly. 
 
 # ________
 
