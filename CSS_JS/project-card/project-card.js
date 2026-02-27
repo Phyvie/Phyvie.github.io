@@ -162,15 +162,30 @@ function wireOverlayToVideo(video)
         console.warn("wireOverlayToVideo: overlay__title element not found");
     }
 
+    let overlayMainRole = projectCard.querySelector('.overlay__main-role');
+    if (!overlayMainRole)
+    {
+        console.warn("wireOverlayToVideo: overlay__main-role element not found");
+    }
+
     video.addEventListener("play", () => {
         overlayBottom?.classList.add('--inactive');
         overlayTitle?.classList.add('--inactive');
+        overlayMainRole?.classList.add('--inactive');
     });
 
     video.addEventListener("pause", () => {
         overlayBottom?.classList.remove('--inactive');
         overlayTitle?.classList.remove('--inactive')
+        overlayMainRole?.classList.remove('--inactive');
     });
+
+    video.addEventListener("mouseenter", () => {
+        overlayMainRole?.classList.add("--video-controls-active");
+    })
+    video.addEventListener("mouseleave", () => {
+        overlayMainRole?.classList.remove("--video-controls-active");
+    })
 }
 
 async function initialize()
