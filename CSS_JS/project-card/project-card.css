@@ -36,7 +36,7 @@
 }
 /* endregion media & overlay */
 
-.project-card__information {
+.project-card__bottom-line {
     background-color: var(--COLOR-DECORATION-BLOCK);
 
     display: flex;
@@ -48,7 +48,7 @@
 }
 
 @container project-card (max-width: 40rem) {
-    .project-card__information {
+    .project-card__bottom-line {
         padding: var(--LAYOUT-DISTANCE-SMALL);
         gap: var(--LAYOUT-DISTANCE-SMALL);
     }
@@ -185,7 +185,7 @@
     text-align: center;
 }
 
-.project-card__information {
+.project-card__bottom-line {
     padding: var(--LAYOUT-DISTANCE-XS);
     gap: var(--LAYOUT-DISTANCE-XS);
 }
@@ -200,7 +200,7 @@
 }
 
 @container project-card (min-width: 40rem) {
-    .project-card__information {
+    .project-card__bottom-line {
         padding: var(--LAYOUT-DISTANCE-SMALL);
         gap: var(--LAYOUT-DISTANCE-SMALL);
     }

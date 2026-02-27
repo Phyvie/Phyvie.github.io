@@ -29,6 +29,7 @@ async function CreateProjectCards() {
         try {
             //create the project card & attach it
             let projectCard = AppendProjectCardToElement(CardParent);
+            projectCard.id = project.folder;
             projectCard.style.gridArea = project['grid-area'];
 
             //find the project.json file

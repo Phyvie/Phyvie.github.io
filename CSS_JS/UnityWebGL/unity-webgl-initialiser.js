@@ -93,7 +93,9 @@ export async function LoadWebGLScriptOntoElement(config, gameContainer)
         gameContainer.appendChild(script);
 
         script.onload = resolve;
-        script.onerror = reject;
+        script.onerror = () => {
+            reject(`LoadWebGLScriptOntoElement Failed for ${config.loader} - check whether the file is an actual loader file`)
+        }
     })
 }
 

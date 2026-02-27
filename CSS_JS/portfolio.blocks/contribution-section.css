@@ -25,55 +25,13 @@
     overflow: auto;
 }
 
-/* mobile landscape & desktop-half-height */
-@media (max-height: 599px) and (max-width: 899px){
-    /* !!!ZyKa styling: adjust this height for different content-heights */
-    .scroll-container--contribution-section {
-        /*height: 90vh;*/
-        height: auto;
-        padding: var(--LAYOUT-DISTANCE-SMALL);
-
-        container: contribution-scroll-container / inline-size;
-    }
-
-    .scroll-container__content-container--contributions-section {
-        outline: var(--DEBUG-MEDIA-QUERY-OUTLINE-SMALL-LANDSCAPE);
-
-        height: auto;
-    }
-
-    .described-item {
-        padding: var(--LAYOUT-DISTANCE-SMALL);
-
-        height: 100%;
-        display: flex;
-        flex-flow: row nowrap;
-    }
-
-    .described-item__content {
-        flex: 0 0 50%;
-        width: auto;
-        height: 100%;
-        max-height: 80vh;
-        /* !!!ZyKa described-item: increasing window height = more space for image, less for text = weird scaling behaviour */
-    }
-
-    /* LATERZyKa styling: add a scroll-signalizer */
-    .described-item__description {
-        flex: 0 0 50%;
-        width: auto;
-        contain: size paint;
-        padding: 0 var(--LAYOUT-DISTANCE-SMALL);
-    }
-}
-
 /* mobile-portrait */
-@media (min-height: 600px)
+@media
 {
     @container scroll-container (max-width: 599px)
     {
         .scroll-container__content-container--contributions-section {
-            outline: var(--DEBUG-MEDIA-QUERY-OUTLINE-SMALL-PORTRAIT);
+            /*outline: var(--DEBUG-MEDIA-QUERY-OUTLINE-SMALL-PORTRAIT);*/
 
             height: auto;
         }
@@ -91,14 +49,53 @@
     }
 }
 
+/* mobile landscape & desktop-half-height */
+@media (max-height: 599px) and (min-aspect-ratio: 4/3){
+    .scroll-container--contribution-section {
+        /*height: 90vh;*/
+        height: auto;
+        padding: var(--LAYOUT-DISTANCE-SMALL);
+
+        container: contribution-scroll-container / inline-size;
+    }
+
+    .scroll-container__content-container--contributions-section {
+        /*outline: var(--DEBUG-MEDIA-QUERY-OUTLINE-SMALL-LANDSCAPE);*/
+
+        height: auto;
+    }
+
+    .described-item {
+        padding: var(--LAYOUT-DISTANCE-SMALL);
+
+        height: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    .described-item__content {
+        flex: 0 0 50%;
+        width: auto;
+        height: 100%;
+        max-height: 80vh;
+    }
+
+    /* LATERZyKa styling: add a scroll-signalizer */
+    .described-item__description {
+        flex: 0 0 50%;
+        width: auto;
+        contain: size paint;
+        padding: 0 var(--LAYOUT-DISTANCE-SMALL);
+    }
+}
+
 /* large-screen */
-@media (min-height: 600px) or (min-width: 900px){
+@media (min-height: 600px) or (max-aspect-ratio: 4/3){
     @container scroll-container (min-width: 600px) {
         .scroll-container__content-container--contributions-section {
-            outline: var(--DEBUG-MEDIA-QUERY-OUTLINE-PC);
+            /*outline: var(--DEBUG-MEDIA-QUERY-OUTLINE-PC);*/
         }
 
-        /* NOWZyKa scroll-container: this should be scroll-container__item--contribution-section */
         .scroll-container__item--contribution-section {
             height: fit-content;
         }
@@ -115,7 +112,6 @@
 
         .described-item__description {
             width: 100%;
-            /* NOWZyKa scroll-container: figure out how to adjust this height depending on how wide the screen is */
             height: calc(var(--ELEMENT-LINE-HEIGHT) * 4.5);
             max-height: 30vh; /* adjustment for small, but wide screens */
             overflow: auto;

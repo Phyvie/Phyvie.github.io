@@ -48,8 +48,8 @@ export function embedWebGLIFrame(containerElement, iFramePath, webGLConfig)
     }
     if (validateUnityWebGLConfig(webGLConfig).isValid !== true)
     {
-        // !!!ZyKa WebGLBuild: need to validate the URL's & a proper error message if they are wrong
         console.error("embedGame: webGLConfig is invalid; check unity-embed-webGL-iframe.js for a valid config example");
+        /* if config.loader holds a wrong URL, then the LoadWebGLOntoElement will print an error message */
         return;
     }
 

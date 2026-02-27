@@ -2,6 +2,7 @@
 1. AppendProject Card appends a copy of the project-card-template saved in project-card.js->PROJECT_CARD_TEMPLATE_PATH#PROJECT_CARD_TEMPLATE_ID
 2. TryLoadJson tries to load & return a json-File stored at the specific location (relative or absolute)
 3. LoadProjectCardData replaces the placeholder in the project card with the data specified in the json file
+4. SetupProjectCardInteraction enables clicking on the info-button & playing the video
 
 For an example of data look at: /
 -->
@@ -10,8 +11,8 @@ For an example of data look at: /
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> project-card-loading example </title>
-
+    <title> _example__project-card-loading </title>
+    
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../global_variables.css">
     <link rel="stylesheet" href="../styling/media.css">
@@ -20,13 +21,14 @@ For an example of data look at: /
 </head>
 
 <script type="module">
-    import {AppendProjectCardToElement, LoadProjectCardData} from "./project-card.js";
+    import {AppendProjectCardToElement, LoadProjectCardData, SetupProjectCardInteraction} from "./project-card.js";
     import jsonData from "./_example_project_data.json" with { type: "json"};
 
     async function loadSingleProjectCard()
     {
         const projectCard = AppendProjectCardToElement(document.querySelector("body"))
         LoadProjectCardData(projectCard, jsonData);
+        SetupProjectCardInteraction(projectCard);
     }
 
     if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', loadSingleProjectCard);}
