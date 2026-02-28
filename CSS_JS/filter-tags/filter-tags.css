@@ -1,3 +1,5 @@
+/* region example */
+/* this region is used to style the example file */
 .example {
     background-color: gray;
     padding: 0 25vw;
@@ -6,13 +8,13 @@
     gap: 100px;
 }
 
-.example__filter-container {
+.example__filter-buttons-container {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
 }
 
-.debug__filter__item {
+.example__filter-button {
     width: 50px;
     height: 50px;
 }
@@ -30,10 +32,4 @@
     background-color: darkslategray;
     height: 50px;
 }
-
-.filterable {
-}
-
-.filterable.--hidden {
-    display: none;
-}
+/* endregion example */

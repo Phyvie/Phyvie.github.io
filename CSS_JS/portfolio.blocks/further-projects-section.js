@@ -6,6 +6,7 @@ import {
     SetupProjectCardInteraction,
 } from "../project-card/project-card.js";
 import {GetPathFromPortfolioRoot} from "../../PortfolioRootPath.js";
+import {addFilterTagToElement, createFilterTag} from "../filter-tags/filter-tags.js";
 
 async function CreateProjectCards() {
     let CardParent = document.getElementById('further-projects-section__cards-container');
@@ -43,7 +44,21 @@ async function CreateProjectCards() {
             LoadProjectCardData(projectCard, jsonData);
             SetupProjectCardInteraction(projectCard);
 
-
+            const filterTags = jsonData.tags;
+            if (!filterTags) {
+                console.warn(`No tags found in project ${project.folder}`);
+                continue;
+            }
+            for (const project_tag of filterTags)
+            {
+                let newTag = createFilterTag(project_tag.name, project_tag.relevance);
+                if (!newTag)
+                {
+                    console.error(`Failed to create filter tag ${project_tag} for project ${project.folder}`);
+                    continue;
+                }
+                addFilterTagToElement(projectCard, newTag);
+            }
         } catch (error) {
             console.error(`Error loading project ${project.folder}:`, error);
         }

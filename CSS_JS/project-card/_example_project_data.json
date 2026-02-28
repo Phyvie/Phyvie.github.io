@@ -36,11 +36,11 @@
   },
 
   "tags": [
-    {"name": "unity", "relevance": "4"},
+    {"name": "Unity", "relevance": "4"},
     {"name": "solo-project", "relevance": "5"},
     {"name": "programming", "relevance": "5"},
     {"name": "visuals", "relevance": "2"},
-    {"name": "educational project", "relevance": "4"}
+    {"name": "educational", "relevance": "4"}
   ],
 
   "git-link": "https://#",
