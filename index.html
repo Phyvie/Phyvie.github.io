@@ -42,8 +42,11 @@
 
 <main class="main">
     <section id="about-me" class="main__panel project-section project-section__main-content">
-        <div class="project-section__media">
-            <img class="media--cover media--rounded" src="Data/Placeholder/Bowser.jpg" alt="Image of me">
+        <div class="project-section__media media--relative-wrapper" style="aspect-ratio: 1/1; flex-basis: 30%; border-radius: 5vw">
+            <!-- LATERZyKa styling: the image of me is too big, I don't wanna be that big visible on my Portfolio page, a little image of me should be enough -->
+            <img class="media--rounded" src="Data/Placeholder/Bowser.jpg" alt="Image of me" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -48%) scale(0.4);">
+<!--            <img class="media&#45;&#45;rounded" src="Data/Placeholder/Placeholder_me_0.jpg" alt="Image of me" style="top: 50%; left: 50%; transform: translate(-35%, -35%);">-->
+<!--            <img class="media&#45;&#45;rounded" src="Data/Placeholder/Placeholder_me_1.jpg" alt="Image of me" style="top: 50%; left: 50%; transform: scale(0.75) translate(-45%, -50%);">-->
         </div>
         <div class="project-section__info-container">
             <h1 class="header header--left"> Valentin Then Bergh </h1>
@@ -274,25 +277,40 @@
 <!--    <div class="main__separator"></div>-->
     <!-- endregion highlight-section B -->
 
-    <section class="main__panel further-projects-section">
-        <h1 class="header"> Further Projects </h1>
+    <section class="main__panel further-projects-section" data-filter-container-parent="further_projects_section__cards-container">
+        <h1 class="header"> Further Skills & Projects </h1>
+
+        <h2 class="emphasized"> Skills: <span style="font-size: var(--FONT-SIZE-SMALL)"> (click to filter projects) </span> </h2>
         <div class="further-projects-section__filter-trigger-container">
-            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="Unity"> Unity </div>
-            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="Unreal Engine"> Unreal Engine </div>
-            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="other engine"> other engine </div>
+            <p class="emphasized"> Engines: </p>
+            <div class="further-projects-section__filter-trigger-category">
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="Unity"> Unity </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="Unreal Engine"> Unreal Engine </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="other engine"> other engine </div>
+            </div>
 
-            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="collaborative-project"> collaborative project </div>
-            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="collaborative-mechanic"> collaborative mechanic </div>
-            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="solo-project"> solo-project </div>
-            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="solo-mechanic"> solo-mechanic </div>
+            <p class="emphasized"> Team- & Project-Size: </p>
+            <div class="further-projects-section__filter-trigger-category">
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="collaborative-project"> collaborative project </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="collaborative-mechanic"> collaborative mechanic </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="solo-project"> solo-project </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="solo-mechanic"> solo-mechanic </div>
+            </div>
 
-            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="programming"> programming </div>
-            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="mechanic design"> mechanic design </div>
-            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="level design"> level design </div>
-            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="audio"> audio </div>
-            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="visuals"> visuals </div>
+            <p class="emphasized"> My Role: </p>
+            <div class="further-projects-section__filter-trigger-category">
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="programming"> programming </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="mechanic design"> mechanic design </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="level design"> level design </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="audio"> audio </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="visuals"> visuals </div>
+            </div>
 
-            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="educational"> educational game </div>
+
+            <p class="emphasized"> Other: </p>
+            <div class="further-projects-section__filter-trigger-category">
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="educational"> educational game </div>
+            </div>
         </div>
         <div id="further-projects-section__cards-container" class="further-projects-section__cards-container--autogrid" data-filter-container="further_projects_section__cards-container">
             <!-- project cards are loaded in here via "further-projects-section.js" -->

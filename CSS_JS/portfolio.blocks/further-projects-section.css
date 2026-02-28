@@ -102,12 +102,21 @@
     width: 50%;
 
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10rem, 20rem));
-    gap: var(--LAYOUT-DISTANCE-XS);
+    grid-template-columns: 30ch 1fr;
+    gap: var(--LAYOUT-DISTANCE-SMALL) 0;
+}
 
-    background-color: #fff;
+.further-projects-section__filter-trigger-category {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--LAYOUT-DISTANCE-SMALL);
 }
 
 .further-projects-section__filter-trigger {
+    width: 12rem;
     padding: var(--LAYOUT-DISTANCE-XS);
+}
+
+.further-projects-section__filter-trigger.--active {
+    background-color: var(--COLOR-DECORATION-ELEMENT-FADED);
 }
