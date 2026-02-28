@@ -1,7 +1,6 @@
 import { findInRelatives } from "../../DOMFunctions.js";
 
-function onClick(event)
-{
+function onClick(event) {
     if (!(event.target instanceof HTMLElement)) return;
 
     const trigger = event.target.closest('[data-filter-trigger]');
@@ -10,45 +9,83 @@ function onClick(event)
     const filterValue = trigger.getAttribute('data-filter-trigger')?.toLowerCase();
     if (!filterValue) return;
 
-    const container = findInRelatives(trigger, '[data-filter-container]');
+    const container = findFilterContainer(trigger);
     if (!container) {
-        console.error("Filter trigger clicked but no [data-filter-container] found.");
+        console.error("No container found for filter trigger.");
         return;
     }
 
-    const items = container.querySelectorAll('[data-filter-tags]');
+    toggleActiveFilter(container, filterValue);
+    if (!container.filterMode)
+    {
+        container.filterMode = "OR";
+    }
+    switchTriggerFilterStyle(event.target, container.activeFilters.has(filterValue));
 
-    items.forEach(item => {
+    container.querySelectorAll('[data-filter-tags]').forEach(item => {
+        const { matches, relevance } = elementMatchesFilters(item, container.activeFilters, container.filterMode);
+        applyFilterStyle(item, matches, relevance);
+    });
+}
 
-        if (!(item instanceof HTMLElement)) return;
+function findFilterContainer(trigger) {
+    let container = findInRelatives(trigger, '[data-filter-container]');
+    if (!container) {
+        const containerParent = findInRelatives(trigger, '[data-filter-container-parent]');
+        container = containerParent?.querySelector('[data-filter-container]');
+    }
+    return container;
+}
 
-        if (!item.filterTags || !(item.filterTags instanceof Map)) {
-            console.warn("Item has unparsed filterTags. Attempting to parse:", item);
-            // If not parsed yet → try parsing once before printing error
-            parseFilterTags(item); // Pass the element itself as root
-            if (!item.filterTags || !(item.filterTags instanceof Map)) {
-                console.error("Parsing failed for element:", item);
-                item.style.display = "none";
-                item.style.order = 0;
-                return;
+function switchTriggerFilterStyle(trigger, active)
+{
+    trigger.classList.toggle("--active", active);
+}
+
+function toggleActiveFilter(container, filterValue) {
+    if (!container.activeFilters) container.activeFilters = new Set();
+    if (container.activeFilters.has(filterValue)) container.activeFilters.delete(filterValue);
+    else container.activeFilters.add(filterValue);
+}
+
+function elementMatchesFilters(item, activeFilters, filterMode) {
+    if (!item.filterTags || !(item.filterTags instanceof Map)) {
+        parseFilterTags(item);
+        if (!item.filterTags || !(item.filterTags instanceof Map))
+        {
+            return { matches: false, relevance: 0 };
+        }
+    }
+
+    if (activeFilters.size === 0)
+    {
+        return { matches: true, relevance: 0 };
+    }
+
+    let visible = filterMode !== "OR";
+    let maxRelevance = 0;
+
+    activeFilters.forEach(f => {
+        const tagData = item.filterTags.get(f);
+        const relevance = tagData ? Number(tagData.relevance) || 0 : 0;
+
+        if (filterMode === "OR") {
+            if (tagData) {
+                visible = true;
+                maxRelevance = Math.max(maxRelevance, relevance);
             }
-        }
-
-        const tagData = item.filterTags.get(filterValue.toLowerCase());
-
-        if (tagData)
-        {
-            const relevance = Number(tagData.relevance) || 0;
-
-            item.style.display = "";
-            item.style.order = -relevance;
-        }
-        else
-        {
-            item.style.display = "none";
-            item.style.order = 0;
+        } else if (filterMode === "AND") {
+            if (!tagData) visible = false;
+            else maxRelevance = Math.max(maxRelevance, relevance);
         }
     });
+
+    return { matches: visible, relevance: maxRelevance };
+}
+
+function applyFilterStyle(item, matches, relevance) {
+    item.style.display = matches ? "" : "none";
+    item.style.order = matches ? -relevance : 0;
 }
 
 export function parseFilterTags(rootElement)
