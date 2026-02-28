@@ -2,6 +2,8 @@
     display: flex;
     flex-flow: column nowrap;
 
+    gap: var(--LAYOUT-DISTANCE-DEFAULT);
+
     container: further-projects-section / inline-size;
 }
 
@@ -38,6 +40,7 @@
     align-self: center;
 }
 
+/* region grid-specified-layout */
 @container further-projects-section (min-width: 0rem) {
     .further-projects-section__cards-container--grid-specified-layout {
         grid-template-areas:
@@ -92,4 +95,19 @@
             "big1 big1 small1 small2 big2 big2";
         grid-template-columns: repeat(6, 1fr);
     }
+}
+/* endregion grid-specified-layout */
+
+.further-projects-section__filter-trigger-container {
+    width: 50%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 20rem));
+    gap: var(--LAYOUT-DISTANCE-XS);
+
+    background-color: #fff;
+}
+
+.further-projects-section__filter-trigger {
+    padding: var(--LAYOUT-DISTANCE-XS);
 }

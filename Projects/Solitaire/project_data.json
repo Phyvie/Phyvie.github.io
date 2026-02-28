@@ -26,7 +26,7 @@
   "date": "2025",
   "time": "1w",
   "tags": [
-    {"name": "unity", "relevance": "3"},
+    {"name": "Unity", "relevance": "3"},
     {"name": "solo-project", "relevance": "3"},
     {"name": "programming", "relevance": "4"}
   ]

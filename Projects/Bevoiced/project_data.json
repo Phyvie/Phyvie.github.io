@@ -22,7 +22,7 @@
 
   "tags": [
     {"name": "audio", "relevance": "3"},
-    {"name":  "unity", "relevance": "1"},
+    {"name":  "Unity", "relevance": "1"},
     {"name": "group-made-project", "relevance": "1"},
     {"name": "programming", "relevance": "1"}
   ]

@@ -276,7 +276,25 @@
 
     <section class="main__panel further-projects-section">
         <h1 class="header"> Further Projects </h1>
-        <div id="further-projects-section__cards-container" class="further-projects-section__cards-container--autogrid">
+        <div class="further-projects-section__filter-trigger-container">
+            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="Unity"> Unity </div>
+            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="Unreal Engine"> Unreal Engine </div>
+            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="other engine"> other engine </div>
+
+            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="collaborative-project"> collaborative project </div>
+            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="collaborative-mechanic"> collaborative mechanic </div>
+            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="solo-project"> solo-project </div>
+            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="solo-mechanic"> solo-mechanic </div>
+
+            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="programming"> programming </div>
+            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="mechanic design"> mechanic design </div>
+            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="level design"> level design </div>
+            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="audio"> audio </div>
+            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="visuals"> visuals </div>
+
+            <div class="further-projects-section__filter-trigger tag" data-filter-trigger="educational"> educational game </div>
+        </div>
+        <div id="further-projects-section__cards-container" class="further-projects-section__cards-container--autogrid" data-filter-container="further_projects_section__cards-container">
             <!-- project cards are loaded in here via "further-projects-section.js" -->
         </div>
     </section>

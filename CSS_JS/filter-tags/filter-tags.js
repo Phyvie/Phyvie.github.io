@@ -7,7 +7,7 @@ function onClick(event)
     const trigger = event.target.closest('[data-filter-trigger]');
     if (!trigger) return;
 
-    const filterValue = trigger.getAttribute('data-filter-trigger');
+    const filterValue = trigger.getAttribute('data-filter-trigger')?.toLowerCase();
     if (!filterValue) return;
 
     const container = findInRelatives(trigger, '[data-filter-container]');
@@ -28,24 +28,24 @@ function onClick(event)
             parseFilterTags(item); // Pass the element itself as root
             if (!item.filterTags || !(item.filterTags instanceof Map)) {
                 console.error("Parsing failed for element:", item);
-                item.classList.add('--hidden');
+                item.style.display = "none";
                 item.style.order = 0;
                 return;
             }
         }
 
-        const tagData = item.filterTags.get(filterValue);
+        const tagData = item.filterTags.get(filterValue.toLowerCase());
 
         if (tagData)
         {
             const relevance = Number(tagData.relevance) || 0;
 
-            item.classList.remove('--hidden');
+            item.style.display = "";
             item.style.order = -relevance;
         }
         else
         {
-            item.classList.add('--hidden');
+            item.style.display = "none";
             item.style.order = 0;
         }
     });
@@ -99,7 +99,7 @@ export function parseFilterTags(rootElement)
                 const safeRelevance = Number(relevance);
                 const finalRelevance = isNaN(safeRelevance) ? 0 : safeRelevance;
 
-                tagMap.set(name, {
+                tagMap.set(name.toLowerCase(), {
                     name,
                     relevance: finalRelevance,
                     ...extra
@@ -158,7 +158,7 @@ export function addFilterTagToElement(element, tagData)
     const finalRelevance = Number(relevance);
     const safeRelevance = isNaN(finalRelevance) ? 0 : finalRelevance;
 
-    element.filterTags.set(name, {
+    element.filterTags.set(name.toLowerCase(), {
         name,
         relevance: safeRelevance,
         ...extra
