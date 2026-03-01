@@ -77,9 +77,11 @@ export function SetupProjectCardInteraction(projectCard)
     let thumbnail =projectCard.querySelector("[data-ref='image:thumbnail']")
     let trailer = projectCard.querySelector("[data-ref='video:trailer']");
 
-    SetupInfoButtonOverlay(projectCard);
     wireImageToVideo(thumbnail, trailer);
     wireOverlayToVideo(trailer);
+
+    SetupInfoButtonOverlay(projectCard);
+    SetupFoldable(projectCard);
 }
 
 function SetupInfoButtonOverlay(projectCard)
@@ -96,6 +98,21 @@ function SetupInfoButtonOverlay(projectCard)
     infoButton.addEventListener('click', () => {
         infoContainer.classList.toggle('--inactive');
     });
+}
+
+function SetupFoldable(projectCard)
+{
+    const foldButton = projectCard.querySelector('[data-project-card-unfolder]');
+    const foldable = projectCard.querySelector('[data-project-card-foldable]');
+
+    if (!foldButton || !foldable)
+    {
+        return;
+    }
+
+    foldButton.onclick = () => {
+        foldable.classList.toggle('--folded');
+    }
 }
 
 function wireImageToVideo(image, video) {

@@ -6,6 +6,8 @@
     border: 1px solid var(--COLOR-DECORATION-BLOCK);
     border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
 
+    background-color: var(--COLOR-DECORATION-BLOCK);
+
     container: project-card / inline-size;
 }
 
@@ -22,7 +24,6 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
 }
 
 .project-card__overlay {
@@ -37,8 +38,6 @@
 /* endregion media & overlay */
 
 .project-card__bottom-line {
-    background-color: var(--COLOR-DECORATION-BLOCK);
-
     display: flex;
     flex-flow: row wrap;
 
@@ -250,3 +249,27 @@
     }
 }
 /* endregion project_information */
+
+/* region unfoldable */
+.project-card__more-button {
+    margin-left: auto;
+    padding: 0 2ch;
+    font-weight: bold;
+}
+
+.project-card__foldable {
+    margin-top: var(--LAYOUT-DISTANCE-SMALL);
+    padding: 0 var(--LAYOUT-DISTANCE-SMALL) var(--LAYOUT-DISTANCE-SMALL) var(--LAYOUT-DISTANCE-SMALL);
+}
+
+.project-card__foldable.--folded{
+    transition:
+        height var(--ANIMATION-DURATION-DEFAULT) ease-in-out
+        padding var(--ANIMATION-DURATION-DEFAULT) ease-in-out
+;
+    margin-top: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+/* endregion unfoldable */

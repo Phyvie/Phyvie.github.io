@@ -51,6 +51,9 @@ how to display info: -> see miro->Further_Projects_Section
 
 ### Research Summary: 
 Stop worrying too much about which info should be where, just make a scroll-container
+==> problem: I decided for a scroll-container & made a sketch where I could put it, but my choice had heavy layout implications; i.e. scrolling out an extra section to the right of the card doesn't work, because the project-card-media width is set to 100%, thus making the card wider to the right would make the card wider too.
+
+
 
 ### Happy-Path: 
 - **default** (<= 1day): flowchart & rubber-duck

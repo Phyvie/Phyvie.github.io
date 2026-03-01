@@ -24,18 +24,22 @@ For an example of data look at: /
     import {AppendProjectCardToElement, LoadProjectCardData, SetupProjectCardInteraction} from "./project-card.js";
     import jsonData from "./_example_project_data.json" with { type: "json"};
 
-    async function loadSingleProjectCard()
+    async function loadProjectCards()
     {
-        const projectCard = AppendProjectCardToElement(document.querySelector("body"))
-        LoadProjectCardData(projectCard, jsonData);
-        SetupProjectCardInteraction(projectCard);
+        for (let i = 0; i < 3; i++)
+        {
+            const projectCard = AppendProjectCardToElement(document.querySelector("body"))
+            LoadProjectCardData(projectCard, jsonData);
+            SetupProjectCardInteraction(projectCard);
+        }
     }
 
-    if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', loadSingleProjectCard);}
-    else { loadSingleProjectCard();}
+    if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', loadProjectCards);}
+    else { loadProjectCards();}
 </script>
 
-<body style="margin: 0 25vw; height: 50vh;">
+<body style="margin: 0 20vw; height: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr)); gap: 5rem">
 
 </body>
+
 </html>
