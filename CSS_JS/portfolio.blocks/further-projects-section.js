@@ -59,6 +59,21 @@ async function CreateProjectCards() {
                 }
                 addFilterTagToElement(projectCard, newTag);
             }
+
+            const projectCardUnfoldButton = projectCard.querySelector('[data-project-card-unfolder]');
+            if (projectCardUnfoldButton)
+            {
+                projectCardUnfoldButton.addEventListener("click", () => {
+                    if (projectCard.style.gridRow === "span 2")
+                    {
+                        projectCard.style.gridRow = "span 1";
+                    }
+                    else
+                    {
+                        projectCard.style.gridRow = "span 2";
+                    }
+                })
+            }
         } catch (error) {
             console.error(`Error loading project ${project.folder}:`, error);
         }
