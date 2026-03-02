@@ -60,7 +60,7 @@ async function CreateProjectCards() {
                 addFilterTagToElement(projectCard, newTag);
             }
 
-            const projectCardUnfoldButton = projectCard.querySelector('[data-project-card-unfolder]');
+            const projectCardUnfoldButton = projectCard.querySelector('[data-more-info-button]');
             if (projectCardUnfoldButton)
             {
                 projectCardUnfoldButton.addEventListener("click", () => {

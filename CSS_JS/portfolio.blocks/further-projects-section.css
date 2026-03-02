@@ -35,10 +35,6 @@
 
 @media (max-height: 599px) and (min-aspect-ratio: 4/3)
 {
-    .project-card {
-        outline: var(--DEBUG-MEDIA-QUERY-OUTLINE-SMALL-PORTRAIT);
-    }
-
     .further-projects-section__cards-container--autogrid {
         /*media-height -> 16/9 * width*/
         /*text-height -> 1 line-height*/
