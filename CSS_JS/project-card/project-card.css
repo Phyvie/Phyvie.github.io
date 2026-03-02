@@ -38,6 +38,8 @@
 /* endregion media & overlay */
 
 .project-card__bottom-line {
+    grid-row: 2;
+
     display: flex;
     flex-flow: row wrap;
 
@@ -250,6 +252,7 @@
 }
 /* endregion project_information */
 
+/* TODOZyKa project-card: delete this if lightbox works */
 /* region unfoldable */
 .project-card__more-button {
     margin-left: auto;

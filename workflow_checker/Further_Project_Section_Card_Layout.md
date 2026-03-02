@@ -52,8 +52,9 @@ how to display info: -> see miro->Further_Projects_Section
 ### Research Summary: 
 Stop worrying too much about which info should be where, just make a scroll-container
 ==> problem: I decided for a scroll-container & made a sketch where I could put it, but my choice had heavy layout implications; i.e. scrolling out an extra section to the right of the card doesn't work, because the project-card-media width is set to 100%, thus making the card wider to the right would make the card wider too.
-
-
+==> I'm cycling back and forth between the foldout-solution and the lightbox solution, because I had some advantages/disadvantages in mind, but could never truly decide; Analysis:  
+1. Problem: I didn't make an advantage/disadvantage matrix, I just sketched smth and decided to go for it
+2. Solution: chatted with deepseek, which told me that users are expecting to click for more info / to remove the extra info, thus a lightbox works; Also: it told me to make a scoring matrix for advantages/disadvantages. 
 
 ### Happy-Path: 
 - **default** (<= 1day): flowchart & rubber-duck

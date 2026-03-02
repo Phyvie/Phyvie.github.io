@@ -81,7 +81,8 @@ export function SetupProjectCardInteraction(projectCard)
     wireOverlayToVideo(trailer);
 
     SetupInfoButtonOverlay(projectCard);
-    SetupFoldable(projectCard);
+    // TODOZyKa project-card: delete this if foldout works
+    // SetupFoldable(projectCard);
 }
 
 function SetupInfoButtonOverlay(projectCard)
@@ -100,9 +101,10 @@ function SetupInfoButtonOverlay(projectCard)
     });
 }
 
+// TODOZyKa project-card: delete this if lightbox works
 function SetupFoldable(projectCard)
 {
-    const foldButton = projectCard.querySelector('[data-project-card-unfolder]');
+    const foldButton = projectCard.querySelector('[data-more-info-button]');
     const foldable = projectCard.querySelector('[data-project-card-foldable]');
 
     if (!foldButton || !foldable)
