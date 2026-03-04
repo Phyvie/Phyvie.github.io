@@ -1,7 +1,7 @@
 /**
  * Creates Project Cards and sets up their interactivity.
  * Uses load-data-refs.js to load data from .json files into the project cards.
- * Not an autonomous script, must be imported by another script to work (e.g. further-projects-section-load-cards.js)
+ * Not an autonomous script, must be imported by another script to work (e.g. further-projects-section.js)
  */
 
 import {loadDataRefs} from "../common.blocks/load-data-refs.js";
@@ -12,6 +12,8 @@ import {
     appendTemplateCopyToElement
 } from "../URL-Fetching-And-Templates/template-manager.js";
 
+const PROJECT_CARD_TEMPLATE_PATH = new URL("./Project-Card-Template.html", import.meta.url).href;
+const PROJECT_CARD_TEMPLATE_ID = "template--project-card";
 let TEMPLATE_PROJECT_CARD;
 
 export async function LoadProjectCardTemplate(templatePath, templateId)
@@ -75,9 +77,11 @@ export function SetupProjectCardInteraction(projectCard)
     let thumbnail =projectCard.querySelector("[data-ref='image:thumbnail']")
     let trailer = projectCard.querySelector("[data-ref='video:trailer']");
 
-    SetupInfoButtonOverlay(projectCard);
     wireImageToVideo(thumbnail, trailer);
     wireOverlayToVideo(trailer);
+
+    SetupInfoButtonOverlay(projectCard);
+    // SetupFoldable(projectCard); //alt layout with Foldable
 }
 
 function SetupInfoButtonOverlay(projectCard)
@@ -95,6 +99,23 @@ function SetupInfoButtonOverlay(projectCard)
         infoContainer.classList.toggle('--inactive');
     });
 }
+
+/* region alt layout with foldout */
+function SetupFoldable(projectCard)
+{
+    const foldButton = projectCard.querySelector('[data-more-info-button]');
+    const foldable = projectCard.querySelector('[data-project-card-foldable]');
+
+    if (!foldButton || !foldable)
+    {
+        return;
+    }
+
+    foldButton.onclick = () => {
+        foldable.classList.toggle('--folded');
+    }
+}
+/* endregion alt layout with foldout */
 
 function wireImageToVideo(image, video) {
     if (!image || !video)
@@ -160,13 +181,41 @@ function wireOverlayToVideo(video)
         console.warn("wireOverlayToVideo: overlay__title element not found");
     }
 
+    let overlayMainRole = projectCard.querySelector('.overlay__main-role');
+    if (!overlayMainRole)
+    {
+        console.warn("wireOverlayToVideo: overlay__main-role element not found");
+    }
+
     video.addEventListener("play", () => {
         overlayBottom?.classList.add('--inactive');
         overlayTitle?.classList.add('--inactive');
+        overlayMainRole?.classList.add('--inactive');
     });
 
     video.addEventListener("pause", () => {
         overlayBottom?.classList.remove('--inactive');
         overlayTitle?.classList.remove('--inactive')
+        overlayMainRole?.classList.remove('--inactive');
     });
+
+    video.addEventListener("mouseenter", () => {
+        overlayMainRole?.classList.add("--video-controls-active");
+    })
+    video.addEventListener("mouseleave", () => {
+        overlayMainRole?.classList.remove("--video-controls-active");
+    })
+}
+
+async function initialize()
+{
+    await LoadProjectCardTemplate(PROJECT_CARD_TEMPLATE_PATH, PROJECT_CARD_TEMPLATE_ID);
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener("DOMContentLoaded", initialize);
+}
+else
+{
+    await initialize();
 }

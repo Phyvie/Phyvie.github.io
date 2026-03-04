@@ -1,0 +1,75 @@
+{
+  "project-title": "Some example title",
+  "version": "1.2.3",
+  "origin": "Example Game Jam",
+  "team-size": "5",
+  "date": "1999",
+  "time": "1 week",
+  "thumbnail": {
+    "src": "../../Data/Placeholder/Bowser.jpg",
+    "alt": "The Thumbnail"
+  },
+  "trailer": {
+    "src": "Missing Trailer Path",
+    "alt": "Missing Trailer"
+  },
+  "WebGLConfig": {
+    "arguments": [],
+    "dataUrl": "./Content/Build/WebBuild.data",
+    "loader": "./Content/Build/WebBuild.loader.js",
+    "frameworkUrl": "./Content/Build/WebBuild.framework.js",
+    "codeUrl": "./Content/Build//WebBuild.wasm",
+    "streamingAssetsUrl": "StreamingAssets",
+    "companyName": "",
+    "productName": "The Game Jam Game",
+    "productVersion": "1.2.3"
+  },
+  "main-contribution": "Collaborative Game Jam",
+  "contributions": {
+    "containerID": "rotations-workflow",
+    "contributions": [
+      {
+        "name": "Coding Rotation Mechanics",
+        "link": "_./Projects/Rotations/Rotations.html#Backend-Math-Code"
+      },
+      {
+        "name": "Modeling Visualisation",
+        "link": "_./Projects/Rotations/Rotations.html#Math-Visualisation"
+      },
+      {
+        "name": "User Interface",
+        "link": "_./Projects/Rotations/Rotations.html#User-Interface"
+      }
+    ]
+  },
+  "description": [
+    "This is a game jam project, which was made by 5 people in one week. ",
+    "During that time we added a lot of features. ",
+    "The game even won some jam award"
+  ],
+  "tags": [
+    {
+      "name": "Unity",
+      "relevance": "4"
+    },
+    {
+      "name": "solo-project",
+      "relevance": "5"
+    },
+    {
+      "name": "programming",
+      "relevance": "5"
+    },
+    {
+      "name": "visuals",
+      "relevance": "2"
+    },
+    {
+      "name": "educational",
+      "relevance": "4"
+    }
+  ],
+  "tools": "Missing Tools",
+  "git-link": "https://#",
+  "some other data": "can be written here"
+}

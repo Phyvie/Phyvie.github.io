@@ -32,6 +32,6 @@ a:visited {
 }
 
 a:hover {
-    color: var(--COLOR-TEXT-ACTIVE);
+    color: var(--COLOR-TEXT-FADED);
 }
 /* endregion CSS_JS-RESET */

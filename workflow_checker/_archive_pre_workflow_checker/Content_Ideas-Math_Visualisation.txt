@@ -1,0 +1,45 @@
+DEPRECATED: for new version see Rotations.html
+
+Goal of Showcasing - Math Visualisation:
+- interactability: 
+	- WebGL build
+
+
+- thesis-writing / theoretical knowledge:
+    - rotation-bug
+    - research-image
+    - example thesis page
+    - summary table properties
+    - trying in own visualisation
+
+- visualise mathematics
+    - inspiration image
+    - sketch image -> DONE (for now)
+    - individual 3D-assets
+    - individual shaders
+    - in-scene setup
+    - finished images
+        - euler gimbal internal & external DONE
+	    - exponential map Done (might need to redo)
+
+- backend code:
+    - class diagram + github link
+	- example class -> DONE
+
+- UI-Toolkit knowledge
+	- UI-Toolkit image -> DONE (for now)
+	- UI-Toolkit code -> DONE (for now)
+
++
+56 euler gimbal internal & external
+69 properties of rotations -> see extra document
+-> exponential map via screenshot
+
+0
+48 & 50 quaternion lerp vs slerp
+42 exponential map -> can show with a comment via screenshot
+43 double cover
+44 quat multiplication
+
+-
+22: Properties of SO(3) -> text-page with sources

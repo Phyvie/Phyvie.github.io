@@ -1,7 +1,7 @@
 .workflow-section {
     display: flex;
     flex-flow: column nowrap;
-    gap: var(--LAYOUT-DISTANCE-LARGE);
+    gap: var(--LAYOUT-SPACING-LARGE);
 }
 
 .workflow-section__scroll-container {
@@ -11,15 +11,15 @@
 .workflow-section__tools-description-container {
     display: flex;
     flex-flow: column nowrap;
-    gap: var(--LAYOUT-DISTANCE-DEFAULT);
+    gap: var(--LAYOUT-SPACING-DEFAULT);
 }
 
 .flex-tags--workflow-primary {
-    gap: var(--LAYOUT-DISTANCE-LARGE);
+    gap: var(--LAYOUT-SPACING-LARGE);
 }
 
 .flex-tags--workflow-secondary {
-    gap: var(--LAYOUT-DISTANCE-DEFAULT);
+    gap: var(--LAYOUT-SPACING-DEFAULT);
 }
 
 .tag--workflow-primary:hover img {
@@ -32,7 +32,7 @@
 }
 
 .tag--workflow-secondary {
-    padding: var(--LAYOUT-DISTANCE-SMALL);
+    padding: var(--LAYOUT-SPACING-SMALL);
     font-size: var(--FONT-SIZE-TITLE-LVL2);
     --LAYOUT-TAG-WIDTH: 50%;
 }
@@ -40,11 +40,11 @@
 @container flex-tags (min-width: 20rem)
 {
     .tag--workflow-primary {
-        --LAYOUT-TAG-WIDTH: calc(25% - var(--LAYOUT-DISTANCE-LARGE));
+        --LAYOUT-TAG-WIDTH: calc(25% - var(--LAYOUT-SPACING-LARGE));
     }
 
     .tag--workflow-secondary {
-        --LAYOUT-TAG-WIDTH: calc(12.5% - var(--LAYOUT-DISTANCE-DEFAULT));
+        --LAYOUT-TAG-WIDTH: calc(12.5% - var(--LAYOUT-SPACING-DEFAULT));
     }
 }
 
