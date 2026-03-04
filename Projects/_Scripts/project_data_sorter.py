@@ -196,7 +196,7 @@ def generate_report(analysis_results):
         bar = "█" * bar_length + "░" * (20 - bar_length)
         print(f"{i:2d}. {key:25} [{bar}] {count:2d}/{total_objects} ({percentage:5.1f}%)")
 
-def normalize_files_at_path(base_file_path, target_file_paths, backup_suffix='.backup'):
+def normalize_files_at_path(base_file_path, target_file_paths, backup_suffix='.backup', altKeysDictionary = None):
     """
     Normalize multiple JSON files to match the key order of a base structure file.
     
@@ -254,12 +254,13 @@ def normalize_files_at_path(base_file_path, target_file_paths, backup_suffix='.b
                 continue
             
             # Create backup
-            backup_path = file_path + backup_suffix
-            shutil.copy2(file_path, backup_path)
-            print(f"  💾 Backup created: {backup_path}")
+            if backup_suffix != '':
+                backup_path = file_path + backup_suffix
+                shutil.copy2(file_path, backup_path)
+                print(f"  💾 Backup created: {backup_path}")
             
             # Order the file according to base structure
-            ordered_object, extra_keys = order_file(base_object, data_object)
+            ordered_object, extra_keys = order_file(base_object, data_object, altKeysDictionary)
             
             # Save the ordered object back to the original file
             with open(file_path, 'w') as f:
@@ -299,34 +300,48 @@ def normalize_files_at_path(base_file_path, target_file_paths, backup_suffix='.b
     return results
 
 
-def order_file(base_object, data_object):
+def order_file(base_object, data_object, altKeysDictionary = None):
     """
     Reorder a JSON object to match the key order of a base structure.
     
     Args:
         base_object: Dictionary with the desired key order and default values
         data_object: Dictionary to be reordered
-    
+        altKeysDictionary: Dictionary mapping base keys to lists of alternative keys
+
     Returns:
         Tuple of (ordered_object, extra_keys_list)
     """
     ordered_object = {}
     extra_keys = []
-    
+
     # First add all keys from base_object in order, using values from data_object if they exist
     for key in base_object:
         if key in data_object:
             ordered_object[key] = data_object[key]
-        elif base_object[key] != 'optional':
+        else:
+            if key in altKeysDictionary:
+                for altKey in altKeysDictionary[key]:
+                    if altKey in data_object:
+                        ordered_object[key] = data_object[altKey]
+                        break
+
+        if key not in ordered_object and base_object[key] != 'optional':
             ordered_object[key] = base_object[key]
 
-    
-    # Then add any keys that exist in data_object but not in base_object
+    # Collect all base keys and their alternatives for exclusion checking
+    all_base_keys = set(base_object.keys())
+    all_alt_keys = set()
+    for alt_keys in altKeysDictionary.values():
+        all_alt_keys.update(alt_keys)
+
+    # Then add any keys that exist in data_object but not in base_object (or alternatives)
     for key, value in data_object.items():
-        if key not in base_object:
+        # Skip if key is a base key or an alternative key that was already used
+        if key not in all_base_keys and key not in all_alt_keys:
             ordered_object[key] = value
             extra_keys.append(key)
-    
+
     return ordered_object, extra_keys
 
 
@@ -408,7 +423,6 @@ def analyzeProjectFiles():
 
 def normalizeProjectFiles():
     base_file = '../project_data.json.template'
-
     files_to_normalize = [
         '../Bevoiced/project_data.json',
         '../Dont_Brake/project_data.json',
@@ -420,6 +434,10 @@ def normalizeProjectFiles():
         '../Rotations/project_data.json',
         '../Solitaire/project_data.json',
     ]
+    alt_keys_dictionary = {
+        "main-contribution": ["project-type", "primary-contribution"]
+    }
+    normalize_files_at_path(base_file, files_to_normalize, '', alt_keys_dictionary)
 
 def main():
     normalizeProjectFiles()
