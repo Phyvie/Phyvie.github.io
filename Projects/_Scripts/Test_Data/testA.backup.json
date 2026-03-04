@@ -3,7 +3,8 @@
   "tags": ["game", "puzzle"],
   "author": "Jane Smith",
   "name": "Puzzle Adventure",
-  "description": "A challenging puzzle game",
+
+"description": "A challenging puzzle game",
   "created": "2024-02-15",
   "difficulty": "hard",
   "genre": "puzzle",

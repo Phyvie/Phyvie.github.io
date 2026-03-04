@@ -422,7 +422,7 @@ def analyzeProjectFiles():
     generate_report(results)
 
 def normalizeProjectFiles():
-    base_file = '../project_data.json.template'
+    base_file = '../../CSS_JS/project-card/_example_project_data.json'
     files_to_normalize = [
         '../Bevoiced/project_data.json',
         '../Dont_Brake/project_data.json',
@@ -432,10 +432,11 @@ def normalizeProjectFiles():
         '../Monster_Match/project_data.json',
         '../Music_Box/project_data.json',
         '../Rotations/project_data.json',
-        '../Solitaire/project_data.json',
+        '../Solitaire/project_data.json'
     ]
     alt_keys_dictionary = {
-        "main-contribution": ["project-type", "primary-contribution"]
+        "main-contribution": ["project-type", "primary-contribution"],
+        "trailer": ["project-video"]
     }
     normalize_files_at_path(base_file, files_to_normalize, '', alt_keys_dictionary)
 

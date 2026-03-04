@@ -1,14 +1,10 @@
 {
   "project-title": "Music Box",
-  "projectType": "Multiplayer Puzzle Game",
   "version": "1.0.0",
-  "description":
-          [
-            "A musical multiplayer puzzle game. ",
-            "As one of two designers I helped with mechanic design, but mostly focused on in-engine work: ",
-            "- Combining Assets from Art, Programming & Music into Prefabs. ",
-            "- Creation of 15 Levels, 6 of which made it into the final game."
-          ],
+  "origin": "Cologne Game Lab",
+  "team-size": "5",
+  "date": "2023",
+  "time": "7w",
   "thumbnail": {
     "src": "./Projects/Music_Box/Thumbnail.png",
     "alt": "Music Box Project IMG"
@@ -17,27 +13,40 @@
     "src": "./Projects/Music_Box/Teaser_Trailer.mp4",
     "alt": "Music Box Teaser Trailer"
   },
-  "highlight": "Level Design",
-  "mechanic-video": {
-    "src": "./Projects/#.mp4"
-  },
-  "project-url": "",
-  "origin": "Cologne Game Lab",
-  "team-size": "5",
-  "date": "2023",
-  "time": "7w",
+  "main-contribution": "level design - logic puzzles",
   "contributions": [
     "Mechanic Design (in collab)",
     "Level Design"
+  ],
+  "description": [
+    "A musical multiplayer puzzle game. ",
+    "As one of two designers I helped with mechanic design, but mostly focused on in-engine work: ",
+    "- Combining Assets from Art, Programming & Music into Prefabs. ",
+    "- Creation of 15 Levels, 6 of which made it into the final game."
+  ],
+  "tags": [
+    {
+      "name": "Unity",
+      "relevance": "4"
+    },
+    {
+      "name": "collaborative-project",
+      "relevance": "4"
+    },
+    {
+      "name": "level design",
+      "relevance": "4"
+    }
   ],
   "tools": [
     "Unity",
     "Miro",
     "Libre_Office"
   ],
-  "tags": [
-    {"name": "Unity", "relevance": "4"},
-    {"name": "collaborative-project", "relevance": "4"},
-    {"name": "level design", "relevance": "4"}
-  ]
+  "projectType": "Multiplayer Puzzle Game",
+  "highlight": "Level Design",
+  "mechanic-video": {
+    "src": "./Projects/#.mp4"
+  },
+  "project-url": ""
 }
