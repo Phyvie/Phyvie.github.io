@@ -10,29 +10,6 @@
  * - provide "LoadAndStartWebGLGame" function as a proxy to loader.js::createUnityInstance
  */
 
-export function createWebGLConfig(buildPath, buildName, companyName, productName, productVersion, bannerFunction) {
-    if (!buildPath || !buildName || buildPath.length === 0 || buildName.length === 0) {
-        console.error("createWebGLConfig: buildPath or buildName is null or empty");
-        return;
-    }
-
-    let fullPath = `${buildPath}/${buildName}`;
-
-    var config = {
-        arguments: [],
-        dataUrl: `${fullPath}.data`,
-        frameworkUrl: `${fullPath}.framework.js`,
-        loader: `${fullPath}.loader.js`,
-        codeUrl: `${fullPath}.wasm`,
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: companyName,
-        productName: productName,
-        productVersion: productVersion,
-        showBanner: bannerFunction
-    };
-    return config;
-}
-
 export function unityShowBanner(warningBanner, msg, type) {
     if (!warningBanner)
     {
@@ -64,16 +41,61 @@ export function unityShowBanner(warningBanner, msg, type) {
     updateBannerVisibility();
 }
 
-export async function PutWebGLGameOntoElement(config, gameCanvas)
+export function validateUnityWebGLConfig(config) {
+    const requiredProperties = [
+        "arguments",
+        "loader",
+        "dataUrl",
+        "frameworkUrl",
+        "codeUrl",
+        "streamingAssetsUrl",
+        "companyName",
+        "productName",
+        "productVersion"
+    ];
+
+    // Parse JSON if it's a string
+    let jsonObject;
+    try {
+        jsonObject = typeof config === 'string' ? JSON.parse(config) : config;
+    } catch (error) {
+        return {
+            isValid: false,
+            error: "Invalid JSON format",
+            missingProperties: []
+        };
+    }
+    // ensure JSON file is an object
+    if (typeof jsonObject !== 'object' || jsonObject === null) {
+        return {
+            isValid: false,
+            error: "Input is not a valid object",
+            missingProperties: []
+        };
+    }
+
+    const missingProperties = requiredProperties.filter(prop => !(prop in jsonObject));
+    const isValid = missingProperties.length === 0;
+
+    return {
+        isValid,
+        missingProperties,
+        error: isValid ? null : `Missing ${missingProperties.length} required property(ies)`
+    };
+}
+
+export async function LoadWebGLScriptOntoElement(config, gameContainer)
 {
     await new Promise((resolve, reject) => {
         const script = document.createElement("script");
         script.src = config.loader;
-        
-        gameCanvas.appendChild(script);
+
+        gameContainer.appendChild(script);
 
         script.onload = resolve;
-        script.onerror = reject;
+        script.onerror = () => {
+            reject(`LoadWebGLScriptOntoElement Failed for ${config.loader} - check whether the file is an actual loader file`)
+        }
     })
 }
 

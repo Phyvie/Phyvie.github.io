@@ -154,6 +154,7 @@ function handleScrollCommand(button) {
 
     // Execute the command
     executeScrollCommand(container, command);
+    sendScrollCommandEvent(button, container, command);
 }
 
 function getScrollContainer(button, containerSelector) {
@@ -312,6 +313,18 @@ function executeScrollCommand(container, command) {
             console.warn(`Unknown command type: ${command.type}`);
     }
 }
+
+function sendScrollCommandEvent(clickedButton, container, command) {
+    const event = new CustomEvent('scroll', {
+        detail: {
+            clickedButton: clickedButton,
+            container: container,
+            command: command
+        },
+        bubbles: true
+    });
+    container.dispatchEvent(event);
+}
 /* endregion [data-scroll]-management */
 
 export function initializeScrollContainers() {
@@ -333,7 +346,7 @@ function setupGlobalScrollHandler() {
         handleScrollCommand(navigator);
     });
 
-    console.log('Global scroll navigation handler initialized');
+    // console.log('Global scroll navigation handler initialized');
 }
 
 if (typeof window !== 'undefined') {

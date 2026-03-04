@@ -1,3 +1,5 @@
+import {GetPathFromPortfolioRoot} from "../../PortfolioRootPath.js";
+
 export function loadDataRefs(targetRootElement, jsonData)
 {
     if (!targetRootElement)
@@ -14,7 +16,7 @@ export function loadDataRefs(targetRootElement, jsonData)
 
     const dataRefElements = targetRootElement.querySelectorAll('[data-ref]');
     for (const dataRefElement of dataRefElements) {
-        const refName = dataRefElement.getAttribute('data-ref');
+        const refName = dataRefElement.getAttribute('Data-ref');
         const [type, key] = refName.split(':');
         const data = jsonData[key];
 
@@ -22,14 +24,11 @@ export function loadDataRefs(targetRootElement, jsonData)
             case 'text':
                 setTextContent(dataRefElement, data);
                 break;
-            case 'multiline-text':
-                setMultilineText(dataRefElement, data);
-                break;
             case 'image':
                 setImageContent(dataRefElement, data);
                 break;
             case 'icon':
-                setIcon(dataRefElement, data);
+                trySetIcon(dataRefElement, data);
                 break;
             case 'link':
                 setLinks(dataRefElement, data);
@@ -40,22 +39,36 @@ export function loadDataRefs(targetRootElement, jsonData)
             case 'git':
                 setGitContent(dataRefElement, data);
                 break;
+            case 'contributions':
+                setContributions(dataRefElement, data);
+                break;
             default:
                 console.error(`Unknown data-ref type: ${type}`);
                 break;
         }
-
     }
 }
 
 export async function TryLoadJson(path)
 {
-    const response = await fetch(path);
-    if (!response.ok) {
-        console.error(`HTTP error! status: ${response.status}`);
+    try {
+        const response = await fetch(path);
+        if (!response.ok) {
+            console.error(`HTTP error! status: ${response.status}`);
+            return null;
+        }
+        return await response.json();
+    }
+    catch (error) {
+        if (error instanceof TypeError && error.message.includes('fetch')) {
+            console.error(`Network error - failed to fetch ${path}:`, error.message);
+        } else if (error instanceof SyntaxError) {
+            console.error(`JSON parsing error for ${path}: Invalid JSON format`, error.message);
+        } else {
+            console.error(`Unexpected error loading ${path}:`, error.message);
+        }
         return null;
     }
-    return await response.json();
 }
 
 function setTextContent(element, text) {
@@ -68,23 +81,22 @@ function setTextContent(element, text) {
         return;
     }
 
-    element.textContent = text;
-}
-
-function setMultilineText(element, textArray) {
-    if (!element) {
-        console.warn("setMultilineText: element is null or undefined");
-        return;
+    if (Array.isArray(text))
+    {
+        element.innerHTML = text.join('<br>');
     }
-    if (!Array.isArray(textArray)) {
-        console.warn("setMultilineText: textArray is not an array");
-        return;
+    else
+    {
+        element.textContent = text;
     }
-
-    element.innerHTML = textArray.join('<br>');
 }
 
 function setGitContent(element, gitLink) {
+    if (!element) {
+        console.warn("setGitContent: element is null or undefined");
+        return;
+    }
+
     fetch(gitLink)
         .then(response => {
             if (!response.ok) {
@@ -115,7 +127,7 @@ function setImageContent(element, imageData) {
 
     element.onerror = function() {
         console.error(`setImageContent-error: no image at source: ${this.src}`);
-        this.src = '/Data/Placeholder-images/Bowser.jpg';
+        this.src = '/Data/Placeholder/Bowser.jpg';
     };
 
 
@@ -135,7 +147,33 @@ function setImageContent(element, imageData) {
     }
 }
 
-function setIcon(element, iconName) {
+const IconRegistry = new Map([
+    ['Arrow', '/Data/Icons/arrow.png'],
+    ['Blender', '/Data/Icons/Blender.png'],
+    ['Calender', '/Data/Icons/Calender.png'],
+    ['Cologne Game Lab', '/Data/Icons/Cologne Game Lab.png'],
+    ['Cpp', '/Data/Icons/Cpp.png'],
+    ['cs', '/Data/Icons/cs.png'],
+    ['fmod', '/Data/Icons/fmod.png'],
+    ['GDD', '/Data/Icons/GDD.png'],
+    ['Git', '/Data/Icons/Git.png'],
+    ['googledocs', '/Data/Icons/googledocs.png'],
+    ['Group', '/Data/Icons/Group.png'],
+    ['Libre_Office', '/Data/Icons/Libre_Office.png'],
+    ['Link_arrow', '/Data/Icons/Link_arrow.png'],
+    ['Miro', '/Data/Icons/Miro.png'],
+    ['PaperPrototype', '/Data/Icons/PaperPrototype.png'],
+    ['Person', '/Data/Icons/Person.png'],
+    ['private', '/Data/Icons/private.png'],
+    ['Reaper', '/Data/Icons/Reaper.png'],
+    ['Subversion', '/Data/Icons/Subversion.png'],
+    ['Tortoise', '/Data/Icons/Tortoise.png'],
+    ['Unity', '/Data/Icons/Unity.png'],
+    ['Unreal Engine', '/Data/Icons/Unreal Engine.png'],
+])
+
+
+function trySetIcon(element, iconName) {
     if (!element) {
         console.warn("setIcon: element is null or undefined");
         return;
@@ -145,11 +183,26 @@ function setIcon(element, iconName) {
         return;
     }
 
-    setImageContent(element, {"src": `Data/Icons/${iconName}.png`, "alt": iconName, "class": "media--img-in-font"});
-
-    element.onerror = function()
+    if (IconRegistry.has(iconName))
     {
-        console.error(`setIcon-error: no icon found for name: ${iconName}`);
+        const IconPath = IconRegistry.get(iconName);
+        const imgElement = document.createElement('img');
+        imgElement.className = "media--img-in-font";
+        element.appendChild(imgElement);
+        const descElement = document.createElement('p');
+        element.appendChild(descElement);
+
+        setImageContent(imgElement, {"src": IconPath, "alt": iconName, "class": "media--img-in-font"});
+        element.onerror = function()
+        {
+            console.warn(`setIcon-error: no icon found for name: ${iconName}`);
+        }
+        return true;
+    }
+    else
+    {
+        element.innerHTML = iconName;
+        return false;
     }
 }
 
@@ -205,5 +258,28 @@ function setVideo(element, videoData) {
     }
     if (videoData.muted !== undefined) {
         element.muted = videoData.muted;
+    }
+}
+
+function setContributions(element, contributions) {
+    if (!element) {
+        console.warn("setContributions: element is null or undefined");
+        return;
+    }
+    if (!contributions) {
+        console.warn("setContributions: contributions is null or undefined");
+        return;
+    }
+
+    let containerID = contributions.containerID;
+    for (let contribution of contributions.contributions)
+    {
+        let contributionElement = document.createElement('span');
+        element.appendChild(contributionElement);
+
+        contributionElement.innerHTML = contribution.name;
+        contributionElement.setAttribute('Data-cached-container-id', containerID);
+        contributionElement.setAttribute('Data-cached-content', GetPathFromPortfolioRoot(contribution.link));
+        element.innerHTML += ",<br>"
     }
 }

@@ -1,0 +1,15 @@
+{
+  "name": "Puzzle Adventure",
+  "version": "2.1.0",
+
+"description": "A challenging puzzle game",
+  "author": "Jane Smith",
+  "created": "2024-02-15",
+  "tags": [
+    "game",
+    "puzzle"
+  ],
+  "difficulty": "hard",
+  "genre": "puzzle",
+  "rating": 4.5
+}

@@ -1,8 +1,22 @@
-<!--
-    example how to implement a scroll-container, including the DOM-hierarchy, stylesheets, scripts and data-attributes
-    the data-attributes to setup a scroll-container interaction are explained below
-    a single import of the scroll-container.js is sufficient, as it sets subscribes to the global click-event than handles the rest by itself
+<!-- IMPLEMENTATION-EXAMPLE:
+    The following file shows how a scroll-container can be implemented.
+    All values that are set within an elements style="..." attribute are not setup in the scroll-container.css file
+
+    Make sure to import all relevant stylesheets (the same ones as in this file)
+    To set up the scroll-behaviour a single single import of the scroll-container.js is sufficient, as it sets subscribes to the global click-event than handles the rest by itself
+    To set up a scroll-button, see the attribute description below
 -->
+<!-- "SCROLL-COMMAND"-EVENT:
+    When a scroll-button is clicked, the scroll-container dispatches a "new CustomEvent('scroll-command', {
+        detail: {
+            container: container,
+            command: command
+        },
+        bubbles: true
+    });"
+    from the container that gets scrolled
+-->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,44 +34,51 @@
 </head>
 <body style="width: 100vw; ">
 
-<!-- parent container which is not scrolled, such that non-moving elements can be placed around the scrolling content;
-requires a size to be set, which propagates to the children-->
+<!-- parent container which is not scrolled, such that non-moving (absolute/relative) elements can be placed around the scrolling content -->
+<!-- the size here is set via style="...", but should be overwritten in other use-cases -->
 <div id ="[name]-scroll-container"
      class="scroll-container"
-     style="width: 100vw; height: 50vh;
+     style="width: 100vw; height: 50vh; display: flex;
      margin: 5px; border: 1px solid black;
 ">
     <!-- container for the scrolling content, u-parent-size ensures it keeps the size of its parent, further classes such as scroll-container__content-container--two-elements can be added to vary the amount of visible scrolling elements -->
     <div id="[name]-scroll-container__content"
-            class="u-parent-size scroll-container__content-container">
+            class="scroll-container__content-container">
         <!-- scrolling-items are limited in their size, but can hold any arbitrary content -->
         <div id="FirstElementId" class="scroll-container__item">
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid aspernatur assumenda dolorem impedit, in magni neque provident sapiente sunt? Ad alias fuga fugit impedit nam nobis odio perspiciatis vel. </p>
+            <p  style="background: radial-gradient(at center, blue, green);"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid aspernatur assumenda dolorem impedit, in magni neque provident sapiente sunt? Ad alias fuga fugit impedit nam nobis odio perspiciatis vel. </p>
         </div>
 
         <div id ="SecondElementId" class="scroll-container__item media-flex-center-wrapper">
             <img class="media-figure__img media--contain media--rounded"
-                 src="" alt="Some Image">
+                 src="" alt="Some Image"
+                 style="background: radial-gradient(at center, green, darkred);">
         </div>
 
         <div id="ThirdElementId" class="scroll-container__item media-flex-center-wrapper">
-            <figure class="u-parent-size media-flex-center-wrapper media-figure">
+            <figure class="media-flex-center-wrapper media-figure">
                 <img class="media-figure__img media--contain media--rounded"
-                     src="" alt="Image of Project">
+                     src="" alt="Image of Project"
+                    style="width: 100%; height: 100px; background: radial-gradient(at center, red, darkblue);">
                 <figcaption class="media-figure__description"> A wide image </figcaption>
             </figure>
         </div>
 
-        <div id="FourthElementId" class="scroll-container__item media-flex-center-wrapper" style="text-wrap: nowrap">
-            <div style="width: 200%; height: 200%;
-            background: linear-gradient(to right, green 0%, yellow 50%, red 100%)
-">
+        <!-- The default setting is, that overflow is hidden, such that the user can manually decide what to do with overview -->
+        <div id="FourthElementId" class="scroll-container__item media-flex-center-wrapper" style="text-wrap: nowrap; overflow: auto;">
+            <div style="width: 200%; height: 200%; background: linear-gradient(to right, green 0%, yellow 50%, red 100%)">
                 <p> This content is too wide for the scroll-container__item, thus the user needs to scroll to see it fully </p>
             </div>
         </div>
+
+        <div id ="FifthElementId" class="scroll-container__item media-flex-center-wrapper">
+            <img class="media-figure__img media--contain media--rounded"
+                 src="" alt="Some Image"
+                 style="background: radial-gradient(at center, green, darkred);">
+        </div>
     </div>
 
-    <!-- Navigation Buttons
+    <!-- SCROLL NAVIGATION BUTTONS / SCROLL-ATTRIBUTES / SCROLL-COMMANDS
     syntax: data-scroll="[scroll-container-string]:[command-string]"
 
     scroll-container-string can be:
@@ -90,12 +111,12 @@ requires a size to be set, which propagates to the children-->
         data-scroll=":#item42"                     (auto-discover, scroll to element with id)
         data-scroll="gallery:25%"                  (legacy ID, scroll 25% of the way)
     -->
-    <div class="scroll-container__nav-button scroll-container__nav-button--prev"
+    <div class="scroll-container__absolute_nav_button scroll-container__nav-button--prev"
          data-scroll="prev">
         PREV
     </div>
 
-    <div class="scroll-container__nav-button scroll-container__nav-button--next"
+    <div class="scroll-container__absolute_nav_button scroll-container__nav-button--next"
          data-scroll="next">
         NEXT
     </div>
