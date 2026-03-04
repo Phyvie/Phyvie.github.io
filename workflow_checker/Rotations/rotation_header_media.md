@@ -84,7 +84,7 @@ on-hover show-controls controls:
 - ... helps an imaginary future?
 -> doesn't look overly fancy, but it gets the job done
 
-### NOWZyKa Workflow: confirm happy-path
+###  Workflow: confirm happy-path
 
 ### Edge-Cases: 
 - 5 min brainstorm (technical issues, user stupidity, internal curruption) into frequency-impact-time-list: 
@@ -150,7 +150,7 @@ sequenceDiagram
 ==> haven't yet checked how test automation works
 ==> strayed from design by putting video play/pause on the button at the bottom
 
-### NowZyKa workflow: test success? continue!
+###  workflow: test success? continue!
 
 ### Edge-Cases: 
 - ~~implement edge-case-documentation~~
@@ -162,7 +162,7 @@ sequenceDiagram
     - ~~no structural changes (= no abstraction, no extra classes)~~
 => full edge-case avoidance (e.g. ensuring video/webGL breaking don't lead to general break) would be a ton of extra work
 
-### NowZyKa workflow: tests succeed? continue!
+###  workflow: tests succeed? continue!
 
 # ________
 
