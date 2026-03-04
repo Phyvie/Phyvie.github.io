@@ -225,9 +225,6 @@ flowchart TD
 
 ## PHASE 4 - POSTMORTEM:
 
-### compare: 
-
-
 work problems list: 
 - AI was coding weird stuff that didn't work as intended, because it didn't always understand what I wanted & I have a hard time to tell AI what to improve & how; e.g. telling it "instead of function X, write function Y", it just gives out both function. Also without writing the bare-bones structure of the actual code myself (e.g. maybe just pseudo-code) I'm not able to completely think through how the code-functions (not functionality) should be structured. 
 - did not learn python while implementing the solution. 
@@ -243,7 +240,7 @@ success list:
 I'm not sure whether the flow-chart-approach is the correct approach or it might be better to write pseudo-code instead
 
 ### recheck alternatives
-==> manuall adjustment of files could have worked, but I don't know how long it would have actually taken & how much I would have been confused during that process. 
+==> manual adjustment of files could have worked, but I don't know how long it would have actually taken & how much I would have been confused during that process. 
 
 # ________
 

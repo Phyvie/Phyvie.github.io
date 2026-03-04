@@ -84,8 +84,8 @@ Stop worrying too much about which info should be where, just make a scroll-cont
   - obvious error handling?
   - backwards-compatible?
 
-###  Workflow: confirm solution design
 ### Solution Summary: 
+==> look image on miro; however, I stopped using this workflow_checker after this point
 
 # ________
 
@@ -116,21 +116,26 @@ Stop worrying too much about which info should be where, just make a scroll-cont
 
 ### compare: 
 
-| planned | executed |
-|---------|----------|
-|         |          
+| planned                       | executed          |
+|-------------------------------|-------------------|
+| foldability                   | lightbox          |
+| media, info-block             | media, info-block |
+| description, feature showcase | still missing     |
+|                               |                   |
 
-work problems list: 
-- meow
+==> I really need to learn to let go of my very strict ideas of how things should be. Instead I should focus way more on what is the simplest solution, such that I can get feedback more often, in order to figure out what actually needs improvement & how to improve it. 
 
-success list: 
-- meow
+==> Description & feature showcase are still missing, but they're not the most relevant to get the page done. Though, description > feature showcase. Might have to make a template of a project-section and just copy that into the project-card-lightbox. 
 
-| estimated time | actual time |
-|----------------|-------------|
-|                |             |
+| estimated time | actual time                |
+|----------------|----------------------------|
+| 1 day          | idk, didn't properly track |
+
+==> really need to more clearly separate when I do which task, such that I can also properly track how long I am spending on what. Even more important, clearer separation allows to break the blind-flow, thus I might get to better results sooner. 
 
 ### recheck alternatives
+==> lightbox > foldable
+====> When I have the strict thoughts in my mind I just need to chat with someone/smth in order to break them. 
 
 # ________
 

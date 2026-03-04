@@ -295,7 +295,7 @@ def normalize_files_at_path(base_file_path, target_file_paths, backup_suffix='.b
     if results['extra_keys_found']:
         print(f"\n🔍 Files with extra keys:")
         for file_path, keys in results['extra_keys_found'].items():
-            print(f"  • {os.path.basename(file_path)}: {', '.join(keys)}")
+            print(f"  • {file_path}: {', '.join(keys)}")
     
     return results
 
@@ -422,8 +422,9 @@ def analyzeProjectFiles():
     generate_report(results)
 
 def normalizeProjectFiles():
-    base_file = '../../CSS_JS/project-card/_example_project_data.json'
+    base_file = '../_template_project_data.json'
     files_to_normalize = [
+        '../../CSS_JS/project-card/_example_project_data.json'
         '../Bevoiced/project_data.json',
         '../Dont_Brake/project_data.json',
         '../Gragoon/project_data.json',
@@ -436,7 +437,10 @@ def normalizeProjectFiles():
     ]
     alt_keys_dictionary = {
         "main-contribution": ["project-type", "primary-contribution"],
-        "trailer": ["project-video"]
+        "trailer": ["project-video"],
+        "project-info-link": ["project-info-url"],
+        "project-page-link": ["project-url", "project-page-url"],
+        "project-type": ["projectType"]
     }
     normalize_files_at_path(base_file, files_to_normalize, '', alt_keys_dictionary)
 

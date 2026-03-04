@@ -1,5 +1,6 @@
 {
   "project-title": "Monster Match",
+  "project-type": "Educational Game",
   "version": "1.0.0",
   "origin": "Cologne Game Lab",
   "team-size": "6",
@@ -12,7 +13,7 @@
   "trailer": {
     "src": "./Projects/Monster_Match/mechanic_showcase.mp4"
   },
-  "main-contribution": "educational game design",
+  "main-contribution": "game designer - educational",
   "contributions": [
     "Project Lead",
     "Tech Design"

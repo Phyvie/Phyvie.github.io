@@ -1,5 +1,6 @@
 {
   "project-title": "Music Box",
+  "project-type": "Multiplayer Puzzle",
   "version": "1.0.0",
   "origin": "Cologne Game Lab",
   "team-size": "5",
@@ -13,7 +14,8 @@
     "src": "./Projects/Music_Box/Teaser_Trailer.mp4",
     "alt": "Music Box Teaser Trailer"
   },
-  "main-contribution": "level design - logic puzzles",
+  "project-page-link": "",
+  "main-contribution": "level designer - logic puzzles",
   "contributions": [
     "Mechanic Design (in collab)",
     "Level Design"
@@ -43,10 +45,8 @@
     "Miro",
     "Libre_Office"
   ],
-  "projectType": "Multiplayer Puzzle Game",
   "highlight": "Level Design",
   "mechanic-video": {
     "src": "./Projects/#.mp4"
-  },
-  "project-url": ""
+  }
 }

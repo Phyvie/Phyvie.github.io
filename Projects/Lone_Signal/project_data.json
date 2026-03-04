@@ -1,5 +1,6 @@
 {
   "project-title": "Lone Signal",
+  "project-type": "Walking Sim",
   "version": "1.0.0",
   "origin": "Cologne Game Lab",
   "team-size": "5",
@@ -13,8 +14,9 @@
     "src": "./Projects/Lone_Signal/Shortened_Trailer.mp4",
     "alt": "Lone Signal Trailer"
   },
-  "project-info-url": "/Portfolio/Projects/Lone_Signal/Lone_Signal.html",
-  "main-contribution": "coding - object recognition camera",
+  "project-page-link": "#",
+  "project-info-link": "/Portfolio/Projects/Lone_Signal/Lone_Signal.html",
+  "main-contribution": "programmer - object recognition camera",
   "contributions": [
     "programming: photo mechanic",
     "programming: movement controller"
@@ -47,6 +49,5 @@
   "highlight": "Narrative Photo Album Mechanic",
   "mechanic-video": {
     "src": "./Projects/#.mp4"
-  },
-  "project-url": "#"
+  }
 }
