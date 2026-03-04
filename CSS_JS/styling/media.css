@@ -20,9 +20,9 @@
     text-align: left;
     background: color-mix(in srgb, var(--COLOR-BG-ELEMENT) 70%, transparent 30%);
 
-    /* LATERZyKa styling: adjust the border of figure->images (e.g. media--rounded) to the border of their captions */
+    /* TodoZyKa Styling: adjust the border of figure->images (e.g. media--rounded) to the border of their captions */
     border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
-    padding: var(--LAYOUT-DISTANCE-XS);
+    padding: var(--LAYOUT-SPACING-XS);
 }
 
 .media-flex-center-wrapper {
@@ -51,7 +51,7 @@
 /* endregion absolute */
 
 /* region styling */
-/* LATERZyKa styling: this whole class doesn't make sense, because the border size of images should depend on the size of the image */
+/* TodoZyKa Styling: this whole class doesn't make sense, because the border size of images should depend on the size of the image */
 .media--rounded {
     border-radius: var(--LAYOUT-BORDER-RADIUS-LARGE);
 }
