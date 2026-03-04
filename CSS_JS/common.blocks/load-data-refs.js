@@ -51,12 +51,24 @@ export function loadDataRefs(targetRootElement, jsonData)
 
 export async function TryLoadJson(path)
 {
-    const response = await fetch(path);
-    if (!response.ok) {
-        console.error(`HTTP error! status: ${response.status}`);
+    try {
+        const response = await fetch(path);
+        if (!response.ok) {
+            console.error(`HTTP error! status: ${response.status}`);
+            return null;
+        }
+        return await response.json();
+    }
+    catch (error) {
+        if (error instanceof TypeError && error.message.includes('fetch')) {
+            console.error(`Network error - failed to fetch ${path}:`, error.message);
+        } else if (error instanceof SyntaxError) {
+            console.error(`JSON parsing error for ${path}: Invalid JSON format`, error.message);
+        } else {
+            console.error(`Unexpected error loading ${path}:`, error.message);
+        }
         return null;
     }
-    return await response.json();
 }
 
 function setTextContent(element, text) {

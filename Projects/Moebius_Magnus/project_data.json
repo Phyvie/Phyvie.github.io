@@ -1,12 +1,10 @@
 {
   "project-title": "Monster Match",
-  "project-type": "Tech Design",
   "version": "1.0.0",
-  "description":
-      [
-        "As final university group project, we had the choice between seven clients. The one asking for a educational fraction-arithmetic game was the perfect choice for me. ",
-        "As project manager I communicated with the client, ensured the designers blockouts and art assets fit together and ensured the coding stayed on track, partially by coding myself. "
-      ],
+  "origin": "Cologne Game Lab",
+  "team-size": "6",
+  "date": "2024",
+  "time": "7w",
   "thumbnail": {
     "src": "./Projects/Monster_Match/Thumbnail.png",
     "alt": "Play My Math Project IMG"
@@ -14,26 +12,39 @@
   "trailer": {
     "src": "./Projects/Monster_Match/mechanic_showcase.mp4"
   },
-  "mechanic-video": {
-    "src": "./Projects/#.mp4"
-  },
-  "origin": "Cologne Game Lab",
-  "team-size": "6",
-  "date": "2024",
-  "time": "7w",
+  "main-contribution": "Game & Sound Design",
   "contributions": [
     "Project Lead",
     "Tech Design"
+  ],
+  "description": [
+    "As final university group project, we had the choice between seven clients. The one asking for a educational fraction-arithmetic game was the perfect choice for me. ",
+    "As project manager I communicated with the client, ensured the designers blockouts and art assets fit together and ensured the coding stayed on track, partially by coding myself. "
+  ],
+  "tags": [
+    {
+      "name": "Unity",
+      "relevance": "3"
+    },
+    {
+      "name": "collaborative-project",
+      "relevance": "2"
+    },
+    {
+      "name": "mechanic design",
+      "relevance": "4"
+    },
+    {
+      "name": "audio",
+      "relevance": "3"
+    }
   ],
   "tools": [
     "Board Games",
     "Miro",
     "Unity"
   ],
-  "tags": [
-    {"name": "Unity", "relevance": "3"},
-    {"name": "collaborative-project", "relevance": "2"},
-    {"name": "mechanic design", "relevance": "4"},
-    {"name": "audio", "relevance": "3"}
-  ]
+  "mechanic-video": {
+    "src": "./Projects/#.mp4"
+  }
 }

@@ -13,7 +13,8 @@
 |--------------------|--------------|------------|-------------|
 | 3                  | 1            | low        | 1.5 hours   |
 Begin-Time: 2026-03-03, 15:33
-Finish-Time: 
+Finish-Time: 2026-04-03, 01:49
+Time-Spent: 3.5hours
 
 -> ~~switch (use-case * impact):~~ 
 - <=3: brute-force <= 1h or backlog
@@ -175,9 +176,6 @@ flowchart TD
 - ... helps an imaginary future?
 -> any yes = kill
 
-###  Workflow: confirm happy-path
-### Happy-Path Summary:
-
 ### Edge-Cases: 
 - 5 min brainstorm (technical issues, user stupidity, internal curruption) into frequency-impact-time-list: 
 
@@ -201,6 +199,7 @@ flowchart TD
 # ________
 
 ## PHASE 3 - IMPLEMENTATION
+==> I hardly implemented anything, I let the AI handle the implementation; however I still had to fix issues & make sure the AI correctly understands what I want. Sometimes it helps to adjust my diagram & to reset the AI such that it can rewrite fully instead of making weird adjustments. 
 
 ### Happy-Path: 
 - implement feature-documentation
@@ -218,6 +217,7 @@ flowchart TD
     - extract if necessary
     - rename new variables/functions
     - no structural changes (= no abstraction, no extra classes)
+==> Might have overlooked edge-cases again. But mostly I forgot to tell the AI how it is supposed to structure my code. Maybe I should write what the functions are supposed to do and then hand it over to the AI. 
 
 ###  workflow: tests succeed? continue!
 
@@ -227,21 +227,23 @@ flowchart TD
 
 ### compare: 
 
-| planned | executed |
-|---------|----------|
-|         |          
 
 work problems list: 
-- meow
+- AI was coding weird stuff that didn't work as intended, because it didn't always understand what I wanted & I have a hard time to tell AI what to improve & how; e.g. telling it "instead of function X, write function Y", it just gives out both function. Also without writing the bare-bones structure of the actual code myself (e.g. maybe just pseudo-code) I'm not able to completely think through how the code-functions (not functionality) should be structured. 
+- did not learn python while implementing the solution. 
 
 success list: 
-- meow
+- avoided a lot of manual work
+- AI did write my functions, thus I didn't need to learn python for this
 
 | estimated time | actual time |
 |----------------|-------------|
-|                |             |
+| 1.5 hours      | 3.5 hours   |
+==> setting up the AI to create the whole code-structure took way longer than expected. 
+I'm not sure whether the flow-chart-approach is the correct approach or it might be better to write pseudo-code instead
 
 ### recheck alternatives
+==> manuall adjustment of files could have worked, but I don't know how long it would have actually taken & how much I would have been confused during that process. 
 
 # ________
 

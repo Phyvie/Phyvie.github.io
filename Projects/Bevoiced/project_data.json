@@ -1,17 +1,12 @@
 {
   "project-title": "Bevoiced",
-  "project-type": "Audio Pitch Input",
+
   "version": "1.0.0",
   "origin": "Cologne Game Lab",
   "team-size": "5",
   "date": "2022",
   "time": "7w",
 
-  "description":
-    [
-      "My first group game project at university. ",
-      "While the game itself wasn't very successful, we (two programmers, in a team of 5 game devs) managed to implement a mechanic where players control the environment by the pitch of their voice. "
-    ],
   "thumbnail": {
     "src": "./Projects/Bevoiced/Thumbnail.png",
     "alt": "Bevoiced Project IMG"
@@ -20,12 +15,30 @@
     "src": "./Projects/Bevoiced/mechanic_showcase.mp4"
   },
 
-  "main-contribution": "coding: sound-pitch input",
-
+  "main-contribution": "coding - sound input",
+  "contributions": "Missing Contributions",
+  "description": [
+    "My first group game project at university. ",
+    "While the game itself wasn't very successful, we (two programmers, in a team of 5 game devs) managed to implement a mechanic where players control the environment by the pitch of their voice. "
+  ],
   "tags": [
-    {"name": "audio", "relevance": "3"},
-    {"name":  "Unity", "relevance": "1"},
-    {"name": "group-made-project", "relevance": "1"},
-    {"name": "programming", "relevance": "1"}
-  ]
+    {
+      "name": "audio",
+      "relevance": "3"
+    },
+    {
+      "name": "Unity",
+      "relevance": "1"
+    },
+    {
+      "name": "group-made-project",
+      "relevance": "1"
+    },
+    {
+      "name": "programming",
+      "relevance": "1"
+    }
+  ],
+
+  "tools": "Missing Tools"
 }
