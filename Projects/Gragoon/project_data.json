@@ -1,5 +1,6 @@
 {
   "project-title": "Gragoon",
+  "project-type": "Movement Controller",
   "version": "1.0.0",
   "origin": "private",
   "team-size": "2",
@@ -12,7 +13,7 @@
   "trailer": {
     "src": "./Projects/Gragoon/Movement_Showcase.mp4"
   },
-  "main-contribution": "coding - dragon movement controls",
+  "main-contribution": "programmer - dragon movement controls",
   "contributions": [
     "Programming"
   ],

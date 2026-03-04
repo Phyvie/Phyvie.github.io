@@ -64,7 +64,6 @@ switch (complexity):
 
 
 Filter-Tag-Categories: 
-Engine (Unity / Unreal / Other), Programming Language (c++ / c# / python), Plugins/Libraries (UniRX, ...), other Software (Blender, Reaper, Fmod), Contributions / Area of Work (Audio, Level Design, Backend-Coding, ...), Project-Type (Puzzle Game, ...)
 
 | Tag                 | Bevoiced | Dont Brake | Gragoon | Lone Signal | Moebius Magnus | Monster Match | Music Box | Rotations | Solitaire | Bitsy | Analogue Game |
 |---------------------|----------|------------|---------|-------------|----------------|---------------|-----------|-----------|-----------|-------|---------------|

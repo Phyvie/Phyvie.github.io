@@ -1,5 +1,6 @@
 {
   "project-title": "Rotation Parameterizations",
+  "project-type": "Educational Tool",
   "version": "1.0.0",
   "origin": "Cologne Game Lab",
   "team-size": "1",
@@ -13,17 +14,7 @@
     "src": "Missing Trailer Path",
     "alt": "Missing Trailer"
   },
-  "WebGLConfig": {
-    "arguments": [],
-    "dataUrl": "./Content/Build/WebBuild.data",
-    "loader": "./Content/Build/WebBuild.loader.js",
-    "frameworkUrl": "./Content/Build/WebBuild.framework.js",
-    "codeUrl": "./Content/Build//WebBuild.wasm",
-    "streamingAssetsUrl": "StreamingAssets",
-    "companyName": "",
-    "productName": "Rotation_Parametrization_Visualiser",
-    "productVersion": "1.0.0"
-  },
+  "git-link": "https://#",
   "main-contribution": "Design & Code Educational Tool",
   "contributions": {
     "containerID": "rotations-workflow",
@@ -68,7 +59,17 @@
     }
   ],
   "tools": "Missing Tools",
-  "git-link": "https://#",
+  "WebGLConfig": {
+    "arguments": [],
+    "dataUrl": "./Content/Build/WebBuild.data",
+    "loader": "./Content/Build/WebBuild.loader.js",
+    "frameworkUrl": "./Content/Build/WebBuild.framework.js",
+    "codeUrl": "./Content/Build//WebBuild.wasm",
+    "streamingAssetsUrl": "StreamingAssets",
+    "companyName": "",
+    "productName": "Rotation_Parametrization_Visualiser",
+    "productVersion": "1.0.0"
+  },
   "TODOZyKa json-data": "figure out a better system to put the links in here",
   "image-gallery": [
     {

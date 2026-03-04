@@ -1,5 +1,6 @@
 {
   "project-title": "Solitaire_Variations",
+  "project-type": "Card Game Modes",
   "version": "1.0.0",
   "origin": "private",
   "team-size": "1",
@@ -13,6 +14,7 @@
     "src": "./Projects/Solitaire/#.mp4",
     "alt": "Music Box Teaser Trailer"
   },
+  "project-page-link": "",
   "main-contribution": "Adjust Code to Game Modes",
   "contributions": "Missing Contributions",
   "description": [
@@ -35,10 +37,8 @@
     }
   ],
   "tools": "Missing Tools",
-  "projectType": "Singleplayer Card Game",
   "highlight": "Level Design",
   "mechanic-video": {
     "src": "./Projects/#.mp4"
-  },
-  "project-url": ""
+  }
 }
