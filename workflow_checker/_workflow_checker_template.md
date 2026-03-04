@@ -30,7 +30,7 @@ am I creating this, only because it ... (strike-through wrong ones)
 - ... helps an imaginary future? 
 -> any yes = backlog
 
-### NOWZyKa Workflow: : Summary : 
+###  Workflow: : Summary : 
 
 # ________
 
@@ -53,7 +53,7 @@ switch (complexity):
 |          |           |              |
 
 
-### NOWZyKa Workflow: is research done?
+###  Workflow: is research done?
 ### Research Summary: 
 
 ### Happy-Path: 
@@ -70,7 +70,7 @@ switch (complexity):
 - ... helps an imaginary future?
 -> any yes = kill
 
-### NOWZyKa Workflow: confirm happy-path
+###  Workflow: confirm happy-path
 ### Happy-Path Summary:
 
 ### Edge-Cases: 
@@ -90,7 +90,7 @@ switch (complexity):
   - obvious error handling?
   - backwards-compatible?
 
-### NOWZyKa Workflow: confirm solution design
+###  Workflow: confirm solution design
 ### Solution Summary: 
 
 # ________
@@ -103,7 +103,7 @@ switch (complexity):
 - implement happy-path test
 - compare with design
 
-### NowZyKa workflow: test success? continue!
+###  workflow: test success? continue!
 
 ### Edge-Cases: 
 - implement edge-case-documentation
@@ -114,7 +114,7 @@ switch (complexity):
     - rename new variables/functions
     - no structural changes (= no abstraction, no extra classes)
 
-### NowZyKa workflow: tests succeed? continue!
+###  workflow: tests succeed? continue!
 
 # ________
 

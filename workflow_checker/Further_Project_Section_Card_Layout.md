@@ -29,7 +29,7 @@ am I creating this, only because it ... (strike-through wrong ones)
 - ~~... helps an imaginary future?~~ 
 -> any yes = backlog
 
-### NOWZyKa Workflow: : Summary : 
+###  Workflow: : Summary : 
 I need a visual structure that directly leads the beholders attention to the relevant feature. Additionally, more information must be available, but without instant information overflow. 
 
 # ________
@@ -84,7 +84,7 @@ Stop worrying too much about which info should be where, just make a scroll-cont
   - obvious error handling?
   - backwards-compatible?
 
-### NOWZyKa Workflow: confirm solution design
+###  Workflow: confirm solution design
 ### Solution Summary: 
 
 # ________
@@ -97,7 +97,7 @@ Stop worrying too much about which info should be where, just make a scroll-cont
 - implement happy-path test
 - compare with design
 
-### NowZyKa workflow: test success? continue!
+###  workflow: test success? continue!
 
 ### Edge-Cases: 
 - implement edge-case-documentation
@@ -108,7 +108,7 @@ Stop worrying too much about which info should be where, just make a scroll-cont
     - rename new variables/functions
     - no structural changes (= no abstraction, no extra classes)
 
-### NowZyKa workflow: tests succeed? continue!
+###  workflow: tests succeed? continue!
 
 # ________
 

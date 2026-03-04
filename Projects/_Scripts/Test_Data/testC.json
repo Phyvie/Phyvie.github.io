@@ -1,0 +1,16 @@
+{
+  "name": "RPG Quest",
+  "version": "3.2.1",
+  "description": "Project description",
+  "author": "Fantasy Studio",
+  "created": "2023-11-30",
+  "tags": [],
+  "settings": {
+    "resolution": "1920x1080",
+    "fullscreen": true
+  },
+  "dlc": [
+    "expansion1",
+    "skinpack"
+  ]
+}

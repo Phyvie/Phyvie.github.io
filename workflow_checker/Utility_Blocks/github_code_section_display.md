@@ -51,7 +51,7 @@ switch (complexity):
 |                  | accessible              |                                |
 |                  |                         |                                |
 
-### NOWZyKa Workflow: is research done?
+###  Workflow: is research done?
 
 ### Happy-Path: 
 - **simple** (<= 1hour): pseudo-code lines
@@ -67,7 +67,7 @@ switch (complexity):
 - ... helps an imaginary future?
 -> any yes = kill
 
-### NOWZyKa Workflow: confirm happy-path
+###  Workflow: confirm happy-path
 
 ### Edge-Cases: 
 - 5 min brainstorm (technical issues, user stupidity, internal curruption) into frequency-impact-time-list: 
@@ -86,7 +86,7 @@ switch (complexity):
   - obvious error handling?
   - backwards-compatible?
 
-### NOWZyKa Workflow: confirm solution design
+###  Workflow: confirm solution design
 
 # ________
 
@@ -98,7 +98,7 @@ switch (complexity):
 - implement happy-path test
 - compare with design
 
-### NowZyKa workflow: test success? continue!
+###  workflow: test success? continue!
 
 ### Edge-Cases: 
 - implement edge-case-documentation
@@ -109,7 +109,7 @@ switch (complexity):
     - rename new variables/functions
     - no structural changes (= no abstraction, no extra classes)
 
-### NowZyKa workflow: tests succeed? continue!
+###  workflow: tests succeed? continue!
 
 # ________
 

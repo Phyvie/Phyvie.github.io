@@ -17,13 +17,13 @@ Finish-Time:
 
 -> switch (use-case * impact): 
 - ~~<=3: brute-force <= 1h or backlog~~
-- ~~4-6: acceptable solution <= 1day or backlog~~
-- **\>=7: elegant solution**
+- 4-6: acceptable solution <= 1day or backlog
+- ~~**\>=7: elegant solution**~~
 
 ### 4. Kill Duck: 
 am I creating this, only because it ... (strike-through wrong ones)
 - ~~... is intellectually interesting?~~
-- ... appears cool?  
+- ~~... appears cool?~~  
 - ~~... is fun to make?~~  
 - ~~... helps an imaginary future?~~ 
 -> any yes = backlog

@@ -20,6 +20,8 @@
     "src": "./Projects/Bevoiced/mechanic_showcase.mp4"
   },
 
+  "main-contribution": "coding: sound-pitch input",
+
   "tags": [
     {"name": "audio", "relevance": "3"},
     {"name":  "Unity", "relevance": "1"},
