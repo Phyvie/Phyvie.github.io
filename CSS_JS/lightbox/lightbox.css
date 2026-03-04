@@ -22,7 +22,7 @@
     max-width: 80vw;
     max-height: 80vh;
 
-    padding: var(--LAYOUT-DISTANCE-DEFAULT);
+    padding: var(--LAYOUT-SPACING-DEFAULT);
     display: flex;
 
     background: var(--COLOR-BG-BLOCK);

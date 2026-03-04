@@ -9,7 +9,7 @@
     flex-flow: column nowrap;
     align-items: center;
 
-    gap: var(--LAYOUT-DISTANCE-LARGE);
+    gap: var(--LAYOUT-SPACING-LARGE);
 }
 
 .project-section__media {
@@ -24,7 +24,7 @@
 
     display: flex;
     flex-flow: column nowrap;
-    gap: var(--LAYOUT-DISTANCE-SMALL);
+    gap: var(--LAYOUT-SPACING-SMALL);
 }
 
 .project-section__title {
@@ -32,7 +32,7 @@
 }
 
 .project-section__description {
-    padding: var(--LAYOUT-DISTANCE-DEFAULT) 0;
+    padding: var(--LAYOUT-SPACING-DEFAULT) 0;
 }
 
 .project-section__post-desc-link {
@@ -40,10 +40,10 @@
 }
 
 .project-section__data-table {
-    margin-left: var(--LAYOUT-DISTANCE-DEFAULT);
-    margin-right: var(--LAYOUT-DISTANCE-DEFAULT);
-    margin-bottom: var(--LAYOUT-DISTANCE-DEFAULT);
-    padding: var(--LAYOUT-DISTANCE-XS) var(--LAYOUT-DISTANCE-SMALL);
+    margin-left: var(--LAYOUT-SPACING-DEFAULT);
+    margin-right: var(--LAYOUT-SPACING-DEFAULT);
+    margin-bottom: var(--LAYOUT-SPACING-DEFAULT);
+    padding: var(--LAYOUT-SPACING-XS) var(--LAYOUT-SPACING-SMALL);
 
     border-radius: var(--LAYOUT-BORDER-RADIUS-SMALL);
     background-color: var(--COLOR-BG-BLOCK);
@@ -52,7 +52,7 @@
 .project-section__data-table td,
 .project-section__data-table th
 {
-    padding: 0 var(--LAYOUT-DISTANCE-DEFAULT) 0 var(--LAYOUT-DISTANCE-XS);
+    padding: 0 var(--LAYOUT-SPACING-DEFAULT) 0 var(--LAYOUT-SPACING-XS);
     vertical-align: middle;
 }
 
@@ -70,7 +70,7 @@
 .project-section__contributions {
     display: flex;
     flex-flow: column nowrap;
-    gap: var(--LAYOUT-DISTANCE-DEFAULT);
+    gap: var(--LAYOUT-SPACING-DEFAULT);
 }
 
 .project-section__links {
@@ -84,10 +84,10 @@
 .project-section__workflow {
     overflow: hidden;
     width: 100%;
-    margin-top: var(--LAYOUT-DISTANCE-LARGE);
+    margin-top: var(--LAYOUT-SPACING-LARGE);
 
     border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
-    /* LATERZyKa styling: adjust the color of the workflow section border */
+    /* TodoZyKa Styling: adjust the color of the workflow section border */
     border: 1px solid var(--COLOR-DECORATION-BLOCK);
     padding: 10px;
 
@@ -98,7 +98,7 @@
             padding var(--ANIMATION-DURATION-FAST) ease-in-out;
 }
 
-/* LATERZyKa active-system: switch all the [...]--active and [...]--collapsed to just active/collapsed so that they work independent of the class they modify via .[class].--active */
+/* NoZyKa active-system: switch all the [...]--active and [...]--collapsed to just active/collapsed so that they work independent of the class they modify via .[class].--active */
 .project-section__workflow--collapsed {
     margin-top: 0;
     max-height: 0;

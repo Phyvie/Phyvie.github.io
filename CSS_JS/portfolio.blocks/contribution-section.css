@@ -12,7 +12,6 @@
 }
 
 .described-item {
-    /* TODOZyKa scroll-container: this width should not be set in described item itself, but rather somewhere in a sizing class */
     width: 100%;
 }
 
@@ -44,7 +43,7 @@
             max-height: 30vh;
             width: 100%;
 
-            padding: var(--LAYOUT-DISTANCE-SMALL);
+            padding: var(--LAYOUT-SPACING-SMALL);
         }
     }
 }
@@ -54,7 +53,7 @@
     .scroll-container--contribution-section {
         /*height: 90vh;*/
         height: auto;
-        padding: var(--LAYOUT-DISTANCE-SMALL);
+        padding: var(--LAYOUT-SPACING-SMALL);
 
         container: contribution-scroll-container / inline-size;
     }
@@ -66,7 +65,7 @@
     }
 
     .described-item {
-        padding: var(--LAYOUT-DISTANCE-SMALL);
+        padding: var(--LAYOUT-SPACING-SMALL);
 
         height: 100%;
         display: flex;
@@ -80,12 +79,12 @@
         max-height: 80vh;
     }
 
-    /* LATERZyKa styling: add a scroll-signalizer */
+    /* TodoZyKa Styling: add a scroll-signalizer */
     .described-item__description {
         flex: 0 0 50%;
         width: auto;
         contain: size paint;
-        padding: 0 var(--LAYOUT-DISTANCE-SMALL);
+        padding: 0 var(--LAYOUT-SPACING-SMALL);
     }
 }
 

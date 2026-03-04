@@ -102,8 +102,6 @@ filter works without issues
 - ~~... helps an imaginary future?~~
 -> any yes = kill
 
-### NOWZyKa Workflow: confirm happy-path
-
 ### Edge-Cases: 
 - 5 min brainstorm (technical issues, user stupidity, internal curruption) into frequency-impact-time-list: 
 
@@ -127,8 +125,6 @@ filter works without issues
   - obvious error handling?
   - backwards-compatible?
 
-### NOWZyKa Workflow: Solution Design Summary
-
 # ________
 
 ## PHASE 3 - IMPLEMENTATION
@@ -139,8 +135,6 @@ filter works without issues
 - implement happy-path test
 - compare with design
 
-### NowZyKa workflow: test success? continue!
-
 ### Edge-Cases: 
 - implement edge-case-documentation
 - implement edge-case test
@@ -149,8 +143,6 @@ filter works without issues
     - extract if necessary
     - rename new variables/functions
     - no structural changes (= no abstraction, no extra classes)
-
-### NowZyKa workflow: tests succeed? continue!
 
 # ________
 

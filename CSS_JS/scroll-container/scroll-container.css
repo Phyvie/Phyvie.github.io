@@ -2,7 +2,7 @@
 .scroll-container {
     position: relative;
 
-    padding: var(--LAYOUT-DISTANCE-SMALL);
+    padding: var(--LAYOUT-SPACING-SMALL);
 
     border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
     background: var(--COLOR-DECORATION-BLOCK-FADED);
@@ -22,7 +22,7 @@
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 
-    --SCROLL-CONTAINER-ITEM-GAP: var(--LAYOUT-DISTANCE-DEFAULT);
+    --SCROLL-CONTAINER-ITEM-GAP: var(--LAYOUT-SPACING-DEFAULT);
     gap: var(--SCROLL-CONTAINER-ITEM-GAP);
 
     --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 1;
@@ -44,7 +44,7 @@
     min-width: 0; /* ensures the flex can be smaller than it's min content -> necessary to use overflow */
     scroll-snap-align: start;
 
-    /* LATERZyKa styling-scroll-container: ensure scroll-container-items and their descriptions visibly belong together */
+    /* TodoZyKa Styling-scroll-container: ensure scroll-container-items and their descriptions visibly belong together */
     background-color: var(--COLOR-DECORATION-BLOCK);
     border-radius: var(--LAYOUT-BORDER-RADIUS-SMALL);
 }
@@ -58,7 +58,7 @@
 }
 
 .scroll-container__bot_nav_line_button {
-    padding: var(--LAYOUT-DISTANCE-SMALL);
+    padding: var(--LAYOUT-SPACING-SMALL);
     background-color: var(--COLOR-DECORATION-ELEMENT);
     border-radius: var(--LAYOUT-BORDER-RADIUS-CYLINDER);
 }

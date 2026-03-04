@@ -1,4 +1,4 @@
 .tag--rotations {
     --LAYOUT-TAG-WIDTH: 33%;
-    padding: var(--LAYOUT-DISTANCE-XS);
+    padding: var(--LAYOUT-SPACING-XS);
 }

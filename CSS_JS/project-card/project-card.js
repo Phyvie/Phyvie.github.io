@@ -81,8 +81,7 @@ export function SetupProjectCardInteraction(projectCard)
     wireOverlayToVideo(trailer);
 
     SetupInfoButtonOverlay(projectCard);
-    // TODOZyKa project-card: delete this if foldout works
-    // SetupFoldable(projectCard);
+    // SetupFoldable(projectCard); //alt layout with Foldable
 }
 
 function SetupInfoButtonOverlay(projectCard)
@@ -101,7 +100,7 @@ function SetupInfoButtonOverlay(projectCard)
     });
 }
 
-// TODOZyKa project-card: delete this if lightbox works
+/* region alt layout with foldout */
 function SetupFoldable(projectCard)
 {
     const foldButton = projectCard.querySelector('[data-more-info-button]');
@@ -116,6 +115,7 @@ function SetupFoldable(projectCard)
         foldable.classList.toggle('--folded');
     }
 }
+/* endregion alt layout with foldout */
 
 function wireImageToVideo(image, video) {
     if (!image || !video)

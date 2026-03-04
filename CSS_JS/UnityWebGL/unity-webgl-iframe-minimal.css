@@ -97,7 +97,6 @@ html, body {
     background: url('unity-logo-title-footer.png') no-repeat center
 }
 
-/* LATERZyKa Styling: Remove this once I figured out how to properly manage the play-button */
 #unity-play-button {
     width: 110px;
     height: 38px;

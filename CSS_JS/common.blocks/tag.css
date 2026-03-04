@@ -3,7 +3,7 @@
     flex-flow: row wrap;
     justify-content: space-around;
 
-    row-gap: var(--LAYOUT-DISTANCE-DEFAULT);
+    row-gap: var(--LAYOUT-SPACING-DEFAULT);
 
     container: flex-tags / inline-size;
 }
@@ -11,7 +11,7 @@
 .flex-tags__tag {
     /* This property needs manual adjustment & container queries based on the context; i.e. 1/(tags per row)*100% */
     --LAYOUT-TAG-WIDTH: 100%;
-    flex: 0 0 calc(var(--LAYOUT-TAG-WIDTH) - var(--LAYOUT-DISTANCE-DEFAULT));
+    flex: 0 0 calc(var(--LAYOUT-TAG-WIDTH) - var(--LAYOUT-SPACING-DEFAULT));
 
     min-height: 1.8em;
     max-height: 3.6em;
@@ -69,3 +69,12 @@
     justify-content: center;
     align-items: center;
 }
+
+.tag--link-arrow a:visited {
+    color: var(--COLOR-TEXT-FADED-DARK);
+}
+
+.tag--link-arrow:hover {
+    color: var(--COLOR-TEXT-ACCENT-DARK);
+}
+
