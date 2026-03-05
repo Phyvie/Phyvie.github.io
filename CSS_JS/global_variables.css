@@ -1,32 +1,39 @@
+/* default color-mode is dark*/
 :root {
-    /* region MAIN COLORS */
-    --COLOR-DARK: hsl(270, 20%, 10%);
-    --COLOR-LIGHT: hsl(90, 0%, 90%);
+    /* region COLOR PALETTE */
+    --COLOR-WHITE: hsl(0, 0%, 100%);
+    --COLOR-LIGHT: hsl(18, 72%, 42%);
+    --COLOR-LIGHT-ACCENT: hsl(18, 52%, 57%);
+    --COLOR-LIGHT-FADED: hsl(18, 57%, 25%);
 
-    --COLOR-ACCENT-DARK: hsl(263, 33%, 30%);
-    --COLOR-ACCENT-LIGHT: hsl(18, 77%, 30%);
+    --COLOR-BLACK: hsl(198, 10%, 10%);
+    --COLOR-DARK: hsl(263, 33%, 30%);
+    --COLOR-DARK-ACCENT: hsl(263, 55%, 15%);
+    --COLOR-DARK-FADED: hsl(263, 13%, 45%);
 
-    --COLOR-FADED-DARK: color-mix(in srgb, var(--COLOR-ACCENT-DARK) 40%, var(--COLOR-DARK) 60%);
-    --COLOR-FADED-LIGHT: color-mix(in srgb, var(--COLOR-ACCENT-LIGHT) 40%, var(--COLOR-DARK) 60%);
-    /* endregion MAIN COLORS */
+    --COLOR-DARK-TRANSPARENT: color-mix(in srgb, var(--COLOR-DARK) 90%, transparent 10%);
+    --COLOR-LIGHT-TRANSPARENT: color-mix(in srgb, var(--COLOR-LIGHT) 90%, transparent 10%);
+    /* endregion COLOR PALETTE  */
 
-    /* region ALL COLORS */
-    --COLOR-BG-WEBSITE: var(--COLOR-DARK);
-    --COLOR-BG-BLOCK: var(--COLOR-FADED-DARK);
-    --COLOR-BG-ELEMENT: var(--COLOR-DARK);
+    /* region COLOR CONTEXTS */
+    --COLOR-BG-WEBSITE: hsl(270, 20%, 10%);
 
-    --COLOR-DECORATION-BLOCK: var(--COLOR-ACCENT-DARK);
-    --COLOR-DECORATION-BLOCK-FADED: var(--COLOR-FADED-DARK);
-    --COLOR-DECORATION-ELEMENT: var(--COLOR-ACCENT-LIGHT);
-    --COLOR-DECORATION-ELEMENT-FADED: var(--COLOR-FADED-LIGHT);
+    --COLOR-BG-BLOCK: var(--COLOR-DARK);
+    --COLOR-BG-BLOCK-TRANSPARENT: var(--COLOR-DARK-TRANSPARENT);
+    --COLOR-BG-BLOCK-FADED: var(--COLOR-DARK-FADED);
+    --COLOR-TEXT-BLOCK: var(--COLOR-WHITE);
+    --COLOR-TEXT-BLOCK-ACCENT: var(--COLOR-LIGHT-ACCENT);
+    --COLOR-TEXT-BLOCK-FADED: var(--COLOR-LIGHT-FADED);
 
-    --COLOR-TEXT-MAIN: var(--COLOR-LIGHT);
-    --COLOR-TEXT-ACCENT: var(--COLOR-ACCENT-LIGHT);
-    --COLOR-TEXT-FADED: var(--COLOR-FADED-LIGHT);
+    --COLOR-BG-ELEMENT: var(--COLOR-LIGHT);
+    --COLOR-BG-ELEMENT-TRANSPARENT: var(--COLOR-LIGHT-TRANSPARENT);
+    --COLOR-BG-ELEMENT-FADED: var(--COLOR-LIGHT-FADED);
+    --COLOR-TEXT-ELEMENT: var(--COLOR-BLACK);
+    --COLOR-TEXT-ELEMENT-ACCENT: var(--COLOR-DARK-ACCENT);
+    --COLOR-TEXT-ELEMENT-FADED: var(--COLOR-DARK-FADED);
 
-    --COLOR-TEXT-ACCENT-DARK: var(--COLOR-ACCENT-DARK);
-    --COLOR-TEXT-FADED-DARK: var(--COLOR-FADED-DARK);
-    /* endregion ALL COLORS */
+    color: var(--COLOR-TEXT-BLOCK);
+    /* endregion COLOR CONTEXTS */
 
     /* region FONTS */
     /* TodoZyKa Styling: Adjust the fonts (especially for tags) */
@@ -49,7 +56,7 @@
     --LAYOUT-SPACING-SMALL: clamp(0.375rem, calc(0.75vw + 0.25rem), 1rem);
     --LAYOUT-SPACING-DEFAULT: clamp(0.625rem, calc(1.25vw + 0.5rem), 1.5rem);
     --LAYOUT-SPACING-LARGE: clamp(1.875rem, calc(4vw + 1rem), 4rem);
-    --LAYOUT-SPACING-XL: clamp(6.25rem, calc(8vw + 2rem), 12rem);
+    --LAYOUT-SPACING-XL: clamp(6.25rem, calc(12vw + 3rem), 12rem);
 
     --LAYOUT-BORDER-RADIUS-CYLINDER: 999px;
     --LAYOUT-BORDER-RADIUS-ELLIPSE: 50%;
@@ -79,3 +86,27 @@
     --DEBUG-MEDIA-QUERY-OUTLINE-LARGE: 2px solid hsl(120, 80%, 65%);
      /* endregion DEBUG-MEDIA-QUERY OUTLINE */
 }
+
+/* dark is written as default */
+/*@media (prefers-color-scheme: dark) {  }*/
+@media (prefers-color-scheme: light) {
+    :root {
+        --COLOR-BG-WEBSITE: hsl(18, 80%, 80%);
+
+        --COLOR-BG-BLOCK: var(--COLOR-LIGHT-TRANSPARENT);
+        --COLOR-BG-BLOCK-TRANSPARENT: var(--COLOR-LIGHT-TRANSPARENT);
+        --COLOR-BG-BLOCK-FADED: var(--COLOR-LIGHT-FADED);
+        --COLOR-TEXT-BLOCK: var(--COLOR-BLACK);
+        --COLOR-TEXT-BLOCK-ACCENT: var(--COLOR-DARK-ACCENT);
+        --COLOR-TEXT-BLOCK-FADED: var(--COLOR-DARK-FADED);
+
+        --COLOR-BG-ELEMENT: var(--COLOR-LIGHT);
+        --COLOR-BG-ELEMENT-TRANSPARENT: var(--COLOR-DARK-TRANSPARENT);
+        --COLOR-BG-ELEMENT-FADED: var(--COLOR-DARK-FADED);
+        --COLOR-TEXT-ELEMENT: var(--COLOR-WHITE);
+        --COLOR-TEXT-ELEMENT-ACCENT: var(--COLOR-LIGHT-ACCENT);
+        --COLOR-TEXT-ELEMENT-FADED: var(--COLOR-LIGHT-FADED);
+    }
+}
+
+

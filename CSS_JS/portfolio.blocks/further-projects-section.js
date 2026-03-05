@@ -19,10 +19,13 @@ async function CreateProjectCards() {
     let projects = [
         {folder: 'Lone_Signal'},
         {folder: 'Music_Box'},
+        {folder: 'Moebius_Magnus'},
         {folder: 'Monster_Match'},
         {folder: 'Gragoon'},
-        {folder: 'Dont_Brake'},
-        {folder: 'Bevoiced'}
+        {folder: 'Bevoiced'},
+        {folder: 'Rotations'},
+        // {folder: 'Solitaire'},
+        // {folder: 'Dont_Brake'},
     ]
 
     const ProjectFolderURL = GetPathFromPortfolioRoot("_./Projects/");

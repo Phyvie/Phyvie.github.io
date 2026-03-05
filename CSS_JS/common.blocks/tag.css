@@ -22,15 +22,17 @@
     justify-content: center;
     align-items: center;
 
-    background-color: var(--COLOR-DECORATION-ELEMENT);
+    background-color: var(--COLOR-BG-ELEMENT);
     border-radius: var(--LAYOUT-BORDER-RADIUS-CYLINDER);
+    color: var(--COLOR-TEXT-ELEMENT);
+    font-weight: bold;
 
     text-align: center;
     text-wrap: nowrap;
 }
 
 .tag--active {
-    background-color: var(--COLOR-DECORATION-ELEMENT-FADED);
+    background-color: var(--COLOR-BG-ELEMENT-TRANSPARENT);
 }
 
 .tag--link-arrow {
@@ -70,11 +72,11 @@
     align-items: center;
 }
 
-.tag--link-arrow a:visited {
-    color: var(--COLOR-TEXT-FADED-DARK);
+a:visited.tag--link-arrow {
+    color: var(--COLOR-TEXT-ELEMENT-FADED);
 }
 
-.tag--link-arrow:hover {
-    color: var(--COLOR-TEXT-ACCENT-DARK);
+a.tag--link-arrow:hover {
+    color: var(--COLOR-TEXT-ELEMENT-ACCENT);
 }
 
