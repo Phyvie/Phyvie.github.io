@@ -5,7 +5,9 @@
     padding: var(--LAYOUT-SPACING-SMALL);
 
     border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
-    background: var(--COLOR-DECORATION-BLOCK-FADED);
+    /*background: var(--COLOR-DARK-FADED);*/
+    /* LaterZyKa Discuss / Get Feedback: How to color the scroll-containers and their scroll-elements? */
+    border: 2px solid var(--COLOR-DARK-FADED);
 
     container: scroll-container / inline-size;
 }
@@ -44,12 +46,13 @@
     min-width: 0; /* ensures the flex can be smaller than it's min content -> necessary to use overflow */
     scroll-snap-align: start;
 
-    /* TodoZyKa Styling-scroll-container: ensure scroll-container-items and their descriptions visibly belong together */
-    background-color: var(--COLOR-DECORATION-BLOCK);
+    background-color: var(--COLOR-BG-BLOCK);
+
     border-radius: var(--LAYOUT-BORDER-RADIUS-SMALL);
+    overflow: hidden;
 }
 
-.scroll-container__bottom_navigation_line {
+.scroll-container__bottom-navigation-line {
     width: 100%;
     height: auto;
     display: flex;
@@ -57,13 +60,14 @@
     justify-content: space-around;
 }
 
-.scroll-container__bot_nav_line_button {
+.scroll-container__bot-nav-line-button {
     padding: var(--LAYOUT-SPACING-SMALL);
-    background-color: var(--COLOR-DECORATION-ELEMENT);
+    background-color: var(--COLOR-BG-ELEMENT);
     border-radius: var(--LAYOUT-BORDER-RADIUS-CYLINDER);
+    color: var(--COLOR-TEXT-ELEMENT);
 }
 
-.scroll-container__absolute_nav_button {
+.scroll-container__absolute-nav-button {
     width: 100px;
     height: 100px;
 
@@ -85,16 +89,16 @@
     display: block;
     width: 40%;
     height: 40%;
-    background-color: color-mix(in srgb, var(--COLOR-DECORATION-ELEMENT) 50%, transparent 50%);
+    background-color: color-mix(in srgb, var(--COLOR-BG-ELEMENT) 50%, transparent 50%);
 }
 
 .scroll-container__nav-button--prev:hover::before,
 .scroll-container__nav-button--next:hover::before {
-    background-color: var(--COLOR-DECORATION-ELEMENT);
+    background-color: var(--COLOR-BG-ELEMENT);
 }
 
 .scroll-container__nav-button--prev {
-    left: 0;
+    left: calc(0px - var(--LAYOUT-SPACING-DEFAULT));
     justify-content: flex-start;
 }
 
@@ -103,7 +107,7 @@
 }
 
 .scroll-container__nav-button--next {
-    right: 0;
+    right: calc(0px - var(--LAYOUT-SPACING-DEFAULT));
     justify-content: flex-end;
 }
 

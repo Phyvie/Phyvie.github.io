@@ -87,8 +87,6 @@
     margin-top: var(--LAYOUT-SPACING-LARGE);
 
     border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
-    /* TodoZyKa Styling: adjust the color of the workflow section border */
-    border: 1px solid var(--COLOR-DECORATION-BLOCK);
     padding: 10px;
 
     transition:
