@@ -23,15 +23,14 @@ p, h1, h2, h3, h4, h5, h6, figcaption, th, td, li, a {
     font-size: 1rem;
     line-height: 1.5;
 
-    color: var(--COLOR-TEXT-MAIN);
     text-align: justify;
 }
 
 a:visited {
-    color: var(--COLOR-TEXT-ACCENT);
+    color: var(--COLOR-TEXT-BLOCK-FADED);
 }
 
 a:hover {
-    color: var(--COLOR-TEXT-FADED);
+    color: var(--COLOR-TEXT-BLOCK-ACCENT);
 }
 /* endregion CSS_JS-RESET */

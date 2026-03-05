@@ -138,5 +138,5 @@
 }
 
 .further-projects-section__filter-trigger.--active {
-    background-color: var(--COLOR-DECORATION-ELEMENT-FADED);
+    background-color: var(--COLOR-BG-ELEMENT-FADED);
 }

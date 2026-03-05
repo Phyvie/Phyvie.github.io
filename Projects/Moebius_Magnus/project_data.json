@@ -1,26 +1,28 @@
 {
-  "project-title": "Monster Match",
+  "project-title": "Moebius Magnus",
   "project-type": "Experimental Ludic Game",
   "version": "1.0.0",
   "origin": "Cologne Game Lab",
-  "team-size": "6",
-  "date": "2024",
+  "team-size": "5",
+  "date": "2023",
   "time": "7w",
   "thumbnail": {
-    "src": "./Projects/Monster_Match/Thumbnail.png",
-    "alt": "Play My Math Project IMG"
+    "src": "./Projects/Moebius_Magnus/Gameplay_Screenshot_Chaos.png",
+    "alt": "thumbnail: Moebius Magnus"
   },
   "trailer": {
-    "src": "./Projects/Monster_Match/mechanic_showcase.mp4"
+    "src": "./Projects/Moebius_Magnus/Gameplay_Compilation.mp4"
   },
-  "main-contribution": "Game & Sound Design",
+  "main-contribution": "Game & Sound Designer",
   "contributions": [
     "Project Lead",
-    "Tech Design"
+    "Mechanic Design",
+    "Sound Design"
   ],
   "description": [
-    "As final university group project, we had the choice between seven clients. The one asking for a educational fraction-arithmetic game was the perfect choice for me. ",
-    "As project manager I communicated with the client, ensured the designers blockouts and art assets fit together and ensured the coding stayed on track, partially by coding myself. "
+    "In this university project we got 7 weeks to work on any experimental game related to the topic \"(dis)\"entanglement",
+    "As the sole designer of the group I developed the game concept, that players find their path through (dis)entangled moebius strips in order to gain rewards with which they can enlarge the structure.",
+    "Furthermore I contributed the sound design & sound programming of the game. "
   ],
   "tags": [
     {

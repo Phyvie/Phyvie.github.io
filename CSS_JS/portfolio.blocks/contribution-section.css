@@ -79,12 +79,11 @@
         max-height: 80vh;
     }
 
-    /* TodoZyKa Styling: add a scroll-signalizer */
     .described-item__description {
         flex: 0 0 50%;
         width: auto;
         contain: size paint;
-        padding: 0 var(--LAYOUT-SPACING-SMALL);
+        padding: 0 var(--LAYOUT-SPACING-XS);
     }
 }
 
@@ -114,6 +113,7 @@
             height: calc(var(--ELEMENT-LINE-HEIGHT) * 4.5);
             max-height: 30vh; /* adjustment for small, but wide screens */
             overflow: auto;
+            padding: var(--LAYOUT-SPACING-XS);
         }
 
         /* scroll-container-child-count */ /* PLCHZyKa SCSS: replace with SCSS */

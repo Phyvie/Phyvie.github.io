@@ -3,10 +3,8 @@
     position: relative;
     overflow: hidden;
 
-    border: 1px solid var(--COLOR-DECORATION-BLOCK);
+    background-color: var(--COLOR-BG-BLOCK);
     border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
-
-    background-color: var(--COLOR-DECORATION-BLOCK);
 
     container: project-card / inline-size;
 }
@@ -77,8 +75,6 @@
     position: absolute;
     top: var(--LAYOUT-SPACING-XS);
     left: var(--LAYOUT-SPACING-XS);
-    /* top: min(5.5%, 1rem); */
-    /* left: min(5%, 1.5rem); */
 }
 
 .overlay__top-left.--inactive {
@@ -93,7 +89,7 @@
     padding: var(--LAYOUT-SPACING-SMALL) var(--LAYOUT-SPACING-DEFAULT);
 
     border-radius: var(--LAYOUT-BORDER-RADIUS-SMALL);
-    background-color: color-mix(in srgb, var(--COLOR-BG-BLOCK) 90%, transparent 10%);
+    background-color: var(--COLOR-BG-BLOCK-TRANSPARENT);
 }
 
 @container project-card (max-width: 40rem) {
@@ -117,7 +113,7 @@
     padding: var(--LAYOUT-SPACING-SMALL) var(--LAYOUT-SPACING-DEFAULT);
 
     border-radius: var(--LAYOUT-BORDER-RADIUS-SMALL);
-    background-color: color-mix(in srgb, var(--COLOR-BG-BLOCK) 90%, transparent 10%);
+    background-color: var(--COLOR-BG-BLOCK-TRANSPARENT);
 }
 
 .overlay__main-role.--inactive {
@@ -134,7 +130,7 @@
 @container project-card (max-width: 40rem) {
     .overlay__main-role {
         font-size: var(--FONT-SIZE-DEFAULT);
-        padding: var(--LAYOUT-SPACING-XS) var(--LAYOUT-SPACING-DEFAULT);
+        padding: var(--LAYOUT-SPACING-XS) var(--LAYOUT-SPACING-SMALL);
     }
 }
 /* endregion main-role */
