@@ -1,30 +1,3 @@
-.media-figure {
-    display: flex;
-    flex-flow: column nowrap;
-    --DESCRIPTION--HEIGHT: calc(var(--ELEMENT-LINE-HEIGHT) * 3);
-
-    position: relative;
-    overflow: hidden;
-}
-
-.media-figure__img {
-    position: relative;
-}
-
-.media-figure__description {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: var(--DESCRIPTION--HEIGHT);
-
-    text-align: left;
-    background: color-mix(in srgb, var(--COLOR-BG-ELEMENT) 70%, transparent 30%);
-
-    /* TodoZyKa Styling: adjust the border of figure->images (e.g. media--rounded) to the border of their captions */
-    border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
-    padding: var(--LAYOUT-SPACING-XS);
-}
-
 .media-flex-center-wrapper {
     display: flex;
     align-items: center;
@@ -51,11 +24,6 @@
 /* endregion absolute */
 
 /* region styling */
-/* TodoZyKa Styling: this whole class doesn't make sense, because the border size of images should depend on the size of the image */
-.media--rounded {
-    border-radius: var(--LAYOUT-BORDER-RADIUS-LARGE);
-}
-
 .media--hover-scale:hover {
     transform: scale(1.2);
 }

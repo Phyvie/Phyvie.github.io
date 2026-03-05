@@ -53,6 +53,6 @@
 
     border-radius: 50%;
     background: var(--COLOR-BG-BLOCK);
-    color: var(--COLOR-TEXT-MAIN);
+    color: var(--COLOR-TEXT-BLOCK);
     cursor: pointer;
 }
