@@ -2,14 +2,16 @@
 .scroll-container {
     position: relative;
 
-    padding: var(--LAYOUT-SPACING-SMALL);
-
     border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
     /*background: var(--COLOR-DARK-FADED);*/
     /* LaterZyKa Discuss / Get Feedback: How to color the scroll-containers and their scroll-elements? */
     border: 2px solid var(--COLOR-DARK-FADED);
 
     container: scroll-container / inline-size;
+}
+
+.scroll-container--with-border {
+
 }
 
 /* container for the content which is actually scrolling */
@@ -58,6 +60,7 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
+    padding: var(--LAYOUT-SPACING-XS) 0 0;
 }
 
 .scroll-container__bot-nav-line-button {

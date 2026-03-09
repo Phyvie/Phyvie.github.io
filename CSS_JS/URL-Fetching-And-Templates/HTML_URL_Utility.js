@@ -12,7 +12,7 @@
  */
 
 /* loads and parses HTML Content from a given URL */
-export async function fetchHTMLElementFromURL(url)
+export async function fetchHTMLElementFromURL(url, querySelector = null)
 {
     try
     {
@@ -25,7 +25,16 @@ export async function fetchHTMLElementFromURL(url)
         const htmlContent = await response.text();
         const parser = new DOMParser();
         const sourceDoc = parser.parseFromString(htmlContent, "text/html");
-        return sourceDoc;
+        let targetElement = sourceDoc;
+        if (querySelector)
+        {
+            targetElement = sourceDoc.querySelector(querySelector);
+            if (!targetElement)
+            {
+                throw new Error("Failed to find element with selector " + querySelector);
+            }
+        }
+        return targetElement;
     }
     catch (error)
     {

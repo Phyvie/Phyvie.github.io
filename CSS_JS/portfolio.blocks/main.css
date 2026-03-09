@@ -1,7 +1,4 @@
 body {
-    width: 100vw;
-    height: 100vh;
-    min-width: 100vw;
     min-height: 100vh;
 }
 
@@ -15,7 +12,7 @@ body {
     background-color: var(--COLOR-BG-WEBSITE);
 
     padding: 15vh 0;
-    gap: var(--LAYOUT-SPACING-XL);
+    gap: min(var(--LAYOUT-SPACING-XL), 25vh);
 }
 
 .main__panel {
