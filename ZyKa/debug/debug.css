@@ -1,0 +1,290 @@
+/*!* region Dev-Visualisation *!*/
+/*.debug--bg {*/
+/*    padding: 10px;*/
+/*    border: 2px solid rgba(255, 255, 255, 1);*/
+/*    background-color: rgba(255, 255, 255, 0.2);*/
+/*}*/
+
+/*.debug--circle {*/
+/*    border-radius: 50%;*/
+/*}*/
+/*!* endregion Dev-Visualisation *!*/
+
+/*!* region Temporary Debug *!*/
+/*.debug-section {*/
+/*}*/
+
+/*!* region navbar w3schools/geeksforgeeks *!*/
+/*!*.debug-navigation-bar {*!*/
+/*!*    display: flex;*!*/
+/*!*    background: var(--COLOR-WHITE);*!*/
+/*!*    border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);*!*/
+/*!*    padding: var(--LAYOUT-SPACING-DEFAULT);*!*/
+/*!*    margin: 0 auto;*!*/
+/*!*    width: 95%;*!*/
+/*!*    justify-content: space-around;*!*/
+/*!*    align-items: center;*!*/
+/*!*}*!*/
+
+/*!*.debug-navigation-bar {*!*/
+/*!*    position: fixed;*!*/
+/*!*    top: 0;*!*/
+/*!*    left: 0;*!*/
+/*!*    right: 0;*!*/
+/*!*    z-index: 9999;*!*/
+/*!*}*!*/
+
+/*!*.debug-navigation-bar__about-me {*!*/
+/*!*    height: var(--ELEMENT-LINE-HEIGHT);*!*/
+/*!*    flex: 1 1 20%;*!*/
+/*!*}*!*/
+
+/*!*.debug-navigation-bar__image-wrapper {*!*/
+/*!*    height: 100%;*!*/
+/*!*}*!*/
+
+/*!*.debug-navigation-bar__menu {*!*/
+/*!*    flex: 1 1 80%;*!*/
+
+/*!*    display: flex;*!*/
+/*!*    flex-flow: row nowrap;*!*/
+/*!*    justify-content: space-around;*!*/
+/*!*}*!*/
+
+/*!*.debug-navigation-bar__item {*!*/
+
+/*!*}*!*/
+/*!* endregion navbar w3schools/geeksforgeeks *!*/
+
+/*!* region https://thesyntaxdiaries.com/responsive-navbar-html-css-js *!*/
+/*.navbar {*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    background-color: #2c3e50;*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    padding: 0 2rem;*/
+/*    height: 70px;*/
+/*    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);*/
+/*    z-index: 1000;*/
+/*}*/
+
+/*!* Logo Styles *!*/
+/*.logo a {*/
+/*    color: white;*/
+/*    font-size: 1.5rem;*/
+/*    font-weight: 700;*/
+/*    text-decoration: none;*/
+/*    transition: all 0.3s ease;*/
+/*}*/
+
+/*.logo a:hover {*/
+/*    color: #3498db;*/
+/*}*/
+
+/*!* Navigation Menu Styles *!*/
+/*.navbar__links {*/
+/*    display: flex;*/
+/*    list-style: none;*/
+/*}*/
+
+/*.navbar__links li {*/
+/*    margin-left: 2rem;*/
+/*}*/
+
+/*.navbar__links a {*/
+/*    color: #ecf0f1;*/
+/*    text-decoration: none;*/
+/*    font-size: 1rem;*/
+/*    font-weight: 500;*/
+/*    padding: 0.5rem 0;*/
+/*    transition: all 0.3s ease;*/
+/*    position: relative;*/
+/*}*/
+
+/*.navbar__links a:hover {*/
+/*    color: #3498db;*/
+/*}*/
+
+/*!* Active link indicator *!*/
+/*.navbar__links a.active {*/
+/*    color: #3498db;*/
+/*}*/
+
+/*.navbar__links a.active::after {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    bottom: -3px;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 2px;*/
+/*    background-color: #3498db;*/
+/*}*/
+
+/*!* Hamburger Menu *!*/
+/*.navbar__hamburger {*/
+/*    display: none;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.navbar__hamburger-bar {*/
+/*    display: block;*/
+/*    width: 25px;*/
+/*    height: 3px;*/
+/*    margin: 5px auto;*/
+/*    background-color: white;*/
+/*    transition: all 0.3s ease;*/
+/*}*/
+
+/*!* media-query mobile-portrait *!*/
+/*@media (max-width: 746px)*/
+/*{*/
+/*    .navbar__hamburger {*/
+/*        display: block;*/
+/*    }*/
+
+/*    .navbar__hamburger.active .navbar__hamburger-bar:nth-child(1) {*/
+/*        transform: translateY(8px) rotate(45deg);*/
+/*    }*/
+
+/*    .navbar__hamburger.active .c:nth-child(2) {*/
+/*        opacity: 0;*/
+/*    }*/
+
+/*    .navbar__hamburger.active .navbar__hamburger-bar:nth-child(3) {*/
+/*        transform: translateY(-8px) rotate(-45deg);*/
+/*    }*/
+
+/*    .navbar__menu {*/
+/*        position: fixed;*/
+/*        top: 70px;*/
+/*        left: -100%;*/
+/*        width: 100%;*/
+/*        background-color:  #2c3e50;*/
+/*        text-align: center;*/
+/*        transition: 0.3s;*/
+/*        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);*/
+/*    }*/
+
+/*    .navbar__menu.active {*/
+/*        left: 0;*/
+/*    }*/
+
+/*    .navbar__links {*/
+/*        flex-direction: column;*/
+/*        padding: 20px 0;*/
+/*    }*/
+
+/*    .navbar__links li {*/
+/*        margin: 10px 0;*/
+/*    }*/
+/*}*/
+
+/*.dropdown {*/
+/*    position: relative;*/
+/*}*/
+
+/*.dropdown-toggle {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.dropdown-arrow {*/
+/*    font-size: 0.7rem;*/
+/*    margin-left: 5px;*/
+/*    transition: trnasform 0.3s ease;*/
+/*}*/
+
+/*.dropdown-menu {*/
+/*    visibility: hidden;*/
+/*    opacity: 0;*/
+
+/*    position: absolute;*/
+/*    top: 100%;*/
+/*    left: 0;*/
+/*    transform: translateY(10px);*/
+
+/*    width: 200px;*/
+/*    padding: 10px 0;*/
+
+/*    background-color: #fff;*/
+/*    border-radius: 4px;*/
+/*    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);*/
+/*    transition: all 0.3s ease;*/
+/*    z-index: 10;*/
+/*    list-style: none;*/
+/*}*/
+
+/*.dropdown:hover .dropdown-menu {*/
+/*    opacity: 1;*/
+/*    visibility: visible;*/
+/*    transform: translateY(0);*/
+/*}*/
+
+/*.dropdown:hover .dropdown-arrow {*/
+/*    transform: rotate(180deg);*/
+/*}*/
+
+/*.dropdown-menu li {*/
+/*    margin: 0;*/
+/*}*/
+
+/*.dropdown-menu a {*/
+/*    display: block;*/
+/*    padding: 8px 20px;*/
+/*    transition: background-color 0.3s ease;*/
+/*}*/
+
+/*.dropdown-menu a:hover {*/
+/*    background-color: #f0f0f0;*/
+/*}*/
+
+/*@media only screen and (max-width: 768px) {*/
+/*    .dropdown-menu {*/
+/*        position: static;*/
+/*        width: 100%;*/
+/*        background-color: #34495e;*/
+/*        opacity: 1;*/
+/*        visibility: hidden;*/
+/*        max-height: 0;*/
+/*        overflow: hidden;*/
+/*        transform: none;*/
+/*        box-shadow: none;*/
+/*        transition: all 0.3s ease;*/
+/*    }*/
+
+/*    .dropdown.active .dropdown-menu {*/
+/*        visibility: visible;*/
+/*        max-height: 500px;*/
+/*    }*/
+/*}*/
+/*!* endregion https://thesyntaxdiaries.com/responsive-navbar-html-css-js *!*/
+
+
+/*!* media-query mobile-portrait *!*/
+/*!*@media (max-width: 37.499rem)*!*/
+/*!*{*!*/
+/*!*    .main {*!*/
+/*!*        !*background-color: var(--DEBUG-MEDIA-QUERY-COLOR-SMALL-PORTRAIT);*!*!*/
+/*!*    }*!*/
+/*!*}*!*/
+
+/*!*!* media-query mobile-landscape *!*!*/
+/*!*@media (min-width: 37.5rem)*!*/
+/*!*{*!*/
+/*!*    .main {*!*/
+/*!*        !*background-color: var(--DEBUG-MEDIA-QUERY-COLOR-SMALL-LANDSCAPE);*!*!*/
+/*!*    }*!*/
+/*!*}*!*/
+
+/*!*!* media-query large screen *!*!*/
+/*!*@media (min-width: 56.25rem)*!*/
+/*!*{*!*/
+/*!*    .main {*!*/
+/*!*        !*background-color: var(--DEBUG-MEDIA-QUERY-COLOR-LARGE);*!*!*/
+/*!*    }*!*/
+/*!*}*!*/
+/*!* endregion Temporary Debug *!*/

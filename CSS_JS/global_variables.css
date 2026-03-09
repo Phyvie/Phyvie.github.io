@@ -31,8 +31,6 @@
     --COLOR-TEXT-ELEMENT: var(--COLOR-BLACK);
     --COLOR-TEXT-ELEMENT-ACCENT: var(--COLOR-DARK-ACCENT);
     --COLOR-TEXT-ELEMENT-FADED: var(--COLOR-DARK-FADED);
-
-    color: var(--COLOR-TEXT-BLOCK);
     /* endregion COLOR CONTEXTS */
 
     /* region FONTS */
@@ -49,13 +47,19 @@
     --FONT-SIZE-EMPHASIZED: 1.2em;
 
     --ELEMENT-LINE-HEIGHT: 1.8em; /* 1.8em = 1 line-height */
+
+
+    color: var(--COLOR-TEXT-BLOCK);
+    font-family: var(--FF-MAIN), var(--FF-SECONDARY);
+    font-size: var(--FONT-SIZE-DEFAULT);
+    line-height: var(--ELEMENT-LINE-HEIGHT);
     /* endregion FONTS */
 
     /* region LAYOUT */
     --LAYOUT-SPACING-XS: clamp(0.125rem, calc(0.25vw + 0.125rem), 0.5rem);
     --LAYOUT-SPACING-SMALL: clamp(0.375rem, calc(0.75vw + 0.25rem), 1rem);
     --LAYOUT-SPACING-DEFAULT: clamp(0.625rem, calc(1.25vw + 0.5rem), 1.5rem);
-    --LAYOUT-SPACING-LARGE: clamp(1.875rem, calc(4vw + 1rem), 4rem);
+    --LAYOUT-SPACING-LARGE: clamp(1.875rem, calc(3vw + 1rem), 4rem);
     --LAYOUT-SPACING-XL: clamp(6.25rem, calc(12vw + 3rem), 12rem);
 
     --LAYOUT-BORDER-RADIUS-CYLINDER: 999px;
@@ -80,10 +84,13 @@
     /* endregion ANIMATION */
 
     /* region DEBUG-MEDIA-QUERY OUTLINE */
-    --DEBUG-MEDIA-QUERY-OUTLINE-SMALL-LANDSCAPE: 2px solid hsl(0, 80%, 65%);
-    --DEBUG-MEDIA-QUERY-OUTLINE-SMALL-PORTRAIT: 2px solid hsl(300, 70%, 65%);
-    --DEBUG-MEDIA-QUERY-OUTLINE-PC: 2px solid hsl(240, 80%, 65%);
-    --DEBUG-MEDIA-QUERY-OUTLINE-LARGE: 2px solid hsl(120, 80%, 65%);
+    --DEBUG-MEDIA-QUERY-COLOR-SMALL-PORTRAIT: hsl(240, 80%, 65%);
+    --DEBUG-MEDIA-QUERY-COLOR-SMALL-LANDSCAPE: hsl(0, 80%, 65%);
+    --DEBUG-MEDIA-QUERY-COLOR-LARGE: hsl(120, 80%, 65%);
+
+    --DEBUG-MEDIA-QUERY-OUTLINE-SMALL-PORTRAIT: 2px solid var(--DEBUG-MEDIA-QUERY-COLOR-SMALL-PORTRAIT);
+    --DEBUG-MEDIA-QUERY-OUTLINE-SMALL-LANDSCAPE: 2px solid var(--DEBUG-MEDIA-QUERY-OUTLINE-SMALL-LANDSCAPE);
+    --DEBUG-MEDIA-QUERY-OUTLINE-LARGE: 2px solid var(--DEBUG-MEDIA-QUERY-OUTLINE-LARGE);
      /* endregion DEBUG-MEDIA-QUERY OUTLINE */
 }
 
@@ -108,5 +115,3 @@
         --COLOR-TEXT-ELEMENT-FADED: var(--COLOR-LIGHT-FADED);
     }
 }
-
-

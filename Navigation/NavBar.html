@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title> Navigation Bar </title>
+
+    <link rel="stylesheet" href="../CSS_JS/reset.css">
+    <link rel="stylesheet" href="../CSS_JS/global_variables.css">
+    <link rel="stylesheet" href="../CSS_JS/styling/media.css">
+    <link rel="stylesheet" href="../CSS_JS/portfolio.blocks/main.css">
+
+    <link rel="stylesheet" href="NavBar.css">
+    <script type="module">
+        import {initialiseNavBar} from "./NavBar.js";
+        if (document.readyState === 'loading')
+        {
+            document.addEventListener('DOMContentLoaded', initialiseNavBar);
+        }
+        else
+        {
+            initialiseNavBar()
+        }
+    </script>
+</head>
+<body style="width: 100vw; height: 100vh;">
+
+<header class="navbar">
+    <div class="navbar__about-me-container">
+        <div class="navbar__image-container media-flex-center-wrapper">
+            <img src="/Data/portrait_vtb_2.jpg" alt="IMG" class="media--contain" style="transform: scale(1.5)">
+        </div>
+        <div class="navbar__name_and_role_container--small">
+            <p class="navbar__name"> V Then Bergh - Tech Design</p>
+        </div>
+        <div class="navbar__name_and_role_container--medium">
+            <p class="navbar__name"> Valentin Then Bergh - Game Tech Design </p>
+        </div>
+        <div class="navbar__name_and_role_container--large">
+            <p class="navbar__name"> Valentin Then Bergh </p>
+            <p class="navbar__role"> Game Tech Designer </p>
+        </div>
+        <div class="navbar__contact">
+            <a href="mailto:valentin.thenbergh@online.de"> ✉ </a>
+        </div>
+    </div>
+    <nav class="navbar__menu">
+        <ul class="navbar__links">
+            <li class="navbar__link"> <a data-rel-link="../index.html" href="../index.html"> home </a> </li>
+            <li class="navbar__link"> <a data-rel-link="../Projects/Rotations/Rotations.html" href="../Projects/Rotations/Rotations.html"> rotations </a> </li>
+            <li class="navbar__link"> <a data-rel-link="../Data/Placeholder_CV.pdf" href="../Data/Placeholder_CV.pdf"> Curriculum Vitae </a> </li>
+        </ul>
+    </nav>
+    <div class="navbar__hamburger">
+        <span class="navbar__hamburger-line"></span>
+        <span class="navbar__hamburger-line"></span>
+        <span class="navbar__hamburger-line"></span>
+    </div>
+</header>
+
+<main class="main">
+
+</main>
+
+</body>
+</html>
