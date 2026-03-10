@@ -27,26 +27,28 @@
 .further-projects-section__cards-container--autogrid {
     display: grid;
 
-    grid-template-columns: repeat(auto-fill, minmax(min(80vw, 25rem), 1fr));
+    --min-card-width-rem: 20rem;
+    --max-card-width-vw: 80vw;
+    /* region how the max-card-width-for-height is calculated */
+    /*
+    looking for: max-width
+    given: aspect-ratio: 16/9, line-height: lh, child-B-height: LHB, max-height: 80vh, media-width = max-width
+    calculate:
+    media-width / media-height = 16/9 => media-height = 9/16 * media-width
+    total-height = media-height + LHB = 9/16 * media-width + LHB
+    solve for media-width with total-height = max-height:
+    media-width = (total-height - LHB) * 16/9
+    max-width = media-width
+    */
+     /* endregion  */
+    --max-height: 70vh;
+    --max-card-width-for-height: calc((var(--max-height) - (2 * var(--ELEMENT-LINE-HEIGHT))) * (16/9));
+
+    --calculated-card-width: min(var(--min-card-width-rem), var(--max-card-width-vw), var(--max-card-width-for-height));
+    grid-template-columns: repeat(auto-fill, minmax(var(--calculated-card-width), 1fr));
 
     gap: var(--LAYOUT-SPACING-LARGE);
-    align-items: stretch;
-}
-
-@media (max-height: 599px) and (min-aspect-ratio: 4/3)
-{
-    .further-projects-section__cards-container--autogrid {
-        /*media-height -> 16/9 * width*/
-        /*text-height -> 1 line-height*/
-        /*height = media-height + text-height*/
-        /*height = 9/16 * width + 1 line-height*/
-        /*height - line-height = 9/16 width*/
-        /*(height -line-height) * 16/9 = width*/
-
-        --available-height: 80vh;
-        --max-card-width: calc((var(--available-height) - var(--ELEMENT-LINE-HEIGHT)) * 16/9);
-        grid-template-columns: repeat(auto-fill, min(90vw, var(--max-card-width)));
-    }
+    align-items: center;
 }
 
 .further-projects-section__project-card {
@@ -115,11 +117,11 @@
 /* endregion grid-specified-layout */
 
 .further-projects-section__filter-trigger-container {
-    width: 50%;
+    width: 100%;
 
     display: grid;
-    grid-template-columns: 30ch 1fr;
-    gap: var(--LAYOUT-SPACING-SMALL) 0;
+    grid-template-columns: 12rem 1fr;
+    gap: var(--LAYOUT-SPACING-DEFAULT) 0;
 }
 
 .further-projects-section__filter-trigger-category-header {
@@ -127,16 +129,27 @@
 }
 
 .further-projects-section__filter-trigger-category {
-    display: flex;
-    flex-flow: row wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+
     gap: var(--LAYOUT-SPACING-SMALL);
 }
 
 .further-projects-section__filter-trigger {
-    width: 12rem;
+    min-width: 9rem;
+    max-width: 12rem;
     padding: var(--LAYOUT-SPACING-XS);
 }
 
 .further-projects-section__filter-trigger.--active {
     background-color: var(--COLOR-BG-ELEMENT-FADED);
+}
+
+/* media-query mobile-portrait */
+@media (max-width: 37.499rem)
+{
+    .further-projects-section__filter-trigger-container {
+        display: flex;
+        flex-flow: column nowrap;
+    }
 }

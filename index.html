@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/project-section.css">
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/contribution-section.css">
 
+    <link rel="stylesheet" href="Navigation/NavBar.css">
+    <script type="module" src="Navigation/AddNavBar.js"></script>
+
     <!-- individual section stylesheets -->
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/about-me.css">
     <link rel="stylesheet" href="Projects/Rotations/CSS_JS/rotations-section.css">
@@ -36,29 +39,30 @@
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/further-projects-section.css">
     <script defer type="module" src="CSS_JS/portfolio.blocks/further-projects-section.js"></script>
 
-    <link rel="stylesheet" href="CSS_JS/debug.css">
+    <link rel="stylesheet" href="ZyKa/debug/debug.css">
 </head>
 <body>
 
 <main class="main">
     <section id="about-me" class="main__panel project-section project-section__main-content">
-        <div class="project-section__media media--relative-wrapper" style="aspect-ratio: 1/1; flex-basis: 30%; border-radius: 8vw">
-            <img class="" src="Data/portrait_vtb_2.jpg" alt="Image of me" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -48%) scale(0.3); ">
+<!--        <div class="project-section__media media&#45;&#45;relative-wrapper" style="aspect-ratio: 1/1; flex-basis: 30%; border-radius: 8vw">-->
+        <div class="project-section__media media--relative-wrapper">
+            <img class="media--cover" src="Data/portrait_vtb_2.jpg" alt="Image of me" style="border-radius: 12vw; ">
         </div>
         <div class="project-section__info-container">
             <h1 class="header header--left"> Valentin Then Bergh </h1>
             <div class="flex-tags">
-                <h2 class="flex-tags__tag tag tag--about-me-skills"> Gameplay <br class="tag--about-me-br"> Programming </h2>
-                <h2 class="flex-tags__tag tag tag--about-me-skills"> Mechanics <br class="tag--about-me-br"> Design </h2>
-                <h2 class="flex-tags__tag tag tag--about-me-skills"> Tech <br class="tag--about-me-br"> Design </h2>
-                <h2 class="flex-tags__tag tag tag--about-me-skills"> Math <br class="tag--about-me-br"> Visualization </h2>
+                <p class="flex-tags__tag tag tag--about-me-skills emphasized"> Gameplay <br class="tag--about-me-br"> Programming </p>
+                <p class="flex-tags__tag tag tag--about-me-skills emphasized"> Mechanics <br class="tag--about-me-br"> Design </p>
+                <p class="flex-tags__tag tag tag--about-me-skills emphasized"> Tech <br class="tag--about-me-br"> Design </p>
+                <p class="flex-tags__tag tag tag--about-me-skills emphasized"> Math <br class="tag--about-me-br"> Visualization </p>
             </div>
             <div class="project-section__description">
                 <p>
                     <span class="emphasized"> My Work: </span> As a tech designer, I specialize in composing game design elements into logically coherent
                     structures. Due to this characteristic, I enjoy working as an intermediary between designers and
                     programmers: On the design side, I contribute ideas & logic to new game mechanics, before I
-                    translate the systems into flowcharts that programmers can readily implement. On the programming
+                    translate the systems into flowcharts that programmers can smoothly implement. On the programming
                     side, I build design-heavy gameplay systems and organize assets to empower designers in crafting
                     gameplay more easily. <br>
                     <br>
@@ -66,7 +70,7 @@
                     games. Some specific genres include: platformers, metroidvanias, card-/monster-gatherers, logic puzzles, and music games. <br>
                     <br>
                     <span class="emphasized"> My Experience: </span> I studied at the Cologne Game Lab, where I collaborated on multiple group projects spanning several
-                    weeks each. Throughout these, I gained experience in the collaborative use of Unity (C#, 4 years),
+                    weeks each. Throughout these, I gained experience in the group use of Unity (C#, 4 years),
                     Unreal Engine (C++, 1 year), as well as organizational tools, like Git, Miro, and more. <br>
                     <br>
                     <span class="emphasized"> My Plans: </span> For the future, I'd like to learn how to contribute these skills in a professional environment.
@@ -130,19 +134,19 @@
                 <div class="scroll-container">
                     <div class="scroll-container__content-container">
                         <div id="rotation-main-video" class="scroll-container__item">
-                            <video src="../../Data/Placeholder/More%20JarJar%20Than%20Yoda.mp4" style="width: 100%; height: 100%" loop></video>
+                            <video src="./Data/Placeholder/More%20JarJar%20Than%20Yoda.mp4" style="width: 100%; aspect-ratio: 4/3" loop></video>
                         </div>
                         <div id="WebGL-Build" class="scroll-container__item">
                             <!--                        WebGL-Build is loaded in here-->
                         </div>
                     </div>
                     <div class="scroll-container__bottom-navigation-line">
-                        <div class="scroll-container__bot-nav-line-button"
+                        <p class="scroll-container__bot-nav-line-button"
                              data-scriptName="video-toggle"
-                             data-scroll="#rotation-main-video"> Play Video </div>
-                        <div class="scroll-container__bot-nav-line-button"
+                             data-scroll="#rotation-main-video"> Play Video </p>
+                        <p class="scroll-container__bot-nav-line-button"
                              data-scriptName="webgl-scroller"
-                             data-scroll="#WebGL-Build"> Try Yourself </div>
+                             data-scroll="#WebGL-Build"> Try Yourself </p>
                     </div>
                 </div>
                 <!-- rotations-section.js loads the WebGL build in here -->
@@ -162,6 +166,7 @@
                         <th> Time - Team-Size</th>
                         <td><span data-ref="text:time"></span> - <span data-ref="text:team-size"> </span></td>
                     </tr>
+                    <!-- region alt displays of data -->
                     <!--                    <tr>-->
                     <!--                        <th> <img src="./Data/Icons/Group.png" alt="Group-Size: " class="media&#45;&#45;img-in-font"> </th>-->
                     <!--                        <td> 1 </td>-->
@@ -183,6 +188,7 @@
                     <!--                            </div>-->
                     <!--                        </td>-->
                     <!--                    </tr>-->
+                    <!-- endregion -->
                     <tr>
                         <th> my role:</th>
                         <td data-ref="contributions:contributions"></td>
@@ -231,10 +237,10 @@
                 </div>
             </div>
         </div>
-        <div id="rotations-workflow"
-             class="project-section__workflow project-section__workflow--collapsed">
-            <!-- This is where further explanation about the workflow or individual results of the project are added -->
-        </div>
+<!--        <div id="rotations-workflow"-->
+<!--             class="project-section__workflow project-section__workflow&#45;&#45;collapsed">-->
+<!--            &lt;!&ndash; This is where further explanation about the workflow or individual results of the project are added &ndash;&gt;-->
+<!--        </div>-->
     </section>
 
     <div class="main__separator"></div>
@@ -275,33 +281,34 @@
 
         <h2 class="emphasized"> Skills: <span style="font-size: var(--FONT-SIZE-SMALL)"> (click to filter projects) </span> </h2>
         <div class="further-projects-section__filter-trigger-container">
+
+            <p class="further-projects-section__filter-trigger-category-header"> Engines: </p>
             <div class="further-projects-section__filter-trigger-category">
-                <p class="further-projects-section__filter-trigger-category-header"> Engines: </p>
                 <div class="further-projects-section__filter-trigger tag" data-filter-trigger="Unity"> Unity </div>
                 <div class="further-projects-section__filter-trigger tag" data-filter-trigger="Unreal Engine"> Unreal Engine </div>
-                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="other engine"> other engine </div>
+<!--                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="other engine"> other engine </div>-->
             </div>
 
+            <p class="further-projects-section__filter-trigger-category-header"> Team- & Project-Size: </p>
             <div class="further-projects-section__filter-trigger-category">
-                <p class="further-projects-section__filter-trigger-category-header"> Team- & Project-Size: </p>
-                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="collaborative-project"> collaborative project </div>
-                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="collaborative-mechanic"> collaborative mechanic </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="group-project"> group project </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="group-feature"> group feature </div>
                 <div class="further-projects-section__filter-trigger tag" data-filter-trigger="solo-project"> solo-project </div>
-                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="solo-mechanic"> solo-mechanic </div>
+<!--                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="solo-mechanic"> solo-mechanic </div>-->
             </div>
 
+            <p class="further-projects-section__filter-trigger-category-header"> My Role: </p>
             <div class="further-projects-section__filter-trigger-category">
-                <p class="further-projects-section__filter-trigger-category-header"> My Role: </p>
                 <div class="further-projects-section__filter-trigger tag" data-filter-trigger="programming"> programming </div>
                 <div class="further-projects-section__filter-trigger tag" data-filter-trigger="mechanic design"> mechanic design </div>
                 <div class="further-projects-section__filter-trigger tag" data-filter-trigger="level design"> level design </div>
-                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="audio"> audio </div>
-                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="visuals"> visuals </div>
+<!--                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="visuals"> visuals </div>-->
             </div>
 
+            <p class="further-projects-section__filter-trigger-category-header"> Other: </p>
             <div class="further-projects-section__filter-trigger-category">
-                <p class="further-projects-section__filter-trigger-category-header"> Other: </p>
-                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="educational"> educational game </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="educational"> educational </div>
+                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="audio"> audio </div>
             </div>
         </div>
         <div id="further-projects-section__cards-container" class="further-projects-section__cards-container--autogrid" data-filter-container="further_projects_section__cards-container">

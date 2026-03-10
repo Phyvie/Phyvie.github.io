@@ -18,10 +18,8 @@ font, button, textarea, select {
 p, h1, h2, h3, h4, h5, h6, figcaption, th, td, li, a {
     overflow-wrap: break-word;
     text-wrap: pretty;
-    hyphens: none;
 
-    font-size: 1rem;
-    line-height: 1.5;
+    hyphens: manual;
 
     text-align: justify;
 }

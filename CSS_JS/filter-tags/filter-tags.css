@@ -15,8 +15,9 @@
 }
 
 .example__filter-button {
-    width: 50px;
-    height: 50px;
+    /* NOWZyKa NavBar: Reset to 50px */
+    width: 100px;
+    height: 100px;
 }
 
 .example__item-grid {
@@ -30,6 +31,7 @@
 
 .example__item {
     background-color: darkslategray;
-    height: 50px;
+    /* NOWZyKa NavBar: Reset to 50px */
+    height: 500px;
 }
 /* endregion example */

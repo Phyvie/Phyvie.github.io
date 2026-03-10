@@ -64,9 +64,6 @@ How webhosting works:
 1. domain registration
 2. web hosting
 
-
-### NOWZyKa Workflow: is research done?
-
 ### Happy-Path: 
 - **simple** (<= 1hour): pseudo-code lines
 - **default** (<= 1day): flowchart & rubber-duck
@@ -80,8 +77,6 @@ How webhosting works:
 - ... is fun to make?
 - ... helps an imaginary future?
 -> any yes = kill
-
-### NOWZyKa Workflow: confirm happy-path
 
 ### Edge-Cases: 
 - 5 min brainstorm (technical issues, user stupidity, internal curruption) into frequency-impact-time-list: 
@@ -100,8 +95,6 @@ How webhosting works:
   - obvious error handling?
   - backwards-compatible?
 
-### NOWZyKa Workflow: confirm solution design
-
 # ________
 
 ## PHASE 3 - IMPLEMENTATION
@@ -112,8 +105,6 @@ How webhosting works:
 - implement happy-path test
 - compare with design
 
-### NowZyKa workflow: test success? continue!
-
 ### Edge-Cases: 
 - implement edge-case-documentation
 - implement edge-case test
@@ -122,8 +113,6 @@ How webhosting works:
     - extract if necessary
     - rename new variables/functions
     - no structural changes (= no abstraction, no extra classes)
-
-### NowZyKa workflow: tests succeed? continue!
 
 # ________
 

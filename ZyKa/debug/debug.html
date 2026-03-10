@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Debug </title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link rel="stylesheet" href="../../CSS_JS/reset.css">
+    <link rel="stylesheet" href="../../CSS_JS/global_variables.css">
+    <link rel="stylesheet" href="../../CSS_JS/styling/media.css">
+    <link rel="stylesheet" href="../../CSS_JS/common.blocks/tag.css">
+
+    <link rel="stylesheet" href="debug.css">
+    <script type="module" src="debug.js"></script>
+
+    <link rel="stylesheet" href="../../CSS_JS/filter-tags/filter-tags.css">
+    <link rel="stylesheet" href="../../CSS_JS/filter-tags/filter-tags.js">
+
+    <link rel="stylesheet" href="../../Navigation/NavBar.css">
+    <script type="module" src="../../Navigation/AddNavBar.js"></script>
+</head>
+
+<body>
+
+<!-- region NavBar w3schools/geeksforgeeks -->
+<!--<div class="debug-navigation-bar">-->
+<!--&lt;!&ndash;    <div class="debug-navigation-bar__about-me">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="debug-navigation-bar__image-wrapper media-flex-center-wrapper">&ndash;&gt;-->
+<!--            <img class="media&#45;&#45;contain" src="/Data/Placeholder/Bowser.jpg" alt="Bowser" style="height: var(&#45;&#45;ELEMENT-LINE-HEIGHT)">-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <h1 class="header header&#45;&#45;left"> Valentin Then Bergh </h1>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+
+<!--    <ul class="debug-navigation-bar__menu">-->
+<!--        <li class="debug-navigation-bar__item"> <a href="/index.html"> index.html </a> </li>-->
+<!--        <li class="debug-navigation-bar__item"> <a href="/Portfolio/index.html"> Portfolio/index.html </a> </li>-->
+<!--        <li class="debug-navigation-bar__item"> <a href="/Portfolio/Projects/Rotations/Rotations.html"> Rotations.html </a> </li>-->
+<!--        <li class="debug-navigation-bar__item"> <a href="/Portfolio/ZyKa/debug.html"> debug.html </a> </li>-->
+<!--        <li class="debug-navigation-bar__item"> <a href="https://www.w3schools.com/Css/css_navbar.asp"> w3schools </a> </li>-->
+<!--        <li class="debug-navigation-bar__item"> <a href="https://gamedesignskills.com/game-design/portfolio/#6-iterate-like-a-live-ops-team"> hwo to portfolio </a> </li>-->
+<!--    </ul>-->
+<!--</div>-->
+<!-- endregion -->
+
+<!-- region NavBar https://thesyntaxdiaries.com/responsive-navbar-html-css-js -->
+<!--<header class="navbar">-->
+<!--    <div class="navbar__logo">-->
+<!--        <a href="#">MySite</a>-->
+<!--    </div>-->
+
+<!--    <nav class="navbar__menu">-->
+<!--        <ul class="navbar__links">-->
+<!--            <li><a href="#" class="active">Home</a></li>-->
+<!--            <li><a href="#">About</a></li>-->
+<!--            <li class="dropdown">-->
+<!--                <a href="#" class="dropdown-toggle"> Services <span class="dropdown-arrow"> ▼ </span> </a>-->
+<!--                <ul class="dropdown-menu">-->
+<!--                    <li><a href="#">Web Design</a></li>-->
+<!--                    <li><a href="#">Development</a></li>-->
+<!--                    <li><a href="#">SEO</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li><a href="#">Projects</a></li>-->
+<!--            <li><a href="#">Contact</a></li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+
+<!--    <div class="navbar__hamburger">-->
+<!--        <span class="navbar__hamburger-bar"></span>-->
+<!--        <span class="navbar__hamburger-bar"></span>-->
+<!--        <span class="navbar__hamburger-bar"></span>-->
+<!--    </div>-->
+<!--</header>-->
+<!-- endregion-->
+
+<main class="main">
+
+<div class="example">
+    <div class="example__filter-buttons-container">
+        <div class="example__filter-button" style="background-color: blue" data-filter-trigger="blue"></div>
+        <div class="example__filter-button" style="background-color: red" data-filter-trigger="red"></div>
+        <div class="example__filter-button" style="background-color: yellow" data-filter-trigger="yellow"></div>
+    </div>
+
+    <div class="example__item-grid" data-filter-container="example-filter-container">
+        <div class="example__item filterable" style="background-color: darkblue" data-filter-tags='[{"name": "blue", "relevance": "3"}]'></div>
+        <div class="example__item filterable" style="background-color: darkred" data-filter-tags='[{"name": "red", "relevance": "3"}]'></div>
+        <div class="example__item filterable" style="background-color: orange" data-filter-tags='[{"name": "yellow", "relevance": "1"}]'></div>
+        <div class="example__item filterable" style="background-color: rebeccapurple" data-filter-tags='[{"name": "blue", "relevance": "2"}, {"name": "red", "relevance": "2"}]'></div>
+        <div class="example__item filterable" style="background-color: lightblue" data-filter-tags='[{"name": "blue", "relevance": "2"}]'></div>
+        <div class="example__item filterable" style="background-color: orange" data-filter-tags='[{"name": "yellow", "relevance": "1"}]'></div>
+        <div class="example__item filterable" style="background-color: lightblue" data-filter-tags='[{"name": "blue", "relevance": "2"}]'></div>
+        <div class="example__item filterable" style="background-color: darkblue" data-filter-tags='[{"name": "blue", "relevance": "3"}]'></div>
+        <div class="example__item filterable" style="background-color: yellow" data-filter-tags='[{"name": "yellow", "relevance": "3"}]'></div>
+        <div class="example__item filterable" style="background-color: darkred" data-filter-tags='[{"name": "red", "relevance": "3"}]'></div>
+        <div class="example__item filterable" style="background-color: rebeccapurple" data-filter-tags='[{"name": "blue", "relevance": "2"}, {"name": "red", "relevance": "2"}]'></div>
+        <div class="example__item filterable" style="background-color: yellow" data-filter-tags='[{"name": "yellow", "relevance": "3"}]'></div>
+    </div>
+</div>
+
+</main>
+
+</body>
+
+</html>

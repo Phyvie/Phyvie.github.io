@@ -47,10 +47,11 @@ async function initialize()
     });
 
     /* on the main-page I need to create the switchableContentContainer to show the different contribution, while on the rotation-page the switchableContentContainer doesn't exist */
-    if (document.querySelector('.rotations-workflow') === null)
+    if (document.querySelector('#rotations-workflow') === null)
     {
         return;
     }
+
     createSwitchableContentContainer(HTMLContentCache, 'rotations-workflow');
 }
 

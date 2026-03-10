@@ -1,0 +1,44 @@
+<template id="template--project-card">
+    <div class="further-projects-section__project-item--grid project-card">
+        <div class="project-card__media-overlay-container">
+            <div class="project-card__media">
+                <img class="media--contain"
+                     src="/Data/Placeholder/Bowser.jpg"
+                     alt="project-image">
+<!--                     data-ref="image:thumbnail"-->
+                <video class="media--contain" data-ref="video:trailer"> </video>
+            </div>
+            <div class="project-card__overlay overlay">
+                <h2 class="overlay__top-left overlay__project-title" data-ref="text:project-title">  Project Title  </h2>
+
+                <div class="overlay__top-right overlay__info-button media--hover-scale"> </div>
+
+                <div class="overlay__scroll-in--right --inactive overlay__element-design--transparent flex-col-center">
+                    <p class="overlay__project-description" data-ref="text:description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        <br>
+                        Donec a diam lectus. Set sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
+                    </p>
+                </div>
+
+                <div class="overlay__bottom overlay__element-design--transparent">
+                </div>
+            </div>
+        </div>
+        <div class="project-card__bottom-line">
+            <div class="project-information__context tag tag--project-card" data-ref="icon:origin">
+            </div>
+            <div class="project-information__group-size tag tag--project-card">
+                <img class="media--img-in-font" src="/Data/Icons/Group.png" alt="link-icon">
+                <p class="" data-ref="text:team-size"> 5 </p>
+            </div>
+            <div class="project-information__date-time tag tag--project-card">
+                <img class="media--img-in-font" src="/Data/Icons/Calendar.png" alt="link-icon">
+                <p class="" data-ref="text:time"> 7 Weeks </p>
+            </div>
+            <div class="project-information__project-link tag tag--link-arrow tag--project-card-link">
+                <p> Download </p>
+            </div>
+        </div>
+    </div>
+</template>

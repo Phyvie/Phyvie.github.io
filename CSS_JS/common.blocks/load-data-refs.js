@@ -87,7 +87,7 @@ function setTextContent(element, text) {
     }
     else
     {
-        element.textContent = text;
+        element.innerHTML = text;
     }
 }
 
@@ -189,8 +189,6 @@ function trySetIcon(element, iconName) {
         const imgElement = document.createElement('img');
         imgElement.className = "media--img-in-font";
         element.appendChild(imgElement);
-        const descElement = document.createElement('p');
-        element.appendChild(descElement);
 
         setImageContent(imgElement, {"src": IconPath, "alt": iconName, "class": "media--img-in-font"});
         element.onerror = function()
@@ -277,7 +275,7 @@ function setContributions(element, contributions) {
         let contributionElement = document.createElement('span');
         element.appendChild(contributionElement);
 
-        contributionElement.innerHTML = contribution.name;
+        contributionElement.innerHTML = " - " + contribution.name;
         contributionElement.setAttribute('Data-cached-container-id', containerID);
         contributionElement.setAttribute('Data-cached-content', GetPathFromPortfolioRoot(contribution.link));
         element.innerHTML += ",<br>"

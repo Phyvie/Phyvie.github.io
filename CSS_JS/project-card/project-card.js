@@ -12,7 +12,7 @@ import {
     appendTemplateCopyToElement
 } from "../URL-Fetching-And-Templates/template-manager.js";
 
-const PROJECT_CARD_TEMPLATE_PATH = new URL("./Project-Card-Template.html", import.meta.url).href;
+const PROJECT_CARD_TEMPLATE_PATH = new URL("./Project-Card-Template_2.html", import.meta.url).href;
 const PROJECT_CARD_TEMPLATE_ID = "template--project-card";
 let TEMPLATE_PROJECT_CARD;
 
@@ -80,7 +80,7 @@ export function SetupProjectCardInteraction(projectCard)
     wireImageToVideo(thumbnail, trailer);
     wireOverlayToVideo(trailer);
 
-    SetupInfoButtonOverlay(projectCard);
+    // SetupInfoButtonOverlay(projectCard); //alt layout where the description is shown when the user clicks on the info-button in the top-left
     // SetupFoldable(projectCard); //alt layout with Foldable
 }
 
@@ -169,35 +169,29 @@ function wireOverlayToVideo(video)
         return;
     }
 
-    let overlayBottom = projectCard.querySelector('.overlay__bottom');
-    if (!overlayBottom)
-    {
-        console.warn("wireOverlayToVideo: overlay__bottom element not found");
-    }
+    let overlayedElements = [];
+
+    // alt layout with other overlays
+    // let overlayBottom = projectCard.querySelector('.overlay__bottom');
+    // if (!overlayBottom)
+    // {
+    //     console.warn("wireOverlayToVideo: overlay__bottom element not found");
+    // }
+    // overlayedElements.push(overlayBottom);
 
     let overlayTitle = projectCard.querySelector('.overlay__project-title');
     if (!overlayTitle)
     {
         console.warn("wireOverlayToVideo: overlay__title element not found");
     }
+    overlayedElements.push(overlayTitle);
 
     let overlayMainRole = projectCard.querySelector('.overlay__main-role');
     if (!overlayMainRole)
     {
         console.warn("wireOverlayToVideo: overlay__main-role element not found");
     }
-
-    video.addEventListener("play", () => {
-        overlayBottom?.classList.add('--inactive');
-        overlayTitle?.classList.add('--inactive');
-        overlayMainRole?.classList.add('--inactive');
-    });
-
-    video.addEventListener("pause", () => {
-        overlayBottom?.classList.remove('--inactive');
-        overlayTitle?.classList.remove('--inactive')
-        overlayMainRole?.classList.remove('--inactive');
-    });
+    overlayedElements.push(overlayMainRole);
 
     video.addEventListener("mouseenter", () => {
         overlayMainRole?.classList.add("--video-controls-active");
@@ -205,6 +199,20 @@ function wireOverlayToVideo(video)
     video.addEventListener("mouseleave", () => {
         overlayMainRole?.classList.remove("--video-controls-active");
     })
+
+    video.addEventListener("play", () => {
+        for (let el of overlayedElements)
+        {
+            el.classList.add('--inactive');
+        }
+    });
+
+    video.addEventListener("pause", () => {
+        for (let el of overlayedElements)
+        {
+            el.classList.remove('--inactive');
+        }
+    });
 }
 
 async function initialize()
