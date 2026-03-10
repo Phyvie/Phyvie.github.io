@@ -23,7 +23,7 @@
     container: tag--about-me-link / inline-size;
 }
 
-@container flex-tags (min-width: 20em)
+@container flex-tags (min-width: 25em)
 {
     .tag--about-me-skills {
         --LAYOUT-TAG-WIDTH: 50%;
@@ -34,31 +34,14 @@
     }
 }
 
-@media (max-width: 1199px)
+@container flex-tags (min-width: 50sem)
 {
-    @container flex-tags (min-width: 50em)
-    {
-        .tag--about-me-skills {
-            --LAYOUT-TAG-WIDTH: 25%;
-        }
-
-        .tag--about-me-links {
-            --LAYOUT-TAG-WIDTH: 25%;
-        }
+    .tag--about-me-skills {
+        --LAYOUT-TAG-WIDTH: 25%;
     }
-}
 
-@media (min-width: 1200px)
-{
-    @container flex-tags (min-width: 50em)
-    {
-        .tag--about-me-skills {
-            --LAYOUT-TAG-WIDTH: 25%;
-        }
-
-        .tag--about-me-links {
-            --LAYOUT-TAG-WIDTH: 25%;
-        }
+    .tag--about-me-links {
+        --LAYOUT-TAG-WIDTH: 25%;
     }
 }
 
@@ -66,7 +49,7 @@
     display: block;
 }
 
-@container tag--about-me-skills (min-width: 12rem) {
+@container tag--about-me-skills (min-width: 12em) {
     .tag--about-me-br {
         display: none;
     }

@@ -4,6 +4,7 @@
     flex-flow: column nowrap;
 }
 
+/* contains media, info-block, description, links; But not contribution foldout */
 .project-section__main-content {
     display: flex;
     flex-flow: column nowrap;
@@ -13,8 +14,7 @@
 }
 
 .project-section__media {
-    aspect-ratio: 4/3;
-    max-width: min(calc(80vh * 4/3), 80vw);
+    max-width: min(calc(80vh * 4/3), 100vw);
 
     align-self: center;
 }
@@ -29,6 +29,7 @@
 
 .project-section__title {
     font-size: var(--FONT-SIZE-TITLE);
+    hyphens: none;
 }
 
 .project-section__description {
@@ -40,9 +41,6 @@
 }
 
 .project-section__data-table {
-    margin-left: var(--LAYOUT-SPACING-DEFAULT);
-    margin-right: var(--LAYOUT-SPACING-DEFAULT);
-    margin-bottom: var(--LAYOUT-SPACING-DEFAULT);
     padding: var(--LAYOUT-SPACING-XS) var(--LAYOUT-SPACING-SMALL);
 
     border-radius: var(--LAYOUT-BORDER-RADIUS-SMALL);
@@ -52,12 +50,13 @@
 .project-section__data-table td,
 .project-section__data-table th
 {
-    padding: 0 var(--LAYOUT-SPACING-DEFAULT) 0 var(--LAYOUT-SPACING-XS);
+    padding: 0 var(--LAYOUT-SPACING-DEFAULT) 0 var(--LAYOUT-SPACING-SMALL);
     vertical-align: middle;
 }
 
 .project-section__data-table td:first-child,
 .project-section__data-table th:first-child {
+    /* width 1% with white-space: nowrap ensures the table column takes up exactly as much space as the text needs */
     width: 1%;
     white-space: nowrap;
 }
@@ -94,9 +93,10 @@
             height var(--ANIMATION-DURATION-FAST) ease-in-out,
             max-height var(--ANIMATION-DURATION-FAST) ease-in-out,
             padding var(--ANIMATION-DURATION-FAST) ease-in-out;
+
+    border: 2px solid var(--COLOR-BG-ELEMENT-FADED);
 }
 
-/* NoZyKa active-system: switch all the [...]--active and [...]--collapsed to just active/collapsed so that they work independent of the class they modify via .[class].--active */
 .project-section__workflow--collapsed {
     margin-top: 0;
     max-height: 0;
@@ -104,14 +104,70 @@
     border: 0;
 }
 
-/* small-wide screen */
-@media (orientation: landscape) {
-    .project-section__media {
-        max-width: min(calc(80vh * 4/3), 80vw);
+.tag--project-section-link {
+    --LAYOUT-TAG-WIDTH: 100%;
+}
+
+@container flex-tags (min-width: 20rem)
+{
+    .tag--project-section-link {
+        --LAYOUT-TAG-WIDTH: 50%;
     }
 }
 
-@media (min-width: 1200px) {
+
+@media (max-width: 20rem)
+{
+    .project-section__title {
+        hyphens: manual;
+    }
+}
+
+/* media-query mobile-portrait */
+@media (max-width: 37.499rem)
+{
+    .project-section__media {
+        width: 100%;
+    }
+
+    .project-section__info-container {
+        width: 100%;
+    }
+
+    .project-section__title {
+        align-self: center;
+        text-align: center;
+    }
+
+    .project-section__data-table {
+        /* no margin */
+    }
+}
+
+/* media-query medium size */
+@media (min-width: 37.5rem)
+{
+    .project-section__media {
+        width: 100%;
+    }
+
+    .project-section__info-container {
+        width: 100%;
+    }
+
+    .project-section__title {
+        align-self: center;
+        text-align: center;
+    }
+
+    .project-section__data-table {
+
+    }
+}
+
+/* media-query large size */
+@media (min-width: 56.25rem)
+{
     .project-section__main-content {
         flex-flow: row nowrap;
         justify-content: space-around;
@@ -127,15 +183,14 @@
         flex: 1 1 50%;
         max-width: 50%;
     }
-}
 
-.tag--project-section-link {
-    --LAYOUT-TAG-WIDTH: 100%;
-}
+    .project-section__title {
+        align-self: flex-start;
+        text-align: left;
+    }
 
-@container flex-tags (min-width: 20rem)
-{
-    .tag--project-section-link {
-        --LAYOUT-TAG-WIDTH: 50%;
+    .project-section__data-table {
+        margin-left: var(--LAYOUT-SPACING-DEFAULT);
+        margin-right: var(--LAYOUT-SPACING-DEFAULT);
     }
 }

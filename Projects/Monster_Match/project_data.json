@@ -1,6 +1,6 @@
 {
   "project-title": "Monster Match",
-  "project-type": "Educational Game",
+  "project-type": "educational",
   "version": "1.0.0",
   "origin": "Cologne Game Lab",
   "team-size": "6",
@@ -28,7 +28,7 @@
       "relevance": "2"
     },
     {
-      "name": "collaborative-project",
+      "name": "group-project",
       "relevance": "3"
     },
     {
