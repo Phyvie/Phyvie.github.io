@@ -7,7 +7,7 @@
   "date": "2025",
   "time": "3 months",
   "thumbnail": {
-    "src": "",
+    "src": "_./Projects/Rotations.html",
     "alt": "Rotation_Parametrization Thumbnail"
   },
   "trailer": {
@@ -34,7 +34,7 @@
     ]
   },
   "description": [
-    "Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? In my bachelor thesis, and the accompanying interactive tool, I analyse & visualise the varying properties and resulting use cases of rotation parametrizations."
+    "Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? In my bachelor thesis, and the accompanying interactive tool, I analyse & visualise the varying properties of rotation parametrizations and their resulting use cases."
   ],
   "tags": [
     {

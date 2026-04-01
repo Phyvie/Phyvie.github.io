@@ -57,8 +57,10 @@ check scrolling works
                     <div id="rotation-main-video" class="scroll-container__item">
                         <video src="../../Data/Placeholder/More%20JarJar%20Than%20Yoda.mp4" style="width: 100%; height: 100%" loop></video>
                     </div>
-                    <div id="WebGL-Build" class="scroll-container__item">
-<!--                        WebGL-Build is loaded in here-->
+                    <div id="WebGL-Build"
+                         class="scroll-container__item"
+                        data-scriptName="webgl-build">
+                        <!-- rotations-section.js loads the WebGL build in here -->
                     </div>
                 </div>
                 <div class="scroll-container__bottom-navigation-line">
@@ -70,7 +72,6 @@ check scrolling works
                         data-scroll="#WebGL-Build"> Try Yourself </div>
                 </div>
             </div>
-            <!-- rotations-section.js loads the WebGL build in here -->
         </div>
         <div class="project-section__info-container">
             <h1 class="project-section__title" data-ref="text:project-title"></h1>
@@ -87,6 +88,7 @@ check scrolling works
                     <th> Time - Team-Size</th>
                     <td><span data-ref="text:time"></span> - <span data-ref="text:team-size"> </span></td>
                 </tr>
+                <!-- region alt layout of data-table -->
                 <!--                    <tr>-->
                 <!--                        <th> <img src="./Data/Icons/Group.png" alt="Group-Size: " class="media&#45;&#45;img-in-font"> </th>-->
                 <!--                        <td> 1 </td>-->
@@ -108,6 +110,7 @@ check scrolling works
                 <!--                            </div>-->
                 <!--                        </td>-->
                 <!--                    </tr>-->
+                <!-- endregion -->
                 <tr>
                     <th> my role:</th>
                     <td data-ref="contributions:contributions"></td>
@@ -123,8 +126,7 @@ check scrolling works
             <!--                    <p class="flex-tags__tag tag tag&#45;&#45;rotations"> </p>-->
             <!--                </div>-->
             <!-- endregion -->
-            <!--            <p class="project-section__description" data-ref="text:description"> </p>-->
-            <p class="project-section__description"> Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? In my bachelor thesis, and the accompanying interactive tool, I analyse & visualise the varying properties and resulting use cases of rotation parametrizations. </p>
+            <p class="project-section__description" data-ref="text:description"> </p>
             <!--        region layout alternative: separate contribution & tools section -->
             <!--            <div class="project-section__contributions">-->
             <!--                <h2 class="header&#45;&#45;lvl2"> contributions & tools: </h2>-->
@@ -152,16 +154,15 @@ check scrolling works
             <!--                </ul>-->
             <!--            </div>-->
             <!--            endregion layout alternative: separate contribution & tools section-->
-            <!--        region layout alternative: separate links section-->
             <div class="project-section__links flex-tags flex-tags--project-section-links">
+<!--&lt;!&ndash;                <a class="flex-tags__tag tag tag&#45;&#45;link-arrow tag&#45;&#45;project-section-link" href="./Projects/Rotations/Rotations.html"> discover more </a>&ndash;&gt; this links from main-page to the project page. -->
             </div>
-            <!--        endregion layout alternative: separate links section-->
         </div>
     </div>
-    <div id="rotations-workflow"
-         class="project-section__workflow project-section__workflow--collapsed">
+<!--    <div id="rotations-workflow"-->
+<!--         class="project-section__workflow project-section__workflow&#45;&#45;collapsed">-->
         <!-- This is where further explanation about the workflow or individual results of the project are added -->
-    </div>
+<!--    </div>-->
 </section>
 
 <div class="main__separator"></div>

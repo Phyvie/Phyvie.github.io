@@ -246,8 +246,6 @@
     font-weight: bold;
 }
 
-/* region unfoldable */
-
 /* region alt layout foldable*/
 .project-card__foldable {
     margin-top: var(--LAYOUT-SPACING-SMALL);

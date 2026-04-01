@@ -10,10 +10,6 @@
     container: scroll-container / inline-size;
 }
 
-.scroll-container--with-border {
-
-}
-
 /* container for the content which is actually scrolling */
 .scroll-container__content-container {
     width: 100%;
@@ -117,6 +113,26 @@
 .scroll-container__nav-button--next::before {
     clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
 }
-/* region example-additional styling */
 
-/* endregion example-additional styling */
+/* region height-contained */
+.scroll-container.--height-contained {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.scroll-container.--height-contained .scroll-container__content-container {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.scroll-container.--height-contained .scroll-container__item {
+    height: 100%;
+}
+
+
+.scroll-container.--height-contained .scroll-container__bottom-navigation-line {
+    flex-shrink: 0;
+}
+/* endregion height-contained */

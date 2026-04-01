@@ -15,8 +15,11 @@
     <link rel="stylesheet" href="CSS_JS/common.blocks/header.css">
     <link rel="stylesheet" href="CSS_JS/common.blocks/tag.css">
 
+    <link rel="stylesheet" href="CSS_JS/lightbox/lightbox.css">
+    <script type="module" src="CSS_JS/lightbox/lightbox.js"></script>
+
     <link rel="stylesheet" href="CSS_JS/scroll-container/scroll-container.css">
-    <script defer type="module" src="CSS_JS/scroll-container/scroll-container.js"></script>
+    <script type="module" src="CSS_JS/scroll-container/scroll-container.js"></script>
 
     <script type="module" src="CSS_JS/common.blocks/switchable_content_container.js"></script>
 
@@ -42,6 +45,17 @@
     <link rel="stylesheet" href="ZyKa/debug/debug.css">
 </head>
 <body>
+
+<!-- region LIGHTBOX -->
+<div id="lightbox__overlay" class="lightbox__overlay --fullscreen"> <!-- !!!ZyKa remove the --fullscreen class, make it toggleable via code -->
+    <div class="lightbox__content-container">
+        <button class="lightbox__close-btn" id="closeLightbox">&times;</button>
+        <div class="lightbox__content" id="lightboxBody">
+            <!-- Content will be loaded here dynamically -->
+        </div>
+    </div>
+</div>
+<!-- endregion LIGHTBOX -->
 
 <main class="main">
     <section id="about-me" class="main__panel project-section project-section__main-content">
@@ -89,55 +103,18 @@
 
     <section id="rotations"
              class="main__panel project-section">
-        <!--    <script type="module">-->
-        <!--        import {loadDataRefs, TryLoadJson} from "../../CSS_JS/common.blocks/load-data-refs.js";-->
-        <!--        import {-->
-        <!--            embedWebGLIFrame,-->
-        <!--            minimalWebGLIFramePath,-->
-        <!--            startEmbeddedGame-->
-        <!--        } from "../../CSS_JS/UnityWebGL/unity-embed-webGL-iframe.js";-->
-        <!--        import {resolveRelativeUrlsInJson} from "../../CSS_JS/URL-Fetching-And-Templates/HTML_URL_Utility.js";-->
-        <!--        async function initialize() {-->
-        <!--            let headerSection = document.getElementById('rotations')-->
-        <!--            let jsonData = await TryLoadJson("./project_data.json");-->
-        <!--            jsonData = resolveRelativeUrlsInJson('./project_data.json', jsonData);-->
-
-        <!--            loadDataRefs(headerSection, jsonData);-->
-
-        <!--            let webGLIFrame = embedWebGLIFrame(headerSection.querySelector('#WebGL-Build'), minimalWebGLIFramePath, jsonData.WebGLConfig);-->
-
-        <!--            const scrollContainer = headerSection.querySelector('.scroll-container');-->
-        <!--            const VideoScroller = headerSection.querySelector('[data-scriptName="video-toggle"]');-->
-        <!--            const WebGLScroller = scrollContainer.querySelector('[data-scriptName="webgl-scroller"]');-->
-        <!--            const video = scrollContainer.querySelector('video');-->
-
-        <!--            scrollContainer.addEventListener('click', (event) => {-->
-        <!--                if (event.target === WebGLScroller)-->
-        <!--                {-->
-        <!--                    startEmbeddedGame(webGLIFrame);-->
-        <!--                }-->
-        <!--                if (event.target === VideoScroller)-->
-        <!--                {-->
-        <!--                    video.paused ? video.play() : video.pause();-->
-        <!--                }-->
-        <!--                /* help the user by automatically pausing when they switch to smth else, such that no more audio is running in the background; though it also disabled them from listening while trying themselves what they listen to */-->
-        <!--                else /* if(event.target !== VideoScroller) */-->
-        <!--                {-->
-        <!--                    video.pause();-->
-        <!--                }-->
-        <!--            });-->
-        <!--        }-->
-        <!--        initialize();-->
-        <!--    </script>-->
         <div class="project-section__main-content">
             <div class="project-section__media">
                 <div class="scroll-container">
                     <div class="scroll-container__content-container">
-                        <div id="rotation-main-video" class="scroll-container__item">
-                            <video src="./Data/Placeholder/More%20JarJar%20Than%20Yoda.mp4" style="width: 100%; aspect-ratio: 4/3" loop></video>
+                        <div id="rotation-main-video"
+                             class="scroll-container__item">
+                            <video src="./Data/Placeholder/More%20JarJar%20Than%20Yoda.mp4" style="width: 100%;" loop></video>
                         </div>
-                        <div id="WebGL-Build" class="scroll-container__item">
-                            <!--                        WebGL-Build is loaded in here-->
+                        <div id="WebGL-Build"
+                             class="scroll-container__item"
+                             data-scriptName="webgl-build">
+                            <!-- rotations-section.js loads the WebGL build in here -->
                         </div>
                     </div>
                     <div class="scroll-container__bottom-navigation-line">
@@ -147,9 +124,10 @@
                         <p class="scroll-container__bot-nav-line-button"
                              data-scriptName="webgl-scroller"
                              data-scroll="#WebGL-Build"> Try Yourself </p>
+                        <p class="scroll-container__bot-nav-line-button"
+                            data-scriptName="fullscreen-button"> ⛶ </p>
                     </div>
                 </div>
-                <!-- rotations-section.js loads the WebGL build in here -->
             </div>
             <div class="project-section__info-container">
                 <h1 class="project-section__title" data-ref="text:project-title"></h1>
@@ -166,7 +144,7 @@
                         <th> Time - Team-Size</th>
                         <td><span data-ref="text:time"></span> - <span data-ref="text:team-size"> </span></td>
                     </tr>
-                    <!-- region alt displays of data -->
+                    <!-- region alt layout of data-table -->
                     <!--                    <tr>-->
                     <!--                        <th> <img src="./Data/Icons/Group.png" alt="Group-Size: " class="media&#45;&#45;img-in-font"> </th>-->
                     <!--                        <td> 1 </td>-->
