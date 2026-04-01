@@ -265,3 +265,14 @@
     overflow: hidden;
 }
 /* endregion alt layout foldable */
+
+
+@media (prefers-color-scheme: light) {
+    .project-card {
+        background-color: var(--COLOR-BG-ELEMENT);
+    }
+
+    .tag--project-card {
+        background-color: var(--COLOR-BG-BLOCK);
+    }
+}
