@@ -1,8 +1,8 @@
-import {fetchHTMLElementFromURL} from "../CSS_JS/URL-Fetching-And-Templates/HTML_URL_Utility.js";
+import {fetchElementFromURL} from "../CSS_JS/URL-Fetching-And-Templates/cross-html-engine.js";
 import {initialiseNavBar} from "./NavBar.js";
 
 export async function addNavBar() {
-    const navbarElement = await fetchHTMLElementFromURL(import.meta.resolve('./NavBar.html'), ".navbar")
+    const navbarElement = await fetchElementFromURL(import.meta.resolve('./NavBar.html'), ".navbar")
 
     if (!navbarElement)
     {

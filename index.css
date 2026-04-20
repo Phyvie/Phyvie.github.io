@@ -1,0 +1,8 @@
+/* overwrites of general styles specifically for the index.html page */
+.project-section__behind-the-scenes {
+    display: none;
+}
+
+.tag--project-section-link {
+    display: block;
+}

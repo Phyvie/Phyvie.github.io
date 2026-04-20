@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> example_webGL_embedding </title>
+    <!-- This script is reponsible for creating an iframe and loading the webGL build into it -->
+    <script type="module" src="example_webGL_embedding.js"></script>
+</head>
+
+<body style="display: grid; place-items: center; width: 100vw; height: 100vh; background-color: indigo; ">
+<!-- the following element is the one where the webgl-build will be imported (it is queried for in example_webGL_embedding.js) -->
+<!-- to adjust how the iframe containing the webGL-build looks, copy & adjust example_iframe.html -->
+<div id="example_webGL_embedding" style="width: 80vw; height: 80vh; border: 5px solid black"></div>
+</body>
+
+</html>

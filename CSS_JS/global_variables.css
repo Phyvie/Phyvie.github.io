@@ -43,8 +43,9 @@
     --FONT-SIZE-SMALL: 0.8rem;
     --FONT-SIZE-TITLE: 2.0rem;
     --FONT-SIZE-TITLE-LVL2: 1.5rem;
+    --FONT-SIZE-TITLE-LVL3: 1.2em;
 
-    --FONT-SIZE-EMPHASIZED: 1.2em;
+    --FONT-SIZE-EMPHASIZED: 1.03em;
 
     --ELEMENT-LINE-HEIGHT: 1.8em; /* 1.8em = 1 line-height */
 

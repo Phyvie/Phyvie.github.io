@@ -31,6 +31,11 @@
     text-wrap: nowrap;
 }
 
+.tag--emphasized {
+    font-weight: 800;
+    text-decoration: underline;
+}
+
 .tag--active {
     background-color: var(--COLOR-BG-ELEMENT-TRANSPARENT);
 }

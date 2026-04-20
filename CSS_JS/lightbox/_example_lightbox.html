@@ -41,13 +41,14 @@ the lightbox does not automatically include any content
 <!-- LIGHTBOX -->
 <div id="lightbox__overlay" class="lightbox__overlay">
     <div class="lightbox__content-container">
-        <button class="lightbox__close-btn" id="closeLightbox">&times;</button>
-        <div class="lightbox__content" id="lightboxBody">
+        <button class="lightbox__close-btn"> &times; </button>
+        <div class="lightbox__content">
             <!-- Content will be loaded here dynamically -->
         </div>
     </div>
 </div>
 
+<!-- EXAMPLE CONTENT -->
 <div id="example_img_container" style="margin: 0 25vw; width: 50vw; display: flex; flex-flow: row nowrap; justify-content: space-between; gap: 10px; background-color: gray; ">
     <div style="flex: 1 1 100%; background-color: red; aspect-ratio: 1/1"> </div>
     <div style="flex: 1 1 100%; background-color: green; aspect-ratio: 1/1"> </div>
@@ -55,13 +56,22 @@ the lightbox does not automatically include any content
     <div style="flex: 1 1 100%; background-color: yellow; aspect-ratio: 1/1"> </div>
 </div>
 
+<div style="height: 10px; width: 100%;"></div>
+
+<div id="example_data_lightbox" style="margin: 0 25vw; width: 50vw; display: flex; flex-flow: row nowrap; justify-content: space-between; gap: 10px; background-color: gray; ">
+    <div class="red" style="flex: 1 1 100%; background-color: red; aspect-ratio: 1/1" data-lightbox-open="#example_data_lightbox .red"> </div>
+    <div class="green" style="flex: 1 1 100%; background-color: green; aspect-ratio: 1/1"> </div>
+    <div class="blue" style="flex: 1 1 100%; background-color: blue; aspect-ratio: 1/1"> </div>
+    <div class="yellow" style="flex: 1 1 100%; background-color: yellow; aspect-ratio: 1/1"> </div>
+</div>
+
 <script type="module">
-    import {openLightbox} from "./lightbox.js";
+    import {OpenLightbox} from "./lightbox.js";
 
     let img_container = document.getElementById("example_img_container");
     for (let img of img_container.children) {
         img.addEventListener("click", () => {
-            openLightbox(img.cloneNode(true));
+            OpenLightbox(img, true); //true puts a copy of the element into the lightbox, while false (default) would move the object directly into the lightbox
         })
     }
 </script>
