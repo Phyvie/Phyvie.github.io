@@ -7,11 +7,11 @@
   "date": "2025",
   "time": "3 months",
   "thumbnail": {
-    "src": "_./Thumbnail.png",
+    "src": "Projects/Rotations/Thumbnail.png",
     "alt": "Rotation_Parametrization Thumbnail"
   },
   "trailer": {
-    "src": "_./Trailer.mp4",
+    "src": "Projects/Rotations/Trailer.mp4",
     "alt": "Rotation_Parametrization Video"
   },
   "git-link": "https://#",
@@ -87,9 +87,9 @@
       "description": "The columns of a rotation (/transformation) matrix describe where the transformed x, y and z vector are pointing. "
     },
     {
-      "src": "./Projects/Rotations/Thesis_Pages/Summary_Rotation_Parameterizations.png",
-      "alt": "Summary Table of Properties of Rotation Parameterizations",
-      "description": "Summary of the properties of rotation parameterizations"
+      "src": "./Thesis_Pages/Summary_Rotation_Parametrizations.png",
+      "alt": "Summary Table of Properties of Rotation Parametrizations",
+      "description": "Summary of the properties of rotation parametrizations"
     }
   ],
   "CodeSample1": "https://raw.githubusercontent.com/Phyvie/ProfileWeek_25_Math/refs/heads/main/Assets/Scripts/Extensions/MathExtensions/AngleType.cs",

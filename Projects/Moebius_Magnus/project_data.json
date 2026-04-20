@@ -7,11 +7,11 @@
   "date": "2023",
   "time": "7w",
   "thumbnail": {
-    "src": "./Projects/Moebius_Magnus/Gameplay_Screenshot_Chaos.png",
+    "src": "./Gameplay_Screenshot_Chaos.png",
     "alt": "thumbnail: Moebius Magnus"
   },
   "trailer": {
-    "src": "./Projects/Moebius_Magnus/Gameplay_Compilation.mp4"
+    "src": "./Gameplay_Compilation.mp4"
   },
   "main-contribution": "game & sound designer",
   "contributions": [
@@ -48,6 +48,6 @@
     "Unity"
   ],
   "mechanic-video": {
-    "src": "./Projects/#.mp4"
+    "src": "./#.mp4"
   }
 }

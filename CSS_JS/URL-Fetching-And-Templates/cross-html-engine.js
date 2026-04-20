@@ -62,11 +62,16 @@ export async function fetchElementFromURL(url, querySelector = null, makeURLsAbs
     }
 }
 
-export async function makeURLsAbsolute(textContent, originalRootURL)
+export async function makeURLsAbsolute(content, originalRootURL)
 {
     const absoluteOriginalURL = new URL(originalRootURL, document.baseURI).href;
 
-    let adjustedContent = textContent;
+    if (typeof content === 'object' && content !== null)
+    {
+        return resolveRelativeUrlsInJson(absoluteOriginalURL, content);
+    }
+
+    let adjustedContent = content;
 
     //replace imports for scripts
     adjustedContent = adjustedContent.replace(
@@ -146,7 +151,6 @@ export function resolveRelativeUrlsInJson(absoluteJsonURL, jsonData) {
     // Deep clone the data to avoid modifying the original
     const resolvedData = structuredClone(jsonData);
 
-    // Recursive function to process all string values
     function processObject(obj) {
         if (!obj || typeof obj !== 'object') {
             return;

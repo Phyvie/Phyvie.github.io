@@ -5,7 +5,7 @@ if (!lightboxOverlay)
     console.log("no lightbox was found in document; adding default lightbox");
     let main = document.querySelector('main');
 
-    const response = await fetch(new URL("./_example_lightbox.html", import.meta.url));
+    const response = await fetch(new URL("./example_lightbox.html", import.meta.url));
     if (!response.ok)
     {
         throw new Error("Could not find default lightbox HTML");

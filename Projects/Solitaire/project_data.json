@@ -7,11 +7,11 @@
   "date": "2025",
   "time": "1w",
   "thumbnail": {
-    "src": "./Projects/Solitaire/#.png",
+    "src": "./#.png",
     "alt": "Music Box Project IMG"
   },
   "trailer": {
-    "src": "./Projects/Solitaire/#.mp4",
+    "src": "./#.mp4",
     "alt": "Music Box Teaser Trailer"
   },
   "project-page-link": "",
@@ -39,6 +39,6 @@
   "tools": "Missing Tools",
   "highlight": "Level Design",
   "mechanic-video": {
-    "src": "./Projects/#.mp4"
+    "src": "./#.mp4"
   }
 }

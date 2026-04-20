@@ -7,11 +7,11 @@
   "date": "?",
   "time": "?",
   "thumbnail": {
-    "src": "./Projects/Dont_Brake/Thumbnail.png",
+    "src": "./Brake/Thumbnail.png",
     "alt": "Dont Brake Project IMG"
   },
   "trailer": {
-    "src": "./Projects/Dont_Brake/Gameplay_Compilation.mp4"
+    "src": "./Brake/Gameplay_Compilation.mp4"
   },
   "main-contribution": "full game development",
   "contributions": [
@@ -51,6 +51,6 @@
     "C#"
   ],
   "mechanic-video": {
-    "src": "./Projects/#.mp4"
+    "src": "./#.mp4"
   }
 }

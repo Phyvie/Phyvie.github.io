@@ -107,7 +107,7 @@ Each with rem 16px, 32px
 | img-in-font not adjusted to font-size                          | big-font                      | 3    | 2    | + SOLVED          |
 | scroll-container button not adjusted to font-size              | big-font                      | 3    | 1    | ++ ACTUALLY WRONG |
 |                                                                |                               |      |      |                   |
-| Rotation Parameterization too short description                | all                           | 3    | 3    | 0                 |
+| Rotation Parametrization too short description                | all                           | 3    | 3    | 0                 |
 |                                                                |                               |      |      |                   |
 
 ### Kill Duck

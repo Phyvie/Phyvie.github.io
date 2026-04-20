@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title> Rotation Parameterization </title>
+    <title> Rotation Parametrization </title>
 
     <!-- general purpose stylesheets & JavaScripts -->
     <link rel="stylesheet" href="../../CSS_JS/reset.css">
@@ -240,7 +240,7 @@
                     <figure class="media-figure media--rounded">
                         <img src="" alt="image: summary table">
                         <figcaption class="media-figure__description">
-                            My thesis culminates in a comparative summary table of rotation parameterization properties, as well as the use-cases emerging for each one.
+                            My thesis culminates in a comparative summary table of rotation parametrization properties, as well as the use-cases emerging for each one.
                         </figcaption>
                     </figure>
                 </div>
@@ -250,7 +250,7 @@
                 <figure class="media-figure media--rounded">
                     <img src="" alt="image: specific example">
                     <figcaption class="media-figure__description">
-                        A common example for the usefulness of different parameterization is the difference between rotation-vectors and quaternions.
+                        A common example for the usefulness of different parametrization is the difference between rotation-vectors and quaternions.
                         While the former can store rotations of more than 360° degrees and add simultaneous rotational velocities together, it can't combine sequential rotations into a single one. Quaternions on the other hand are limited to rotations of <360°, but are capable of combining two sequential rotations into a single one.
                     </figcaption>
                 </figure>
@@ -269,8 +269,8 @@
          class="main__panel contribution-section">
     <h1 class="header"> Backend Math Code </h1>
     <p>
-        <b class="header--lvl3"> My Task: </b> Write the code for rotation parameterizations. <br>
-        <b class="header--lvl3"> Problem: </b> Using the unity-built-in classes isn't enough, because they are hardly configurable (e.g. no custom editor) & some rotation parameterizations don't have inbuilt classes (e.g. no axis-angle class & matrices only as 4x4 matrices). <br>
+        <b class="header--lvl3"> My Task: </b> Write the code for rotation parametrizations. <br>
+        <b class="header--lvl3"> Problem: </b> Using the unity-built-in classes isn't enough, because they are hardly configurable (e.g. no custom editor) & some rotation parametrizations don't have inbuilt classes (e.g. no axis-angle class & matrices only as 4x4 matrices). <br>
         <b class="header--lvl3"> My Solution: </b> For the sake of consistency and more control, I decided to write my own rotation math library. Thus, I had to research the mathematical functions, implement them and create a code architecture. <br>
                                                The <b class="header--lvl3"> example below </b> shows my workflow exemplified based on my research and implementation of the quaternion exponential map.
     </p> <br>
@@ -286,7 +286,7 @@
                         <p>
                             <b class="header--lvl3"> Step 1 — Research: </b> For a full overview I read not only game dev sources, but also math sources. <br>
                             <b class="header--lvl3"> image-legend: </b> θ is the angle of a rotation, v is the axis of rotation. The exponential map forms a quaternion from a rotation vector: the first three quaternion entries are the rotation-axis scaled by cos(θ/2), and the fourth is sin(θ/2). <br>
-                            <b class="header--lvl3"> full-source: </b> Grassia 1998, Practical Parameterization of Rotation
+                            <b class="header--lvl3"> full-source: </b> Grassia 1998, Practical Parametrization of Rotation
                             <a href="https://www.cs.cmu.edu/~spiff/moedit99/expmap.pdf">
                                 https://www.cs.cmu.edu/~spiff/moedit99/expmap.pdf </a>
                         </p>
@@ -439,7 +439,7 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
          class="main__panel contribution-section">
     <h1 class="header"> Mathematics Visualization </h1>
     <p>
-        <b class="header--lvl3"> My Task: </b>Visualize multiple different parameterizations of rotations. <br>
+        <b class="header--lvl3"> My Task: </b>Visualize multiple different parametrizations of rotations. <br>
         <b class="header--lvl3"> My Approach: </b> Step 1 & 2: Start from sketches how to visualize; Step 3–5: Model individual math-visualization objects such as a torus, vector-head & -body, ... and import them to Unity. Step 5: Write scripts and shaders for the objects. Step 6–7: Compose the scene hierarchy in Unity. <br>
                                               The <b class="header--lvl3"> example below </b> focuses mostly on Euler angles visualized as gimbal. <br>
     </p>
@@ -534,7 +534,7 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                         <img src="./Content/workflow-modeling/Unity_Scene_Hierarchy.png" alt="image: scene hierarchy in unity" class="media--contain">
                     </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Step 6 — Unity-Scene-Hierarchy </b> In the unity scene hierarchy the gimbal rings are nested. The parent-object RotVis_EulerGimbal has the script "RotVis_EulerAngle" that references the individual elements (top of inspector), the settings (middle of inspector) and accesses the underlying Parameterization (bottom of the inspector) <br>
+                        <p><b class="header--lvl3"> Step 6 — Unity-Scene-Hierarchy </b> In the unity scene hierarchy the gimbal rings are nested. The parent-object RotVis_EulerGimbal has the script "RotVis_EulerAngle" that references the individual elements (top of inspector), the settings (middle of inspector) and accesses the underlying Parametrization (bottom of the inspector) <br>
                         </p>
                     </div>
                 </div>
