@@ -24,10 +24,26 @@ async function initialize()
     const MediaScrollContainer = headerSection.querySelector('.scroll-container');
     const VideoScroller = headerSection.querySelector('[data-scriptName="video-toggle"]');
     const WebGLScroller = MediaScrollContainer.querySelector('[data-scriptName="webgl-scroller"]');
+    const Thumbnail = MediaScrollContainer.querySelector('img');
     const Video = MediaScrollContainer.querySelector('video');
     const FullscreenButton = MediaScrollContainer.querySelector('[data-scriptName="fullscreen-button"]');
 
     let webGLIFrame = await embedWebGLIFrame(headerSection.querySelector('[data-scriptName="webgl-build"]'), new URL("./rotations-unity-webgl-iframe.html", import.meta.url).href, jsonData.WebGLConfig);
+
+    if (Thumbnail && Video)
+    {
+        Video.style.display = "none";
+        Thumbnail.addEventListener('click', () => {
+            Thumbnail.style.display = "none";
+            Video.style.display = "block";
+            Video.play();
+        })
+
+        Video.addEventListener('ended', () =>{
+            Thumbnail.style.display = "block";
+            Video.style.display = "none";
+        })
+    }
 
     MediaScrollContainer.addEventListener('click', (event) => {
         if (event.target === WebGLScroller)

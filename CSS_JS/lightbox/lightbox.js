@@ -1,31 +1,13 @@
-let lightboxOverlay = document.getElementById('lightbox__overlay');
-
-if (!lightboxOverlay)
-{
-    console.log("no lightbox was found in document; adding default lightbox");
-    let main = document.querySelector('main');
-
-    const response = await fetch(new URL("./example_lightbox.html", import.meta.url));
-    if (!response.ok)
-    {
-        throw new Error("Could not find default lightbox HTML");
-    }
-    const htmlContent = await response.text();
-    const parser = new DOMParser();
-    const sourceDoc = parser.parseFromString(htmlContent, "text/html");
-    const lightbox = sourceDoc.querySelector('#lightbox__overlay');
-    main.appendChild(lightbox);
-    lightboxOverlay = main.querySelector('#lightbox__overlay');
-}
-
-const lightboxBody = lightboxOverlay.querySelector('.lightbox__content');
-const closeBtn = lightboxOverlay.querySelector('.lightbox__close-btn');
+let lightboxOverlay = null;
+let lightboxBody = null;
+let closeBtn = null;
 
 let placeholderElement = null;
 let currentContent = null;
 
 // Function to open lightbox and load content
 export function IsLightboxOpen() {
+    if (!lightboxOverlay) return false;
     let hasActiveClass = lightboxOverlay.classList.contains('--active');
     let hasActivePlaceholder = placeholderElement != null;
     let currentContentExists = currentContent != null;
@@ -39,6 +21,10 @@ export function IsLightboxOpen() {
 }
 
 export function OpenLightbox(content, createCopy = false) {
+    if (!lightboxOverlay || !lightboxBody) {
+        console.error("Lightbox is not initialized.");
+        return;
+    }
     if (placeholderElement || currentContent)
     {
         console.warn("lightbox was not properly closed before opening again; placeholderElement and currentContent will be overwritten by automatic closure before reopening");
@@ -70,6 +56,7 @@ export function OpenLightbox(content, createCopy = false) {
 }
 
 export function CloseLightbox() {
+    if (!lightboxOverlay || !lightboxBody) return;
     if (placeholderElement != null)
     {
         placeholderElement.parentNode.insertBefore(currentContent, placeholderElement);
@@ -93,6 +80,10 @@ let activeStyle = null;
 const styles = [fullscreenStyle];
 export function SetLightboxStyle(style)
 {
+    if (!lightboxOverlay) {
+        console.error("Lightbox is not initialized.");
+        return;
+    }
     if (!styles.includes(style))
     {
         console.error("trying to set non-existing style");
@@ -123,23 +114,66 @@ function SetupLightboxClickHandling()
     })
 }
 
-function initialize()
+async function initialize()
 {
-    closeBtn.addEventListener('click', CloseLightbox);
+    try
+    {
+        lightboxOverlay = document.getElementById('lightbox__overlay');
 
-    lightboxOverlay.addEventListener('click', (e) => {
-        if (e.target === lightboxOverlay) {
-            CloseLightbox();
+        if (!lightboxOverlay)
+        {
+            console.log("no lightbox was found in document; adding default lightbox");
+            let main = document.querySelector('main');
+
+            const response = await fetch(new URL("./_example_lightbox.html", import.meta.url));
+            if (!response.ok)
+            {
+                throw new Error("Could not find default lightbox HTML");
+            }
+            const htmlContent = await response.text();
+            const parser = new DOMParser();
+            const sourceDoc = parser.parseFromString(htmlContent, "text/html");
+            const lightbox = sourceDoc.querySelector('#lightbox__overlay');
+            if (main) {
+                main.appendChild(lightbox);
+            } else {
+                document.body.appendChild(lightbox);
+            }
+            lightboxOverlay = document.getElementById('lightbox__overlay');
         }
-    });
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightboxOverlay.classList.contains('--active')) {
-            CloseLightbox();
+        if (!lightboxOverlay) {
+            throw new Error("Failed to find or create lightbox overlay");
         }
-    });
 
-    SetupLightboxClickHandling();
+        lightboxBody = lightboxOverlay.querySelector('.lightbox__content');
+        closeBtn = lightboxOverlay.querySelector('.lightbox__close-btn');
+
+        if (!lightboxBody || !closeBtn) {
+            throw new Error("Lightbox overlay is missing required elements (.lightbox__content or .lightbox__close-btn)");
+        }
+
+        closeBtn.addEventListener('click', CloseLightbox);
+
+        lightboxOverlay.addEventListener('click', (e) => {
+            if (e.target === lightboxOverlay) {
+                CloseLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightboxOverlay.classList.contains('--active')) {
+                CloseLightbox();
+            }
+        });
+
+        SetupLightboxClickHandling();
+    }
+    catch (error)
+    {
+        console.error("lightbox initialization failed");
+        console.error(error);
+    }
 }
 
 if (document.readyState === 'loading')

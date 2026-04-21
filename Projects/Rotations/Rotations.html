@@ -20,7 +20,7 @@
 
     <script type="module" src="../../CSS_JS/common.blocks/switchable-content-container.js"></script>
 
-    <link rel="stylesheet" href="../../CSS_JS/lightbox/lightbox.css">
+    <link rel="stylesheet" href="../../CSS_JS/lightbox/_example_lightbox.css">
     <script type="module" src="../../CSS_JS/lightbox/lightbox.js"></script>
 
     <link rel="stylesheet" href="../../modules/highlight/styles/dark-phy.css">
@@ -50,8 +50,9 @@
         <div class="project-section__media">
             <div class="scroll-container">
                 <div class="scroll-container__content-container">
-                    <div id="rotation-main-video" class="scroll-container__item">
-                        <video src="../../Data/Placeholder/More%20JarJar%20Than%20Yoda.mp4" style="width: 100%; height: 100%" loop></video>
+                    <div id="rotation-main-video" class="scroll-container__item" style="aspect-ratio: 16/9">
+                        <img data-ref="image:thumbnail" style="width: 100%; height: 100%; object-fit: cover; transform: scale(135%)" src="" alt="">
+                        <video data-ref="video:trailer" style="width: 100%; height: 100%" controls ></video>
                     </div>
                     <div id="WebGL-Build"
                          class="scroll-container__item"
@@ -70,7 +71,7 @@
             </div>
         </div>
         <div class="project-section__info-container">
-            <h1 class="project-section__title" data-ref="text:project-title"></h1> <h2 class="project-section__behind-the-scenes"> Behind the Scenes </h2>
+            <h1 class="project-section__title" data-ref="text:project-title"></h1>
             <table class="project-section__data-table">
                 <tr>
                     <th> Genre: </th>
@@ -267,7 +268,7 @@
 
 <section id="Backend-Math-Code"
          class="main__panel contribution-section">
-    <h1 class="header"> Backend Math Code </h1>
+    <h1 class="header"> Behind the Scenes—Backend Math Code </h1>
     <p>
         <b class="header--lvl3"> My Task: </b> Write the code for rotation parametrizations. <br>
         <b class="header--lvl3"> Problem: </b> Using the unity-built-in classes isn't enough, because they are hardly configurable (e.g. no custom editor) & some rotation parametrizations don't have inbuilt classes (e.g. no axis-angle class & matrices only as 4x4 matrices). <br>
@@ -275,7 +276,7 @@
                                                The <b class="header--lvl3"> example below </b> shows my workflow exemplified based on my research and implementation of the quaternion exponential map.
     </p> <br>
 
-    <div class="scroll-container scroll-container--contribution-section">
+    <div class="scroll-container contribution-section--scroll-container">
         <div id="code-scroll-container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
             <div id="" class="scroll-container__item scroll-container__item--contribution-section">
                 <div class="described-item">
@@ -437,14 +438,14 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
 
 <section id="Math-Visualisation"
          class="main__panel contribution-section">
-    <h1 class="header"> Mathematics Visualization </h1>
+    <h1 class="header"> Behind the Scenes—Mathematics Visualization </h1>
     <p>
         <b class="header--lvl3"> My Task: </b>Visualize multiple different parametrizations of rotations. <br>
         <b class="header--lvl3"> My Approach: </b> Step 1 & 2: Start from sketches how to visualize; Step 3–5: Model individual math-visualization objects such as a torus, vector-head & -body, ... and import them to Unity. Step 5: Write scripts and shaders for the objects. Step 6–7: Compose the scene hierarchy in Unity. <br>
                                               The <b class="header--lvl3"> example below </b> focuses mostly on Euler angles visualized as gimbal. <br>
     </p>
 
-    <div class="scroll-container scroll-container--contribution-section">
+    <div class="scroll-container contribution-section--scroll-container">
         <div id="mathvis-scroll-container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
             <div id="inspiration-eater" class="scroll-container__item scroll-container__item--contribution-section">
                 <div class="described-item">
@@ -576,7 +577,7 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
 
 <section id="User-Interface"
          class="main__panel contribution-section">
-    <h1 class="header"> Frontend User Interface </h1>
+    <h1 class="header"> Behind the Scenes—Frontend User Interface </h1>
     <p>
         <b class="header--lvl3"> My Task: </b> Create a UI that enables the user to manipulate rotation parameters. <br>
         <b class="header--lvl3"> My Approach: </b> 1 & 2: Start from sketches how to visualize; Step 3–5: Model individual math-visualization objects such as a torus, vector-head & -body, ... and import them to Unity. Step 5: Write scripts and shaders for the objects. Step 6–7: Compose the scene hierarchy in Unity. <br>
@@ -584,7 +585,7 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                                                The <b class="header--lvl3"> example below </b> focuses on the implementation of the UI for the axis-angle-rotation-parameters; specifically the x-value. <br>
     </p>
 
-    <div class="scroll-container scroll-container--contribution-section">
+    <div class="scroll-container contribution-section--scroll-container">
         <div id="user-interface-scroll-container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
             <div id="UI-planning-sketch" class="scroll-container__item scroll-container__item--contribution-section">
                 <div class="described-item">

@@ -9,21 +9,23 @@ function onClick(event) {
     const filterValue = trigger.getAttribute('data-filter-trigger')?.toLowerCase();
     if (!filterValue) return;
 
+    const groupElement = trigger.closest('[data-filter-trigger-group]');
+    const groupName = groupElement ? groupElement.getAttribute('data-filter-trigger-group') : "default";
+
     const container = findFilterContainer(trigger);
     if (!container) {
         console.error("No container found for filter trigger.");
         return;
     }
 
-    toggleActiveFilter(container, filterValue);
-    if (!container.filterMode)
-    {
-        container.filterMode = "OR";
-    }
-    switchTriggerFilterStyle(event.target, container.activeFilters.has(filterValue));
+    toggleActiveFilter(container, filterValue, groupName);
+
+    const isActive = container.activeFilters.has(groupName) && container.activeFilters.get(groupName).has(filterValue);
+
+    switchTriggerFilterStyle(event.target, isActive);
 
     container.querySelectorAll('[data-filter-tags]').forEach(item => {
-        const { matches, relevance } = elementMatchesFilters(item, container.activeFilters, container.filterMode);
+        const { matches, relevance } = elementMatchesFilters(item, container.activeFilters);
         applyFilterStyle(item, matches, relevance);
     });
 }
@@ -42,13 +44,25 @@ function switchTriggerFilterStyle(trigger, active)
     trigger.classList.toggle("--active", active);
 }
 
-function toggleActiveFilter(container, filterValue) {
-    if (!container.activeFilters) container.activeFilters = new Set();
-    if (container.activeFilters.has(filterValue)) container.activeFilters.delete(filterValue);
-    else container.activeFilters.add(filterValue);
+function toggleActiveFilter(container, filterValue, groupName = "default") {
+    if (!container.activeFilters) container.activeFilters = new Map();
+    
+    if (!container.activeFilters.has(groupName)) {
+        container.activeFilters.set(groupName, new Set());
+    }
+
+    const groupSet = container.activeFilters.get(groupName);
+    if (groupSet.has(filterValue)) {
+        groupSet.delete(filterValue);
+        if (groupSet.size === 0) {
+            container.activeFilters.delete(groupName);
+        }
+    } else {
+        groupSet.add(filterValue);
+    }
 }
 
-function elementMatchesFilters(item, activeFilters, filterMode) {
+function elementMatchesFilters(item, activeFilters) {
     if (!item.filterTags || !(item.filterTags instanceof Map)) {
         parseFilterTags(item);
         if (!item.filterTags || !(item.filterTags instanceof Map))
@@ -57,30 +71,30 @@ function elementMatchesFilters(item, activeFilters, filterMode) {
         }
     }
 
-    if (activeFilters.size === 0)
+    if (!activeFilters || activeFilters.size === 0)
     {
         return { matches: true, relevance: 0 };
     }
 
-    let visible = filterMode !== "OR";
-    let maxRelevance = 0;
+    let visible = true;
+    let relevanceSum = 0;
 
-    activeFilters.forEach(f => {
-        const tagData = item.filterTags.get(f);
-        const relevance = tagData ? Number(tagData.relevance) || 0 : 0;
-
-        if (filterMode === "OR") {
+    // Grouped filtering: OR within groups, AND across groups
+    activeFilters.forEach((groupSet, groupName) => {
+        let groupMatch = false;
+        groupSet.forEach(f => {
+            const tagData = item.filterTags.get(f);
             if (tagData) {
-                visible = true;
-                maxRelevance = Math.max(maxRelevance, relevance);
+                groupMatch = true;
+                relevanceSum += Number(tagData.relevance) || 0;
             }
-        } else if (filterMode === "AND") {
-            if (!tagData) visible = false;
-            else maxRelevance = Math.max(maxRelevance, relevance);
+        });
+        if (!groupMatch) {
+            visible = false;
         }
     });
 
-    return { matches: visible, relevance: maxRelevance };
+    return { matches: visible, relevance: relevanceSum };
 }
 
 function applyFilterStyle(item, matches, relevance) {

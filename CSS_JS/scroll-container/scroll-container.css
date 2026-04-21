@@ -32,13 +32,6 @@
     --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 1;
 }
 
-.scroll-container__content-container--vertical {
-    flex-flow: column nowrap;
-    scroll-snap-type: y mandatory;
-    height: auto;
-    width: 100%;
-}
-
 .scroll-container__item {
     position: relative;
 

@@ -1,7 +1,7 @@
 .contribution-section {
 }
 
-.scroll-container--contribution-section {
+.contribution-section--scroll-container {
 
 }
 
@@ -50,7 +50,7 @@
 
 /* mobile landscape & desktop-half-height */
 @media (min-width: 37.5rem) and (orientation: landscape){
-    .scroll-container--contribution-section {
+    .contribution-section--scroll-container {
         /*height: 90vh;*/
         height: auto;
         padding: var(--LAYOUT-SPACING-SMALL);
