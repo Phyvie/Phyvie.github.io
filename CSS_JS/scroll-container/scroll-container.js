@@ -3,6 +3,8 @@ import {findAllInRelatives, ReturnElementOrGetById, getElementIdentifier} from "
 export {
     scrollContainerByIndices,
     scrollContainerToIndex,
+    scrollContainerToCenterItem,
+    calculateCenterScrollLeft,
     scrollContainerByWidth,
     scrollContainerToPosition,
     scrollContainerToElement,
@@ -23,6 +25,7 @@ function scrollContainerByIndices(container, indices) {
         return;
     }
 
+    // Find the item currently at or closest to the left edge
     let currentChild = children.find(child => child.offsetLeft >= containerEl.scrollLeft);
     let currentChildIndex = currentChild ?
         children.indexOf(currentChild) :
@@ -31,7 +34,10 @@ function scrollContainerByIndices(container, indices) {
     let scrollChildIndex = currentChildIndex + indices;
     scrollChildIndex = Math.min(Math.max(0, scrollChildIndex), children.length - 1);
 
-    containerEl.scrollLeft = children[scrollChildIndex].offsetLeft;
+    containerEl.scrollTo({
+        left: children[scrollChildIndex].offsetLeft,
+        behavior: 'smooth'
+    });
 }
 
 function scrollContainerToIndex(container, index) {
@@ -48,7 +54,60 @@ function scrollContainerToIndex(container, index) {
     }
 
     index = Math.min(Math.max(0, index), children.length - 1);
-    containerEl.scrollLeft = children[index].offsetLeft;
+    const targetChild = children[index];
+    
+    containerEl.scrollTo({
+        left: targetChild.offsetLeft,
+        behavior: 'smooth'
+    });
+}
+
+function scrollContainerToCenterItem(container, index) {
+    const containerEl = ReturnElementOrGetById(container);
+    if (!containerEl) {
+        console.warn('Invalid scroll container provided to scrollContainerToCenterItem');
+        return;
+    }
+
+    const targetScrollLeft = calculateCenterScrollLeft(containerEl, index);
+    if (targetScrollLeft === undefined) return;
+
+    containerEl.scrollTo({
+        left: targetScrollLeft,
+        behavior: 'smooth'
+    });
+}
+
+function calculateCenterScrollLeft(container, index) {
+    const containerEl = ReturnElementOrGetById(container);
+    if (!containerEl) {
+        console.warn('Invalid scroll container provided to calculateCenterScrollLeft');
+        return undefined;
+    }
+
+    const children = Array.from(containerEl.children);
+    if (children.length === 0) {
+        console.warn('Scroll container has no children');
+        return undefined;
+    }
+
+    index = Math.min(Math.max(0, index), children.length - 1);
+    const targetChild = children[index];
+
+    const containerWidth = containerEl.clientWidth;
+    const itemWidth = targetChild.offsetWidth;
+    const itemOffset = targetChild.offsetLeft;
+
+    if (index === 0) {
+        // First item: scroll to the very left
+        return 0;
+    } else if (index === children.length - 1) {
+        // Last item: scroll to the very right
+        return containerEl.scrollWidth - containerWidth;
+    } else {
+        // Middle items: center the item
+        return itemOffset - (containerWidth / 2) + (itemWidth / 2);
+    }
 }
 
 function scrollContainerByWidth(container, scrollWidth) {
@@ -152,9 +211,12 @@ function handleScrollCommand(button) {
         return;
     }
 
-    // Execute the command
-    executeScrollCommand(container, command);
-    sendScrollCommandEvent(button, container, command);
+    // Dispatch the custom event before executing the command to allow prevention
+    const shouldExecute = sendScrollCommandEvent(button, container, command);
+
+    if (shouldExecute) {
+        executeScrollCommand(container, command);
+    }
 }
 
 function getScrollContainer(button, containerSelector) {
@@ -321,9 +383,10 @@ function sendScrollCommandEvent(clickedButton, container, command) {
             container: container,
             command: command
         },
-        bubbles: true
+        bubbles: true,
+        cancelable: true
     });
-    container.dispatchEvent(event);
+    return container.dispatchEvent(event);
 }
 /* endregion [data-scroll]-management */
 

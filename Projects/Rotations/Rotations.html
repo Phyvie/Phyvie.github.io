@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="../../CSS_JS/common.blocks/tag.css">
 
     <link rel="stylesheet" href="../../CSS_JS/scroll-container/scroll-container.css">
+    <link rel="stylesheet" href="../../CSS_JS/scroll-container/scroll-container--selectable.css">
     <script type="module" src="../../CSS_JS/scroll-container/scroll-container.js"></script>
+    <script type="module" src="../../CSS_JS/scroll-container/scroll-container--selectable.js"></script>
 
     <script type="module" src="../../CSS_JS/common.blocks/switchable-content-container.js"></script>
 
@@ -276,16 +278,19 @@
                                                The <b class="header--lvl3"> example below </b> shows my workflow exemplified based on my research and implementation of the quaternion exponential map.
     </p> <br>
 
-    <div class="scroll-container contribution-section--scroll-container">
+    <div class="scroll-container scroll-container--selectable contribution-section--scroll-container">
         <div id="code-scroll-container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
             <div id="" class="scroll-container__item scroll-container__item--contribution-section">
                 <div class="described-item">
                     <div class="described-item__content media-flex-center-wrapper">
                         <img src="./Content/workflow-coding/Grassia.png" class="media--contain" alt="image: research-source-example">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Step 1 — Research: </b>
+                    </div>
                     <div class="described-item__description">
                         <p>
-                            <b class="header--lvl3"> Step 1 — Research: </b> For a full overview I read not only game dev sources, but also math sources. <br>
+                            For a full overview I read not only game dev sources, but also math sources. <br>
                             <b class="header--lvl3"> image-legend: </b> θ is the angle of a rotation, v is the axis of rotation. The exponential map forms a quaternion from a rotation vector: the first three quaternion entries are the rotation-axis scaled by cos(θ/2), and the fourth is sin(θ/2). <br>
                             <b class="header--lvl3"> full-source: </b> Grassia 1998, Practical Parametrization of Rotation
                             <a href="https://www.cs.cmu.edu/~spiff/moedit99/expmap.pdf">
@@ -308,8 +313,11 @@
                         <img src="Content/workflow-coding/Class_Overview.png" alt="image: code-structure planning"
                              class="media--cover" style="object-position: left">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Step 2 — Structure Diagram: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Step 2 — Structure Diagram: </b> Based on the gathered knowledge I created an overview of the needed classes & their connections. </p>
+                        <p> Based on the gathered knowledge I created an overview of the needed classes & their connections. </p>
                     </div>
                 </div>
             </div>
@@ -361,8 +369,11 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
 }
                 </code></pre>
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Step 3 — Backend Coding: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Step 3 — Backend Coding: </b> The "RotParams_Quaternion"-script contains the backend code for quaternions. It is responsible for the mathematical calculations and normalization of the quaternion. <!-- PLCHZyKa Rotation-Content: I don't know whether I should mention lockableVector here or not --> <br>
+                        <p> The "RotParams_Quaternion"-script contains the backend code for quaternions. It is responsible for the mathematical calculations and normalization of the quaternion. <!-- PLCHZyKa Rotation-Content: I don't know whether I should mention lockableVector here or not --> <br>
                                                                                   The full class is available <a href="https://github.com/Phyvie/Rotations/blob/main/Assets/Scripts/RotParams/RotParams_Quaternion.cs"> here </a>
                         </p>
                     </div>
@@ -409,8 +420,11 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
 }
                 </code></pre>
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Step 4 — Usage in frontend: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Step 4 — Usage in frontend: </b> RotVis_Quaternion is the frontend script responsible. It stores a reference to a RotParams_Quaternion object and subscribes to its "OnValueChanged"-event. When the event is fired it reacts with the "UpdateVis"-function that forwards the changes to the individual math-visualization objects.
+                        <p> RotVis_Quaternion is the frontend script responsible. It stores a reference to a RotParams_Quaternion object and subscribes to its "OnValueChanged"-event. When the event is fired it reacts with the "UpdateVis"-function that forwards the changes to the individual math-visualization objects.
                         </p>
                     </div>
                 </div>
@@ -421,8 +435,11 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                     <div class="described-item__content media-flex-center-wrapper">
                         <img src="./Content/image_gallery/ExponentialMap01.png" alt="image: Comparison of two rotations displayed as quaternions" class="media--contain">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Example: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Example </b> (in combination with the other worksteps): The plane is rotated by the two unit quaternions, which share a rotation axis (yellow), but differ in their angle. </p>
+                        <p> (in combination with the other worksteps): The plane is rotated by the two unit quaternions, which share a rotation axis (yellow), but differ in their angle. </p>
                     </div>
                 </div>
             </div>
@@ -445,15 +462,18 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                                               The <b class="header--lvl3"> example below </b> focuses mostly on Euler angles visualized as gimbal. <br>
     </p>
 
-    <div class="scroll-container contribution-section--scroll-container">
+    <div class="scroll-container scroll-container--selectable contribution-section--scroll-container">
         <div id="mathvis-scroll-container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
             <div id="inspiration-eater" class="scroll-container__item scroll-container__item--contribution-section">
                 <div class="described-item">
                     <div class="described-item__content media-flex-center-wrapper">
                         <img src="Content/workflow-modeling/euler_gimbal_inspiration.gif" alt="image: Inspiration for the visualization" class="media--contain">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Step 1 — Inspiration: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Step 1 — Inspiration: </b> For Euler angles I found a youtube-video
+                        <p> For Euler angles I found a youtube-video
                                                                                explaining gimbal-lock, which served as my
                                                                                reference & inspiration.<br>
                             <b class="header--lvl3"> Original Source: </b>
@@ -468,8 +488,11 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                     <div class="described-item__content media-flex-center-wrapper">
                         <img src="./Content/workflow-modeling/Visualization_Planning.png" alt="image: sketch how I want my project to look" class="media--contain">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Step 2 — Planning: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Step 2 — Planning: </b> I start projects by sketching visuals and noting to-dos. <br>
+                        <p> I start projects by sketching visuals and noting to-dos. <br>
                             <b class="header--lvl3"> Above: </b> Plans for three visualizations (quaternions and axis-angle share one). Runtime gizmos for in-scene parameter manipulation - the dark-blue-curved arrows in the axis-angle and matrix visualization - were initially planned but deprioritized. </p>
                     </div>
                 </div>
@@ -481,8 +504,11 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                     <div class="described-item__content media-flex-center-wrapper">
                         <img src="Content/workflow-modeling/modeling_blender.png" alt="image: blender modeling screenshot" class="media--contain">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Step 3 — Modeling: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Step 3 — Modeling: </b> Though I have worked with proprietary modeling software (maya) before, I decided that for this project I learn blender to have a comparison to a freeware modeling program. <br>
+                        <p> Though I have worked with proprietary modeling software (maya) before, I decided that for this project I learn blender to have a comparison to a freeware modeling program. <br>
                     </div>
                 </div>
             </div>
@@ -493,8 +519,11 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                     <div class="described-item__content media-flex-center-wrapper">
                         <img src="./Content/workflow-modeling/UnityImport.png" alt="image: model imported into unity" class="media--contain">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Step 4 — Blender-To-Unity: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Step 4 — Blender-To-Unity </b> I had to transfer the meshes from blender to Unity. <br>
+                        <p> I had to transfer the meshes from blender to Unity. <br>
                             <b class="header--lvl3"> Problem: </b> Blenders & Unity's coordinate systems are different. <br>
                             <b class="header--lvl3"> My Solution </b> Since the blender default exporter rotates objects compromising an .fbx (see left), but I needed the actual meshes to be rotated correctly - for mathematical coding reasons - I wrote my own blender to unity exporter (see right).
                         </p>
@@ -508,8 +537,11 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                     <div class="described-item__content media-flex-center-wrapper">
                         <img src="./Content/workflow-modeling/Angle_Shader_Graph.png" alt="image: shader graph" class="media--contain">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Step 5 — Shaders: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Step 5 — Shaders: </b> Since I like seeing visual networks, I used shader-graph for the angle-shaders. However, to keep it more orderly, I wrote the more complicated math functions as custom-hlsl-functions. E.g., IsValueInModRange calculates whether an angle is between two other angles respecting the modular nature of angles.
+                        <p> Since I like seeing visual networks, I used shader-graph for the angle-shaders. However, to keep it more orderly, I wrote the more complicated math functions as custom-hlsl-functions. E.g., IsValueInModRange calculates whether an angle is between two other angles respecting the modular nature of angles.
                         </p>
                     </div>
                 </div>
@@ -521,8 +553,11 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                     <div class="described-item__content media-flex-center-wrapper">
                         <img src="./Content/workflow-modeling/Angle_Shader_edited.gif" alt="gif: Individual angle shader during bug-testing" class="media--contain">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Shader-Example: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Example </b> A rotation-shader during bug-testing. One idea was to display positive and negative angles colors differently, but that didn't work out with the industry standard axis- & angle-color scheme (red for x, green for y, blue for z). </p>
+                        <p> A rotation-shader during bug-testing. One idea was to display positive and negative angles colors differently, but that didn't work out with the industry standard axis- & angle-color scheme (red for x, green for y, blue for z). </p>
                     </div>
                 </div>
             </div>
@@ -534,8 +569,11 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                     <div class="described-item__content media-flex-center-wrapper">
                         <img src="./Content/workflow-modeling/Unity_Scene_Hierarchy.png" alt="image: scene hierarchy in unity" class="media--contain">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Step 6 — Unity-Scene-Hierarchy: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Step 6 — Unity-Scene-Hierarchy </b> In the unity scene hierarchy the gimbal rings are nested. The parent-object RotVis_EulerGimbal has the script "RotVis_EulerAngle" that references the individual elements (top of inspector), the settings (middle of inspector) and accesses the underlying Parametrization (bottom of the inspector) <br>
+                        <p> In the unity scene hierarchy the gimbal rings are nested. The parent-object RotVis_EulerGimbal has the script "RotVis_EulerAngle" that references the individual elements (top of inspector), the settings (middle of inspector) and accesses the underlying Parametrization (bottom of the inspector) <br>
                         </p>
                     </div>
                 </div>
@@ -547,8 +585,11 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                     <div class="described-item__content media-flex-center-wrapper">
                         <img src="" alt="image: shader access hierarchy" class="media--contain">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Step 7 — Access Shaders: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Step 7 — Access Shaders: </b> For reusability & bug-testing the shaders values must be manipulatable for each gimbal-ring individually. However, once the full gimbal is assembled, it should be the central hub for setting up the colors and rotation values so that I don't have to continuously switch between the game objects for adjustments.
+                        <p> For reusability & bug-testing the shaders values must be manipulatable for each gimbal-ring individually. However, once the full gimbal is assembled, it should be the central hub for setting up the colors and rotation values so that I don't have to continuously switch between the game objects for adjustments.
                             <br>
                         </p>
                     </div>
@@ -560,8 +601,11 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                     <div class="described-item__content media-flex-center-wrapper">
                         <img src="./Content/workflow-modeling/Euler_Angle_Usage.gif" alt="gif: Example of Euler-Gimbal Manipulation">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Example: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Example </b> In combination with the UI, the user can adjust the Euler angles freely.
+                        <p> In combination with the UI, the user can adjust the Euler angles freely.
                         </p>
                     </div>
                 </div>
@@ -585,15 +629,18 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                                                The <b class="header--lvl3"> example below </b> focuses on the implementation of the UI for the axis-angle-rotation-parameters; specifically the x-value. <br>
     </p>
 
-    <div class="scroll-container contribution-section--scroll-container">
+    <div class="scroll-container scroll-container--selectable contribution-section--scroll-container">
         <div id="user-interface-scroll-container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
             <div id="UI-planning-sketch" class="scroll-container__item scroll-container__item--contribution-section">
                 <div class="described-item">
                     <div class="described-item__content media-flex-center-wrapper">
                         <img src="./Content/workflow-UI/UI_Planning.png" alt="image: sketch how the UI is planned" class="media--contain" style="align-self: start; padding-top: 1rem;">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Step 1 — Sketch: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Step 1 — Sketch: </b> To start with the UI, I made a rough sketch of how I want the UI to look, as well as a brief to-do-list. </p>
+                        <p> To start with the UI, I made a rough sketch of how I want the UI to look, as well as a brief to-do-list. </p>
                     </div>
                 </div>
             </div>
@@ -603,8 +650,11 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                     <div class="described-item__content media-flex-center-wrapper">
                         <img src="./Content/workflow-UI/UI_Toolkit_AxisAngle.png" alt="image: UI Toolkit" class="media--contain" style="align-self: start; padding-top: 1rem;">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Step 2 — UI-Toolkit: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Step 2 — UI-Toolkit: </b> For this project I decided to learn unity's new UI Toolkit. </p>
+                        <p> For this project I decided to learn unity's new UI Toolkit. </p>
                     </div>
                 </div>
             </div>
@@ -614,8 +664,11 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                     <div class="described-item__content media-flex-center-wrapper">
                         <img src="" alt="image: UI stylesheet structure OR example Stylesheet">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Step 3 — Stylesheets: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Step 3 — Stylesheets: </b> Styling the UI led to confusion about where certain styles originated; I solved this with a more organized file- and selector-structure. </p>
+                        <p> Styling the UI led to confusion about where certain styles originated; I solved this with a more organized file- and selector-structure. </p>
                     </div>
                 </div>
             </div>
@@ -625,11 +678,14 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                     <div class="described-item__content media-flex-center-wrapper">
                         <img src="./Content/workflow-UI/UI_Binding.png" alt="image: UI-binding" class="media--contain">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Step 4 — Binding: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Step 4 — Binding: </b> To connect the UI values to the backend math values, I used UI-Toolkits binding feature. <br>
-                                                                           The <b class="header--lvl3"> image above </b> shows how the UI's x-Axis float-field is bound to the property AxisX of RotParams_AxisAngle. <br>
-                                                                           (Left -> the additional Property; Right -> the UI-Document-Editor; Right-bottom -> the Binding-Window) <br>
-                                                                           The AxisX-property ensures that when the user changes the x-value, the y- and z-values change accordingly, such that the rotation axis remains normalized.
+                        <p> To connect the UI values to the backend math values, I used UI-Toolkits binding feature. <br>
+                            The <b class="header--lvl3"> image above </b> shows how the UI's x-Axis float-field is bound to the property AxisX of RotParams_AxisAngle. <br>
+                            (Left -> the additional Property; Right -> the UI-Document-Editor; Right-bottom -> the Binding-Window) <br>
+                            The AxisX-property ensures that when the user changes the x-value, the y- and z-values change accordingly, such that the rotation axis remains normalized.
                         </p>
                         <!-- LATERZyKa rotation-content: consider whether I should rephrase this into Problem & Solution -->
                     </div>
@@ -641,8 +697,11 @@ public RotParams_Quaternion(Vector3 inAxis, float inAngle, bool enforceLength = 
                     <div class="described-item__content media-flex-center-wrapper">
                         <img src="" alt="gif: UI usage">
                     </div>
+                    <div class="described-item__header">
+                        <b class="header--lvl3"> Example: </b>
+                    </div>
                     <div class="described-item__description">
-                        <p><b class="header--lvl3"> Example: </b> The user can freely adjust the values by typing in
+                        <p> The user can freely adjust the values by typing in
                                                                   values or dragging it up & down. </p>
                     </div>
                 </div>
