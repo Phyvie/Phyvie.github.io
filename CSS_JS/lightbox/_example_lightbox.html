@@ -32,7 +32,7 @@ the lightbox does not automatically include any content
     <title> _example_lightbox </title>
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../global_variables.css">
-    <link rel="stylesheet" href="./lightbox.css">
+    <link rel="stylesheet" href="_example_lightbox.css">
 
     <script type="module" src="./lightbox.js"></script>
 </head>
@@ -60,18 +60,18 @@ the lightbox does not automatically include any content
 
 <div id="example_data_lightbox" style="margin: 0 25vw; width: 50vw; display: flex; flex-flow: row nowrap; justify-content: space-between; gap: 10px; background-color: gray; ">
     <div class="red" style="flex: 1 1 100%; background-color: red; aspect-ratio: 1/1" data-lightbox-open="#example_data_lightbox .red"> </div>
-    <div class="green" style="flex: 1 1 100%; background-color: green; aspect-ratio: 1/1"> </div>
-    <div class="blue" style="flex: 1 1 100%; background-color: blue; aspect-ratio: 1/1"> </div>
-    <div class="yellow" style="flex: 1 1 100%; background-color: yellow; aspect-ratio: 1/1"> </div>
+    <div class="green" style="flex: 1 1 100%; background-color: green; aspect-ratio: 1/1" data-lightbox-open="#example_data_lightbox .green"> </div>
+    <div class="blue" style="flex: 1 1 100%; background-color: blue; aspect-ratio: 1/1" data-lightbox-open="#example_data_lightbox .blue"> </div>
+    <div class="yellow" style="flex: 1 1 100%; background-color: yellow; aspect-ratio: 1/1" data-lightbox-open="#example_data_lightbox .yellow"> </div>
 </div>
 
 <script type="module">
-    import {openLightbox} from "./lightbox.js";
+    import {OpenLightbox} from "./lightbox.js";
 
     let img_container = document.getElementById("example_img_container");
     for (let img of img_container.children) {
         img.addEventListener("click", () => {
-            openLightbox(img, true); //true puts a copy of the element into the lightbox, while false (default) would move the object directly into the lightbox
+            OpenLightbox(img, true); //true puts a copy of the element into the lightbox, while false (default) would move the object directly into the lightbox
         })
     }
 </script>

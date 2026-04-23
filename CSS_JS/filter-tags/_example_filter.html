@@ -9,9 +9,9 @@ Public API usage example(s):
 2. add the filter tags to an item that is a child of the data-filter-container, there are two method to do so:
 a) set it in html as an attribute and write the value in the following json format "data-filter-tags='[{"name": "blue", "relevance": "3"}, ...]" ('blue' can be any string; '3' can be any number; ... can be any number of additional tags in the same format). Filter-tags.js parses the whole document once it is loaded, later-added attributes can be parsed with a call to parseFilterTags(rootElement).
 b) set the filter tag in javascript, using createFilterTag to create a new filter tag and addFilterTagToElement to add it onto an element.
-3. create the buttons that trigger filtering, by giving an element the attribute 'data-filter-trigger="filter-name"'
-
-HINT: the functionality of filter-tags is not case-sensitive
+3. create the buttons that trigger filtering, by giving an element the attribute 'data-filter-trigger="filter-name"'.
+   To group filters (OR within groups, AND across groups), wrap them in an element with 'data-filter-trigger-group="group-name"'.
+   Triggers without a group are treated as part of the "default" group.
 
 Error-Handling:
 If the data-filter-tags attribute is wrongly formatted, thus fails parsing, it will be set to display=none before continuing with the next data-fitler-tags element
@@ -23,16 +23,18 @@ If the data-filter-tags attribute is wrongly formatted, thus fails parsing, it w
 <head>
     <meta charset="UTF-8">
     <title> Filter_Showcase </title>
-    <link rel="stylesheet" href="filter-tags.css">
+    <link rel="stylesheet" href="example-filter-tags.css">
     <script type="module" src="filter-tags.js"></script>
 </head>
 <body>
 
 <div class="example">
     <div class="example__filter-buttons-container">
-        <div class="example__filter-button" style="background-color: blue" data-filter-trigger="blue"></div>
-        <div class="example__filter-button" style="background-color: red" data-filter-trigger="red"></div>
-        <div class="example__filter-button" style="background-color: yellow" data-filter-trigger="yellow"></div>
+        <div data-filter-trigger-group="color" style="display: flex; gap: 5px;">
+            <div class="example__filter-button" style="background-color: blue" data-filter-trigger="blue"></div>
+            <div class="example__filter-button" style="background-color: red" data-filter-trigger="red"></div>
+            <div class="example__filter-button" style="background-color: yellow" data-filter-trigger="yellow"></div>
+        </div>
     </div>
 
     <div class="example__item-grid" data-filter-container="example-filter-container">

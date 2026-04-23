@@ -7,11 +7,11 @@
   "date": "?",
   "time": "?",
   "thumbnail": {
-    "src": "./Projects/Gragoon/Thumbnail_Jump.png",
+    "src": "./Thumbnail_Jump.png",
     "alt": "Dont Brake Project IMG"
   },
   "trailer": {
-    "src": "./Projects/Gragoon/Movement_Showcase.mp4"
+    "src": "./Movement_Showcase.mp4"
   },
   "main-contribution": "programmer - dragon movement controls",
   "contributions": [
@@ -40,6 +40,6 @@
     "C++"
   ],
   "mechanic-video": {
-    "src": "./Projects/#.mp4"
+    "src": "./#.mp4"
   }
 }

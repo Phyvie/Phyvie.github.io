@@ -7,11 +7,11 @@
   "date": "2022",
   "time": "7w",
   "thumbnail": {
-    "src": "./Projects/Lone_Signal/Thumbnail2.png",
+    "src": "./Thumbnail2.png",
     "alt": "Lone Signal Project IMG"
   },
   "trailer": {
-    "src": "./Projects/Lone_Signal/Shortened_Trailer.mp4",
+    "src": "./Shortened_Trailer.mp4",
     "alt": "Lone Signal Trailer"
   },
   "project-page-link": "#",
@@ -48,6 +48,6 @@
   ],
   "highlight": "Narrative Photo Album Mechanic",
   "mechanic-video": {
-    "src": "./Projects/#.mp4"
+    "src": "./#.mp4"
   }
 }

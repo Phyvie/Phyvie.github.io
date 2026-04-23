@@ -1,12 +1,13 @@
-const lightboxOverlay = document.getElementById('lightbox__overlay');
-const lightboxBody = lightboxOverlay.querySelector('.lightbox__content');
-const closeBtn = lightboxOverlay.querySelector('.lightbox__close-btn');
+let lightboxOverlay = null;
+let lightboxBody = null;
+let closeBtn = null;
 
 let placeholderElement = null;
 let currentContent = null;
 
 // Function to open lightbox and load content
-export function isLightboxOpen() {
+export function IsLightboxOpen() {
+    if (!lightboxOverlay) return false;
     let hasActiveClass = lightboxOverlay.classList.contains('--active');
     let hasActivePlaceholder = placeholderElement != null;
     let currentContentExists = currentContent != null;
@@ -19,11 +20,15 @@ export function isLightboxOpen() {
     return hasActiveClass;
 }
 
-export function openLightbox(content, createCopy = false) {
+export function OpenLightbox(content, createCopy = false) {
+    if (!lightboxOverlay || !lightboxBody) {
+        console.error("Lightbox is not initialized.");
+        return;
+    }
     if (placeholderElement || currentContent)
     {
         console.warn("lightbox was not properly closed before opening again; placeholderElement and currentContent will be overwritten by automatic closure before reopening");
-        closeLightbox();
+        CloseLightbox();
     }
 
     if (content instanceof HTMLElement) {
@@ -32,6 +37,10 @@ export function openLightbox(content, createCopy = false) {
         }
         else if (content.parentNode != null)
         {
+            if (placeholderElement)
+            {
+                console.warn("placeholderElement already exists; this should not happen if CloseLightbox was called correctly. Overwriting placeholder.");
+            }
             placeholderElement = document.createElement('div');
             placeholderElement.style.display = 'none';
             placeholderElement.id = 'placeholder';
@@ -50,18 +59,49 @@ export function openLightbox(content, createCopy = false) {
     document.body.style.overflow = 'hidden';
 }
 
-export function closeLightbox() {
-    if (placeholderElement != null)
+export function CloseLightbox() {
+    if (!lightboxOverlay || !lightboxBody) return;
+    if (placeholderElement != null && currentContent != null)
     {
-        placeholderElement.parentNode.insertBefore(currentContent, placeholderElement);
+        // Only move back if the content is still inside the lightbox body
+        if (lightboxBody.contains(currentContent))
+        {
+            placeholderElement.parentNode.insertBefore(currentContent, placeholderElement);
+        }
         placeholderElement.remove();
         placeholderElement = null;
     }
 
     lightboxBody.innerHTML = '';
     lightboxOverlay.classList.remove('--active');
+    if (activeStyle != null)
+    {
+        lightboxOverlay.classList.remove(activeStyle);
+        activeStyle = null;
+    }
     document.body.style.overflow = '';
     currentContent = null;
+}
+
+export const fullscreenStyle = "--fullscreen";
+let activeStyle = null;
+const styles = [fullscreenStyle];
+export function SetLightboxStyle(style)
+{
+    if (!lightboxOverlay) {
+        console.error("Lightbox is not initialized.");
+        return;
+    }
+    if (!styles.includes(style))
+    {
+        console.error("trying to set non-existing style");
+    }
+    if (activeStyle != null)
+    {
+        lightboxOverlay.classList.remove(activeStyle);
+    }
+    activeStyle = style;
+    lightboxOverlay.classList.add(style);
 }
 
 function SetupLightboxClickHandling()
@@ -77,28 +117,67 @@ function SetupLightboxClickHandling()
                 console.error(`Failed to find content for lightbox-open query ${query}`);
                 return;
             }
-            openLightbox(content);
+            OpenLightbox(content);
         }
     })
 }
 
-function initialize()
+async function initialize()
 {
-    closeBtn.addEventListener('click', closeLightbox);
+    try
+    {
+        lightboxOverlay = document.getElementById('lightbox__overlay');
 
-    lightboxOverlay.addEventListener('click', (e) => {
-        if (e.target === lightboxOverlay) {
-            closeLightbox();
+        if (!lightboxOverlay)
+        {
+            console.log("no lightbox was found in document; adding default lightbox");
+            let main = document.querySelector('main');
+
+            const response = await fetch(new URL("./_example_lightbox.html", import.meta.url));
+            if (!response.ok)
+            {
+                throw new Error("Could not find default lightbox HTML");
+            }
+            const htmlContent = await response.text();
+            const parser = new DOMParser();
+            const sourceDoc = parser.parseFromString(htmlContent, "text/html");
+            const lightbox = sourceDoc.querySelector('#lightbox__overlay');
+            document.body.appendChild(lightbox);
+            lightboxOverlay = document.getElementById('lightbox__overlay');
         }
-    });
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightboxOverlay.classList.contains('--active')) {
-            closeLightbox();
+        if (!lightboxOverlay) {
+            throw new Error("Failed to find or create lightbox overlay");
         }
-    });
 
-    SetupLightboxClickHandling();
+        lightboxBody = lightboxOverlay.querySelector('.lightbox__content');
+        closeBtn = lightboxOverlay.querySelector('.lightbox__close-btn');
+
+        if (!lightboxBody || !closeBtn) {
+            throw new Error("Lightbox overlay is missing required elements (.lightbox__content or .lightbox__close-btn)");
+        }
+
+        closeBtn.addEventListener('click', CloseLightbox);
+
+        lightboxOverlay.addEventListener('click', (e) => {
+            if (e.target === lightboxOverlay) {
+                CloseLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightboxOverlay.classList.contains('--active')) {
+                CloseLightbox();
+            }
+        });
+
+        SetupLightboxClickHandling();
+    }
+    catch (error)
+    {
+        console.error("lightbox initialization failed");
+        console.error(error);
+    }
 }
 
 if (document.readyState === 'loading')

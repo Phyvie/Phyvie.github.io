@@ -7,13 +7,13 @@
   "date": "2024",
   "time": "7w",
   "thumbnail": {
-    "src": "./Projects/Monster_Match/Thumbnail.png",
+    "src": "./Thumbnail.png",
     "alt": "Play My Math Project IMG"
   },
   "trailer": {
-    "src": "./Projects/Monster_Match/mechanic_showcase.mp4"
+    "src": "./mechanic_showcase.mp4"
   },
-  "main-contribution": "game designer - educational",
+  "main-contribution": "game designer - educational game",
   "contributions": [
     "Project Lead",
     "Tech Design"
@@ -50,6 +50,6 @@
     "Unity"
   ],
   "mechanic-video": {
-    "src": "./Projects/#.mp4"
+    "src": "./#.mp4"
   }
 }

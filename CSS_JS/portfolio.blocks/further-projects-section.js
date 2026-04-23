@@ -7,6 +7,7 @@ import {
 } from "../project-card/project-card.js";
 import {GetPathFromPortfolioRoot} from "../../PortfolioRootPath.js";
 import {addFilterTagToElement, createFilterTag} from "../filter-tags/filter-tags.js";
+import {makeURLsAbsolute, resolveRelativeUrlsInJson} from "../URL-Fetching-And-Templates/cross-html-engine.js";
 
 async function CreateProjectCards() {
     let CardParent = document.getElementById('further-projects-section__cards-container');
@@ -38,10 +39,11 @@ async function CreateProjectCards() {
 
             //find the project.json file
             const projectDataURL = new URL(`${project.folder}/project_data.json`, ProjectFolderURL).href;
-            const jsonData = await TryLoadJson(projectDataURL);
-            if (jsonData === null) {
+            const jsonDataRaw = await TryLoadJson(projectDataURL);
+            if (jsonDataRaw === null) {
                 continue;
             }
+            const jsonData = await resolveRelativeUrlsInJson(projectDataURL, jsonDataRaw);
 
             //load the data & make the card interactive
             LoadProjectCardData(projectCard, jsonData);

@@ -1,3 +1,5 @@
+import { fetchElementFromURL } from './cross-html-engine.js';
+
 /**
  * Generic template loader utility
  * Can be used to load and manage HTML templates from various sources
@@ -29,38 +31,26 @@ export function findTemplateInHtml(templateId) {
  * @param {string} templateId - The ID of the template element to extract
  * @returns {Promise<HTMLTemplateElement|null>} The template element or null if not found
  */
-export async function findTemplateInDocument(templateDocumentPath, templateId) {
+export async function loadExternalTemplate(templateDocumentPath, templateId) {
     if (!templateDocumentPath) {
-        console.error("findTemplateInDocument: templateDocumentPath is required");
+        console.error("loadExternalTemplate: templateDocumentPath is required");
         return null;
     }
 
     if (!templateId) {
-        console.error("findTemplateInDocument: templateId is required");
+        console.error("loadExternalTemplate: templateId is required");
         return null;
     }
 
     try {
-        const response = await fetch(templateDocumentPath);
-        if (!response.ok) {
-            throw new Error(`template loading error: HTTP error! status: ${response.status}`);
-        }
-
-        const templateHTML = await response.text();
-
-        // Create a temporary div to parse the HTML
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = templateHTML;
-
-        // Extract the template element
-        const templateElement = tempDiv.querySelector(`#${templateId}`);
+        const templateElement = await fetchElementFromURL(templateDocumentPath, `#${templateId}`, true);
         if (!templateElement) {
             throw new Error(`Template with id '${templateId}' not found in external file`);
         }
 
         return templateElement;
     } catch (error) {
-        console.error("findTemplateInDocument: failed to load template", error);
+        console.error("loadExternalTemplate: failed to load template", error);
         return null;
     }
 }

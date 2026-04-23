@@ -7,12 +7,12 @@
   "date": "2025",
   "time": "3 months",
   "thumbnail": {
-    "src": "_./Projects/Rotations.html",
+    "src": "./Thumbnail_Wide.png",
     "alt": "Rotation_Parametrization Thumbnail"
   },
   "trailer": {
-    "src": "Missing Trailer Path",
-    "alt": "Missing Trailer"
+    "src": "./Trailer.mp4",
+    "alt": "Rotation_Parametrization Video"
   },
   "git-link": "https://#",
   "main-contribution": "designer & programmer - educational tool",
@@ -34,7 +34,7 @@
     ]
   },
   "description": [
-    "Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? In my bachelor thesis, and the accompanying interactive tool, I analyse & visualise the varying properties of rotation parametrizations and their resulting use cases."
+    "Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? In my bachelor thesis I analyse & the varying properties of each rotation parametrization and their resulting use cases. In the accompanying unity project I created a visualisation tool, which allows the user to interactively experiment with the theory explained in the thesis. "
   ],
   "tags": [
     {
@@ -87,9 +87,9 @@
       "description": "The columns of a rotation (/transformation) matrix describe where the transformed x, y and z vector are pointing. "
     },
     {
-      "src": "./Projects/Rotations/Thesis_Pages/Summary_Rotation_Parameterizations.png",
-      "alt": "Summary Table of Properties of Rotation Parameterizations",
-      "description": "Summary of the properties of rotation parameterizations"
+      "src": "./Thesis_Pages/Summary_Rotation_Parametrizations.png",
+      "alt": "Summary Table of Properties of Rotation Parametrizations",
+      "description": "Summary of the properties of rotation parametrizations"
     }
   ],
   "CodeSample1": "https://raw.githubusercontent.com/Phyvie/ProfileWeek_25_Math/refs/heads/main/Assets/Scripts/Extensions/MathExtensions/AngleType.cs",

@@ -6,7 +6,7 @@
 
 import {loadDataRefs} from "../common.blocks/load-data-refs.js";
 import {
-    findTemplateInDocument,
+    loadExternalTemplate,
     addTemplateToDocument,
     createFragmentFromTemplate,
     appendTemplateCopyToElement
@@ -24,7 +24,7 @@ export async function LoadProjectCardTemplate(templatePath, templateId)
         return TEMPLATE_PROJECT_CARD;
     }
 
-    TEMPLATE_PROJECT_CARD = await findTemplateInDocument(templatePath, templateId);
+    TEMPLATE_PROJECT_CARD = await loadExternalTemplate(templatePath, templateId);
 
     if (!TEMPLATE_PROJECT_CARD)
     {

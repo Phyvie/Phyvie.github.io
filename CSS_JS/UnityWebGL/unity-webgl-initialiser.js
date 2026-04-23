@@ -99,10 +99,6 @@ export async function LoadWebGLScriptOntoElement(config, gameContainer)
     })
 }
 
-export function updateLoadingBar(progress, loadingBar) {
-    loadingBar.style.width = 100 * progress + "%";
-}
-
 export function LoadAndStartWebGLGame(canvas, config, loadingProgressFunction, postLoadFunction) {
     createUnityInstance(canvas, config, loadingProgressFunction)
         .then(postLoadFunction)

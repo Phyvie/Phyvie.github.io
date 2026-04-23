@@ -30,15 +30,15 @@
     "contributions": [
       {
         "name": "Coding Rotation Mechanics",
-        "link": "_./Projects/Rotations/Rotations.html#Backend-Math-Code"
+        "link": "_./Rotations.html#Backend-Math-Code"
       },
       {
         "name": "Modeling Visualisation",
-        "link": "_./Projects/Rotations/Rotations.html#Math-Visualisation"
+        "link": "_./Rotations.html#Math-Visualisation"
       },
       {
         "name": "User Interface",
-        "link": "_./Projects/Rotations/Rotations.html#User-Interface"
+        "link": "_./Rotations.html#User-Interface"
       }
     ]
   },

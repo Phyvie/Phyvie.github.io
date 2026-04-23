@@ -43,7 +43,7 @@ CONTENT for ROTATIONS:
 
 Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why?
 In my bachelor thesis, and the accompanying unity-project tool, I analyse & visualise the different use cases of rotation parametrizations.
-In 77 pages (including over 100 images) I analysed the properties & main usage of each rotation parameterization. (graded 1.3).
+In 77 pages (including over 100 images) I analysed the properties & main usage of each rotation parametrization. (graded 1.3).
 Accompanying the theoretical work, I developed a visualisation tool in Unity, that enables user to vary parameters to improve their understanding how that affects the resulting rotation. (graded 1.0).
 
 Information Table:

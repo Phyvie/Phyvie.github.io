@@ -1,7 +1,7 @@
 .contribution-section {
 }
 
-.scroll-container--contribution-section {
+.contribution-section--scroll-container {
 
 }
 
@@ -49,8 +49,8 @@
 }
 
 /* mobile landscape & desktop-half-height */
-@media (min-width: 37.5rem){
-    .scroll-container--contribution-section {
+@media (min-width: 37.5rem) and (orientation: landscape){
+    .contribution-section--scroll-container {
         /*height: 90vh;*/
         height: auto;
         padding: var(--LAYOUT-SPACING-SMALL);
@@ -88,7 +88,7 @@
 }
 
 /* large-screen */
-@media (min-width: 56.25rem){
+@media (min-width: 56.25rem) or (max-aspect-ratio: 4/3){
     @container scroll-container (min-width: 37.5rem) {
         .scroll-container__content-container--contributions-section {
             /*outline: var(--DEBUG-MEDIA-QUERY-OUTLINE-PC);*/
