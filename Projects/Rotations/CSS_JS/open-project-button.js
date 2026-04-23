@@ -23,11 +23,26 @@ function initialize()
 
         OpenProjectButton.addEventListener('click', () => {
             let WebGLBuildContainer = document.querySelector('#WebGL-Build');
-            OpenLightbox(WebGLBuildContainer, false);
+            
+            // Check if iframe already exists
             let WebGLIFrame = WebGLBuildContainer.querySelector('iframe');
+            
+            OpenLightbox(WebGLBuildContainer, false);
+            
+            // If iframe didn't exist, it might have been created by rotations-header-section.js 
+            // but we should check again after opening just in case.
+            if (!WebGLIFrame)
+            {
+                WebGLIFrame = WebGLBuildContainer.querySelector('iframe');
+            }
+
             if (WebGLIFrame)
             {
                 startEmbeddedGame(WebGLIFrame);
+            }
+            else
+            {
+                console.warn("WebGL iframe not found in #WebGL-Build");
             }
         });
 

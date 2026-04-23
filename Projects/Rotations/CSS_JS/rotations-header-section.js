@@ -51,7 +51,9 @@ async function initialize()
     MediaScrollContainer.addEventListener('click', (event) => {
         if (event.target === WebGLScroller)
         {
-            startEmbeddedGame(webGLIFrame);
+            if (webGLIFrame) {
+                startEmbeddedGame(webGLIFrame);
+            }
         }
         if (event.target === VideoScroller)
         {

@@ -37,6 +37,10 @@ export function OpenLightbox(content, createCopy = false) {
         }
         else if (content.parentNode != null)
         {
+            if (placeholderElement)
+            {
+                console.warn("placeholderElement already exists; this should not happen if CloseLightbox was called correctly. Overwriting placeholder.");
+            }
             placeholderElement = document.createElement('div');
             placeholderElement.style.display = 'none';
             placeholderElement.id = 'placeholder';
@@ -57,9 +61,13 @@ export function OpenLightbox(content, createCopy = false) {
 
 export function CloseLightbox() {
     if (!lightboxOverlay || !lightboxBody) return;
-    if (placeholderElement != null)
+    if (placeholderElement != null && currentContent != null)
     {
-        placeholderElement.parentNode.insertBefore(currentContent, placeholderElement);
+        // Only move back if the content is still inside the lightbox body
+        if (lightboxBody.contains(currentContent))
+        {
+            placeholderElement.parentNode.insertBefore(currentContent, placeholderElement);
+        }
         placeholderElement.remove();
         placeholderElement = null;
     }

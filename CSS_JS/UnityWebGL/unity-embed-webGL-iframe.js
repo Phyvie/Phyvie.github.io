@@ -84,16 +84,26 @@ export function embedWebGLIFrame(containerElement, iFramePath, webGLConfig)
  */
 export function startEmbeddedGame(iframe)
 {
-    if (iframe.contentDocument.readyState === "complete")
-    {
-        iframe.contentWindow.postMessage({message: "start-game"}, window.location.origin);
+    const message = {message: "start-game"};
+    const origin = window.location.origin;
+
+    // We can't reliably check iframe.contentDocument.readyState for cross-origin iframes.
+    // However, if we are on the same origin (which we usually are in this project), we can try.
+    // If it fails or if we want to be safe, we can just send the message and also add a load listener.
+    
+    try {
+        if (iframe.contentWindow) {
+            iframe.contentWindow.postMessage(message, origin);
+        }
+    } catch (e) {
+        console.warn("Failed to postMessage to iframe immediately:", e);
     }
-    else
-    {
-        iframe.addEventListener("load", () => {
-            iframe.contentWindow.postMessage({message: "start-game"}, window.location.origin);
-        });
-    }
+
+    // Always add a load listener just in case it hasn't finished loading yet.
+    // The receiver should handle duplicate "start-game" messages gracefully.
+    iframe.addEventListener("load", () => {
+        iframe.contentWindow.postMessage(message, origin);
+    }, { once: true });
 }
 
 export const minimalWebGLIFramePath = new URL("./unity-webgl-iframe-minimal.html", import.meta.url).href;
