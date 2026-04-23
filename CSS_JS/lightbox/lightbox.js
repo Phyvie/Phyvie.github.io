@@ -134,11 +134,7 @@ async function initialize()
             const parser = new DOMParser();
             const sourceDoc = parser.parseFromString(htmlContent, "text/html");
             const lightbox = sourceDoc.querySelector('#lightbox__overlay');
-            if (main) {
-                main.appendChild(lightbox);
-            } else {
-                document.body.appendChild(lightbox);
-            }
+            document.body.appendChild(lightbox);
             lightboxOverlay = document.getElementById('lightbox__overlay');
         }
 

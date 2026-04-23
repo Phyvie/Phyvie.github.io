@@ -29,10 +29,15 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-selector-tag,
 .hljs-literal,
 .hljs-section,
-.hljs-link {
+.hljs-link,
+.hljs-selector-class,
+.hljs-selector-id
+{
     color: hsl(263, 77%, 70%);
 }
-.hljs-subst {
+
+.hljs-subst
+{
     /* default */
 
 }
@@ -47,15 +52,19 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-addition,
 .hljs-variable,
 .hljs-template-tag,
-.hljs-template-variable {
+.hljs-template-variable
+{
     color: hsl(18, 77%, 60%);
 }
+
 .hljs-comment,
 .hljs-quote,
 .hljs-deletion,
-.hljs-meta {
+.hljs-meta
+{
     color: hsl(198, 77%, 60%);
 }
+
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-literal,
@@ -64,9 +73,11 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-doctag,
 .hljs-type,
 .hljs-name,
-.hljs-strong {
+.hljs-strong
+{
     font-weight: bold
 }
+
 .hljs-emphasis {
     font-style: italic
 }
