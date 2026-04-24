@@ -24,6 +24,14 @@
     width: 100%;
 }
 
+.project-card__thumbnail-interactive {
+    cursor: pointer; 
+}
+
+.project-card__thumbnail-interactive:hover {
+    transform: scale(1.2);
+}
+
 .project-card__overlay {
     position: absolute;
     left: 0;
@@ -242,8 +250,10 @@
 
 .project-card__more-button {
     margin-left: auto;
-    padding: 0 2ch;
+    padding: var(--LAYOUT-SPACING-XS) var(--LAYOUT-SPACING-SMALL);
     font-weight: bold;
+    cursor: pointer;
+    pointer-events: all;
 }
 
 /* region alt layout foldable*/

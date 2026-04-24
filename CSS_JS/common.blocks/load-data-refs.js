@@ -16,35 +16,41 @@ export function loadDataRefs(targetRootElement, jsonData)
 
     const dataRefElements = targetRootElement.querySelectorAll('[data-ref]');
     for (const dataRefElement of dataRefElements) {
-        const refName = dataRefElement.getAttribute('Data-ref');
-        const [type, key] = refName.split(':');
-        const data = jsonData[key];
+        try {
+            const refName = dataRefElement.getAttribute('Data-ref');
+            const [type, key] = refName.split(':');
+            const data = jsonData[key];
 
-        switch (type) {
-            case 'text':
-                setTextContent(dataRefElement, data);
-                break;
-            case 'image':
-                setImageContent(dataRefElement, data);
-                break;
-            case 'icon':
-                trySetIcon(dataRefElement, data);
-                break;
-            case 'link':
-                setLinks(dataRefElement, data);
-                break;
-            case 'video':
-                setVideo(dataRefElement, data);
-                break;
-            case 'git':
-                setGitContent(dataRefElement, data);
-                break;
-            case 'contributions':
-                setContributions(dataRefElement, data);
-                break;
-            default:
-                console.error(`Unknown data-ref type: ${type}`);
-                break;
+            switch (type) {
+                case 'text':
+                    setTextContent(dataRefElement, data);
+                    break;
+                case 'image':
+                    setImageContent(dataRefElement, data);
+                    break;
+                case 'icon':
+                    trySetIcon(dataRefElement, data);
+                    break;
+                case 'link':
+                    setLinks(dataRefElement, data);
+                    break;
+                case 'video':
+                    setVideo(dataRefElement, data);
+                    break;
+                case 'git':
+                    setGitContent(dataRefElement, data);
+                    break;
+                case 'contributions':
+                    setContributions(dataRefElement, data);
+                    break;
+                default:
+                    console.error(`Unknown data-ref type: ${type}`);
+                    break;
+            }
+        }
+        catch (error)
+        {
+            
         }
     }
 }

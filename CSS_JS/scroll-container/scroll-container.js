@@ -8,6 +8,7 @@ export {
     scrollContainerByWidth,
     scrollContainerToPosition,
     scrollContainerToElement,
+    scrollContainerToElementClass,
     scrollContainerToPercentage
 };
 
@@ -172,6 +173,37 @@ function scrollContainerToElement(container, elementId) {
 
     scrollContainerToIndex(containerEl, scrollIndex);
 }
+
+function scrollContainerToElementClass(container, className) {
+    const containerEl = ReturnElementOrGetById(container);
+    if (!containerEl) {
+        console.warn('Invalid scroll container provided to scrollContainerToElementClass');
+        return;
+    }
+
+    // If className starts with '.', remove it for getElementsByClassName or keep it for querySelector
+    // The instruction says "starting with . is called elementClass", so we expect it to be a selector or just class name.
+    // Given the example "data-scroll=.project-section-header__video-container", it looks like a full selector.
+    
+    const targetEl = containerEl.querySelector(className);
+    
+    if (!targetEl) {
+        console.warn(`Element with class/selector "${className}" not found within container.`);
+        return;
+    }
+
+    const children = Array.from(containerEl.children);
+    const scrollIndex = children.indexOf(targetEl);
+
+    if (scrollIndex === -1) {
+        console.warn(`Element with class/selector "${className}" is not a direct child of the scroll container.`);
+        // Note: scrollContainerToIndex only works for direct children. 
+        // If it's a nested child, we might need a different approach, but the existing scrollContainerToElement also assumes it's a child.
+        return;
+    }
+
+    scrollContainerToIndex(containerEl, scrollIndex);
+}
 /* endregion scroll-functions */
 
 /* region [data-scroll]-management */
@@ -313,9 +345,12 @@ function parseScrollCommand(commandString) {
 
     // Element ID reference
     if (trimmed.startsWith('#')) {
-        return { type: 'element', value: trimmed.substring(1) };
+        return { type: 'elementID', value: trimmed.substring(1) };
     }
-
+    // Element Class reference
+    if (trimmed.startsWith('.')) {
+        return { type: 'elementClass', value: trimmed };
+    }
     // Percentage scroll (e.g., "25%")
     if (trimmed.endsWith('%') && !isNaN(parseFloat(trimmed))) {
         const percent = parseFloat(trimmed);
@@ -333,7 +368,7 @@ function parseScrollCommand(commandString) {
     const possibleElement = document.getElementById(trimmed);
     if (possibleElement) {
         console.warn(`Using "${trimmed}" as element ID. Prefer "#${trimmed}" for clarity.`);
-        return { type: 'element', value: trimmed };
+        return { type: 'elementID', value: trimmed };
     }
 
     console.warn(`Unrecognized scroll command: "${trimmed}"`);
@@ -350,8 +385,12 @@ function executeScrollCommand(container, command) {
             scrollContainerToIndex(container, command.value);
             break;
 
-        case 'element':
+        case 'elementID':
             scrollContainerToElement(container, command.value);
+            break;
+
+        case 'elementClass':
+            scrollContainerToElementClass(container, command.value);
             break;
 
         case 'percentage':

@@ -23,12 +23,6 @@
 }
 /* endregion absolute */
 
-/* region styling */
-.media--hover-scale:hover {
-    transform: scale(1.2);
-}
-/* endregion styling */
-
 .media--img-in-font {
     height: 1em;
     width: auto;

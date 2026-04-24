@@ -1,0 +1,92 @@
+<template id="project-header-section-template">
+<section class="project-header-section"
+         style="position: relative">
+    <div class="project-section__main-content">
+        <div class="project-section__media">
+            <div class="scroll-container">
+                <div class="scroll-container__content-container">
+                    <div class="project-section-header__video-container scroll-container__item" style="aspect-ratio: 16/9">
+                        <img data-ref="image:thumbnail" style="width: 100%; height: 100%; object-fit: cover; transform: scale(135%)" src="" alt="">
+                        <video data-ref="video:trailer" style="width: 100%; height: 100%" controls ></video>
+                    </div>
+                    <div class="WebGL-Build scroll-container__item"
+                        data-scriptName="webgl-build">
+                        <!-- project-header-section.js loads the WebGL build in here -->
+                    </div>
+                </div>
+                <div class="scroll-container__bottom-navigation-line">
+                    <div class="scroll-container__bot-nav-line-button"
+                         data-scriptName="video-toggle"
+                        data-scroll=".project-section-header__video-container"> Play Video </div>
+                    <div class="scroll-container__bot-nav-line-button"
+                         data-scriptName="webgl-scroller"
+                        data-scroll=".WebGL-Build"> Try Yourself </div>
+                </div>
+            </div>
+        </div>
+        <div class="project-section__info-container">
+            <h1 class="project-section__title" data-ref="text:project-title"></h1>
+            <table class="project-section__data-table">
+                <tr>
+                    <th> Genre: </th>
+                    <td data-ref="text:project-type"></td>
+                </tr>
+                <tr>
+                    <th> Dev-Context:</th>
+                    <td data-ref="text:origin"></td>
+                </tr>
+                <tr>
+                    <th> Time - Team-Size</th>
+                    <td><span data-ref="text:time"></span> - <span data-ref="text:team-size"> </span></td>
+                </tr>
+                <tr>
+                    <th> my role:</th>
+                    <td data-ref="contributions:contributions"></td>
+                </tr>
+            </table>
+            <p class="project-section__description" data-ref="text:description"> </p>
+            <div class="project-section__links flex-tags flex-tags--project-section-links">
+                <a class="flex-tags__tag tag tag--link-arrow tag--project-section-link" href="./Rotations.html"> discover more </a>
+            </div>
+        </div>
+    </div>
+</section>
+</template>
+
+<template id="project-header-section-minimal-template">
+    <section id="project-header-section"
+             class="project-header-section"
+             style="position: relative">
+        <div class="project-section__main-content">
+            <div class="project-section__media">
+                <div class="scroll-container">
+                    <div class="scroll-container__content-container">
+                        <div class="project-section-header__video-container scroll-container__item" style="aspect-ratio: 16/9">
+                            <div class="project-section-header__video-play-button"></div>
+                            <img class="project-section-header__thumbnail" data-ref="image:thumbnail" style="width: 100%; height: 100%; object-fit: cover;" src="" alt="">
+                            <video class="project-section-header__video" data-ref="video:trailer" style="width: 100%; height: 100%" controls ></video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-section__info-container">
+                <h1 class="project-section__title" data-ref="text:project-title"></h1>
+                <table class="project-section__data-table">
+                    <tr>
+                        <th> Genre: </th>
+                        <td data-ref="text:project-type"></td>
+                    </tr>
+                    <tr>
+                        <th> Dev-Context:</th>
+                        <td data-ref="text:origin"></td>
+                    </tr>
+                    <tr>
+                        <th> Time - Team-Size</th>
+                        <td><span data-ref="text:time"></span> - <span data-ref="text:team-size"> </span></td>
+                    </tr>
+                </table>
+                <p class="project-section__description" data-ref="text:description"> </p>
+            </div>
+        </div>
+    </section>
+</template>

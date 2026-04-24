@@ -59,7 +59,7 @@
     }
   ],
   "tools": "Missing Tools",
-  "WebGLConfig": {
+  "webGLConfig": {
     "arguments": [],
     "dataUrl": "./Content/Build/WebBuild.data",
     "loader": "./Content/Build/WebBuild.loader.js",

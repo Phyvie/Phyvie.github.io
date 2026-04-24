@@ -37,7 +37,7 @@ export async function LoadProjectCardTemplate(templatePath, templateId)
 }
 
 /* create an html-fragment, that holds a copy of the TEMPLATE content*/
-export function CreateProjectCardFragment() {
+export function CreateProjectCardFragment() {y
     if (!TEMPLATE_PROJECT_CARD) {
         console.error("CreateProjectCard: template is not set");
         return null;
@@ -130,7 +130,7 @@ function wireImageToVideo(image, video) {
         return;
     }
 
-    image.classList.add("media--hover-scale");
+    image.classList.add("project-card__thumbnail-interactive");
     image.style.display = "block";
     video.style.display = "none";
     video.controls = true;

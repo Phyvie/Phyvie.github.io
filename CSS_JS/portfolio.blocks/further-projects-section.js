@@ -7,7 +7,14 @@ import {
 } from "../project-card/project-card.js";
 import {GetPathFromPortfolioRoot} from "../../PortfolioRootPath.js";
 import {addFilterTagToElement, createFilterTag} from "../filter-tags/filter-tags.js";
-import {makeURLsAbsolute, resolveRelativeUrlsInJson} from "../URL-Fetching-And-Templates/cross-html-engine.js";
+import {fetchElementFromURL, makeURLsAbsolute, resolveRelativeUrlsInJson} from "../URL-Fetching-And-Templates/cross-html-engine.js";
+import {OpenLightbox} from "../lightbox/lightbox.js";
+import {loadExternalTemplate, createFragmentFromTemplate} from "../URL-Fetching-And-Templates/template-manager.js";
+import {initializeProjectHeaderSection} from "../project-header-section/project-header-section.js";
+
+const HEADER_SECTION_TEMPLATE_PATH = GetPathFromPortfolioRoot("_./CSS_JS/project-header-section/project-header-section.html");
+const HEADER_SECTION_TEMPLATE_ID = "project-header-section-minimal-template";
+let HEADER_SECTION_TEMPLATE = null;
 
 async function CreateProjectCards() {
     let CardParent = document.getElementById('further-projects-section__cards-container');
@@ -68,15 +75,30 @@ async function CreateProjectCards() {
             const projectCardUnfoldButton = projectCard.querySelector('[data-more-info-button]');
             if (projectCardUnfoldButton)
             {
-                projectCardUnfoldButton.addEventListener("click", () => {
-                    if (projectCard.style.gridRow === "span 2")
-                    {
-                        projectCard.style.gridRow = "span 1";
+                projectCardUnfoldButton.addEventListener("click", async () => {
+                    if (!HEADER_SECTION_TEMPLATE) {
+                        HEADER_SECTION_TEMPLATE = await loadExternalTemplate(HEADER_SECTION_TEMPLATE_PATH, HEADER_SECTION_TEMPLATE_ID);
                     }
-                    else
-                    {
-                        projectCard.style.gridRow = "span 2";
+                    if (!HEADER_SECTION_TEMPLATE) {
+                        console.error("Failed to load header section template");
+                        return;
                     }
+
+                    const fragment = createFragmentFromTemplate(HEADER_SECTION_TEMPLATE);
+                    const headerSection = fragment.querySelector('.project-header-section');
+
+                    const webglIframeURL = jsonData.WebGLBuildURL ? new URL(jsonData.WebGLBuildURL, projectDataURL).href : null;
+
+                    // Ensure the link in the header section points to the correct project page
+                    const discoverMoreLink = headerSection.querySelector('.flex-tags__tag.tag--link-arrow');
+                    if (discoverMoreLink && jsonData["project-info-link"]) {
+                        discoverMoreLink.href = jsonData["project-info-link"];
+                    }
+
+                    headerSection.classList.add('main__panel');
+                    OpenLightbox(headerSection);
+
+                    await initializeProjectHeaderSection(headerSection, projectDataURL, webglIframeURL);
                 })
             }
         } catch (error) {

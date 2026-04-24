@@ -31,148 +31,43 @@
     <!-- project-/file-specific stylesheets & JavaScripts -->
     <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/main.css">
     <link rel="stylesheet" href="../../CSS_JS/project-card/project-card.css">
-    <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/project-section.css">
+    <link rel="stylesheet" href="../../CSS_JS/project-header-section/project-header-section.css">
     <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/contribution-section.css">
 
     <link rel="stylesheet" href="../../Navigation/NavBar.css">
     <script type="module" src="../../Navigation/AddNavBar.js"></script>
 
-    <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/project-section.css">
-    <link rel="stylesheet" href="CSS_JS/rotations-header-section.css">
+    <link rel="stylesheet" href="../../CSS_JS/project-header-section/project-header-section.css">
+    <link rel="stylesheet" href="./CSS_JS/lightbox-WebGL-build.css">
 
-    <link rel="stylesheet" href="../../CSS_JS/project-card/project-card.css">
+    <link rel
 </head>
 <body>
 
 <main class="main">
 
-<section id="project-header-section"
-         class="main__panel project-section"
-         style="position: relative">
-    <div class="project-section__main-content">
-        <div class="project-section__media">
-            <div class="scroll-container">
-                <div class="scroll-container__content-container">
-                    <div id="rotation-main-video" class="scroll-container__item" style="aspect-ratio: 16/9">
-                        <img data-ref="image:thumbnail" style="width: 100%; height: 100%; object-fit: cover; transform: scale(135%)" src="" alt="">
-                        <video data-ref="video:trailer" style="width: 100%; height: 100%" controls ></video>
-                    </div>
-                    <div id="WebGL-Build"
-                         class="scroll-container__item"
-                        data-scriptName="webgl-build">
-                        <!-- rotations-header-section.js loads the WebGL build in here -->
-                    </div>
-                </div>
-                <div class="scroll-container__bottom-navigation-line">
-                    <div class="scroll-container__bot-nav-line-button"
-                         data-scriptName="video-toggle"
-                        data-scroll="#rotation-main-video"> Play Video </div>
-                    <div class="scroll-container__bot-nav-line-button"
-                         data-scriptName="webgl-scroller"
-                        data-scroll="#WebGL-Build"> Try Yourself </div>
-                </div>
-            </div>
-        </div>
-        <div class="project-section__info-container">
-            <h1 class="project-section__title" data-ref="text:project-title"></h1>
-            <table class="project-section__data-table">
-                <tr>
-                    <th> Genre: </th>
-                    <td data-ref="text:project-type"></td>
-                </tr>
-                <tr>
-                    <th> Dev-Context:</th>
-                    <td data-ref="text:origin"></td>
-                </tr>
-                <tr>
-                    <th> Time - Team-Size</th>
-                    <td><span data-ref="text:time"></span> - <span data-ref="text:team-size"> </span></td>
-                </tr>
-                <!-- region alt layout of data-table -->
-                <!--                    <tr>-->
-                <!--                        <th> <img src="./Data/Icons/Group.png" alt="Group-Size: " class="media&#45;&#45;img-in-font"> </th>-->
-                <!--                        <td> 1 </td>-->
-                <!--                    </tr>-->
-                <!--                    <tr>-->
-                <!--                        <th> <img src="./Data/Icons/Calendar.png" alt="Dev-Data" class="media&#45;&#45;img-in-font"> </th>-->
-                <!--                        <td> Summer 2025 </td>-->
-                <!--                    </tr>-->
-                <!--                    <tr>-->
-                <!--                        <th> Tools</th>-->
-                <!--                        <td>-->
-                <!--                            <div style="display:flex; flex-flow: row nowrap">-->
-                <!--                                <div class="tag">-->
-                <!--                                    <img src="./Data/Icons/Unity.png" class="media&#45;&#45;img-in-font" alt="Unity">-->
-                <!--                                </div>-->
-                <!--                                <div class="tag">-->
-                <!--                                    <img src="./Data/Icons/Cs.png" class="media&#45;&#45;img-in-font" alt="C#">-->
-                <!--                                </div>-->
-                <!--                            </div>-->
-                <!--                        </td>-->
-                <!--                    </tr>-->
-                <!-- endregion -->
-                <tr>
-                    <th> my role:</th>
-                    <td data-ref="contributions:contributions"></td>
-                </tr>
-            </table>
-            <!-- region layout alternative to project-section__data-table -->
-            <!--                <div class="project-section__data-line flex-tags">-->
-            <!--                    <p class="flex-tags__tag tag tag&#45;&#45;rotations"> Bachelor Thesis </p>-->
-            <!--                    <p class="flex-tags__tag tag tag&#45;&#45;rotations media-flex-center-wrapper" style="position: relative; color: black; z-index: 30">-->
-            <!--                        <img src="./Data/Icons/Group.png" alt="Group-size: " class="u-parent-size media&#45;&#45;contain" style="position: absolute; display: inline-block; z-index: 0" >-->
-            <!--                        <span style="position: relative; z-index: 10;">1</span>-->
-            <!--                    </p>-->
-            <!--                    <p class="flex-tags__tag tag tag&#45;&#45;rotations"> </p>-->
-            <!--                </div>-->
-            <!-- endregion -->
-            <p class="project-section__description" data-ref="text:description"> </p>
-            <!--        region layout alternative: separate contribution & tools section -->
-            <!--            <div class="project-section__contributions">-->
-            <!--                <h2 class="header&#45;&#45;lvl2"> contributions & tools: </h2>-->
-            <!--                <ul>-->
-            <!--                    <li-->
-            <!--                            data-cached-content="./Projects/Rotations/Rotations.html#Thesis-Writing"-->
-            <!--                            data-cached-container-id="rotations-workflow">-->
-            <!--                        Thesis Writing-->
-            <!--                    </li>-->
-            <!--                    <li-->
-            <!--                            data-cached-content="./Projects/Rotations/Rotations.html#Backend-Math-Code"-->
-            <!--                            data-cached-container-id="rotations-workflow">-->
-            <!--                        Coding Rotation Mathematics-->
-            <!--                    </li>-->
-            <!--                    <li-->
-            <!--                            data-cached-content="./Projects/Rotations/Rotations.html#Math-Visualisation"-->
-            <!--                            data-cached-container-id="rotations-workflow">-->
-            <!--                        Modeling Visualisation-->
-            <!--                    </li>-->
-            <!--                    <li-->
-            <!--                            data-cached-content="./Projects/Rotations/Rotations.html#User-Interface"-->
-            <!--                            data-cached-container-id="rotations-workflow">-->
-            <!--                        User Interface-->
-            <!--                    </li>-->
-            <!--                </ul>-->
-            <!--            </div>-->
-            <!--            endregion layout alternative: separate contribution & tools section-->
-            <div class="project-section__links flex-tags flex-tags--project-section-links">
-                <a class="flex-tags__tag tag tag--link-arrow tag--project-section-link" href="./Rotations.html"> discover more </a>
+<div id="project-header-section-container" class="main__panel">
+    <script type="module" src="CSS_JS/rotations-header-section.js"></script>
+</div>
+
+<div id="lightbox-WebGL-build" class="lightbox-WebGL-build">
+    <button id="open-project-button"
+            class="tag open-project-button"
+            data-scriptName="open-project-button">
+        <img src="../../Data/Icons/Unity.png" alt="unity-icon">
+        <span> try yourself </span>
+    </button>
+
+    <div id="lightbox-WebGL-overlay" class="lightbox__overlay">
+        <div class="lightbox__content-container">
+            <button class="lightbox__close-btn"> &times; </button>
+            <div class="lightbox__content">
             </div>
         </div>
     </div>
-<!--    <div id="rotations-workflow"-->
-<!--         class="project-section__workflow project-section__workflow&#45;&#45;collapsed">-->
-        <!-- This is where further explanation about the workflow or individual results of the project are added -->
-<!--    </div>-->
-    <script type="module" src="CSS_JS/rotations-header-section.js"></script>
-</section>
 
-<button class="tag open-project-button"
-        data-scriptName="open-project-button">
-    <img src="../../Data/Icons/Unity.png" alt="unity-icon">
-    <span> try yourself </span>
-
-    <script type="module" src="./CSS_JS/open-project-button.js"></script>
-</button>
+    <script type="module" src="./CSS_JS/lightbox-webGL-build.js"></script>
+</div>
 
 <hr class="main__separator"></hr>
 

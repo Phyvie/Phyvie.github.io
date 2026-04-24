@@ -1,5 +1,5 @@
 /* region DEFAULT-PANEL */
-.project-section {
+.project-header-section {
     display: flex;
     flex-flow: column nowrap;
 }
@@ -17,6 +17,26 @@
     max-width: min(calc(80vh * 4/3), 100vw);
 
     align-self: center;
+}
+
+.project-section-header__thumbnail {
+    cursor: pointer;
+}
+
+.project-section-header__thumbnail:hover
+{
+    transform: scale(1.05);
+}
+
+.project-section-header__video-play-button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.project-section-header__video:hover
+{
+
 }
 
 .project-section__info-container {

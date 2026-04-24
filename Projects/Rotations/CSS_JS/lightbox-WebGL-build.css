@@ -1,6 +1,6 @@
-.tag--rotations {
-    --LAYOUT-TAG-WIDTH: 33%;
-    padding: var(--LAYOUT-SPACING-XS);
+.lightbox-WebGL-build {
+    position: relative;
+    z-index: 1000;
 }
 
 .open-project-button {
@@ -33,10 +33,4 @@
 .open-project-button img {
     height: 1.2em;
     width: auto;
-}
-
-.lightbox__content-container #WebGL-Build
-{
-    width: 80vw;
-    height: 80vh;
 }
