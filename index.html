@@ -38,6 +38,7 @@
     <!-- individual section stylesheets -->
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/about-me.css">
     <link rel="stylesheet" href="CSS_JS/project-header-section/project-header-section.css">
+    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/further-projects-section.css">
 
     <link rel="stylesheet" href="index.css">
 
@@ -83,7 +84,7 @@
             </div>
             <div class="project-section__links flex-tags">
                 <a class="flex-tags__tag tag tag--link-arrow tag--about-me-links" href="mailto:valentin.thenbergh@online.de"> Contact-E-Mail </a>
-                <a class="flex-tags__tag tag tag--link-arrow tag--about-me-links" href="./Data/Placeholder_CV.pdf"> Curriculum Vitae </a>
+                <a class="flex-tags__tag tag tag--link-arrow tag--about-me-links" href="./Data"> Curriculum Vitae </a>
             </div>
         </div>
     </section>
@@ -126,10 +127,10 @@
             </div>
         </div>
         <div id="further-projects-section__cards-container" class="further-projects-section__cards-container--autogrid" data-filter-container="further_projects_section__cards-container">
-            <!-- project cards are loaded in here via "further-projects-section.js" -->
+            <script type="module" src="./CSS_JS/portfolio.blocks/further-projects-section.js"></script>
         </div>
+
     </section>
-    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/further-projects-section.css">
 </main>
 
 <script type="module" src="index.js"></script>
