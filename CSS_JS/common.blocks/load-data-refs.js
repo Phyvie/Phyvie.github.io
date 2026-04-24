@@ -25,6 +25,9 @@ export function loadDataRefs(targetRootElement, jsonData)
                 case 'text':
                     setTextContent(dataRefElement, data);
                     break;
+                case 'link':
+                    setLink(dataRefElement, data);
+                    break;
                 case 'image':
                     setImageContent(dataRefElement, data);
                     break;
@@ -95,6 +98,19 @@ function setTextContent(element, text) {
     {
         element.innerHTML = text;
     }
+}
+
+function setLink(element, linkData) {
+    if (!element) {
+        console.warn("setLink: element is null or undefined");
+        return;
+    }
+
+    if (!linkData) {
+        console.warn("setLink: linkData is null or undefined");
+    }
+
+    element.href = linkData;
 }
 
 function setGitContent(element, gitLink) {

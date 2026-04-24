@@ -13,7 +13,7 @@ import {loadExternalTemplate, createFragmentFromTemplate} from "../URL-Fetching-
 import {initializeProjectHeaderSection} from "../project-header-section/project-header-section.js";
 
 const HEADER_SECTION_TEMPLATE_PATH = GetPathFromPortfolioRoot("_./CSS_JS/project-header-section/project-header-section.html");
-const HEADER_SECTION_TEMPLATE_ID = "project-header-section-minimal-template";
+const HEADER_SECTION_TEMPLATE_ID = "project-header-section-lightbox-template";
 let HEADER_SECTION_TEMPLATE = null;
 
 async function CreateProjectCards() {
