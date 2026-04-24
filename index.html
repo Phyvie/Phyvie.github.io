@@ -38,7 +38,6 @@
     <!-- individual section stylesheets -->
     <link rel="stylesheet" href="CSS_JS/portfolio.blocks/about-me.css">
     <link rel="stylesheet" href="CSS_JS/project-header-section/project-header-section.css">
-    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/further-projects-section.css">
 
     <link rel="stylesheet" href="index.css">
 
@@ -58,7 +57,7 @@
 <!-- endregion LIGHTBOX -->
 
 <main class="main">
-    <section id="about-me" class="main__panel project-header-section project-section__main-content">
+    <section id="about-me" class="main__panel project-section project-section__main-content">
 <!--        <div class="project-section__media media&#45;&#45;relative-wrapper" style="aspect-ratio: 1/1; flex-basis: 30%; border-radius: 8vw">-->
         <div class="project-section__media media--relative-wrapper">
             <img class="media--cover" src="Data/portrait_vtb_2.jpg" alt="Image of me" style="border-radius: 12vw; ">
@@ -129,9 +128,8 @@
         <div id="further-projects-section__cards-container" class="further-projects-section__cards-container--autogrid" data-filter-container="further_projects_section__cards-container">
             <!-- project cards are loaded in here via "further-projects-section.js" -->
         </div>
-
-        <script defer type="module" src="CSS_JS/portfolio.blocks/further-projects-section.js"></script>
     </section>
+    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/further-projects-section.css">
 </main>
 
 <script type="module" src="index.js"></script>
