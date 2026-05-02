@@ -14,35 +14,7 @@
 }
 
 .tag--about-me-skills {
-    --LAYOUT-TAG-WIDTH: 100%;
     container: tag--about-me-skills / inline-size;
-}
-
-.tag--about-me-links {
-    --LAYOUT-TAG-WIDTH: 100%;
-    container: tag--about-me-link / inline-size;
-}
-
-@container flex-tags (min-width: 25em)
-{
-    .tag--about-me-skills {
-        --LAYOUT-TAG-WIDTH: 50%;
-    }
-
-    .tag--about-me-links {
-        --LAYOUT-TAG-WIDTH: 50%;
-    }
-}
-
-@container flex-tags (min-width: 50sem)
-{
-    .tag--about-me-skills {
-        --LAYOUT-TAG-WIDTH: 25%;
-    }
-
-    .tag--about-me-links {
-        --LAYOUT-TAG-WIDTH: 25%;
-    }
 }
 
 .tag--about-me-br {

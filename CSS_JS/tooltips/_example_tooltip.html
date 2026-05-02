@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> _example_tooltip </title>
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../global_variables.css">
+    <link rel="stylesheet" href="tooltip.css">
+    <link rel="stylesheet" href="_example_tooltip.css">
+</head>
+<body>
+
+    <div class="example-section bg-one">
+        <div class="tooltip-trigger has-tooltip" 
+             data-tooltip-title="Tooltip 1" 
+             data-tooltip-content="Content for the first tooltip."> Element 1 </div>
+        <div class="tooltip-trigger has-tooltip" 
+             data-tooltip-title="Tooltip 2" 
+             data-tooltip-content="Content for the second tooltip."
+             data-tooltip-skill-level="Advanced"> Element 2 </div>
+        <div class="tooltip-trigger has-tooltip" 
+             data-tooltip-title="Tooltip 3" 
+             data-tooltip-content="Content for the third tooltip."> Element 3 </div>
+    </div>
+
+    <div class="example-section bg-two">
+        <div style="display: flex; gap: 20px;">
+            <div class="tooltip-trigger has-tooltip" 
+                 data-tooltip-title="Tooltip 4" 
+                 data-tooltip-content="Content for the fourth tooltip."> Element 4 </div>
+            <div class="tooltip-trigger has-tooltip" 
+                 data-tooltip-title="Tooltip 5" 
+                 data-tooltip-content="Content for the fifth tooltip."> Element 5 </div>
+            <div class="tooltip-trigger has-tooltip" 
+                 data-tooltip-title="Tooltip 6" 
+                 data-tooltip-content="Content for the sixth tooltip."> Element 6 </div>
+        </div>
+        
+        <!-- Second div additionally contains a tooltip-container -->
+        <div id="mobile-tooltip-display" class="mobile-tooltip-container">
+            <!-- Tooltip content will be injected here if this is visible -->
+        </div>
+        <p style="font-size: 0.8em; color: #666;">(On desktop, the mobile-tooltip-container is usually hidden. In this example, it's positioned to receive content if detected as 'visible' by JS)</p>
+    </div>
+
+    <script type="module" src="tooltip-manager.js"></script>
+</body>
+</html>

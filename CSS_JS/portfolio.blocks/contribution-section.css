@@ -17,7 +17,7 @@
 
 .described-item__content {
     aspect-ratio: 3/2;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .described-item__description {
@@ -74,7 +74,7 @@
 
     .described-item__content {
         flex: 0 0 50%;
-        width: auto;
+        width: 100%;
         height: 100%;
         max-height: 80vh;
     }
@@ -88,7 +88,7 @@
 }
 
 /* large-screen */
-@media (min-width: 56.25rem) or (max-aspect-ratio: 4/3){
+@media (min-width: 60rem) or (max-aspect-ratio: 4/3){
     @container scroll-container (min-width: 37.5rem) {
         .scroll-container__content-container--contributions-section {
             /*outline: var(--DEBUG-MEDIA-QUERY-OUTLINE-PC);*/

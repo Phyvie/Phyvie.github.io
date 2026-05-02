@@ -5,7 +5,7 @@
   "origin": "Cologne Game Lab",
   "team-size": "6",
   "date": "2024",
-  "time": "7w",
+  "time": "7 weeks",
   "thumbnail": {
     "src": "./Thumbnail.png",
     "alt": "Play My Math Project IMG"
@@ -45,7 +45,7 @@
     }
   ],
   "tools": [
-    "Board Games",
+    "Analog Prototype",
     "Miro",
     "Unity"
   ],

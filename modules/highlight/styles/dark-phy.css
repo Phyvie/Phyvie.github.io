@@ -1,6 +1,8 @@
 pre {
     width: max-content;
     min-width: 100%;
+
+    overflow: hidden;
 }
 
 pre code.hljs {
@@ -8,7 +10,7 @@ pre code.hljs {
     min-width: 100%;
 
     display: block;
-    overflow: visible;
+    overflow: hidden;
 
     padding: 3px 5px;
 }

@@ -1,4 +1,5 @@
 import { findInRelatives } from "../../DOMFunctions.js";
+import { hideTooltip } from "../tooltips/tooltip-manager.js";
 
 function onClick(event) {
     if (!(event.target instanceof HTMLElement)) return;
@@ -22,7 +23,11 @@ function onClick(event) {
 
     const isActive = container.activeFilters.has(groupName) && container.activeFilters.get(groupName).has(filterValue);
 
-    switchTriggerFilterStyle(event.target, isActive);
+    switchTriggerFilterStyle(trigger, isActive);
+
+    if (!isActive) {
+        hideTooltip();
+    }
 
     container.querySelectorAll('[data-filter-tags]').forEach(item => {
         const { matches, relevance } = elementMatchesFilters(item, container.activeFilters);
@@ -237,6 +242,31 @@ export function removeFilterTagFromElement(element, tagName)
     element.filterTags.delete(tagName);
 
     syncAttributeFromMap(element);
+}
+
+export function makeElementFilterTrigger(element, triggerName, groupName = "")
+{
+    if (!(element instanceof HTMLElement)) {
+        console.error("makeElementFilterTrigger: element must be HTMLElement");
+        return;
+    }
+    if (!triggerName || typeof triggerName !== "string") {
+        console.error("makeElementFilterTrigger: triggerName must be string");
+        return;
+    }
+    if (groupName.length > 0 && (!groupName || typeof groupName !== "string")) {
+        console.error("makeElementFilterTrigger: groupName must be string");
+        return;
+    }
+    if (element.filterTags && element.filterTags instanceof Map) {
+        console.error("makeElementFilterTrigger: element already has filterTags");
+        return;
+    }
+    element.setAttribute('data-filter-trigger', triggerName);
+    if (groupName.length > 0)
+    {
+        element.setAttribute('data-filter-trigger-group', groupName);
+    }
 }
 
 function syncAttributeFromMap(element)

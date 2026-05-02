@@ -281,7 +281,7 @@
 /*!*}*!*/
 
 /*!*!* media-query large screen *!*!*/
-/*!*@media (min-width: 56.25rem)*!*/
+/*!*@media (min-width: 60rem)*!*/
 /*!*{*!*/
 /*!*    .main {*!*/
 /*!*        !*background-color: var(--DEBUG-MEDIA-QUERY-COLOR-LARGE);*!*!*/

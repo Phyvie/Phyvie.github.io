@@ -1,0 +1,11 @@
+1. Topic (Dis)entanglement
+=> Möbius strips
+2. Gameplay?
+=> use mixture of one- and two-sided shapes
+=> analog prototypes
+=> try yourself: start at green post-it, trace a path along the surfaces that passes through all pink points
+=> challenge? -> images of increased difficulty
+=> game-loop is born
+=> in-engine timelapse
+=> GDD with visual aids
+=> finished game

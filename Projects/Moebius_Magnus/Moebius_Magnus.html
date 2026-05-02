@@ -1,0 +1,379 @@
+<!-- pre-main-commit-tests:
+check video working,
+check WebGL build working
+check scrolling works
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title> VTB - Moebius Magnus </title>
+
+    <!-- general purpose stylesheets & JavaScripts -->
+    <link rel="stylesheet" href="../../CSS_JS/reset.css">
+    <link rel="stylesheet" href="../../CSS_JS/global_variables.css">
+
+    <link rel="stylesheet" href="../../CSS_JS/styling/media.css">
+    <link rel="stylesheet" href="../../CSS_JS/common.blocks/header.css">
+    <link rel="stylesheet" href="../../CSS_JS/common.blocks/tag.css">
+
+    <link rel="stylesheet" href="../../CSS_JS/scroll-container/scroll-container.css">
+    <link rel="stylesheet" href="../../CSS_JS/scroll-container/scroll-container--selectable.css">
+    <script type="module" src="../../CSS_JS/scroll-container/scroll-container.js"></script>
+    <script type="module" src="../../CSS_JS/scroll-container/scroll-container--selectable.js"></script>
+
+    <script type="module" src="../../CSS_JS/common.blocks/switchable-content-container.js"></script>
+
+    <link rel="stylesheet" href="../../CSS_JS/tooltips/tooltip.css">
+    <script type="module" src="../../CSS_JS/tooltips/tooltip-manager.js"></script>
+
+    <link rel="stylesheet" href="../../CSS_JS/lightbox/lightbox.css">
+    <script type="module" src="../../CSS_JS/lightbox/lightbox.js"></script>
+
+    <link rel="stylesheet" href="../../modules/highlight/styles/dark-phy.css">
+    <script src="../../modules/highlight/highlight.min.js"></script>
+
+    <!-- project-/file-specific stylesheets & JavaScripts -->
+    <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/main.css">
+    <link rel="stylesheet" href="../../CSS_JS/project-card/project-card.css">
+    <link rel="stylesheet" href="../../CSS_JS/project-header-section/project-header-section.css">
+    <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/contribution-section.css">
+
+    <link rel="stylesheet" href="../../Navigation/NavBar.css">
+    <script type="module" src="../../Navigation/AddNavBar.js"></script>
+
+    <link rel="stylesheet" href="../../CSS_JS/project-header-section/project-header-section.css">
+    <link rel="stylesheet" href="../../CSS_JS/UnityWebGL/lightbox/lightbox-WebGL-build.css">
+</head>
+<body>
+
+<main class="main">
+
+    <div id="project-header-section-container" class="main__panel">
+        <script type="module" src="CSS_JS/moebius-magnus-header-section-loader.js"></script>
+    </div>
+
+<!--    Can't import the WebGL build here, because it is too big -->
+<!--    <script type="module">-->
+<!--        import { initialize } from '../../CSS_JS/UnityWebGL/lightbox/lightbox-webGL-build.js';-->
+<!--        initialize(-->
+<!--                new URL("../../CSS_JS/UnityWebGL/lightbox/lightbox-webGL.html", import.meta.url).href,-->
+<!--                new URL("../../CSS_JS/UnityWebGL/lightbox/lightbox-webGL-iframe.html", import.meta.url).href,-->
+<!--                "#project-header-section-container",-->
+<!--                new URL("./project_data.json", import.meta.url).href,-->
+<!--        );-->
+<!--    </script>-->
+
+    <hr class="main__separator">
+
+    <section id="Prototyping"
+             class="main__panel contribution-section">
+        <h1 class="header"> Behind the Scenes—Game Concept </h1>
+        <p>
+            As the project lead & solo designer, it was my task to come up with a game concept. At the start everybody's ideas were incorporated in a miro board. Subsequently, I did more research, developed meachnic ideas, etc. After another consultation with my group, we worked on prototypes. Finally, my prototype about moebius strips was chosen as our game project.
+        </p> <br>
+
+        <div class="scroll-container scroll-container--selectable contribution-section--scroll-container">
+            <div id="prototyping_scroll_container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
+
+                <div id="" class="scroll-container__item scroll-container__item--contribution-section scroll-container__item--active">
+                    <div class="described-item">
+                        <div class="described-item__content media-flex-center-wrapper">
+                            <img src="./Workflow/Brainstorm/Miro-Game-References.png" class="media--contain" alt="image: research-source-example">
+                        </div>
+                        <div class="described-item__header">
+                            <b class="header--lvl3"> Game references </b>
+                        </div>
+                        <div class="described-item__description">
+                            <p>
+                                During the initial brainstorming session, all group suggestions were collected on a <a href="./Workflow/Brainstorm/Miro-Game-References.png"> Miro board </a>. I then conducted in-depth research on these ideas and related topics. For example, after watching a video about Möbius strips in my spare time, I added it to the game inspiration list the next day.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="" class="scroll-container__item scroll-container__item--contribution-section">
+                    <div class="described-item">
+                        <div class="described-item__content media-flex-center-wrapper">
+                            <img src="./Workflow/Brainstorm/Miro-Mind-Map.png" class="media--contain" alt="image: research-source-example">
+                        </div>
+                        <div class="described-item__header">
+                            <b class="header--lvl3"> Mind Map </b>
+                        </div>
+                        <div class="described-item__description">
+                            <p>
+                               To structure the ideas I created a <a href="./Workflow/Brainstorm/Miro-Mind-Map.png"> mind-map </a> by the following rules:
+                               Center: Topic (e.g. experimental or (dis)entanglement); <br>
+                               Depth 1: groupings of rough ideas (e.g. spatial entanglement). <br>
+                               Depth 2: specific game ideas (e.g. moebius strip). <br>
+                               Depth 3: specific mechanics. <br>
+                               The yellow-marked ideas are the ones I presented to the group.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="" class="scroll-container__item scroll-container__item--contribution-section">
+                    <div class="described-item">
+                        <div class="described-item__content media-flex-center-wrapper">
+                            <img src="./Workflow/Paper-Prototype_2A.png" class="media--contain" alt="image: research-source-example">
+                        </div>
+                        <div class="described-item__header">
+                            <b class="header--lvl3"> First paper prototype </b>
+                        </div>
+                        <div class="described-item__description">
+                            <p>
+                                Three ideas from the mindmap were chosen to be prototyped: The real-time-reliant ones by the programmers, and the more puzzle-heavy by me as paper-prototypes.
+                                In the prototype shown here, the beholder has to find the shortest possible path that: 1. starts at the green mark, 2. only moves along the surface (never over an edge) and 3. has all red marks (later items) on it.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="" class="scroll-container__item scroll-container__item--contribution-section">
+                    <div class="described-item">
+                        <div class="described-item__content media-flex-center-wrapper">
+                            <img src="./Workflow/Paper-Prototype_2A-Solution.png" class="media--contain" alt="image: research-source-example">
+                        </div>
+                        <div class="described-item__header">
+                            <b class="header--lvl3"> paper prototype solution </b>
+                        </div>
+                        <div class="described-item__description">
+                            <p>
+                                A possible solution path.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="" class="scroll-container__item scroll-container__item--contribution-section">
+                    <div class="described-item">
+                        <div class="described-item__content media-flex-center-wrapper">
+                            <img src="./Workflow/Paper-Prototype_2B.png" class="media--contain" alt="image: research-source-example">
+                        </div>
+                        <div class="described-item__header">
+                            <b class="header--lvl3"> paper prototype level 2 </b>
+                        </div>
+                        <div class="described-item__description">
+                            <p>
+                                A more challenging prototype proved that the game offers a challenge.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="" class="scroll-container__item scroll-container__item--contribution-section">
+                    <div class="described-item">
+                        <div class="described-item__content media-flex-center-wrapper">
+                            <img src="./Workflow/Paper-Prototype_B.png" class="media--contain" alt="image: research-source-example">
+                        </div>
+                        <div class="described-item__header">
+                            <b class="header--lvl3"> paper prototype level 3 </b>
+                        </div>
+                        <div class="described-item__description">
+                            <p>
+                                Since the paper prototype sparked the group's interest, we analyzed asset creation responsibilities before finally commiting to the project. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-container__absolute-nav-button scroll-container__nav-button--prev" data-scroll="prev"></div>
+            <div class="scroll-container__absolute-nav-button scroll-container__nav-button--next" data-scroll="next"></div>
+        </div>
+    </section>
+
+    <hr class="main__separator">
+
+    <section id="Game Design Document"
+             class="main__panel contribution-section">
+        <h1 class="header"> Behind the Scenes—Game Design Document </h1>
+        <p>
+            Given the idea for the game, I had to figure out the detailed game mechanics. I started from a simple game loop, incorporated that into a larger context. Subsequently, I created flowcharts & in-engine blockout-timelines of individual game mechanics.
+            The scroll-container below showcases the creation of the bridge-mechanic. The full Game Design Document can be found <a href="./Workflow/GDD/Moebius_GDD.pdf" target="_blank"> here </a>.
+        </p>
+
+        <div class="scroll-container scroll-container--selectable contribution-section--scroll-container">
+            <div id="game_design_document_scroll_container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
+
+                <div id="action-loop" class="scroll-container__item scroll-container__item--contribution-section scroll-container__item--active">
+                    <div class="described-item">
+                        <div class="described-item__content media-flex-center-wrapper">
+                            <img src="./Workflow/GDD/Action_Loop.png" class="media--contain" alt="image: research-source-example">
+                        </div>
+                        <div class="described-item__header">
+                            <b class="header--lvl3"> Main Action-Loop </b>
+                        </div>
+                        <div class="described-item__description">
+                            <p>
+                                As a first step, I noted down the game loop at the center of the game.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="game-loop" class="scroll-container__item scroll-container__item--contribution-section">
+                    <div class="described-item">
+                        <div class="described-item__content media-flex-center-wrapper">
+                            <img src="./Workflow/GDD/Action_Loop.png" class="media--contain" alt="image: research-source-example">
+                        </div>
+                        <div class="described-item__header">
+                            <b class="header--lvl3"> Full Game-Loop </b>
+                        </div>
+                        <div class="described-item__description">
+                            <p>
+                                Going from there I figured out how the main action-loop fits into a larger context:
+                                There are small figures that automatically walk along the moebius strips. The player has to take control of them to make them take intersections.
+                                When the player has led one of the figures to a target location, they are rewarded with a new shape, that they can place themselves somewhere close to the current shapes. Subsequently one or multiple new target-locations spawn. This keeps the environment under the players' control while simultaneously increasing the difficulty.
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="shapes" class="scroll-container__item scroll-container__item--contribution-section">
+                    <div class="described-item">
+                        <div class="described-item__content media-flex-center-wrapper">
+                            <img src="./Workflow/Moebius_Shapes/Two_Shapes.png" class="media--contain" alt="image: research-source-example">
+                        </div>
+                        <div class="described-item__header">
+                            <b class="header--lvl3"> Shape Prototypes </b>
+                        </div>
+                        <div class="described-item__description">
+                            <p>
+                               I figured out which shapes are interesting in terms of gameplay and visuals by building a multitude of paper prototypes. After choosing eight shapes, the paper strips also helped in providing a modeling reference for the artists.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="bridge-mechanic-flowchart" class="scroll-container__item scroll-container__item--contribution-section">
+                    <div class="described-item">
+                        <div class="described-item__content media-flex-center-wrapper">
+                            <img src="./Workflow/GDD/Bridges_Updated-1.jpg" class="media--contain" alt="image: research-source-example">
+                        </div>
+                        <div class="described-item__header">
+                            <b class="header--lvl3"> Bridge Mechanic Flowchart </b>
+                        </div>
+                        <div class="described-item__description">
+                            <p>
+                                Since newly placed shapes are not immediately connected to the previous ones, the player has the ability to build bridges between them.
+                                The bridge-building follows some rules (e.g. costing energy depending on length), that I had to specify for the programmers to implement.
+                                Therefore, I created a flowchart of the process.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="bridge-mechanic-visualisation" class="scroll-container__item scroll-container__item--contribution-section">
+                    <div class="described-item">
+                        <div class="described-item__content media-flex-center-wrapper">
+                            <img src="./Workflow/GDD/Bridges_Updated-2.jpg" class="media--contain" alt="image: research-source-example">
+                        </div>
+                        <div class="described-item__header">
+                            <b class="header--lvl3"> Bridge Mechanic Visualization </b>
+                        </div>
+                        <div class="described-item__description">
+                            <p>
+                                Accompanying the flowchart, I used placeholder assets in a unity-timeline to create a visualization of how the process should work.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-container__absolute-nav-button scroll-container__nav-button--prev" data-scroll="prev"></div>
+            <div class="scroll-container__absolute-nav-button scroll-container__nav-button--next" data-scroll="next"></div>
+        </div>
+    </section>
+
+    <hr class="main__separator">
+
+    <section id="Other Tasks"
+             class="main__panel contribution-section">
+        <h1 class="header"> Behind the Scenes—Sound </h1>
+        <p>
+            Disclaimer: I am not a professional in sound design, only a hobby musician. However, this skillset comes in useful in designing how the sound supports the gameplay & atmosphere and in implementing the sounds into the gameplay. This particular project did not have a dedicated sound-designer; thus, I took over the whole pipeline, from researching inspirations & instruments, to creating the soundscape and finally implementing a semi-procedural sound-system in via fmod in unity.
+        </p>
+
+        <div class="scroll-container scroll-container--selectable contribution-section--scroll-container">
+            <div id="sound_scroll-container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
+                <div id="inspiration" class="scroll-container__item scroll-container__item--contribution-section scroll-container__item--active">
+                    <div class="described-item">
+                        <div class="described-item__content media-flex-center-wrapper">
+                            <video src="./Workflow/Audio/Audio_Inspiration.mp4" style="max-width: 100%; max-height: 100%" controls></video>
+                        </div>
+                        <div class="described-item__header">
+                            <b class="header--lvl3"> inspiration </b>
+                        </div>
+                        <div class="described-item__description">
+                            <p>
+                                The music of the game had to incorporate the convoluted spatial nature of the moebius like shapes, while also being calm enough to be the looping background music of a puzzle game. As such, during my sound inspiration search I was happy to find videos like this <a href="https://www.youtube.com/watch?v=BSHvfzyjMUI"> one </a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="instruments" class="scroll-container__item scroll-container__item--contribution-section">
+                    <div class="described-item">
+                        <div class="described-item__content media-flex-center-wrapper">
+                            <video src="./Workflow/Audio/Reaper_Audio.mp4" style="max-width: 100%; max-height: 100%"></video>
+                        </div>
+                        <div class="described-item__header">
+                            <b class="header--lvl3"> instruments </b>
+                        </div>
+                        <div class="described-item__description">
+                            <p>
+                                Based on the inspiration, I selected fitting instruments:
+                                Synths for serene, yet abstract continuous harmonies, enhanced by occasional ethereal winds.
+                                Hang-drums became the main melodic instruments due to their warm, slightly meditative sound, while a mixture of marimba and celeste added a high-pitched crystalline sound.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="fmod" class="scroll-container__item scroll-container__item--contribution-section">
+                    <div class="described-item">
+                        <div class="described-item__content media-flex-center-wrapper">
+                            <video src="./Workflow/Audio/fmod_Audio_Recording.mp4" style="max-width: 100%; max-height: 100%"></video>
+                        </div>
+                        <div class="described-item__header">
+                            <b class="header--lvl3"> fmod </b>
+                        </div>
+                        <div class="described-item__description">
+                            <p>
+                                By using fmod, I created a semi-procedural soundscape that varies the harmonies continuously.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="example" class="scroll-container__item scroll-container__item--contribution-section">
+                    <div class="described-item">
+                        <div class="described-item__content media-flex-center-wrapper">
+                            <video src="./Workflow/Audio/Audio_Interaction.mp4" style="max-width: 100%; max-height: 100%"></video>
+                        </div>
+                        <div class="described-item__header">
+                            <b class="header--lvl3"> sound-script </b>
+                        </div>
+                        <div class="described-item__description">
+                            <p>
+                                A sound-manager script in unity accesses fmod to play sounds depending on the players' actions and surrounding shapes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-container__absolute-nav-button scroll-container__nav-button--prev" data-scroll="prev"></div>
+            <div class="scroll-container__absolute-nav-button scroll-container__nav-button--next" data-scroll="next"></div>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>

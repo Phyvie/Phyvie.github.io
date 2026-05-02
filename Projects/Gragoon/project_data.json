@@ -27,7 +27,7 @@
       "relevance": "2"
     },
     {
-      "name": "group-feature",
+      "name": "demo",
       "relevance": "3"
     },
     {
@@ -37,7 +37,8 @@
   ],
   "tools": [
     "Unreal Engine",
-    "C++"
+    "Cpp",
+    "Git"
   ],
   "mechanic-video": {
     "src": "./#.mp4"

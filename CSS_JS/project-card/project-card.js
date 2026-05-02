@@ -53,7 +53,7 @@ export function AppendProjectCardToElement(element)
 /*
  * sets up the foldout of the overlay when the user clicks on the info button
  */
-export function LoadProjectCardData(projectCard, jsonFile)
+export function LoadProjectCardData(projectCard, jsonFile, baseUrl = null)
 {
     if (!projectCard || !jsonFile) {
         console.error("LoadProjectCardData: missing required parameters");
@@ -64,7 +64,7 @@ export function LoadProjectCardData(projectCard, jsonFile)
         console.warn("LoadProjectCardData: project data missing title");
     }
     
-    loadDataRefs(projectCard, jsonFile);
+    loadDataRefs(projectCard, jsonFile, baseUrl);
 }
 
 export function SetupProjectCardInteraction(projectCard)
@@ -101,20 +101,20 @@ function SetupInfoButtonOverlay(projectCard)
 }
 
 /* region alt layout with foldout */
-function SetupFoldable(projectCard)
-{
-    const foldButton = projectCard.querySelector('[data-more-info-button]');
-    const foldable = projectCard.querySelector('[data-project-card-foldable]');
-
-    if (!foldButton || !foldable)
-    {
-        return;
-    }
-
-    foldButton.onclick = () => {
-        foldable.classList.toggle('--folded');
-    }
-}
+// function SetupFoldable(projectCard)
+// {
+//     const foldButton = projectCard.querySelector('[data-more-info-button]');
+//     const foldable = projectCard.querySelector('[data-project-card-foldable]');
+//
+//     if (!foldButton || !foldable)
+//     {
+//         return;
+//     }
+//
+//     foldButton.onclick = () => {
+//         foldable.classList.toggle('--folded');
+//     }
+// }
 /* endregion alt layout with foldout */
 
 function wireImageToVideo(image, video) {

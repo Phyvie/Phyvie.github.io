@@ -5,7 +5,7 @@
   "origin": "Cologne Game Lab",
   "team-size": "5",
   "date": "2022",
-  "time": "7w",
+  "time": "9 weeks",
 
   "thumbnail": {
     "src": "./Thumbnail.png",
@@ -16,7 +16,13 @@
   },
 
   "main-contribution": "programmer - voice controls",
-  "contributions": "Missing Contributions",
+  "contributions": {
+    "containerID": "",
+    "contributions": [
+      "programming"
+    ]
+  },
+
   "description": [
     "My first group game project at university. ",
     "While the game itself wasn't very successful, we (two programmers, in a team of 5 game devs) managed to implement a mechanic where players control the environment by the pitch of their voice. "
@@ -31,7 +37,7 @@
       "relevance": "1"
     },
     {
-      "name": "group-feature",
+      "name": "demo",
       "relevance": "1"
     },
     {
@@ -40,5 +46,9 @@
     }
   ],
 
-  "tools": "Missing Tools"
+  "tools":
+  [
+    "Unity",
+    "cs"
+  ]
 }

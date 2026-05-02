@@ -1,6 +1,6 @@
-import {GetPathFromPortfolioRoot} from "../../PortfolioRootPath.js";
+import {resolveRelativeUrlsInJson} from "../URL-Fetching-And-Templates/cross-html-engine.js";
 
-export function loadDataRefs(targetRootElement, jsonData)
+export function loadDataRefs(targetRootElement, jsonData, baseUrl = null)
 {
     if (!targetRootElement)
     {
@@ -12,6 +12,11 @@ export function loadDataRefs(targetRootElement, jsonData)
     {
         console.error("loadDataRefs: jsonData is null or undefined");
         return;
+    }
+
+    if (baseUrl)
+    {
+        jsonData = resolveRelativeUrlsInJson(baseUrl, jsonData);
     }
 
     const dataRefElements = targetRootElement.querySelectorAll('[data-ref]');
@@ -34,8 +39,8 @@ export function loadDataRefs(targetRootElement, jsonData)
                 case 'icon':
                     trySetIcon(dataRefElement, data);
                     break;
-                case 'link':
-                    setLinks(dataRefElement, data);
+                case 'tag':
+                    setTag(dataRefElement, data);
                     break;
                 case 'video':
                     setVideo(dataRefElement, data);
@@ -45,6 +50,9 @@ export function loadDataRefs(targetRootElement, jsonData)
                     break;
                 case 'contributions':
                     setContributions(dataRefElement, data);
+                    break;
+                case 'tools':
+                    setTools(dataRefElement, data);
                     break;
                 default:
                     console.error(`Unknown data-ref type: ${type}`);
@@ -57,6 +65,46 @@ export function loadDataRefs(targetRootElement, jsonData)
         }
     }
 }
+
+export const ToolsIconsRegistry = new Map([
+    ['Unity', {src: "/Data/Icons/Unity.png", alt: "Unity", desc: "game engine", skillLevel: "proficient, ~4years"}],
+    ['Analog Prototype', {src: "/Data/Icons/PaperPrototype.png", alt: "Analog Prototype", desc: "includes conceptualising, paper & board game prototypes", skillLevel: "proficient, ~2years"}],
+    ['GDD', {src: "/Data/Icons/GDD.png", alt: "game design document", desc: "", skillLevel: "proficient, ~2years"}],
+    ['Unity UI Toolkit', {text: "UUT", alt: "Unity UI Toolkit", desc: "Unity's Web-dev-inspired new UI System", skillLevel: "proficient, ~1year"}],
+
+    ['cs', {src: "/Data/Icons/cs.png", alt: "csharp", desc: "programming language", skillLevel: "functional, ~4years"}],
+    ['Miro', {src: "/Data/Icons/Miro.png", alt: "Miro", desc: "collaborative online whiteboard", skillLevel: "functional"}],
+    ['Git', {src: "/Data/Icons/Git.png", alt: "git", desc: "version control", skillLevel: "functional, ~4years"}],
+    // ['Libre_Office', {src: "/Data/Icons/Libre_Office.png", alt: "Libre_Office", desc: "", skillLevel: "functional"}],
+    ['Cpp', {src: "/Data/Icons/Cpp.png", alt: "Cpp", desc: "programming language", skillLevel: "functional, ~1year"}],
+    ['Unreal Engine', {src: "/Data/Icons/Unreal Engine.png", alt: "Unreal Engine", desc: "game engine", skillLevel: "functional, ~1year"}],
+
+    ['Blender', {src: "/Data/Icons/Blender.png", alt: "Blender", desc: "3D modeling software", skillLevel: "fundamentals"}],
+    ['Reaper', {src: "/Data/Icons/Reaper.png", alt: "Reaper", desc: "digital audio workstation", skillLevel: "fundamentals"}],
+    ['fmod', {src: "/Data/Icons/fmod.png", alt: "fmod", desc: "sound effects engine", skillLevel: "fundamentals"}],
+    ['Subversion', {src: "/Data/Icons/Subversion.png", alt: "Subversion", desc: "version control", skillLevel: "fundamentals"}],
+    // ['TortoiseSVN', {src: "/Data/Icons/TortoiseSVN.png", alt: "TortoiseSVN", desc: "version control", skillLevel: "fundamentals"}],
+    // ['google_docs', {src: "/Data/Icons/google_docs.png", alt: "google_docs", desc: "", skillLevel: "fundamentals"}],
+])
+
+export const OriginIconRegistry = new Map([
+    ['Cologne Game Lab', {src: "/Data/Icons/Cologne Game Lab.png", alt: "Cologne Game Lab", desc: "institute of the TH Cologne (university)"}],
+    ['private', {src: "/Data/Icons/Person.png", alt: "private", desc: ""}],
+])
+
+export const UtilityIconRegistry = new Map([
+    ['Arrow', {src: "/Data/Icons/arrow.png", alt: "Arrow", desc: ""}],
+    ['Calender', {src: "/Data/Icons/Calender.png", alt: "Calender", desc: ""}],
+    ['Group', {src: "/Data/Icons/Group.png", alt: "group size", desc: ""}],
+    ['Link_arrow', {src: "/Data/Icons/Link_arrow.png", alt: "", desc: ""}],
+    ['Person', {src: "/Data/Icons/Person.png", alt: "", desc: ""}],
+])
+
+export const FullIconRegistry = new Map([
+    ... ToolsIconsRegistry,
+    ... OriginIconRegistry,
+    ... UtilityIconRegistry,
+])
 
 export async function TryLoadJson(path)
 {
@@ -82,12 +130,10 @@ export async function TryLoadJson(path)
 
 function setTextContent(element, text) {
     if (!element) {
-        console.warn("setTextContent: element is null or undefined");
-        return;
+        throw new Error("setTextContent: element is null or undefined"); 
     }
     if (text === undefined || text === null) {
-        console.warn("setTextContent: text is undefined or null");
-        return;
+        throw new Error("setTextContent: text is undefined or null");
     }
 
     if (Array.isArray(text))
@@ -102,12 +148,11 @@ function setTextContent(element, text) {
 
 function setLink(element, linkData) {
     if (!element) {
-        console.warn("setLink: element is null or undefined");
-        return;
+        throw new Error("setLink: element is null or undefined"); 
     }
 
     if (!linkData) {
-        console.warn("setLink: linkData is null or undefined");
+        throw new Error("setLink: linkData is null or undefined");
     }
 
     element.href = linkData;
@@ -115,8 +160,7 @@ function setLink(element, linkData) {
 
 function setGitContent(element, gitLink) {
     if (!element) {
-        console.warn("setGitContent: element is null or undefined");
-        return;
+        throw new Error("setGitContent: element is null or undefined"); 
     }
 
     fetch(gitLink)
@@ -135,21 +179,18 @@ function setGitContent(element, gitLink) {
 
 function setImageContent(element, imageData) {
     if (!element) {
-        console.warn("setImageContent: element is null or undefined");
-        return;
+        throw new Error("setImageContent: element is null or undefined"); 
     }
     if (element.tagName !== 'IMG') {
-        console.warn("setImageContent: element is not an image");
-        return;
+        throw new Error("setImageContent: element is not an image"); 
     }
     if (!imageData) {
-        console.warn("setImageContent: imageData is null or undefined");
-        return;
+        throw new Error("setImageContent: imageData is null or undefined"); 
     }
 
     element.onerror = function() {
         console.error(`setImageContent-error: no image at source: ${this.src}`);
-        this.src = '/Data/Placeholder/Bowser.jpg';
+        this.src = '/Data/Placeholder/Loading.png';
     };
 
 
@@ -169,71 +210,68 @@ function setImageContent(element, imageData) {
     }
 }
 
-const IconRegistry = new Map([
-    ['Arrow', '/Data/Icons/arrow.png'],
-    ['Blender', '/Data/Icons/Blender.png'],
-    ['Calender', '/Data/Icons/Calender.png'],
-    ['Cologne Game Lab', '/Data/Icons/Cologne Game Lab.png'],
-    ['Cpp', '/Data/Icons/Cpp.png'],
-    ['cs', '/Data/Icons/cs.png'],
-    ['fmod', '/Data/Icons/fmod.png'],
-    ['GDD', '/Data/Icons/GDD.png'],
-    ['Git', '/Data/Icons/Git.png'],
-    ['googledocs', '/Data/Icons/googledocs.png'],
-    ['Group', '/Data/Icons/Group.png'],
-    ['Libre_Office', '/Data/Icons/Libre_Office.png'],
-    ['Link_arrow', '/Data/Icons/Link_arrow.png'],
-    ['Miro', '/Data/Icons/Miro.png'],
-    ['PaperPrototype', '/Data/Icons/PaperPrototype.png'],
-    ['Person', '/Data/Icons/Person.png'],
-    ['private', '/Data/Icons/private.png'],
-    ['Reaper', '/Data/Icons/Reaper.png'],
-    ['Subversion', '/Data/Icons/Subversion.png'],
-    ['Tortoise', '/Data/Icons/Tortoise.png'],
-    ['Unity', '/Data/Icons/Unity.png'],
-    ['Unreal Engine', '/Data/Icons/Unreal Engine.png'],
-])
-
-
-function trySetIcon(element, iconName) {
+export function trySetIcon(element, iconName) {
     if (!element) {
-        console.warn("setIcon: element is null or undefined");
-        return;
+        throw new Error("setIcon: element is null or undefined"); 
     }
     if (!iconName) {
-        console.warn("setIcon: iconName is null, undefined, or empty");
-        return;
+        throw new Error("setIcon: iconName is null, undefined, or empty"); 
     }
 
-    if (IconRegistry.has(iconName))
+    if (FullIconRegistry.has(iconName))
     {
-        const IconPath = IconRegistry.get(iconName);
-        const imgElement = document.createElement('img');
-        imgElement.className = "media--img-in-font";
-        element.appendChild(imgElement);
+        const IconData = FullIconRegistry.get(iconName);
+        const IconSource = IconData.src;
+        const IconText = IconData.text;
 
-        setImageContent(imgElement, {"src": IconPath, "alt": iconName, "class": "media--img-in-font"});
-        element.onerror = function()
+        const imgElement = document.createElement('img');
+        if (IconSource)
         {
-            console.warn(`setIcon-error: no icon found for name: ${iconName}`);
+            imgElement.className = "media--img-in-font";
+
+            setImageContent(imgElement, {"src": IconSource, "alt": iconName, "class": "media--img-in-font"});
+            element.onerror = function()
+            {
+                throw new Error(`setIcon-error: no icon found for name: ${iconName}`); 
+            }
         }
+        else if (IconText)
+        {
+            element.innerHTML = IconText;
+        }
+
+        if (!(element.querySelector("p") || element.querySelector("span")))
+        {
+            const emptyText = document.createElement('span');
+            emptyText.textContent = "​";
+            element.appendChild(emptyText);
+        }
+
+        /* region bonus information on hovering over the tag */
+        element.setAttribute('data-tooltip-title', IconData.alt);
+        element.setAttribute('data-tooltip-content', IconData.desc);
+        element.setAttribute('data-tooltip-skill-level', IconData.skillLevel);
+        element.classList.add('tag', 'has-tooltip');
+
+        element.appendChild(imgElement);
+        /* endregion */
+
         return true;
     }
     else
     {
-        element.innerHTML = iconName;
-        return false;
+        element.innerHTML = iconName.split(" ").map(word => word.charAt(0).toUpperCase()).join("");
+        element.classList.add('tag', 'has-tooltip');
+        throw new Error(`setIcon: no icon found for name: ${iconName}`);
     }
 }
 
 function setLinks(element, linkData) {
     if (!element) {
-        console.warn("setLinks: element is null or undefined");
-        return;
+        throw new Error("setLinks: element is null or undefined"); 
     }
     if (!linkData) {
-        console.warn("setLinks: linkData is null or undefined");
-        return;
+        throw new Error("setLinks: linkData is null or undefined"); 
     }
 
     if (typeof linkData === 'string') {
@@ -254,12 +292,10 @@ function setLinks(element, linkData) {
 
 function setVideo(element, videoData) {
     if (!element) {
-        console.warn("setVideo: element is null or undefined");
-        return;
+        throw new Error("setVideo: element is null or undefined"); 
     }
     if (!videoData) {
-        console.warn("setVideo: videoData is null or undefined");
-        return;
+        throw new Error("setVideo: videoData is null or undefined"); 
     }
 
     if (typeof videoData === 'string') {
@@ -283,12 +319,10 @@ function setVideo(element, videoData) {
 
 function setContributions(element, contributions) {
     if (!element) {
-        console.warn("setContributions: element is null or undefined");
-        return;
+        throw new Error("setContributions: element is null or undefined"); 
     }
     if (!contributions) {
-        console.warn("setContributions: contributions is null or undefined");
-        return;
+        throw new Error("setContributions: contributions is null or undefined"); 
     }
 
     let containerID = contributions.containerID;
@@ -299,7 +333,25 @@ function setContributions(element, contributions) {
 
         contributionElement.innerHTML = " - " + contribution.name;
         contributionElement.setAttribute('Data-cached-container-id', containerID);
-        contributionElement.setAttribute('Data-cached-content', GetPathFromPortfolioRoot(contribution.link));
-        element.innerHTML += ",<br>"
+        contributionElement.setAttribute('Data-cached-content', contribution.link);
+        element.innerHTML += "<br>"
+    }
+}
+
+function setTools(element, tools)
+{
+    if (!element) {
+        throw new Error("setTools: element is null or undefined"); 
+    }
+    if (!tools) {
+        throw new Error("setTools: tools is null or undefined"); 
+    }
+
+    for (let tool of tools)
+    {
+        let toolElement = document.createElement('span');
+        toolElement.className = "tag";
+        trySetIcon(toolElement, tool);
+        element.appendChild(toolElement);
     }
 }

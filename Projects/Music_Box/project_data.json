@@ -5,7 +5,7 @@
   "origin": "Cologne Game Lab",
   "team-size": "5",
   "date": "2023",
-  "time": "7w",
+  "time": "9 weeks",
   "thumbnail": {
     "src": "./Thumbnail.png",
     "alt": "Music Box Project IMG"
@@ -16,10 +16,17 @@
   },
   "project-page-link": "",
   "main-contribution": "level designer - logic puzzles",
-  "contributions": [
-    "Mechanic Design (in collab)",
-    "Level Design"
-  ],
+  "contributions": {
+    "containerID": "rotations-workflow",
+    "contributions": [
+      {
+        "name": "Mechanic Design (in collab)"
+      },
+      {
+        "name": "Level Design"
+      }
+    ]
+  },
   "description": [
     "A musical multiplayer puzzle game. ",
     "As one of two designers I helped with mechanic design, but mostly focused on in-engine work: ",

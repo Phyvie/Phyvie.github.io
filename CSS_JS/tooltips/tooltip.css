@@ -1,0 +1,87 @@
+.tooltip-container--desktop {
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    padding: var(--LAYOUT-SPACING-XS);
+    border-radius: var(--LAYOUT-SPACING-XS);
+    background-color: var(--COLOR-BG-ELEMENT);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    line-height: 1.2;
+}
+
+.tooltip-container--desktop.--hidden {
+    display: none !important;
+}
+
+.mobile-tooltip-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    display: none; /* Hidden by default (desktop) */
+    padding: var(--LAYOUT-SPACING-SMALL);
+    background-color: var(--COLOR-BG-BLOCK);
+    border-top: 1px solid var(--COLOR-BG-ELEMENT-FADED);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(100%);
+    pointer-events: none;
+    min-height: 80px; /* Ensure space for close button and content */
+}
+
+.mobile-tooltip-content {
+    padding-right: 30px; /* Make room for the close button */
+}
+
+.mobile-tooltip-container.--active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.tooltip-header {
+    font-size: var(--FONT-SIZE-EMPHASIZED);
+    font-weight: bold;
+}
+
+.tooltip-description {
+    font-size: var(--FONT-SIZE-DEFAULT);
+    font-weight: normal;
+}
+
+.tooltip-skill-level {
+    font-size: var(--FONT-SIZE-SMALL);
+    font-style: italic;
+    margin-top: var(--LAYOUT-SPACING-XS);
+}
+
+@keyframes tooltip-content-switch {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.tooltip-container--desktop.--switching,
+.mobile-tooltip-container.--switching {
+    animation: tooltip-content-switch 0.2s ease-in-out;
+}
+
+/* Media query to enable mobile tooltip container */
+@media (max-width: 37.499rem) {
+    .mobile-tooltip-container {
+        display: block;
+    }
+}
+
+.mobile-tooltip-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}

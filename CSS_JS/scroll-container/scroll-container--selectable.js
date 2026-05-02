@@ -1,4 +1,5 @@
 import {calculateCenterScrollLeft} from "./scroll-container.js";
+import {OpenLightbox} from "../lightbox/lightbox.js";
 
 export function initializeSelectableScrollContainers() {
     const containers = document.querySelectorAll('.scroll-container--selectable');
@@ -16,7 +17,13 @@ export function initializeSelectableScrollContainers() {
             const item = e.target.closest('.scroll-container__item');
             if (item && contentContainer.contains(item)) {
                 if (item.classList.contains('scroll-container__item--active')) {
-                    deactivateItem(contentContainer, item);
+                    // If the item is already active, try to open media in lightbox
+                    const media = e.target.closest('img, video, .described-item__content > *');
+                    if (media) {
+                        OpenLightbox(media);
+                    } else {
+                        deactivateItem(contentContainer, item);
+                    }
                 } else {
                     switchActiveItem(contentContainer, item);
                 }

@@ -7,7 +7,14 @@ import {createSwitchableContentContainer} from "../common.blocks/switchable-cont
 import HTMLContentCache from "../URL-Fetching-And-Templates/HTML-content-cache.js";
 import {IsLightboxOpen, CloseLightbox, OpenLightbox, SetLightboxStyle, fullscreenStyle} from "../lightbox/lightbox.js";
 
-export async function initializeProjectHeaderSection(headerSection, projectDataURL, webglIframeURL, workflowContainerId = null)
+export async function initializeProjectHeaderSection(headerSection, projectDataURL,
+     config = {
+         "initialiseWebGLBuild": false
+         , "webglIframeURL": ""
+         , "hasWorkflowContainer": false
+         , "workflowContainerId": ""
+         , "displayWebpageLink": false
+     })
 {
     let jsonData = await TryLoadJson(projectDataURL);
     if (!jsonData)
@@ -16,88 +23,194 @@ export async function initializeProjectHeaderSection(headerSection, projectDataU
         return;
     }
     jsonData = resolveRelativeUrlsInJson(projectDataURL, jsonData);
-
-    loadDataRefs(headerSection, jsonData);
+    loadDataRefs(headerSection, jsonData, projectDataURL);
 
     const MediaScrollContainer = headerSection.querySelector('.scroll-container');
+    const ContentContainer = MediaScrollContainer.querySelector('.scroll-container__content-container');
+    const ScrollContainerBottomNavigation = headerSection.querySelector('.scroll-container__bottom-navigation-line');
     const VideoScroller = headerSection.querySelector('[data-scriptName="video-toggle"]');
-    const WebGLScroller = MediaScrollContainer.querySelector('[data-scriptName="webgl-scroller"]');
     const Thumbnail = MediaScrollContainer.querySelector('img');
     const Video = MediaScrollContainer.querySelector('video');
     const FullscreenButton = MediaScrollContainer.querySelector('[data-scriptName="fullscreen-button"]');
+    const PageLinkButtons = headerSection.querySelector('[data-scriptName="project-page-buttons"]');
 
-    if (jsonData.webGLConfig && WebGLScroller)
-    {
-        let webGLIFrame = await embedWebGLIFrame(headerSection.querySelector('[data-scriptName="webgl-build"]'), webglIframeURL, jsonData.webGLConfig);
-    }
+    let webGLIFrame = null;
 
-    if (Thumbnail && Video)
-    {
-        Video.style.display = "none";
-        Thumbnail.addEventListener('click', () => {
-            Video.play();
-        })
+    function initializeThumbnailAndVideo() {
+        if (Video) {
+            Video.addEventListener('click', (event) => {
+                Video.paused ? Video.play() : Video.pause();
+            });
+        }
 
-        Video.addEventListener('play', () => {
-            Thumbnail.style.display = "none";
-            Video.style.display = "block";
-        })
+        if (MediaScrollContainer && Video)
+        {
+            MediaScrollContainer.addEventListener('click', (event) => {
+                if (event.target === VideoScroller)
+                {
+                    if (Video) {
+                        Video.paused ? Video.play() : Video.pause();
+                    }
+                }
+                else if (event.target.classList.contains('scroll-container__bot-nav-line-button'))
+                {
+                    if (Video) {
+                        Video.pause();
+                    }
+                }
+            })
+        }
 
-        Video.addEventListener('ended', () =>{
-            Thumbnail.style.display = "block";
+        if (Thumbnail && Video) {
+            Thumbnail.style.cursor = "pointer";
+            Thumbnail.addEventListener('mouseenter', () => {
+                Thumbnail.style.transform = "scale(1.15)";
+            })
+
+            Thumbnail.addEventListener('mouseleave', () => {
+                Thumbnail.style.transform = "scale(1)";
+            })
+
             Video.style.display = "none";
-        })
-    }
+            Thumbnail.addEventListener('click', () => {
+                Video.play();
+            })
 
-    if (MediaScrollContainer) {
+            Video.addEventListener('play', () => {
+                Thumbnail.style.display = "none";
+                Video.style.display = "block";
+            })
+
+            Video.addEventListener('ended', () => {
+                Thumbnail.style.display = "block";
+                Video.style.display = "none";
+            })
+        }
+    }
+    initializeThumbnailAndVideo();
+
+    function initializeFullscreen() {
+        if (FullscreenButton) {
+            FullscreenButton.addEventListener('click', () => {
+                if (IsLightboxOpen()) {
+                    MediaScrollContainer.classList.remove('--height-contained');
+                    CloseLightbox();
+                } else {
+                    MediaScrollContainer.classList.add('--height-contained');
+                    OpenLightbox(MediaScrollContainer);
+                    SetLightboxStyle(fullscreenStyle);
+                }
+            })
+        }
+    }
+    initializeFullscreen();
+
+    async function initializeWebGLBuild() {
+        if (!config.initialiseWebGLBuild) return;
+        if (!jsonData.webGLConfig)
+        {
+            console.error("Failed to find WebGL config in project data");
+            return;
+        }
+
+        let webGLContainer = document.createElement('div');
+        webGLContainer.classList.add("project-header-section__WebGL-Build");
+        webGLContainer.classList.add("scroll-container__item");
+        ContentContainer.appendChild(webGLContainer);
+
+        webGLIFrame = await embedWebGLIFrame(webGLContainer, config.webGLIFrameURL, jsonData.webGLConfig);
+
+        let webGLScroller = document.createElement('div');
+        webGLScroller.classList.add("scroll-container__bot-nav-line-button");
+        webGLScroller.setAttribute("data-scroll", ".project-header-section__WebGL-Build");
+        webGLScroller.innerText = "Try Yourself";
+        ScrollContainerBottomNavigation.appendChild(webGLScroller);
+
         MediaScrollContainer.addEventListener('click', (event) => {
-            if (event.target === WebGLScroller)
+            if (event.target === webGLScroller)
             {
                 if (webGLIFrame) {
                     startEmbeddedGame(webGLIFrame);
                 }
             }
-            if (event.target === VideoScroller)
+            else if (event.target.classList.contains('scroll-container__bot-nav-line-button'))
             {
-                if (Video) {
-                    Video.paused ? Video.play() : Video.pause();
-                }
-            }
-            else
-            {
-                if (Video) {
-                    Video.pause();
-                }
+                // If any other button is clicked, we could potentially stop the game or mute it,
+                // but startEmbeddedGame doesn't seem to have a stop equivalent here.
             }
         });
     }
+    await initializeWebGLBuild();
 
-    if (Video) {
-        Video.addEventListener('click', (event) => {
-            Video.paused ? Video.play() : Video.pause();
-        });
-    }
+    function initializeDevVideo(){
+        if (!config.initialiseDevVideo) return;
+        if (!jsonData.devVideo)
+        {
+            console.error("Failed to find dev video in project data");
+            return;
+        }
 
+        let devVideoContainer = document.createElement('div');
+        devVideoContainer.classList.add("project-header-section__dev-video-container");
+        devVideoContainer.classList.add("scroll-container__item");
+        ContentContainer.appendChild(devVideoContainer);
 
-    if (FullscreenButton)
-    {
-        FullscreenButton.addEventListener('click', () => {
-            if (IsLightboxOpen())
+        let devVideoScroller = document.createElement('div');
+        devVideoScroller.classList.add("scroll-container__bot-nav-line-button");
+        devVideoScroller.setAttribute("data-scroll", ".project-header-section__dev-video-container");
+        devVideoScroller.innerText = "▶ Dev Journey";
+        ScrollContainerBottomNavigation.appendChild(devVideoScroller);
+
+        let devVideo = document.createElement('video');
+        devVideo.classList.add("project-header-section__dev-video");
+        devVideo.setAttribute("src", jsonData.devVideo.src);
+        devVideo.controls = true;
+        devVideoContainer.appendChild(devVideo);
+
+        MediaScrollContainer.addEventListener('click', (event) => {
+            if (event.target === devVideoScroller)
             {
-                MediaScrollContainer.classList.remove('--height-contained');
-                CloseLightbox();
+                if (devVideo) {
+                    devVideo.paused ? devVideo.play() : devVideo.pause();
+                }
             }
-            else
+            else if (event.target.classList.contains('scroll-container__bot-nav-line-button'))
             {
-                MediaScrollContainer.classList.add('--height-contained');
-                OpenLightbox(MediaScrollContainer);
-                SetLightboxStyle(fullscreenStyle);
+                if (devVideo) {
+                    devVideo.pause();
+                }
             }
         })
     }
+    initializeDevVideo();
 
-    if (workflowContainerId && document.getElementById(workflowContainerId))
-    {
-        createSwitchableContentContainer(HTMLContentCache, workflowContainerId);
+    function initializeWorkflowContainer() {
+        if (config.hasWorkflowContainer) {
+            if (config.workflowContainerId && document.getElementById(config.workflowContainerId)) {
+                createSwitchableContentContainer(HTMLContentCache, config.workflowContainerId);
+            } else {
+                console.error("Failed to find workflow container with id: " + config.workflowContainerId);
+            }
+        }
     }
+    initializeWorkflowContainer();
+
+    function initializeProjectPageButtons(){
+        if (!PageLinkButtons)
+        {
+            console.error("Failed to find project page buttons");
+        }
+        if (config.displayWebpageLink)
+        {
+            if (!jsonData["project-page"])
+            {
+                console.error("Failed to find project-page in project data");
+            }
+        }
+        else
+        {
+            PageLinkButtons.style.display = "none";
+        }
+    }
+    initializeProjectPageButtons();
 }

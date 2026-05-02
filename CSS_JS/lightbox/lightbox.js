@@ -107,11 +107,16 @@ export function SetLightboxStyle(style)
 function SetupLightboxClickHandling()
 {
     document.addEventListener('click', (e) => {
-        if (e.target.closest('[data-lightbox-open]'))
+        const openingElement = e.target.closest('[data-lightbox-open]');
+        if (openingElement)
         {
             e.preventDefault();
-            let query = e.target.closest('[data-lightbox-open]').getAttribute('data-lightbox-open');
-            const content = document.querySelector(query);
+            let query = openingElement.getAttribute('data-lightbox-open');
+            if (query === "none")
+            {
+                return;
+            }
+            const content = query.length > 0 ? document.querySelector(query) : openingElement;
             if (!content)
             {
                 console.error(`Failed to find content for lightbox-open query ${query}`);
@@ -159,8 +164,26 @@ async function initialize()
 
         closeBtn.addEventListener('click', CloseLightbox);
 
+        let isDragging = false;
+        let startX, startY;
+
+        lightboxOverlay.addEventListener('mousedown', (e) => {
+            isDragging = false;
+            startX = e.clientX;
+            startY = e.clientY;
+        });
+
+        lightboxOverlay.addEventListener('mousemove', (e) => {
+            if (e.buttons & 1) { // Left mouse button is pressed
+                if (Math.abs(e.clientX - startX) > 5 || Math.abs(e.clientY - startY) > 5) {
+                    isDragging = true;
+                }
+            }
+        });
+
         lightboxOverlay.addEventListener('click', (e) => {
-            if (e.target === lightboxOverlay) {
+            if (isDragging) return;
+            if (e.target === lightboxOverlay || lightboxBody.contains(e.target)) {
                 CloseLightbox();
             }
         });

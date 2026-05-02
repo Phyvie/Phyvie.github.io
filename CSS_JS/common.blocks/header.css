@@ -17,8 +17,10 @@
 }
 
 .emphasized--in-text {
+    /* Later ZyKa: adjust this styling to be more easily readable, but without disrupting flow */
     font-size: var(--FONT-SIZE-EMPHASIZED);
     /*color: hsl(18, 80%, 80%);*/
     font-weight: bold;
     font-style: oblique 6deg;
+    text-decoration: underline;
 }

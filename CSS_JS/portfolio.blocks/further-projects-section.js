@@ -1,20 +1,79 @@
-import {TryLoadJson} from "../common.blocks/load-data-refs.js";
+import {ToolsIconsRegistry, TryLoadJson, trySetIcon} from "../common.blocks/load-data-refs.js";
 
 import {
     AppendProjectCardToElement,
     LoadProjectCardData,
     SetupProjectCardInteraction,
 } from "../project-card/project-card.js";
-import {GetPathFromPortfolioRoot} from "../../PortfolioRootPath.js";
-import {addFilterTagToElement, createFilterTag} from "../filter-tags/filter-tags.js";
-import {fetchElementFromURL, makeURLsAbsolute, resolveRelativeUrlsInJson} from "../URL-Fetching-And-Templates/cross-html-engine.js";
+import {addFilterTagToElement, createFilterTag, makeElementFilterTrigger} from "../filter-tags/filter-tags.js";
 import {OpenLightbox} from "../lightbox/lightbox.js";
 import {loadExternalTemplate, createFragmentFromTemplate} from "../URL-Fetching-And-Templates/template-manager.js";
 import {initializeProjectHeaderSection} from "../project-header-section/project-header-section.js";
 
-const HEADER_SECTION_TEMPLATE_PATH = GetPathFromPortfolioRoot("_./CSS_JS/project-header-section/project-header-section.html");
-const HEADER_SECTION_TEMPLATE_ID = "project-header-section-lightbox-template";
+const HEADER_SECTION_TEMPLATE_PATH = new URL("../project-header-section/project-header-section.html", import.meta.url).href;
+const HEADER_SECTION_TEMPLATE_ID__LIGHTBOX = "project-header-section-template";
 let HEADER_SECTION_TEMPLATE = null;
+
+async function CreateToolFilters() {
+    const ToolFilterParent = document.querySelector('[data-scriptName="further-project-section-tools-container"]');
+    if (!ToolFilterParent) {
+        console.error("Failed to find further-project-section-tools-container element; aborting CreateToolFilters");
+        return;
+    }
+
+    // Define categories with their own fragments to group elements before adding them to the DOM
+    const categories = {
+        proficient: { label: "proficient", fragment: document.createDocumentFragment() },
+        functional: { label: "functional", fragment: document.createDocumentFragment() },
+        fundamental: { label: "fundamentals", fragment: document.createDocumentFragment() }
+    };
+
+    // Single pass: Create elements and sort them into fragments
+    ToolsIconsRegistry.forEach((value, key) => {
+        const skillLevel = value.skillLevel.toLowerCase();
+        let target = null;
+
+        if (skillLevel.includes("proficient")) {
+            target = categories.proficient;
+        } else if (skillLevel.includes("functional")) {
+            target = categories.functional;
+        } else if (skillLevel.includes("fundamental")) { // matches "fundamental" and "fundamentals"
+            target = categories.fundamental;
+        }
+
+        if (target) {
+            const newToolFilter = document.createElement('div');
+            newToolFilter.classList.add('further-projects-section__tools-filter-trigger');
+            
+            makeElementFilterTrigger(newToolFilter, key);
+            trySetIcon(newToolFilter, key);
+
+            // Appending to a fragment is faster and prevents layout reflows during the loop
+            target.fragment.appendChild(newToolFilter);
+        }
+    });
+
+    // Append headers and fragments to the DOM in the desired order
+    Object.values(categories).forEach(cat => {
+        if (cat.fragment.childElementCount === 0) return;
+
+        const categoryWrapper = document.createElement('div');
+        categoryWrapper.classList.add('further-projects-section__tools-expertise-container');
+
+        const header = document.createElement('div');
+        header.classList.add('further-projects-section__tools-expertise-header');
+        header.innerHTML = cat.label;
+        
+        const toolsContainer = document.createElement('div');
+        toolsContainer.classList.add('further-projects-section__tools-expertise');
+        toolsContainer.appendChild(cat.fragment);
+
+        categoryWrapper.appendChild(header);
+        categoryWrapper.appendChild(toolsContainer);
+
+        ToolFilterParent.appendChild(categoryWrapper);
+    });
+}
 
 async function CreateProjectCards() {
     let CardParent = document.getElementById('further-projects-section__cards-container');
@@ -36,7 +95,8 @@ async function CreateProjectCards() {
         // {folder: 'Dont_Brake'},
     ]
 
-    const ProjectFolderURL = GetPathFromPortfolioRoot("_./Projects/");
+    const ProjectFolderURL = new URL("../../../Projects/", import.meta.url).href;
+
     for (let project of projects) {
         try {
             //create the project card & attach it
@@ -46,38 +106,53 @@ async function CreateProjectCards() {
 
             //find the project.json file
             const projectDataURL = new URL(`${project.folder}/project_data.json`, ProjectFolderURL).href;
-            const jsonDataRaw = await TryLoadJson(projectDataURL);
-            if (jsonDataRaw === null) {
+            const jsonData = await TryLoadJson(projectDataURL);
+            if (jsonData === null) {
                 continue;
             }
-            const jsonData = await resolveRelativeUrlsInJson(projectDataURL, jsonDataRaw);
 
             //load the data & make the card interactive
-            LoadProjectCardData(projectCard, jsonData);
+            LoadProjectCardData(projectCard, jsonData, projectDataURL);
             SetupProjectCardInteraction(projectCard);
 
-            const filterTags = jsonData.tags;
-            if (!filterTags) {
-                console.warn(`No tags found in project ${project.folder}`);
-                continue;
-            }
-            for (const project_tag of filterTags)
-            {
-                let newTag = createFilterTag(project_tag.name, project_tag.relevance);
-                if (!newTag)
-                {
-                    console.error(`Failed to create filter tag ${project_tag} for project ${project.folder}`);
-                    continue;
+            (function addSkillsFilterTags(jsonData, project, projectCard) {
+                const filterTags = jsonData.tags;
+                if (!filterTags) {
+                    console.error(`No tags found in project ${project.folder}`);
+                    return;
                 }
-                addFilterTagToElement(projectCard, newTag);
-            }
+                for (const project_tag of filterTags) {
+                    let newTag = createFilterTag(project_tag.name, project_tag.relevance);
+                    if (!newTag) {
+                        console.error(`Failed to create filter tag ${project_tag} for project ${project.folder}`);
+                        continue;
+                    }
+                    addFilterTagToElement(projectCard, newTag);
+                }
+            })(jsonData, project, projectCard);
+
+            (function addToolFilterTags(jsonData, project, projectCard) {
+                const toolTags = jsonData.tools;
+                if (!toolTags) {
+                    console.error("No tools found in project ", project.folder);
+                    // return;
+                }
+                for (const tool_tag of toolTags) {
+                    let toolTag = createFilterTag(tool_tag, 0);
+                    if (!toolTag) {
+                        console.error(`Failed to create filter tag ${tool_tag} for project ${project.folder}`);
+                        continue;
+                    }
+                    addFilterTagToElement(projectCard, toolTag);
+                }
+            })(jsonData, project, projectCard);
 
             const projectCardUnfoldButton = projectCard.querySelector('[data-more-info-button]');
             if (projectCardUnfoldButton)
             {
                 projectCardUnfoldButton.addEventListener("click", async () => {
                     if (!HEADER_SECTION_TEMPLATE) {
-                        HEADER_SECTION_TEMPLATE = await loadExternalTemplate(HEADER_SECTION_TEMPLATE_PATH, HEADER_SECTION_TEMPLATE_ID);
+                        HEADER_SECTION_TEMPLATE = await loadExternalTemplate(HEADER_SECTION_TEMPLATE_PATH, HEADER_SECTION_TEMPLATE_ID__LIGHTBOX);
                     }
                     if (!HEADER_SECTION_TEMPLATE) {
                         console.error("Failed to load header section template");
@@ -90,7 +165,7 @@ async function CreateProjectCards() {
                     const webglIframeURL = jsonData.WebGLBuildURL ? new URL(jsonData.WebGLBuildURL, projectDataURL).href : null;
 
                     // Ensure the link in the header section points to the correct project page
-                    const discoverMoreLink = headerSection.querySelector('.flex-tags__tag.tag--link-arrow');
+                    const discoverMoreLink = headerSection.querySelector('..tag--link-arrow');
                     if (discoverMoreLink && jsonData["project-info-link"]) {
                         discoverMoreLink.href = jsonData["project-info-link"];
                     }
@@ -98,7 +173,7 @@ async function CreateProjectCards() {
                     headerSection.classList.add('main__panel');
                     OpenLightbox(headerSection);
 
-                    await initializeProjectHeaderSection(headerSection, projectDataURL, webglIframeURL);
+                    await initializeProjectHeaderSection(headerSection, projectDataURL, {"displayWebpageLink": jsonData["project-page"]});
                 })
             }
         } catch (error) {
@@ -110,6 +185,7 @@ async function CreateProjectCards() {
 async function initializeOnce()
 {
     await CreateProjectCards();
+    await CreateToolFilters();
 }
 
 if (document.readyState === 'loading') {

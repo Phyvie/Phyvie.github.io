@@ -1,9 +1,3 @@
-<!-- pre-main-commit-tests:
-check video working,
-check WebGL build working
-check scrolling works
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +5,7 @@ check scrolling works
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title> Rotation Parametrization </title>
+    <title> VTB - Rotation Parametrization </title>
 
     <!-- general purpose stylesheets & JavaScripts -->
     <link rel="stylesheet" href="../../CSS_JS/reset.css">
@@ -28,8 +22,11 @@ check scrolling works
 
     <script type="module" src="../../CSS_JS/common.blocks/switchable-content-container.js"></script>
 
-    <link rel="stylesheet" href="../../CSS_JS/lightbox/_example_lightbox.css">
+    <link rel="stylesheet" href="../../CSS_JS/lightbox/lightbox.css">
     <script type="module" src="../../CSS_JS/lightbox/lightbox.js"></script>
+
+    <link rel="stylesheet" href="../../CSS_JS/tooltips/tooltip.css">
+    <script type="module" src="../../CSS_JS/tooltips/tooltip-manager.js"></script>
 
     <link rel="stylesheet" href="../../modules/highlight/styles/dark-phy.css">
     <script src="../../modules/highlight/highlight.min.js"></script>
@@ -44,137 +41,27 @@ check scrolling works
     <script type="module" src="../../Navigation/AddNavBar.js"></script>
 
     <link rel="stylesheet" href="../../CSS_JS/project-header-section/project-header-section.css">
-    <link rel="stylesheet" href="./CSS_JS/lightbox-WebGL-build.css">
+    <link rel="stylesheet" href="../../CSS_JS/UnityWebGL/lightbox/lightbox-WebGL-build.css">
 </head>
 <body>
 
 <main class="main">
 
 <div id="project-header-section-container" class="main__panel">
-    <script type="module" src="CSS_JS/rotations-header-section.js"></script>
+    <script type="module" src="CSS_JS/rotations-header-section-loader.js"></script>
 </div>
 
-<div id="lightbox-WebGL-build" class="lightbox-WebGL-build">
-    <button id="open-project-button"
-            class="tag open-project-button"
-            data-scriptName="open-project-button">
-        <img src="../../Data/Icons/Unity.png" alt="unity-icon">
-        <span> try yourself </span>
-    </button>
+    <script type="module">
+        import { initialize } from '../../CSS_JS/UnityWebGL/lightbox/lightbox-webGL-build.js';
+        initialize(
+            new URL("../../CSS_JS/UnityWebGL/lightbox/lightbox-webGL.html", import.meta.url).href,
+                new URL("../../CSS_JS/UnityWebGL/lightbox/lightbox-webGL-iframe.html", import.meta.url).href,
+            "#project-header-section-container",
+            new URL("./project_data.json", import.meta.url).href,
+        );
+    </script>
 
-    <div id="lightbox-WebGL-overlay" class="lightbox__overlay">
-        <div class="lightbox__content-container">
-            <button class="lightbox__close-btn"> &times; </button>
-            <div class="lightbox__content">
-            </div>
-        </div>
-    </div>
-
-    <script type="module" src="./CSS_JS/lightbox-webGL-build.js"></script>
-</div>
-
-<hr class="main__separator"></hr>
-
-<!-- LATERZyKa Rotation-Content: Consider whether the thesis-writing part is relevant or not -->
-<!--
-<section id="Thesis-Writing"
-         class="main__panel contribution-section">
-    <h1 class="header"> Thesis Writing </h1>
-    <p> A short description what this section is describing / what type of workflow and which results are described
-        here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium corporis fugit impedit libero,
-        magnam necessitatibus nulla quia quis quod reprehenderit similique temporibus tenetur ut. Aliquid cumque ducimus
-        maiores sapiente similique. </p>
-
-    <div class="scroll-container contribution-section__scroll-container">
-        <div id="writing-scroll-container" class="u-parent-size scroll-container__content-container scroll-container__content-container--contributions-section">
-            <div id="rotation-bug" class=.scroll-container__item scroll-container__item--contribution-section media-flex-center-wrapper">
-                <div class="described-item">
-                    <figure class="media-figure media--rounded">
-                    <img src="./Content/workflow-writing/SpinToWin.gif" alt="image: dragon rotates very wildly"
-                         class="media--contain">
-                    <figcaption class="media-figure__description">
-                        My motivation to research rotation parameterisations originated from bugs in coding a movement controller.
-                    </figcaption>
-                </figure>
-                </div>
-            </div>
-
-            <div id="research-plan" class=.scroll-container__item scroll-container__item--contribution-section">
-                <div class="described-item">
-                    <figure class="media-figure media--rounded">
-                        <img src="./Content/workflow-writing/research-plan.png" alt="image: research image"
-                        class="media--contain">
-                        <figcaption class="media-figure__description">
-                            To start researching I created a plan which game development relevant topics I need to take notes on.
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-
-            <div id="research-source" class=.scroll-container__item scroll-container__item--contribution-section">
-                <div class="described-item">
-                    <figure class="media-figure media--rounded">
-                        <img src="" alt="image: research-source-example"
-                             class="media--contain">
-                        <figcaption class="media-figure__description">
-                            To gain an extensive understanding I consulted not only game dev sources, but also mathematical sources.
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-
-            <div id="research-notes" class=.scroll-container__item scroll-container__item--contribution-section">
-                <div class="described-item">
-                    <figure class="media-figure media--rounded">
-                        <img src="" alt="image: research-notes"
-                             class="media--contain">
-                        <figcaption class="media-figure__description">
-                            An example of the notes I took during my research.
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-
-            <div id="thesis-page" class="scroll-container__item scroll-container__item--contribution-section">
-                <div class="described-item">
-                    <figure class="media-figure media--rounded">
-                        <img src="" alt="image: example of a thesis page">
-                        <figcaption class="media-figure__description">
-                            The resulting page in my thesis.
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-
-            <div id="properties-summary" class="scroll-container__item scroll-container__item--contribution-section">
-                <div class="described-item">
-                    <figure class="media-figure media--rounded">
-                        <img src="" alt="image: summary table">
-                        <figcaption class="media-figure__description">
-                            My thesis culminates in a comparative summary table of rotation parametrization properties, as well as the use-cases emerging for each one.
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-
-            <div id="exponential-map" class="exponential-map">
-                <figure class="media-figure media--rounded">
-                    <img src="" alt="image: specific example">
-                    <figcaption class="media-figure__description">
-                        A common example for the usefulness of different parametrization is the difference between rotation-vectors and quaternions.
-                        While the former can store rotations of more than 360° degrees and add simultaneous rotational velocities together, it can't combine sequential rotations into a single one. Quaternions on the other hand are limited to rotations of <360°, but are capable of combining two sequential rotations into a single one.
-                    </figcaption>
-                </figure>
-            </div>
-        </div>
-
-        <div class="scroll-container__nav-button scroll-container__nav-button--prev" data-scroll="prev"></div>
-        <div class="scroll-container__nav-button scroll-container__nav-button--next" data-scroll="next"></div>
-    </div>
-</section>
-
-<hr class="main__separator"></hr>
--->
+<hr class="main__separator">
 
 <section id="Backend-Math-Code"
          class="main__panel contribution-section">
@@ -233,10 +120,10 @@ check scrolling works
                     <div class="described-item__description">
                         <p>
                             I considered using the classes provided by unity for the rotation parameterizations; i.e. Quaternion & Matrix4x4.
-                            However, there are multiple <span class="emphasized--in-text"> problems </span> with that:
+                            However, there are multiple problems with that:
                             First, there is no specific class for Euler angles and rotation vectors, as both are handled via the Vector3 class in combination with functions spread across Quaternion, Matrix and Vector3 classes. Second, the unity-built-in classes aren't accessible enough. e.g. their variables can't be bound to AI in the way I wished for, nor can there be a custom property drawer for them. <br>
-                            <span class="emphasized--in-text"> My solution: </span> For the sake of consistency (one parametrization = one class) and more control, I decided to write my own rotation math library. Thus, I had to research the mathematical functions, implement them and create a code architecture. <br>
-                            <span class="emphasized--in-text"> The example below </span> shows my workflow exemplified based on my research and implementation of the quaternion class and the exponential map.
+                            My solution: For the sake of consistency (one parametrization = one class) and more control, I decided to write my own rotation math library. Thus, I had to research the mathematical functions, implement them and create a code architecture. <br>
+                            The example below </span> shows my workflow exemplified based on my research and implementation of the quaternion class and the exponential map.
                         </p>
                     </div>
                 </div>
@@ -416,7 +303,7 @@ public class ComboRotCot : MonoBehaviour
 
 </section>
 
-<hr class="main__separator"></hr>
+<hr class="main__separator">
 
 <section id="Math-Visualisation"
          class="main__panel contribution-section">
@@ -579,7 +466,7 @@ public class ComboRotCot : MonoBehaviour
     </div>
 </section>
 
-<hr class="main__separator"></hr>
+<hr class="main__separator">
 
 <section id="User-Interface"
          class="main__panel contribution-section">

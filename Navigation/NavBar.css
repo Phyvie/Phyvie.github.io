@@ -4,7 +4,11 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    overflow: hidden;
+    /* overflow: hidden; */
+    /* Ensure the foldout is not clipped on desktop.
+       The mobile slide-in menu (.navbar__menu) uses position: fixed, so it won't be clipped by .navbar's overflow anyway.
+    */
+    overflow: visible;
 
     /* navbar-height is relevant for positioning of the scroll-in-menu on smaller screens */
     --navbar-height: calc(var(--ELEMENT-LINE-HEIGHT) * 2);
@@ -100,14 +104,26 @@
     background-color: var(--COLOR-BG-NAVBAR);
 }
 
-.navbar__links {
+.navbar__links
+, .navbar__foldout
+{
     list-style: none;
 }
 
-.navbar__link a {
+.navbar__foldout-button
+, .navbar__foldout-button a
+, .navbar__foldout-button a:visited
+, .navbar__link a
+{
+    font-weight: bold;
     color: var(--COLOR-TEXT-BLOCK);
     text-decoration: none;
-    position: relative;
+    font-size: 1.1rem;
+}
+
+.navbar__foldout .navbar__link a {
+    font-weight: normal;
+    font-size: 1rem;
 }
 
 .navbar__links a:active,
@@ -143,7 +159,7 @@
 }
 
 /* media-query mobile-portrait */
-@media (max-width: 37.499rem)
+@media (min-width: 0rem) and (max-width: 37.499rem)
 {
     .navbar {
         height: calc(var(--ELEMENT-LINE-HEIGHT) * 1);
@@ -174,10 +190,20 @@
     .navbar__hamburger {
         display: block;
     }
+
+    .navbar__foldout-button {
+        margin-top: 0.4rem;
+    }
+
+    .navbar__foldout {
+        display: flex;
+        flex-direction: column;
+        padding-left: var(--LAYOUT-SPACING-DEFAULT);
+    }
 }
 
 /* media-query medium size */
-@media (min-width: 37.5rem) and (max-width: 56.2499rem)
+@media (min-width: 37.5rem) and (max-width: 59.999rem)
 {
     .navbar {
         height: calc(var(--ELEMENT-LINE-HEIGHT) * 1);
@@ -210,10 +236,20 @@
     .navbar__hamburger {
         display: block;
     }
+
+    .navbar__foldout-button {
+        margin-top: 0.4rem;
+    }
+
+    .navbar__foldout {
+        display: flex;
+        flex-direction: column;
+        padding-left: var(--LAYOUT-SPACING-DEFAULT);
+    }
 }
 
 /* media-query large size */
-@media (min-width: 56.25rem)
+@media (min-width: 60rem)
 {
     .navbar__name-and-role-container--large {
         display: flex;
@@ -229,5 +265,34 @@
 
     .navbar__hamburger {
         display: none;
+    }
+
+    .navbar__foldout-button {
+        position: relative;
+    }
+
+    .navbar__foldout {
+        display: none;
+        z-index: 100;
+    }
+
+    .navbar__foldout-button:hover .navbar__foldout
+    , .navbar__foldout-button:active .navbar__foldout
+    , .navbar__foldout-button:focus-within .navbar__foldout
+    {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: fit-content;
+        min-width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        padding: var(--LAYOUT-SPACING-SMALL);
+
+        background-color: var(--COLOR-BG-NAVBAR);
+        border: 1px solid var(--COLOR-BG-ELEMENT-FADED);
+        white-space: nowrap;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 }

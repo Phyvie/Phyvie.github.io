@@ -65,7 +65,7 @@ switch (complexity):
 
 Filter-Tag-Categories: 
 
-| Tag                 | Bevoiced | Dont Brake | Gragoon | Lone Signal | Moebius Magnus | Monster Match | Music Box | Rotations | Solitaire | Bitsy | Analogue Game |
+| Tag                 | Bevoiced | Dont Brake | Gragoon | Lone Signal | Moebius Magnus | Monster Match | Music Box | Rotations | Solitaire | Bitsy | Analog Game |
 |---------------------|----------|------------|---------|-------------|----------------|---------------|-----------|-----------|-----------|-------|---------------|
 | Unity & C#          | +        | +          |         |             | +              | +             | +         | +         | +         |       |               |
 | Unreal & C++        |          |            | +       | +           |                |               |           |           |           |       |               |
@@ -73,7 +73,7 @@ Filter-Tag-Categories:
 | group-made-game     |          |            |         | +           | +              | +             | +         |           |           |       |               |
 | group-made-mechanic | +        |            | +       |             |                |               |           |           |           |       |               |
 | solo-project        |          | +          |         |             |                |               |           | +         | +         |       | +             |
-| solo-mechanic       |          |            |         |             |                |               |           |           |           | +     |               |
+| demo       |          |            |         |             |                |               |           |           |           | +     |               |
 | Level Design        |          | +          | +       |             |                |               | +         |           | +         |       |               |
 | Audio               | +        |            |         |             | +              |               |           |           |           |       |               |
 | Visuals             |          |            |         |             |                |               |           |           |           |       |               |

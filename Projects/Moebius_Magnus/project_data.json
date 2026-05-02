@@ -5,7 +5,7 @@
   "origin": "Cologne Game Lab",
   "team-size": "5",
   "date": "2023",
-  "time": "7w",
+  "time": "7 weeks",
   "thumbnail": {
     "src": "./Gameplay_Screenshot_Chaos.png",
     "alt": "thumbnail: Moebius Magnus"
@@ -14,15 +14,25 @@
     "src": "./Gameplay_Compilation.mp4"
   },
   "main-contribution": "game & sound designer",
-  "contributions": [
-    "Project Lead",
-    "Mechanic Design",
-    "Sound Design"
-  ],
+  "contributions": {
+    "containerID": "rotations-workflow",
+    "contributions": [
+      {
+        "name": "Game Design & Analog Prototype",
+        "link": ""
+      },
+      {
+        "name": "Project Management",
+        "link": ""
+      },
+      {
+        "name": "(Sound Design)",
+        "link": ""
+      }
+    ]
+  },
   "description": [
-    "In this university project we got 7 weeks to work on any experimental game related to the topic \"(dis)\"entanglement",
-    "As the sole designer of the group I developed the game concept, that players find their path through (dis)entangled moebius strips in order to gain rewards with which they can enlarge the structure.",
-    "Furthermore I contributed the sound design & sound programming of the game. "
+    "In this university project we got 7 weeks to work on any experimental game related to the topic \"(dis)entanglement.\" As the sole designer of the group I developed the game concept, that players find their path through (dis)entangled moebius strips in order to gain rewards with which they can enlarge the structure. Furthermore I contributed the sound design & sound programming of the game. "
   ],
   "tags": [
     {
@@ -43,11 +53,28 @@
     }
   ],
   "tools": [
-    "Board Games",
+    "Analog Prototype",
+    "GDD",
     "Miro",
-    "Unity"
+    "Unity",
+    "cs",
+    "Git",
+    "Reaper",
+    "fmod"
   ],
-  "mechanic-video": {
-    "src": "./#.mp4"
+  "project-page": "./Moebius_Magnus.html",
+  "webGLConfig": {
+    "arguments": [],
+    "dataUrl": "./Build/WebBuild.data",
+    "loader": "./Build/WebBuild.loader.js",
+    "frameworkUrl": "./Build/WebBuild.framework.js",
+    "codeUrl": "./Build//WebBuild.wasm",
+    "streamingAssetsUrl": "StreamingAssets",
+    "companyName": "",
+    "productName": "Moebius_Magnus",
+    "productVersion": "1.0.0"
+  },
+  "devVideo": {
+    "src": "./dev_journey.mp4"
   }
 }
