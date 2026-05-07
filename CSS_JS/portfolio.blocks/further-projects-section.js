@@ -165,7 +165,7 @@ async function CreateProjectCards() {
                     const webglIframeURL = jsonData.WebGLBuildURL ? new URL(jsonData.WebGLBuildURL, projectDataURL).href : null;
 
                     // Ensure the link in the header section points to the correct project page
-                    const discoverMoreLink = headerSection.querySelector('..tag--link-arrow');
+                    const discoverMoreLink = headerSection.querySelector('.tag--link-arrow');
                     if (discoverMoreLink && jsonData["project-info-link"]) {
                         discoverMoreLink.href = jsonData["project-info-link"];
                     }
