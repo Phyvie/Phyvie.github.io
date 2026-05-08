@@ -31,7 +31,7 @@ export async function initialize(lightboxTemplate, iframeTemplatePath, prevEleme
     // Re-query from document because we just injected it
     const injectedLightbox = document.querySelector('#lightbox-WebGL-build');
     const LightboxWebGLOverlay = injectedLightbox?.querySelector('.lightbox__overlay');
-    const LightboxContent = injectedLightbox?.querySelector('.lightbox__content');
+    const LightboxContent = injectedLightbox?.querySelector('.lightbox__content-container');
     const OpenProjectButton = injectedLightbox?.querySelector('[data-scriptName="open-project-button"]');
     const LightboxCloseButton = injectedLightbox?.querySelector(".lightbox__close-btn");
 

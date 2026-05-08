@@ -81,6 +81,7 @@ export function CloseLightbox() {
     }
     document.body.style.overflow = '';
     currentContent = null;
+    lightboxOverlay.closeOnInnerClick = false;
 }
 
 export const fullscreenStyle = "--fullscreen";
@@ -104,37 +105,15 @@ export function SetLightboxStyle(style)
     lightboxOverlay.classList.add(style);
 }
 
-function SetupLightboxClickHandling()
-{
-    document.addEventListener('click', (e) => {
-        const openingElement = e.target.closest('[data-lightbox-open]');
-        if (openingElement)
-        {
-            e.preventDefault();
-            let query = openingElement.getAttribute('data-lightbox-open');
-            if (query === "none")
-            {
-                return;
-            }
-            const content = query.length > 0 ? document.querySelector(query) : openingElement;
-            if (!content)
-            {
-                console.error(`Failed to find content for lightbox-open query ${query}`);
-                return;
-            }
-            OpenLightbox(content);
-        }
-    })
-}
-
 async function initialize()
 {
     try
     {
+        /* region get lightbox references */
         lightboxOverlay = document.getElementById('lightbox__overlay');
-
         if (!lightboxOverlay)
         {
+            /* region create lightbox */
             console.log("no lightbox was found in document; adding default lightbox");
             let main = document.querySelector('main');
 
@@ -149,19 +128,47 @@ async function initialize()
             const lightbox = sourceDoc.querySelector('#lightbox__overlay');
             document.body.appendChild(lightbox);
             lightboxOverlay = document.getElementById('lightbox__overlay');
+            /* endregion create lightbox */
         }
-
         if (!lightboxOverlay) {
             throw new Error("Failed to find or create lightbox overlay");
         }
 
-        lightboxBody = lightboxOverlay.querySelector('.lightbox__content');
+        lightboxBody = lightboxOverlay.querySelector('.lightbox__content-container');
         closeBtn = lightboxOverlay.querySelector('.lightbox__close-btn');
 
         if (!lightboxBody || !closeBtn) {
             throw new Error("Lightbox overlay is missing required elements (.lightbox__content or .lightbox__close-btn)");
         }
+        /* endregion get lightbox references */
 
+        /* region open lightbox */
+        document.addEventListener('click', (e) => {
+            const openingElement = e.target.closest('[data-lightbox-open]');
+            if (openingElement)
+            {
+                e.preventDefault();
+                let query = openingElement.getAttribute('data-lightbox-open');
+                if (query === "none")
+                {
+                    return;
+                }
+                const content = query.length > 0 ? document.querySelector(query) : openingElement;
+                if (!content)
+                {
+                    console.error(`Failed to find content for lightbox-open query ${query}`);
+                    return;
+                }
+                OpenLightbox(content);
+                if (openingElement.hasAttribute("data-lightbox-closeOnInnerClick"))
+                {
+                    lightboxOverlay.closeOnInnerClick = true;
+                }
+            }
+        })
+        /* region close lightbox */
+
+        /* region close lightbox */
         closeBtn.addEventListener('click', CloseLightbox);
 
         let isDragging = false;
@@ -183,7 +190,7 @@ async function initialize()
 
         lightboxOverlay.addEventListener('click', (e) => {
             if (isDragging) return;
-            if (e.target === lightboxOverlay || lightboxBody.contains(e.target)) {
+            if ((e.target === lightboxOverlay || lightboxBody.contains(e.target)) && lightboxOverlay.closeOnInnerClick) {
                 CloseLightbox();
             }
         });
@@ -193,8 +200,7 @@ async function initialize()
                 CloseLightbox();
             }
         });
-
-        SetupLightboxClickHandling();
+        /* region close lightbox */
     }
     catch (error)
     {

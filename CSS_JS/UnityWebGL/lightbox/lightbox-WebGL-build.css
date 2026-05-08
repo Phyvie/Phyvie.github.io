@@ -1,9 +1,9 @@
 .lightbox-WebGL-build {
     position: fixed;
-    z-index: 1000;
+    z-index: var(--Z-INDEX-UNITY-LIGHTBOX);
 }
 
-.lightbox-WebGL-build .lightbox__content {
+.lightbox-WebGL-build .lightbox__content-container {
     width: 80vw;
     height: 80vh;
 }
@@ -12,7 +12,7 @@
     position: fixed;
     bottom: var(--LAYOUT-SPACING-SMALL);
     left: var(--LAYOUT-SPACING-SMALL);
-    z-index: 100;
+    z-index: var(--Z-INDEX-UNITY-OPEN-PROJECT-BTN);
 
     padding: var(--LAYOUT-SPACING-XS) var(--LAYOUT-SPACING-DEFAULT);
     cursor: pointer;

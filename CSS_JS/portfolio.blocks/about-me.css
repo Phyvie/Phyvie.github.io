@@ -1,28 +1,199 @@
+/* about-me section styles (refactored from project-header-section.css) */
 .about-me {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    container: about-me / inline-size;
+    place-items: center;
 
+    --about-me-image-rounding: min(12vw, 20vh);
 }
 
-.header--about-me {
-    text-align: left;
-    container: about-me__header / inline-size;
+@media (min-width: 0em) and (max-width: 59.999rem)
+{
+    .about-me {
+        gap: var(--LAYOUT-SPACING-DEFAULT);
+    }
+
+    .about-me__header {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .about-me__media {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    .about-me__description {
+        grid-column: 1 / -1;
+        grid-row: 3;
+    }
+
+    .about-me__links {
+        grid-column: 1 / -1;
+        grid-row: 4;
+    }
+
+    .about-me__roles-container {
+        justify-content: space-between;
+    }
 }
 
-@container about-me__header (min-width: 10em) {
-    .about-me__name-br {
+@media (min-width: 60rem) and (max-width: 79.999rem)
+{
+    .about-me {
+        gap: 0 var(--LAYOUT-SPACING-DEFAULT);
+        grid-template-rows: 5vh auto auto auto;
+        grid-template-columns: 20% auto;
+    }
+
+    .about-me__media {
+        grid-column: 1;
+        grid-row: 1 / 3;
+    }
+
+    .about-me__header {
+        align-self: center;
+        justify-self: stretch;
+
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .about-me__description {
+        grid-column: 1 / -1;
+        grid-row: 3;
+    }
+
+    .about-me__links {
+        grid-column: 2;
+        grid-row: 4;
+    }
+
+    .about-me__roles-container {
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 60rem)
+{
+    .about-me {
+        gap: 0 var(--LAYOUT-SPACING-LARGE);
+        grid-template-rows: 5vh 20% auto auto;
+        grid-template-columns: min(calc(80vh * 3/4), calc(100% - 35rem)) auto;
+    }
+
+    .about-me__media {
+        grid-column: 1;
+        grid-row: 1 / 5;
+    }
+
+    .about-me__header {
+        align-self: center;
+        justify-self: stretch;
+
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .about-me__description {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .about-me__links {
+        grid-column: 2;
+        grid-row: 4;
+    }
+
+    .about-me__roles-container {
+        justify-content: flex-start;
+    }
+}
+
+.about-me__media {
+    width: 100%;
+
+    align-self: center;
+
+    border-radius: var(--about-me-image-rounding);
+}
+
+.about-me__info-container {
+    align-self: stretch;
+
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--LAYOUT-SPACING-SMALL);
+}
+
+.about-me__header {
+    padding: var(--LAYOUT-SPACING-XS) var(--LAYOUT-SPACING-SMALL);
+
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--LAYOUT-SPACING-DEFAULT);
+
+    align-items: stretch;
+    justify-content: center;
+}
+
+.about-me__name {
+    font-size: var(--FONT-SIZE-TITLE);
+    hyphens: none;
+}
+
+.about-me__roles-container {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--LAYOUT-SPACING-DEFAULT);
+
+    container: about-me__roles-container / inline-size;
+}
+
+.about-me__role {
+    place-self: center;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    text-align: center;
+    font-size: var(--FONT-SIZE-TITLE-LVL3);
+}
+
+@container about-me__roles-container (min-width: 20rem)
+{
+    .about_me--role_br {
         display: none;
     }
 }
 
-.tag--about-me-skills {
-    container: tag--about-me-skills / inline-size;
+.about-me__slash {
+    align-self: center;
 }
 
-.tag--about-me-br {
+.about-me__description {
+    padding: var(--LAYOUT-SPACING-DEFAULT) 0;
+}
+
+.about-me__links {
+    place-self: end;
+    width: 50%;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    gap: var(--LAYOUT-SPACING-DEFAULT);
+}
+
+.about-me__link {
     display: block;
 }
 
-@container tag--about-me-skills (min-width: 12em) {
-    .tag--about-me-br {
-        display: none;
+@media (max-width: 20rem)
+{
+    .about-me__name {
+        hyphens: manual;
     }
 }

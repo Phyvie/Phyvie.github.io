@@ -3,7 +3,7 @@ hoverTooltip.id = 'hover-tooltip';
 hoverTooltip.className = 'tooltip-container--desktop';
 hoverTooltip.classList.add('--hidden');
 hoverTooltip.style.position = 'fixed';
-hoverTooltip.style.zIndex = '100';
+hoverTooltip.style.zIndex = '3000';
 document.body.appendChild(hoverTooltip);
 
 const mobileTooltip = document.createElement('div');
@@ -151,8 +151,8 @@ document.addEventListener('touchstart', (e) => {
     }
 }, { passive: true });
 
-document.addEventListener('pointerout', () => {
-    hideTimer = setTimeout(() => {
-        hideTooltip();
-    }, 15000);
-})
+// document.addEventListener('pointerout', () => {
+//     hideTimer = setTimeout(() => {
+//         hideTooltip();
+//     }, 15000);
+// })

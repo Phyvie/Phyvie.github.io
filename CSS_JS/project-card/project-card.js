@@ -12,7 +12,7 @@ import {
     appendTemplateCopyToElement
 } from "../URL-Fetching-And-Templates/template-manager.js";
 
-const PROJECT_CARD_TEMPLATE_PATH = new URL("./Project-Card-Template_2.html", import.meta.url).href;
+const PROJECT_CARD_TEMPLATE_PATH = new URL("./Project-Card-Template.html", import.meta.url).href;
 const PROJECT_CARD_TEMPLATE_ID = "template--project-card";
 let TEMPLATE_PROJECT_CARD;
 
@@ -74,10 +74,11 @@ export function SetupProjectCardInteraction(projectCard)
         return;
     }
 
-    let thumbnail =projectCard.querySelector("[data-ref='image:thumbnail']")
-    let trailer = projectCard.querySelector("[data-ref='video:trailer']");
+    let thumbnail =projectCard.querySelector("[data-scriptName='project-card__thumbnail']")
+    let trailer = projectCard.querySelector("[data-scriptName='project-card__video']");
+    let playButton = projectCard.querySelector("[data-scriptName='project-card__play-button']");
 
-    wireImageToVideo(thumbnail, trailer);
+    wireImageToVideo(thumbnail, trailer, playButton);
     wireOverlayToVideo(trailer);
 
     // SetupInfoButtonOverlay(projectCard); //alt layout where the description is shown when the user clicks on the info-button in the top-left
@@ -117,8 +118,8 @@ function SetupInfoButtonOverlay(projectCard)
 // }
 /* endregion alt layout with foldout */
 
-function wireImageToVideo(image, video) {
-    if (!image || !video)
+function wireImageToVideo(image, video, playButton = null) {
+    if (!image || !video || !playButton)
     {
         console.warn("wireImageToVideo: invalid arguments");
         return;
@@ -130,13 +131,15 @@ function wireImageToVideo(image, video) {
         return;
     }
 
-    image.classList.add("project-card__thumbnail-interactive");
+    image.classList.add("project-card__thumbnail--interactive");
     image.style.display = "block";
+    playButton.style.display = "block";
     video.style.display = "none";
     video.controls = true;
 
     image.addEventListener("click", () => {
         image.style.display = "none";
+        playButton.style.display = "none";
         video.style.display = "block";
 
         // Attempt to play; ignore errors from autoplay policies
@@ -150,6 +153,7 @@ function wireImageToVideo(image, video) {
     // Optional: when the video ends, swap back to the image
     video.addEventListener("ended", () => {
         image.style.display = "block";
+        playButton.style.display = "block";
         video.style.display = "none";
     });
 }

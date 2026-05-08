@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: var(--Z-INDEX-NAVBAR);
     /* overflow: hidden; */
     /* Ensure the foldout is not clipped on desktop.
        The mobile slide-in menu (.navbar__menu) uses position: fixed, so it won't be clipped by .navbar's overflow anyway.
@@ -273,7 +273,7 @@
 
     .navbar__foldout {
         display: none;
-        z-index: 100;
+        z-index: var(--Z-INDEX-NAVBAR-FOLDOUT);
     }
 
     .navbar__foldout-button:hover .navbar__foldout

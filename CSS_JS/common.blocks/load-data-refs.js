@@ -72,7 +72,7 @@ export const ToolsIconsRegistry = new Map([
     ['GDD', {src: "/Data/Icons/GDD.png", alt: "game design document", desc: "", skillLevel: "proficient, ~2years"}],
     ['Unity UI Toolkit', {text: "UUT", alt: "Unity UI Toolkit", desc: "Unity's Web-dev-inspired new UI System", skillLevel: "proficient, ~1year"}],
 
-    ['cs', {src: "/Data/Icons/cs.png", alt: "csharp", desc: "programming language", skillLevel: "functional, ~4years"}],
+    ['cs', {src: "/Data/Icons/Cs.png", alt: "csharp", desc: "programming language", skillLevel: "functional, ~4years"}],
     ['Miro', {src: "/Data/Icons/Miro.png", alt: "Miro", desc: "collaborative online whiteboard", skillLevel: "functional"}],
     ['Git', {src: "/Data/Icons/Git.png", alt: "git", desc: "version control", skillLevel: "functional, ~4years"}],
     // ['Libre_Office', {src: "/Data/Icons/Libre_Office.png", alt: "Libre_Office", desc: "", skillLevel: "functional"}],
@@ -325,16 +325,27 @@ function setContributions(element, contributions) {
         throw new Error("setContributions: contributions is null or undefined"); 
     }
 
-    let containerID = contributions.containerID;
-    for (let contribution of contributions.contributions)
+    let complexFormat = !Array.isArray(contributions);
+
+    let containerID;
+    if (complexFormat)
     {
+        containerID = contributions.containerID;
+        contributions = contributions.contributions;
+    }
+
+    for (let i = 0; i < contributions.length; i++)
+    {
+        let contribution = contributions[i];
         let contributionElement = document.createElement('span');
         element.appendChild(contributionElement);
 
-        contributionElement.innerHTML = " - " + contribution.name;
-        contributionElement.setAttribute('Data-cached-container-id', containerID);
-        contributionElement.setAttribute('Data-cached-content', contribution.link);
-        element.innerHTML += "<br>"
+        contributionElement.innerHTML = (complexFormat ? contribution.name : contribution);
+        if (complexFormat)
+        {
+            contributionElement.setAttribute('Data-cached-container-id', containerID);
+            contributionElement.setAttribute('Data-cached-content', contribution.link);
+        }
     }
 }
 

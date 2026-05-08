@@ -1,0 +1,37 @@
+<template id="template--project-card">
+    <div class="project-card">
+        <div class="project-card__media-overlay-container">
+            <div class="project-card__media media-flex-center-wrapper">
+                <!-- .project-card__thumbnail--interactive is added via js, if a video exists -->
+                <img class="media--cover project-card__thumbnail"
+                     src="/Data/Placeholder/Loading.png"
+                     alt="project-image"
+                     data-ref="image:thumbnail"
+                     data-scriptName="project-card__thumbnail">
+                <div class="media--video-play-button"
+                     data-scriptName="project-card__play-button"> ▶ </div>
+                <video class="media--contain project-card__video"
+                       data-ref="video:trailer"
+                       data-scriptName="project-card__video"> </video>
+            </div>
+            <div class="project-card__overlay overlay">
+                <h2 class="overlay__top-left overlay__project-title" data-ref="text:project-title">  Project Title  </h2>
+                <h2 class="overlay__main-role" data-ref="text:main-contribution"> </h2>
+            </div>
+        </div>
+
+        <div class="project-card__bottom-line">
+            <div class="project-card__tags">
+                <div class="project-card__origin-tag tag project-card__tag" data-ref="icon:origin">
+                </div>
+                <div class="project-card__group-size-tag tag project-card__tag">
+                    <img class="project-card__group-icon media--img-in-font" src="/Data/Icons/Group.png" alt="link-icon">
+                    <p class ="project-card__group-size-text" data-ref="text:team-size"> 5 </p>
+                </div>
+            </div>
+            <div class="project-card__more-button tag tag--link-arrow" data-more-info-button>
+                more ...
+            </div>
+        </div>
+    </div>
+</template>

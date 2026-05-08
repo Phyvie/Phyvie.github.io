@@ -15,7 +15,7 @@
     "alt": "Rotation_Parametrization Video"
   },
   "git-link": "https://#",
-  "main-contribution": "designer & programmer - educational tool",
+  "main-contribution": "designer & programmer:  educational tool",
   "contributions": {
     "containerID": "rotations-workflow",
     "contributions": [
@@ -34,7 +34,7 @@
     ]
   },
   "description": [
-    "Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? In my bachelor thesis I analyse & the varying properties of each rotation parametrization and their resulting use cases. In the accompanying unity project I created a visualisation tool, which allows the user to interactively experiment with the theory explained in the thesis. "
+    "Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? In my bachelor thesis I analysed the varying properties of each rotation parametrization and their resulting use cases. In the accompanying Unity project, I developed an interactive visualization tool that allows users to experiment with various rotation parameters, while observing the changes in orientation in real-time."
   ],
   "tags": [
     {

@@ -17,7 +17,7 @@ body {
 
 .main__panel {
     width: calc(40rem + 40vw);
-    max-width: 90vw;
+    max-width: min(90vw, 100%);
     align-self: center;
 }
 

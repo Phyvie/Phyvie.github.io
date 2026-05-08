@@ -3,10 +3,6 @@
     display: none;
 }
 
-.project-header-section__link {
-    display: block;
-}
-
 .main__highlight_projects {
     display: flex;
     flex-flow: column nowrap;
