@@ -12,36 +12,43 @@ function onClick(event) {
 
     const groupElement = trigger.closest('[data-filter-trigger-group]');
     const groupName = groupElement ? groupElement.getAttribute('data-filter-trigger-group') : "default";
+    const groupLogic = (groupElement ? groupElement.getAttribute('data-filter-trigger-group-combine-behaviour') : "OR")?.toUpperCase() || "OR";
 
-    const container = findFilterContainer(trigger);
+    const { container, root } = findFilterContext(trigger);
     if (!container) {
         console.error("No container found for filter trigger.");
         return;
     }
 
-    toggleActiveFilter(container, filterValue, groupName);
+    toggleActiveFilter(container, filterValue, groupName, groupLogic);
 
     const isActive = container.activeFilters.has(groupName) && container.activeFilters.get(groupName).has(filterValue);
 
-    switchTriggerFilterStyle(trigger, isActive);
+    syncTriggerStyles(container, root);
 
     if (!isActive) {
         hideTooltip();
     }
 
     container.querySelectorAll('[data-filter-tags]').forEach(item => {
-        const { matches, relevance } = elementMatchesFilters(item, container.activeFilters);
+        const { matches, relevance } = elementMatchesFilters(item, container.activeFilters, container);
         applyFilterStyle(item, matches, relevance);
     });
 }
 
-function findFilterContainer(trigger) {
+function findFilterContext(trigger) {
     let container = findInRelatives(trigger, '[data-filter-container]');
+    let root = container;
+
     if (!container) {
         const containerParent = findInRelatives(trigger, '[data-filter-container-parent]');
-        container = containerParent?.querySelector('[data-filter-container]');
+        if (containerParent) {
+            container = containerParent.querySelector('[data-filter-container]');
+            root = containerParent;
+        }
     }
-    return container;
+
+    return { container, root };
 }
 
 function switchTriggerFilterStyle(trigger, active)
@@ -49,9 +56,23 @@ function switchTriggerFilterStyle(trigger, active)
     trigger.classList.toggle("--active", active);
 }
 
-function toggleActiveFilter(container, filterValue, groupName = "default") {
+function syncTriggerStyles(container, root = null) {
+    const searchRoot = root || container;
+    searchRoot.querySelectorAll('[data-filter-trigger]').forEach(t => {
+        const tGroupElement = t.closest('[data-filter-trigger-group]');
+        const tGroupName = tGroupElement ? tGroupElement.getAttribute('data-filter-trigger-group') : "default";
+        const tValue = t.getAttribute('data-filter-trigger')?.toLowerCase();
+        const tIsActive = container.activeFilters && container.activeFilters.has(tGroupName) && container.activeFilters.get(tGroupName).has(tValue);
+        switchTriggerFilterStyle(t, !!tIsActive);
+    });
+}
+
+function toggleActiveFilter(container, filterValue, groupName = "default", groupLogic = "OR") {
     if (!container.activeFilters) container.activeFilters = new Map();
+    if (!container.filterGroupLogic) container.filterGroupLogic = new Map();
     
+    container.filterGroupLogic.set(groupName, groupLogic);
+
     if (!container.activeFilters.has(groupName)) {
         container.activeFilters.set(groupName, new Set());
     }
@@ -63,11 +84,14 @@ function toggleActiveFilter(container, filterValue, groupName = "default") {
             container.activeFilters.delete(groupName);
         }
     } else {
+        if (groupLogic === "ONE") {
+            groupSet.clear();
+        }
         groupSet.add(filterValue);
     }
 }
 
-function elementMatchesFilters(item, activeFilters) {
+function elementMatchesFilters(item, activeFilters, container) {
     if (!item.filterTags || !(item.filterTags instanceof Map)) {
         parseFilterTags(item);
         if (!item.filterTags || !(item.filterTags instanceof Map))
@@ -84,16 +108,31 @@ function elementMatchesFilters(item, activeFilters) {
     let visible = true;
     let relevanceSum = 0;
 
-    // Grouped filtering: OR within groups, AND across groups
+    //Grouped Filtering; accross groups is always "OR" within groups is based on group setting
     activeFilters.forEach((groupSet, groupName) => {
+        const logic = (container && container.filterGroupLogic) ? container.filterGroupLogic.get(groupName) : "OR";
+        
         let groupMatch = false;
-        groupSet.forEach(f => {
-            const tagData = item.filterTags.get(f);
-            if (tagData) {
-                groupMatch = true;
-                relevanceSum += Number(tagData.relevance) || 0;
-            }
-        });
+        if (logic === "AND") {
+            groupMatch = true;
+            groupSet.forEach(f => {
+                if (!item.filterTags.has(f)) {
+                    groupMatch = false;
+                } else {
+                    relevanceSum += Number(item.filterTags.get(f).relevance) || 0;
+                }
+            });
+        } else {
+            // OR or ONE logic
+            groupSet.forEach(f => {
+                const tagData = item.filterTags.get(f);
+                if (tagData) {
+                    groupMatch = true;
+                    relevanceSum += Number(tagData.relevance) || 0;
+                }
+            });
+        }
+
         if (!groupMatch) {
             visible = false;
         }
@@ -140,6 +179,14 @@ export function parseFilterTags(rootElement)
 
         parsed.forEach((tag, index) => {
             try {
+                if (typeof tag === "string") {
+                    tagMap.set(tag.toLowerCase(), {
+                        name: tag,
+                        relevance: 0
+                    });
+                    return;
+                }
+
                 if (typeof tag !== "object" || tag === null) {
                     console.error(`Invalid tag at index ${index}:`, tag, element);
                     return;
@@ -285,16 +332,27 @@ function syncAttributeFromMap(element)
 
 document.addEventListener("click", onClick);
 
-function initialize()
+function initialize(root = document)
 {
-    parseFilterTags(document);
+    parseFilterTags(root);
+
+    root.querySelectorAll('[data-filter-container]').forEach(container => {
+        const containerParent = findInRelatives(container, '[data-filter-container-parent]');
+        const syncRoot = containerParent || root;
+        syncTriggerStyles(container, syncRoot);
+
+        container.querySelectorAll('[data-filter-tags]').forEach(item => {
+            const { matches, relevance } = elementMatchesFilters(item, container.activeFilters, container);
+            applyFilterStyle(item, matches, relevance);
+        });
+    });
 }
 
 if (document.readyState === "loading")
 {
-    document.addEventListener("DOMContentLoaded", initialize)
+    document.addEventListener("DOMContentLoaded", () => initialize(document))
 }
 else
 {
-    initialize();
+    initialize(document);
 }

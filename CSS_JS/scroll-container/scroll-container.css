@@ -41,7 +41,6 @@
     overflow: hidden;
 
     --SCROLL-CONTAINER-GAP-COUNT: calc(var(--SCROLL-CONTAINER-VISIBLE-CHILD-COUNT) - 1);
-    /* 100% is the full visible width; divide it by the number of items to have them on screen & subtract the gap, such that everything is fully visible */
     flex: 0 0 calc(100% / var(--SCROLL-CONTAINER-VISIBLE-CHILD-COUNT) - var(--SCROLL-CONTAINER-ITEM-GAP)/2 * min(1, var(--SCROLL-CONTAINER-GAP-COUNT)));
 }
 
@@ -109,3 +108,46 @@
     clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
 }
 /* region example-additional styling */
+
+/* region scroll-container-group, which is a wrapper for anything additional to the scroll-container */
+.scroll-container-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--LAYOUT-SPACING-DEFAULT);
+    border: 2px solid var(--COLOR-DARK-FADED);
+    border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
+}
+
+.scroll-container-group .scroll-container {
+    border: none !important;
+    border-radius: 0;
+}
+/* endregion */
+
+/* region scroll-container__miniature, which contains a miniature of each item of the scroll-container used for a better overview and easy scrolling. items are typically created via javascript*/
+.scroll-container__miniature {
+    padding: var(--LAYOUT-SPACING-SMALL);
+
+    border-bottom: 1px solid var(--COLOR-DARK-FADED); /* Line separating from main scroll-container */
+    background-color: color-mix(in srgb, var(--COLOR-BG-BLOCK), var(--COLOR-DARK-FADED) 10%); /* Slightly different background for the miniature area */
+    border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch; /* Ensure all items have same height */
+    gap: var(--LAYOUT-SPACING-SMALL);
+    overflow-x: auto;
+}
+
+/* Scrollbar styling for the miniature container */
+.scroll-container__miniature::-webkit-scrollbar {
+    height: 4px;
+}
+.scroll-container__miniature::-webkit-scrollbar-track {
+    background: var(--COLOR-DARK-FADED);
+}
+.scroll-container__miniature::-webkit-scrollbar-thumb {
+    background: var(--COLOR-BG-ELEMENT);
+    border-radius: 3px;
+}
+/* endregion */

@@ -93,11 +93,11 @@
 
     <hr class="main__separator">
 
-    <div id ="main__highlight_projects" class="main__highlight_projects">
+    <section id ="main__highlight_projects" class="main__highlight_projects">
         <h1 class="main__highlight-header header"> Featured Projects </h1>
 
         <div data-scriptName="highlight-projects-start"></div>
-    </div>
+    </section>
 
     <hr class="main__separator">
 
@@ -111,14 +111,14 @@
             </h3>
 
             <p class="further-projects-section__skills-category-header"> Engines: </p>
-            <div class="further-projects-section__skills-category" data-filter-trigger-group="engines">
+            <div class="further-projects-section__skills-category" data-filter-trigger-group="engines" data-filter-trigger-group-combine-behaviour="ONE">
                 <div class="further-projects-section__skills-filter-trigger tag further-projects-section__skills-filter-trigger--emphasized" data-filter-trigger="Unity"> Unity </div>
                 <div class="further-projects-section__skills-filter-trigger tag" data-filter-trigger="Unreal Engine"> Unreal Engine </div>
                 <!--                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="other engine"> other engine </div>-->
             </div>
 
             <p class="further-projects-section__skills-category-header"> Roles: </p>
-            <div class="further-projects-section__skills-category" data-filter-trigger-group="role">
+            <div class="further-projects-section__skills-category" data-filter-trigger-group="role" data-filter-trigger-group-combine-behaviour="ONE">
                 <div class="further-projects-section__skills-filter-trigger tag further-projects-section__skills-filter-trigger--emphasized" data-filter-trigger="programming"> programming </div>
                 <div class="further-projects-section__skills-filter-trigger tag further-projects-section__skills-filter-trigger--emphasized" data-filter-trigger="mechanic design"> mechanic design </div>
                 <div class="further-projects-section__skills-filter-trigger tag" data-filter-trigger="level design"> level design </div>
@@ -126,20 +126,20 @@
             </div>
 
             <p class="further-projects-section__skills-category-header"> Other: </p>
-            <div class="further-projects-section__skills-category" data-filter-trigger-group="other">
+            <div class="further-projects-section__skills-category" data-filter-trigger-group="other" data-filter-trigger-group-combine-behaviour="ONE">
                 <div class="further-projects-section__skills-filter-trigger tag" data-filter-trigger="educational"> educational </div>
                 <div class="further-projects-section__skills-filter-trigger tag" data-filter-trigger="audio"> audio </div>
             </div>
 
             <p class="further-projects-section__skills-category-header"> Team & Project Size: </p>
-            <div class="further-projects-section__skills-category" data-filter-trigger-group="team-size">
+            <div class="further-projects-section__skills-category" data-filter-trigger-group="team-size" data-filter-trigger-group-combine-behaviour="ONE">
                 <div class="further-projects-section__skills-filter-trigger tag further-projects-section__skills-filter-trigger--emphasized" data-filter-trigger="group-project"> group projects </div>
                 <div class="further-projects-section__skills-filter-trigger tag" data-filter-trigger="solo-project"> solo-project </div>
                 <div class="further-projects-section__skills-filter-trigger tag" data-filter-trigger="demo"> demo </div>
             </div>
         </div>
 
-        <div class="further-projects-section__tools" data-filter-trigger-group="tools" data-scriptName="further-project-section-tools-container">
+        <div class="further-projects-section__tools" data-filter-trigger-group="tools" data-filter-trigger-group-combine-behaviour="ANY" data-scriptName="further-project-section-tools-container">
             <h3 class="further-projects-section__tools-header"> Tools
                 <span class="further-projects-section__tools-hint-by-expertise"> by expertise</span> <br>
                 <span class="further-projects-section__hint-click"> (click to filter projects below)</span>

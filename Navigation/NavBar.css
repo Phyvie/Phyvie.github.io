@@ -1,3 +1,7 @@
+:root {
+    --navbar-height: calc(var(--ELEMENT-LINE-HEIGHT) * 2);
+}
+
 .navbar {
     position: fixed;
     top: 0;
@@ -11,7 +15,6 @@
     overflow: visible;
 
     /* navbar-height is relevant for positioning of the scroll-in-menu on smaller screens */
-    --navbar-height: calc(var(--ELEMENT-LINE-HEIGHT) * 2);
     height: var(--navbar-height);
     padding: 0 var(--LAYOUT-SPACING-DEFAULT);
 
@@ -161,8 +164,12 @@
 /* media-query mobile-portrait */
 @media (min-width: 0rem) and (max-width: 37.499rem)
 {
+    :root {
+        --navbar-height: calc(var(--ELEMENT-LINE-HEIGHT) * 1);
+    }
+
     .navbar {
-        height: calc(var(--ELEMENT-LINE-HEIGHT) * 1);
+        height: var(--navbar-height);
     }
 
     .navbar__name-and-role-container--small {
@@ -171,7 +178,7 @@
 
     .navbar__menu {
         position: fixed;
-        top: calc(var(--ELEMENT-LINE-HEIGHT) * 1);
+        top: var(--navbar-height);
         right: -100%;
         width: 100%;
         transition: 0.3s;
@@ -205,8 +212,12 @@
 /* media-query medium size */
 @media (min-width: 37.5rem) and (max-width: 59.999rem)
 {
+    :root {
+        --navbar-height: calc(var(--ELEMENT-LINE-HEIGHT) * 1);
+    }
+
     .navbar {
-        height: calc(var(--ELEMENT-LINE-HEIGHT) * 1);
+        height: var(--navbar-height);
     }
 
     .navbar__name-and-role-container--medium {
@@ -215,7 +226,7 @@
 
     .navbar__menu {
         position: fixed;
-        top: calc(var(--ELEMENT-LINE-HEIGHT) * 1);
+        top: var(--navbar-height);
         right: -100%;
         width: 100%;
         transition: 0.3s;

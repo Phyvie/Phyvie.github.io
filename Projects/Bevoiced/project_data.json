@@ -1,5 +1,6 @@
 {
   "project-title": "Bevoiced",
+  "project-type": "Voice Input Demo",
 
   "version": "1.0.0",
   "origin": "Cologne Game Lab",
@@ -16,12 +17,9 @@
   },
 
   "main-contribution": "programmer:  voice controls",
-  "contributions": {
-    "containerID": "",
-    "contributions": [
-      "programming"
-    ]
-  },
+  "contributions": [
+    "Programming"
+  ],
 
   "description": [
     "My first group game project at university. ",

@@ -293,6 +293,7 @@
 .project-header-section__roles-list > span {
     display: flex;
     align-items: center;
+    font-weight: bold;
 }
 
 .project-header-section__roles-list > span:not(:last-child)::after {
@@ -300,7 +301,7 @@
     display: inline-block;
     width: 1px;
     height: 1rem;
-    background-color: var(--COLOR-TEXT-DEFAULT, currentColor);
+    background-color: currentColor;
     margin: 0 var(--LAYOUT-SPACING-DEFAULT);
 }
 

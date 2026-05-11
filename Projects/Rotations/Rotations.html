@@ -16,11 +16,7 @@
     <link rel="stylesheet" href="../../CSS_JS/common.blocks/tag.css">
 
     <link rel="stylesheet" href="../../CSS_JS/scroll-container/scroll-container.css">
-    <link rel="stylesheet" href="../../CSS_JS/scroll-container/scroll-container--selectable.css">
     <script type="module" src="../../CSS_JS/scroll-container/scroll-container.js"></script>
-    <script type="module" src="../../CSS_JS/scroll-container/scroll-container--selectable.js"></script>
-
-    <script type="module" src="../../CSS_JS/common.blocks/switchable-content-container.js"></script>
 
     <link rel="stylesheet" href="../../CSS_JS/lightbox/lightbox.css">
     <script type="module" src="../../CSS_JS/lightbox/lightbox.js"></script>
@@ -33,7 +29,6 @@
 
     <!-- project-/file-specific stylesheets & JavaScripts -->
     <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/main.css">
-    <link rel="stylesheet" href="../../CSS_JS/project-card/project-card.css">
     <link rel="stylesheet" href="../../CSS_JS/project-header-section/project-header-section.css">
     <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/contribution-section.css">
 
@@ -42,6 +37,8 @@
 
     <link rel="stylesheet" href="../../CSS_JS/project-header-section/project-header-section.css">
     <link rel="stylesheet" href="../../CSS_JS/UnityWebGL/lightbox/lightbox-WebGL-build.css">
+
+    <script type="module" src="rotations.js"></script>
 </head>
 <body>
 
@@ -72,7 +69,7 @@
         The example below shows my my workflow exemplified on how I implemented the Quaternion class & specifically the exponential map.
     </p> <br>
 
-    <div class="scroll-container scroll-container--selectable contribution-section--scroll-container">
+    <div class="scroll-container  contribution-section--scroll-container">
         <div id="code-scroll-container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
             <div id="" class="scroll-container__item scroll-container__item--contribution-section scroll-container__item--active">
                 <div class="described-item">
@@ -312,7 +309,7 @@ public class ComboRotCot : MonoBehaviour
         Once I had the code finished, the next step was to create the visual representation. This meant not only modeling the object & creating shaders, but also creating a code architecture which adjusts the visualization according to parameter changes & parameter conversion. Ideally while keeping the mathematical backend independent of the visualization.
     </p>
 
-    <div class="scroll-container scroll-container--selectable contribution-section--scroll-container">
+    <div class="scroll-container contribution-section--scroll-container">
         <div id="mathvis-scroll-container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
             <div id="inspiration-eater" class="scroll-container__item scroll-container__item--contribution-section scroll-container__item--active">
                 <div class="described-item">
@@ -367,7 +364,7 @@ public class ComboRotCot : MonoBehaviour
                         <img src="./Content/workflow-modeling/UnityImport.png" alt="image: model imported into unity" class="media--contain">
                     </div>
                     <div class="described-item__header">
-                        <b class="header--lvl3"> Blender-To-Unity: </b>
+                        <b class="header--lvl3"> Export-Import: </b>
                     </div>
                     <div class="described-item__description">
                         <p> Transfer the meshes from blender to Unity resulted in a problem: Blenders & Unity's coordinate systems are different. Also, the adjustments in the blender default exporter rotate whole .fbx objects (left-object / Inspector), not individual meshes. However, my further programming needed the meshes to be unrotated, such that I can rotate them myself according to the underlying rotation parameter.
@@ -478,12 +475,12 @@ public class ComboRotCot : MonoBehaviour
         The example below focuses on the implementation of the UI for the axis-angle-rotation-parameters; specifically the x-value.
     </p>
 
-    <div class="scroll-container scroll-container--selectable contribution-section--scroll-container">
+    <div class="scroll-container contribution-section--scroll-container">
         <div id="user-interface-scroll-container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
             <div id="UI-planning-sketch" class="scroll-container__item scroll-container__item--contribution-section scroll-container__item--active">
                 <div class="described-item">
                     <div class="described-item__content media-flex-center-wrapper">
-                        <img src="./Content/workflow-UI/UI_Planning.png" alt="image: sketch how the UI is planned" class="media--contain" style="align-self: start; padding-top: 1rem;">
+                        <img src="./Content/workflow-UI/UI_Planning.png" alt="image: sketch how the UI is planned" class="media--contain">
                     </div>
                     <div class="described-item__header">
                         <b class="header--lvl3"> Sketch: </b>
@@ -497,7 +494,7 @@ public class ComboRotCot : MonoBehaviour
             <div id="UI-Toolkit-Setup" class="scroll-container__item scroll-container__item--contribution-section">
                 <div class="described-item">
                     <div class="described-item__content media-flex-center-wrapper">
-                        <img src="./Content/workflow-UI/UI_Toolkit_AxisAngle.png" alt="image: UI Toolkit" class="media--contain" style="align-self: start; padding-top: 1rem;">
+                        <img src="./Content/workflow-UI/UI_Toolkit_AxisAngle.png" alt="image: UI Toolkit" class="media--contain">
                     </div>
                     <div class="described-item__header">
                         <b class="header--lvl3"> UI-Toolkit: </b>
@@ -581,7 +578,7 @@ public class ComboRotCot : MonoBehaviour
             <div id="UI-result" class="scroll-container__item scroll-container__item--contribution-section">
                 <div class="described-item">
                     <div class="described-item__content media-flex-center-wrapper">
-                        <video src="./Content/workflow-UI/UI_Example_Interaction.mp4" style="max-width: 100%; max-height: 100%" loop autoplay muted></video>
+                        <video class="media--contain" src="./Content/workflow-UI/UI_Example_Interaction.mp4" loop autoplay muted></video>
                     </div>
                     <div class="described-item__header">
                         <b class="header--lvl3"> Example: </b>

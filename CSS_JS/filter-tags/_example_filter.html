@@ -11,7 +11,15 @@ a) set it in html as an attribute and write the value in the following json form
 b) set the filter tag in javascript, using createFilterTag to create a new filter tag and addFilterTagToElement to add it onto an element.
 3. create the buttons that trigger filtering, by giving an element the attribute 'data-filter-trigger="filter-name"'.
    To group filters (OR within groups, AND across groups), wrap them in an element with 'data-filter-trigger-group="group-name"'.
-   Triggers without a group are treated as part of the "default" group.
+   You can define the logic via the attribute 'data-filter-trigger-group-combine-behaviour="logic"':
+   - "OR" (default): Items matching any active filter in the group are shown.
+   - "AND": Items must match ALL active filters in the group.
+   - "ONE": Only one filter in the group can be active at a time.
+   Example: <div data-filter-trigger-group="category" data-filter-trigger-group-combine-behaviour="AND">...</div>
+   Triggers without a group or logic attribute are treated as part of the "default" group with "OR" logic.
+
+4. Simple tag definition:
+   As a shorthand, you can also use simple strings in the array: data-filter-tags='["tag1", "tag2"]'.
 
 Error-Handling:
 If the data-filter-tags attribute is wrongly formatted, thus fails parsing, it will be set to display=none before continuing with the next data-fitler-tags element
@@ -30,20 +38,33 @@ If the data-filter-tags attribute is wrongly formatted, thus fails parsing, it w
 
 <div class="example">
     <div class="example__filter-buttons-container">
-        <div data-filter-trigger-group="color" style="display: flex; gap: 5px;">
+        <p>OR Logic (Default)</p>
+        <div data-filter-trigger-group="color" data-filter-trigger-group-combine-behaviour="OR" style="display: flex; gap: 5px; margin-bottom: 10px;">
             <div class="example__filter-button" style="background-color: blue" data-filter-trigger="blue"></div>
             <div class="example__filter-button" style="background-color: red" data-filter-trigger="red"></div>
             <div class="example__filter-button" style="background-color: yellow" data-filter-trigger="yellow"></div>
         </div>
+
+        <p>AND Logic (Must have all selected tags)</p>
+        <div data-filter-trigger-group="shapes" data-filter-trigger-group-combine-behaviour="AND" style="display: flex; gap: 5px; margin-bottom: 10px;">
+            <div class="example__filter-button" style="border: 1px solid black; padding: 2px" data-filter-trigger="square">Square</div>
+            <div class="example__filter-button" style="border: 1px solid black; padding: 2px" data-filter-trigger="circle">Circle</div>
+        </div>
+
+        <p>ONE Logic (Only one active at a time)</p>
+        <div data-filter-trigger-group="size" data-filter-trigger-group-combine-behaviour="ONE" style="display: flex; gap: 5px; margin-bottom: 10px;">
+            <div class="example__filter-button" style="border: 1px solid black; padding: 2px" data-filter-trigger="small">Small</div>
+            <div class="example__filter-button" style="border: 1px solid black; padding: 2px" data-filter-trigger="large">Large</div>
+        </div>
     </div>
 
     <div class="example__item-grid" data-filter-container="example-filter-container">
-        <div class="example__item filterable" style="background-color: darkblue" data-filter-tags='[{"name": "blue", "relevance": "3"}]'></div>
-        <div class="example__item filterable" style="background-color: darkred" data-filter-tags='[{"name": "red", "relevance": "3"}]'></div>
-        <div class="example__item filterable" style="background-color: rebeccapurple" data-filter-tags='[{"name": "blue", "relevance": "2"}, {"name": "red", "relevance": "2"}]'></div>
-        <div id ="orange" class="example__item filterable" style="background-color: orange" data-filter-tags='[{"name": "yellow", "relevance": "1"}]'></div>
-        <div class="example__item filterable" style="background-color: lightblue" data-filter-tags='[{"name": "blue", "relevance": "2"}]'></div>
-        <div class="example__item filterable" style="background-color: yellow" data-filter-tags='[{"name": "yellow", "relevance": "3"}]'></div>
+        <div class="example__item filterable" style="background-color: darkblue" data-filter-tags='["blue", "square", "small"]'>Blue Square Small</div>
+        <div class="example__item filterable" style="background-color: darkred" data-filter-tags='["red", "circle", "large"]'>Red Circle Large</div>
+        <div class="example__item filterable" style="background-color: rebeccapurple" data-filter-tags='["blue", "red", "square", "circle", "small"]'>Blue Red Square Circle Small</div>
+        <div id ="orange" class="example__item filterable" style="background-color: orange" data-filter-tags='["yellow", "square", "large"]'>Yellow Square Large</div>
+        <div class="example__item filterable" style="background-color: lightblue" data-filter-tags='["blue", "circle", "small"]'>Blue Circle Small</div>
+        <div class="example__item filterable" style="background-color: yellow" data-filter-tags='["yellow", "circle", "large"]'>Yellow Circle Large</div>
     </div>
     <script type="module">
         import {addFilterTagToElement, createFilterTag} from "./filter-tags.js";

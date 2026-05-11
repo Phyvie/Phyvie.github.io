@@ -17,8 +17,11 @@ async function initialize()
             targetElement.appendChild(projectHeaderSection);
 
             const projectDataURL = new URL("../project_data.json", import.meta.url).href;
-            const webglIframeURL = new URL("./lightbox-webGL-iframe.html", import.meta.url).href;
-            await initializeProjectHeaderSection(projectHeaderSection, projectDataURL, webglIframeURL, 'rotations-workflow');
+            await initializeProjectHeaderSection(projectHeaderSection, projectDataURL,
+                {
+                    "initialiseWebGLBuild": true
+                    , "webGLIFrameURL": new URL("../../../CSS_JS/UnityWebGL/lightbox/lightbox-webGL-iframe.html", import.meta.url).href
+                });
         }
     }
 }

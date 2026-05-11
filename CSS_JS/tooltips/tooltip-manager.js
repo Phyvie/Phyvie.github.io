@@ -145,14 +145,31 @@ document.addEventListener('touchstart', (e) => {
             currentTouchTarget = target;
         }
     } else {
-        // Touch elsewhere
-        hideTooltip();
-        currentTouchTarget = null;
+        // Touch elsewhere - check if it's not the tooltip itself
+        if (!e.target.closest('.mobile-tooltip-container') && !e.target.closest('.tooltip-container--desktop')) {
+            hideTooltip();
+            currentTouchTarget = null;
+        }
     }
 }, { passive: true });
 
-// document.addEventListener('pointerout', () => {
-//     hideTimer = setTimeout(() => {
-//         hideTooltip();
-//     }, 15000);
-// })
+mobileTooltip.addEventListener('touchstart', (e) => {
+    e.stopPropagation();
+}, { passive: false });
+
+mobileTooltip.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+}, { passive: false });
+
+let scrolling = false;
+document.addEventListener('scroll', (e) => {
+    scrolling = true;
+})
+
+setInterval(() => {
+    if (scrolling) {
+        scrolling = false;
+        hideTooltip();
+    }
+}, 300);

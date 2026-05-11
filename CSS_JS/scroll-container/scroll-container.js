@@ -429,6 +429,112 @@ function sendScrollCommandEvent(clickedButton, container, command) {
 }
 /* endregion [data-scroll]-management */
 
+function extractDescribedItemMiniature(item, contentContainer, index, miniature) {
+    const describedItem = item.querySelector('.described-item');
+    if (describedItem) {
+        // Clone
+        const clone = describedItem.cloneNode(true);
+
+        // Store index and ID for mapping
+        clone.dataset.scroll = index;
+        if (item.id) {
+            clone.dataset.scrollId = item.id;
+        } else {
+            console.warn(`Item at index ${index} has no ID. Mapping via index only.`);
+        }
+
+        // Clean: Remove description
+        const description = clone.querySelector('.described-item__description');
+        if (description) {
+            description.remove();
+        }
+
+        // Class: Add modifier for miniature
+        clone.classList.add('described-item--miniature');
+
+        let mediaContainElement = clone.querySelector('.described-item__content')?.querySelector('.media--contain');
+        if (mediaContainElement)
+        {
+            mediaContainElement.classList.remove("media--contain");
+            mediaContainElement.classList.add("media--cover");
+        }
+
+        // Wrap in a clickable element if needed or just add listener
+        clone.addEventListener('click', () => {
+            scrollContainerToIndex(contentContainer, index);
+        });
+
+        miniature.appendChild(clone);
+    }
+}
+
+/* region setup scroll-bar */
+/**
+ * Creates a miniature version of the scroll container.
+ * Following the 'External Wrapper' approach:
+ * 1. Wraps the scrollContainer in a .scroll-container-group.
+ * 2. Creates a .scroll-container__miniature.
+ * 3. Populates the miniature by cloning items.
+ * @param {HTMLElement} scrollContainer 
+ */
+export function CreateMiniatureScrollContainer(scrollContainer) {
+    if (!scrollContainer) return;
+
+    // 1. Create the External Wrapper
+    const group = document.createElement('div');
+    group.classList.add('scroll-container-group');
+
+    // Insert group before scrollContainer and move scrollContainer into it
+    scrollContainer.parentNode.insertBefore(group, scrollContainer);
+    group.appendChild(scrollContainer);
+
+    // 2. Create the Miniature Container
+    const miniature = document.createElement('div');
+    miniature.classList.add('scroll-container__miniature');
+
+    // 3. Populate via Cloning
+    const contentContainer = scrollContainer.querySelector('.scroll-container__content-container');
+    if (!contentContainer) {
+        console.warn('No content container found in scroll container');
+        return;
+    }
+
+    const items = Array.from(contentContainer.children);
+    items.forEach((item, index) => {
+        extractDescribedItemMiniature(item, contentContainer, index, miniature);
+    });
+
+    const updateMiniatureHighlight = (index) => {
+        miniature.querySelectorAll('.described-item--miniature').forEach(item => {
+            let isSelected = parseInt(item.dataset.scroll) === index;
+            item.classList.toggle('--selected', isSelected);
+            if (isSelected) {
+                let parent = item.parentElement;
+                parent.scroll({
+                    left: item.offsetLeft - (parent.offsetWidth / 2) + (item.offsetWidth / 2),
+                    behavior: 'smooth'
+                });
+            }
+        });
+    };
+
+    // Trigger the highlight update when scrolling occurs
+    contentContainer.addEventListener('scroll', () => {
+        const index = Math.round(contentContainer.scrollLeft / contentContainer.clientWidth);
+        updateMiniatureHighlight(index);
+    }, { passive: true });
+
+    // Initial highlight
+    const initialIndex = Math.round(contentContainer.scrollLeft / contentContainer.clientWidth);
+    updateMiniatureHighlight(initialIndex);
+
+    // 4. Final Assembly: Add miniature above the scroll container
+    group.insertBefore(miniature, scrollContainer);
+
+    return group;
+}
+/* endregion setup scroll-bar */
+
 export function initializeScrollContainers() {
     if (!window._scrollNavGlobalHandlerSetup) {
         setupGlobalScrollHandler();
