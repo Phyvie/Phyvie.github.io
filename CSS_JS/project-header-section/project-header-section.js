@@ -205,7 +205,12 @@ export async function initializeProjectHeaderSection(headerSection, projectDataU
             if (!jsonData["project-page"])
             {
                 console.error("Failed to find project-page in project data");
+                return;
             }
+            PageLinkButtons.style.display = "flex";
+            PageLinkButtons.innerHTML +=
+                "<a class=\"project-header-section__link tag tag--link-arrow\" data-ref=\"link:project-page\"> behind the scenes </a>";
+            loadDataRefs(PageLinkButtons, jsonData);
         }
         else
         {

@@ -93,12 +93,15 @@
 }
 
 .navbar__contact
+, .navbar__github
 {
     color: var(--COLOR-TEXT-BLOCK);
 }
 
 .navbar__contact:hover
 , .navbar__contact:active
+, .navbar__github:hover
+, .navbar__github:active
 {
     color: var(--COLOR-TEXT-BLOCK-ACCENT);
 }
@@ -305,5 +308,20 @@
         border: 1px solid var(--COLOR-BG-ELEMENT-FADED);
         white-space: nowrap;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+
+    .navbar__contact
+    , .navbar__github
+    {
+        font-size: 1.2rem;
+    }
+
+    .navbar__contact:hover
+    , .navbar__contact:active
+    , .navbar__github:hover
+    , .navbar__github:active
+    {
+        font-size: 1.2rem;
     }
 }
