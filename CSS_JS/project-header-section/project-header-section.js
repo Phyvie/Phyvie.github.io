@@ -30,6 +30,7 @@ export async function initializeProjectHeaderSection(headerSection, projectDataU
     const ScrollContainerBottomNavigation = headerSection.querySelector('.scroll-container__bottom-navigation-line');
     const VideoScroller = headerSection.querySelector('[data-scriptName="video-toggle"]');
     const Thumbnail = MediaScrollContainer.querySelector('img');
+    const VideoPlayButton = MediaScrollContainer.querySelector('[data-scriptName="video-play-button"]');
     const Video = MediaScrollContainer.querySelector('video');
     const FullscreenButton = MediaScrollContainer.querySelector('[data-scriptName="fullscreen-button"]');
     const PageLinkButtons = headerSection.querySelector('[data-scriptName="project-page-buttons"]');
@@ -61,7 +62,7 @@ export async function initializeProjectHeaderSection(headerSection, projectDataU
             })
         }
 
-        if (Thumbnail && Video) {
+        if (Thumbnail && VideoPlayButton && Video) {
             Thumbnail.style.cursor = "pointer";
             Thumbnail.addEventListener('mouseenter', () => {
                 Thumbnail.style.transform = "scale(1.15)";
@@ -78,11 +79,13 @@ export async function initializeProjectHeaderSection(headerSection, projectDataU
 
             Video.addEventListener('play', () => {
                 Thumbnail.style.display = "none";
+                VideoPlayButton.style.display = "none";
                 Video.style.display = "block";
             })
 
             Video.addEventListener('ended', () => {
                 Thumbnail.style.display = "block";
+                VideoPlayButton.style.display = "block";
                 Video.style.display = "none";
             })
         }

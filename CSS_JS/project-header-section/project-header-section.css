@@ -115,12 +115,6 @@
     align-self: center;
 }
 
-.project-header-section__video-play-button {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
 .project-header-section__video:hover
 {
 
@@ -137,6 +131,26 @@
 .project-header-section__thumbnail:hover
 {
     transform: scale(150%);
+    filter: brightness(0.8);
+}
+
+.project-header-section__video-container .project-header-section__video-play-button
+{
+    position: absolute;
+    visibility: hidden;
+}
+
+.project-header-section__video-container:hover .project-header-section__video-play-button
+{
+    visibility: visible;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 50px;
+    pointer-events: none;
 }
 
 .project-header-section__trailer
