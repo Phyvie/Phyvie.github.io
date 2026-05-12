@@ -21,8 +21,8 @@
     position: relative;
     width: auto;
     height: auto;
-    max-width: 90vw;
-    max-height: 90vh;
+    max-width: calc(var(--SCREEN-WIDTH-MAIN-CONTENT) * 0.95);
+    max-height: calc(var(--SCREEN-HEIGHT-MAIN-CONTENT) * 0.95);
 
     padding: var(--LAYOUT-SPACING-DEFAULT);
     display: flex;

@@ -18,7 +18,7 @@
 
 .emphasized--in-text {
     /* Use your existing variables */
-    --highlight-color: color-mix(in srgb, var(--COLOR-LIGHT-ACCENT) 20%, transparent);
+    --highlight-color: color-mix(in srgb, var(--COLOR-LIGHT-ACCENT) 10%, transparent);
 
     background: linear-gradient(
             to right,
