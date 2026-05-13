@@ -1,8 +1,20 @@
 .contribution-section {
     --described-item--miniature-height: 150px;
     --described-item--miniature-height--mobile: 75px;
+    --described-item--miniature-height--mobile-landscape: 15px;
     --scroll-container-group-height: calc(var(--SCREEN-HEIGHT-MAIN-CONTENT) * 0.9);
 }
+
+/* Scroll snapping didn't work cleanly with only CSS; would require HTML-DOM-changes (e.g. absolute positioned snapping element) or javascript for snapping with manually defined snap-thresholds. */
+/*html {*/
+/*    scroll-padding: calc(var(--navbar-height) + var(--SCREEN-HEIGHT-MAIN-CONTENT) * 0.025) 0 0;*/
+/*    scroll-snap-type: y proximity;*/
+/*}*/
+
+/*.contribution-section .scroll-container-group {*/
+/*    scroll-snap-stop: always;*/
+/*    scroll-snap-align: start;*/
+/*}*/
 
 .scroll-container-group {
     height: var(--scroll-container-group-height);
@@ -42,7 +54,7 @@
         height: 100%;
         display: grid;
         grid-template-columns: 0.6fr 0.4fr;
-        grid-template-rows: var(--LAYOUT-SPACING-DEFAULT) auto 1fr;
+        grid-template-rows: auto 1fr;
         gap: var(--LAYOUT-SPACING-DEFAULT);
         grid-template-areas:
             "content header"
@@ -51,12 +63,13 @@
     }
 
     .described-item__content {
-        align-self: flex-start;
+        height: 100%;
+        min-height: 0;
     }
 }
 
 .described-item__content {
-    overflow: hidden;
+    overflow: auto;
     grid-area: content;
 }
 
@@ -118,14 +131,29 @@
     transform: scale(1.02);
 }
 
-@media (max-width: 37.49rem), (max-height: 37.49rem) {
+@media (max-width: 37.49rem) {
     .described-item.described-item--miniature {
-        flex: 0 0 75px;
+        flex: 0 0 var(--described-item--miniature-height--mobile);
         height: var(--described-item--miniature-height--mobile);
     }
 
     .described-item.described-item--miniature .described-item__header {
         font-size: 0.6rem;
+    }
+}
+
+@media (max-height: 37.49rem) {
+    .described-item.described-item--miniature {
+        flex: 0 0 var(--described-item--miniature-height--mobile-landscape);
+        height: var(--described-item--miniature-height--mobile-landscape);
+    }
+
+    .described-item.described-item--miniature .described-item__header {
+        display: none;
+    }
+
+    .described-item.described-item--miniature .described-item__content {
+        display: none;
     }
 }
 /* endregion miniature*/

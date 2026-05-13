@@ -151,3 +151,9 @@
     border-radius: 3px;
 }
 /* endregion */
+
+@media (max-height: 37.49rem) {
+    .scroll-container__miniature {
+        order: 1;
+    }
+}
