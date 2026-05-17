@@ -22,8 +22,7 @@
   ],
 
   "description": [
-    "My first group game project at university. ",
-    "While the game itself wasn't very successful, we (two programmers, in a team of 5 game devs) managed to implement a mechanic where players control the environment by the pitch of their voice. "
+    "In my first collaborative university game project, we had ambitious goals: Make a game with voice pitch as input mechanic. While the game as a whole did not get finished, we two programmers managed to create a technical demo - with visuals and level design crafted by the other 3 team members. "
   ],
   "tags": [
     {

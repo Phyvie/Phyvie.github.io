@@ -3,7 +3,7 @@
   "project-type": "Multiplayer Puzzle",
   "version": "1.0.0",
   "origin": "Cologne Game Lab",
-  "team-size": "5",
+  "team-size": "6",
   "date": "2023",
   "time": "9 weeks",
   "thumbnail": {
@@ -28,10 +28,9 @@
     ]
   },
   "description": [
-    "A musical multiplayer puzzle game. ",
-    "As one of two designers I helped with mechanic design, but mostly focused on in-engine work: ",
-    "- Combining Assets from Art, Programming & Music into Prefabs. ",
-    "- Creation of 15 Levels, 6 of which made it into the final game."
+    "For this musical multiplayer puzzle game, I was one of two designers. ",
+    "Throughout the first three weeks we spent a considerable amount of time arguing about the positioning of game elements (camera, player, walls, ...). I managed to reduce the decision-making time from several days to a single day by finding a compromise through a comparison of several minimal in-engine prototypes. ",
+    "When our main designer became unavailable throughout the last three weeks, I stepped in. I created 15 levels with enough variety that we could confidently select the strongest 6 to match our six musical layers. "
   ],
   "tags": [
     {

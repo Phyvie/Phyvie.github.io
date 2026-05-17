@@ -32,7 +32,10 @@
     ]
   },
   "description": [
-    "In this university project we got 7 weeks to work on any experimental game related to the topic \"(dis)entanglement.\" As the sole designer of the group I developed the game concept, that players find their path through (dis)entangled moebius strips in order to gain rewards with which they can enlarge the structure. Furthermore I contributed the sound design & sound programming of the game. "
+    "This university group project challenged us to develop an experimental game exploring the concept '(dis)entanglement.'",
+    "As the sole designer and project manager, I had to ensure everyone is on the same page. Starting with an analog prototype everyone understood the concept: Players navigate through interconnected Möbius strips to earn further strips; expanding the entanglement until it's too complicated to find paths. ",
+    "To further balance my dual role, I merged task distribution with GDD creation: Based on an in-engine gameplay mockup timeline I created & distributed action documents, which also served as GDD foundation.",
+    "Lastly, since we lacked a dedicated sound designer I reduced the scope to composing atmospheric sounds myself. "
   ],
   "tags": [
     {

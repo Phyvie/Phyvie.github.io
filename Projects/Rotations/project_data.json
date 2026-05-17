@@ -34,7 +34,7 @@
     ]
   },
   "description": [
-    "Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? In my bachelor thesis I analysed the varying properties of each rotation parametrization and their resulting use cases. In the accompanying Unity project, I developed an interactive visualization tool that allows users to experiment with various rotation parameters, while observing the changes in orientation in real-time."
+    "Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? As I faced this problem multiple times in my game development, I set out to write my bachelor thesis about it. I analysed the varying properties of each rotation parametrization and their resulting use cases. In the accompanying Unity project, I developed an interactive visualization tool that allows users to experiment with various rotation parameters, while observing the changes in orientation in real-time."
   ],
   "tags": [
     {
