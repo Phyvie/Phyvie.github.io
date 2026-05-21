@@ -39,11 +39,19 @@
     align-items: center;
 }
 
+.navbar__img-and-name {
+    display: contents;
+}
+
 .navbar__image-container {
     height: 100%;
     max-height: 100%;
     overflow: hidden;
     border-radius: 20%;
+}
+
+.navbar__image-link {
+    display: contents;
 }
 
 .navbar__name-and-role-container--small {

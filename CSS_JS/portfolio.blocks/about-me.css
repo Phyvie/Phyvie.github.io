@@ -5,7 +5,7 @@
     container: about-me / inline-size;
     place-items: center;
 
-    --about-me-image-rounding: min(12vw, 20vh);
+    --about-me-image-rounding: min(8vw, 12vh);
 }
 
 @media (min-width: 0em) and (max-width: 59.999rem)
