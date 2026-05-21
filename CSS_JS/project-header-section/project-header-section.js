@@ -212,7 +212,7 @@ export async function initializeProjectHeaderSection(headerSection, projectDataU
             }
             PageLinkButtons.style.display = "flex";
             PageLinkButtons.innerHTML +=
-                "<a class=\"project-header-section__link tag tag--link-arrow\" data-ref=\"link:project-page\"> behind the scenes </a>";
+                "<a class=\"project-header-section__link tag\" data-ref=\"link:project-page-behind-the-scenes\"> behind the scenes </a>";
             loadDataRefs(PageLinkButtons, jsonData);
         }
         else

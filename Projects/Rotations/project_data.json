@@ -68,6 +68,7 @@
       "Unity UI Toolkit"
     ],
   "project-page": "./Rotations.html",
+  "project-page-behind-the-scenes": "./Rotations.html#Backend-Math-Code",
   "webGLConfig": {
     "arguments": [],
     "dataUrl": "./Build/WebBuild.data",

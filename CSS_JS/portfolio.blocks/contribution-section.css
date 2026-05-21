@@ -54,11 +54,13 @@
         height: 100%;
         display: grid;
         grid-template-columns: 0.6fr 0.4fr;
-        grid-template-rows: auto 1fr;
+        grid-template-rows: var(--LAYOUT-SPACING-DEFAULT) auto 1fr var(--LAYOUT-SPACING-DEFAULT);
         gap: var(--LAYOUT-SPACING-DEFAULT);
         grid-template-areas:
+            ". ."
             "content header"
             "content description"
+            ". ."
             ;
     }
 

@@ -302,7 +302,8 @@
 
 .project-card__more-button {
     margin-left: auto;
-    padding: var(--LAYOUT-SPACING-XS) var(--LAYOUT-SPACING-SMALL);
+    padding-left: var(--LAYOUT-SPACING-SMALL);
+    padding-right: var(--LAYOUT-SPACING-XS);
     font-weight: bold;
     cursor: pointer;
     pointer-events: all;

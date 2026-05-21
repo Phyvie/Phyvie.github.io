@@ -66,6 +66,7 @@
     "fmod"
   ],
   "project-page": "./Moebius_Magnus.html",
+  "project-page-behind-the-scenes": "./Moebius_Magnus.html#Prototyping",
   "webGLConfig": {
     "arguments": [],
     "dataUrl": "./Build/WebBuild.data",
