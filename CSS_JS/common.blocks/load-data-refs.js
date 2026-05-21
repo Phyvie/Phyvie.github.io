@@ -89,7 +89,7 @@ export const ToolsIconsRegistry = new Map([
 
 export const OriginIconRegistry = new Map([
     ['Cologne Game Lab', {src: "/Data/Icons/Cologne Game Lab.png", alt: "Cologne Game Lab", desc: "institute of the TH Cologne (university)"}],
-    ['private', {src: "/Data/Icons/Person.png", alt: "private", desc: ""}],
+    ['private', {src: "/Data/Icons/House.png", alt: "private", desc: ""}],
 ])
 
 export const UtilityIconRegistry = new Map([
