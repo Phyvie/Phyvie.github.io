@@ -98,6 +98,10 @@
     color: var(--COLOR-TEXT-BLOCK);
 }
 
+.navbar__link-image {
+    filter: invert(1);
+}
+
 .navbar__contact:hover
 , .navbar__contact:active
 , .navbar__github:hover
