@@ -1,5 +1,5 @@
 {
-  "project-title": "Rotation Parameter&shy;izations",
+  "project-title": "Rotation Education",
   "project-type": "Educational Tool",
   "version": "1.0.0",
   "origin": "Cologne Game Lab",
@@ -15,26 +15,26 @@
     "alt": "Rotation_Parametrization Video"
   },
   "git-link": "https://#",
-  "main-contribution": "designer & programmer - educational tool",
+  "main-contribution": "solo-dev: educational tool",
   "contributions": {
     "containerID": "rotations-workflow",
     "contributions": [
       {
-        "name": "Coding Rotation Mechanics",
+        "name": "Math Coding",
         "link": "_./Projects/Rotations/Rotations.html#Backend-Math-Code"
       },
       {
-        "name": "Modeling Visualisation",
+        "name": "Visualisation",
         "link": "_./Projects/Rotations/Rotations.html#Math-Visualisation"
       },
       {
-        "name": "User Interface",
+        "name": "UI",
         "link": "_./Projects/Rotations/Rotations.html#User-Interface"
       }
     ]
   },
   "description": [
-    "Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? In my bachelor thesis I analyse & the varying properties of each rotation parametrization and their resulting use cases. In the accompanying unity project I created a visualisation tool, which allows the user to interactively experiment with the theory explained in the thesis. "
+    "Quaternion, Euler Angles, Rotation Vectors and Rotation Matrices - There is no industry standard on rotation parametrization? But why? As I faced this problem multiple times in my game development, I set out to write my bachelor thesis about it. I analysed the varying properties of each rotation parametrization and their resulting use cases. In the accompanying Unity project, I developed an interactive visualization tool that allows users to experiment with various rotation parameters, while observing the changes in orientation in real-time."
   ],
   "tags": [
     {
@@ -58,61 +58,26 @@
       "relevance": "4"
     }
   ],
-  "tools": "Missing Tools",
-  "WebGLConfig": {
+  "tools":
+    [
+      "Unity",
+      "cs",
+      "Git",
+      "Miro",
+      "Blender",
+      "Unity UI Toolkit"
+    ],
+  "project-page": "./Rotations.html",
+  "project-page-behind-the-scenes": "./Rotations.html#Backend-Math-Code",
+  "webGLConfig": {
     "arguments": [],
-    "dataUrl": "./Content/Build/WebBuild.data",
-    "loader": "./Content/Build/WebBuild.loader.js",
-    "frameworkUrl": "./Content/Build/WebBuild.framework.js",
-    "codeUrl": "./Content/Build//WebBuild.wasm",
+    "dataUrl": "./Build/WebBuild.data",
+    "loader": "./Build/WebBuild.loader.js",
+    "frameworkUrl": "./Build/WebBuild.framework.js",
+    "codeUrl": "./Build//WebBuild.wasm",
     "streamingAssetsUrl": "StreamingAssets",
     "companyName": "",
     "productName": "Rotation_Parametrization_Visualiser",
     "productVersion": "1.0.0"
-  },
-  "image-gallery": [
-    {
-      "src": "./Data/Placeholder/Bowser.jpg",
-      "alt": "Image: Euler gimbal",
-      "description": "Euler angles describe orientation as three consecutive rotations. "
-    },
-    {
-      "src": "./Data/Placeholder/Bowser.jpg",
-      "alt": "Image: Quaternion represented as a rotation around an axis by a given angle",
-      "description": "The exponential map converts an axis-angle rotation-representation into a quaternion."
-    },
-    {
-      "src": "./Data/Placeholder/Bowser.jpg",
-      "alt": "Image: Rotation Matrix",
-      "description": "The columns of a rotation (/transformation) matrix describe where the transformed x, y and z vector are pointing. "
-    },
-    {
-      "src": "./Thesis_Pages/Summary_Rotation_Parametrizations.png",
-      "alt": "Summary Table of Properties of Rotation Parametrizations",
-      "description": "Summary of the properties of rotation parametrizations"
-    }
-  ],
-  "CodeSample1": "https://raw.githubusercontent.com/Phyvie/ProfileWeek_25_Math/refs/heads/main/Assets/Scripts/Extensions/MathExtensions/AngleType.cs",
-  "Workflow": [
-    {
-      "src": "./Data/Placeholder/Bowser.jpg",
-      "alt": "Image: Initial sketch of the project",
-      "description": "In order to plan projects, I like to start with a visual sketch of the required components"
-    },
-    {
-      "src": "./Data/Placeholder/Bowser.jpg",
-      "alt": "Image: Code Diagram",
-      "description": "Depending on the complexity of the project, I create a code diagrams"
-    },
-    {
-      "src": "./Data/Placeholder/Bowser.jpg",
-      "alt": "Image: Sample Script",
-      "description": "Some sample code of the project; the entire sourcecode can be found at [...].github"
-    },
-    {
-      "src": "./Data/Placeholder/Bowser.jpg",
-      "alt": "Image: UI-Toolkit",
-      "description": "Throughout the project I newly learned to use unity's UI-Toolkit"
-    }
-  ]
+  }
 }

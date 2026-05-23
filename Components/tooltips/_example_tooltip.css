@@ -1,0 +1,48 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.example-section {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+.bg-one {
+    background-color: #f0f0f0;
+}
+.bg-two {
+    background-color: #e0e0e0;
+    flex-direction: column;
+}
+.tooltip-trigger {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.mobile-container-example {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px dashed #999;
+    min-height: 50px;
+    width: 80%;
+    text-align: center;
+}
+
+/* For the example, we override the fixed mobile container to show it inline in the second div if it exists */
+#example-mobile-display {
+    display: block;
+    position: static;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    border: 1px solid #ccc;
+    background: #fff;
+    width: 100%;
+    margin-top: 20px;
+}

@@ -5,24 +5,37 @@
   "origin": "Cologne Game Lab",
   "team-size": "5",
   "date": "2023",
-  "time": "7w",
+  "time": "7 weeks",
   "thumbnail": {
     "src": "./Gameplay_Screenshot_Chaos.png",
     "alt": "thumbnail: Moebius Magnus"
   },
   "trailer": {
-    "src": "./Gameplay_Compilation.mp4"
+    "src": "./Gameplay_Trailer.mp4"
   },
   "main-contribution": "game & sound designer",
-  "contributions": [
-    "Project Lead",
-    "Mechanic Design",
-    "Sound Design"
-  ],
+  "contributions": {
+    "containerID": "rotations-workflow",
+    "contributions": [
+      {
+        "name": "Analogue Prototype",
+        "link": ""
+      },
+      {
+        "name": "GDD",
+        "link": ""
+      },
+      {
+        "name": "Management",
+        "link": ""
+      }
+    ]
+  },
   "description": [
-    "In this university project we got 7 weeks to work on any experimental game related to the topic \"(dis)\"entanglement",
-    "As the sole designer of the group I developed the game concept, that players find their path through (dis)entangled moebius strips in order to gain rewards with which they can enlarge the structure.",
-    "Furthermore I contributed the sound design & sound programming of the game. "
+    "This university group project challenged us to develop an experimental game exploring the concept '(dis)entanglement.'",
+    "As the sole designer and project manager, I had to ensure everyone is on the same page. Starting with an analog prototype everyone understood the concept: Players navigate through interconnected Möbius strips to earn further strips; expanding the entanglement until it's too complicated to find paths. ",
+    "To further balance my dual role, I merged task distribution with GDD creation: Based on an in-engine gameplay mockup timeline I created & distributed action documents, which also served as GDD foundation.",
+    "Lastly, since we lacked a dedicated sound designer I reduced the scope to composing atmospheric sounds myself. "
   ],
   "tags": [
     {
@@ -43,11 +56,29 @@
     }
   ],
   "tools": [
-    "Board Games",
+    "Analog Prototype",
+    "GDD",
     "Miro",
-    "Unity"
+    "Unity",
+    "cs",
+    "Git",
+    "Reaper",
+    "fmod"
   ],
-  "mechanic-video": {
-    "src": "./#.mp4"
+  "project-page": "./Moebius_Magnus.html",
+  "project-page-behind-the-scenes": "./Moebius_Magnus.html#Prototyping",
+  "webGLConfig": {
+    "arguments": [],
+    "dataUrl": "./Build/WebBuild.data",
+    "loader": "./Build/WebBuild.loader.js",
+    "frameworkUrl": "./Build/WebBuild.framework.js",
+    "codeUrl": "./Build//WebBuild.wasm",
+    "streamingAssetsUrl": "StreamingAssets",
+    "companyName": "",
+    "productName": "Moebius_Magnus",
+    "productVersion": "1.0.0"
+  },
+  "devVideo": {
+    "src": "./dev_journey.mp4"
   }
 }

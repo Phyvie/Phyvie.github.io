@@ -5,7 +5,7 @@
   "origin": "Cologne Game Lab",
   "team-size": "6",
   "date": "2024",
-  "time": "7w",
+  "time": "7 weeks",
   "thumbnail": {
     "src": "./Thumbnail.png",
     "alt": "Play My Math Project IMG"
@@ -13,14 +13,14 @@
   "trailer": {
     "src": "./mechanic_showcase.mp4"
   },
-  "main-contribution": "game designer - educational game",
+  "main-contribution": "educational game design",
   "contributions": [
     "Project Lead",
     "Tech Design"
   ],
   "description": [
-    "As final university group project, we had the choice between seven clients. The one asking for a educational fraction-arithmetic game was the perfect choice for me. ",
-    "As project manager I communicated with the client, ensured the designers blockouts and art assets fit together and ensured the coding stayed on track, partially by coding myself. "
+    "For this university project we had the opportunity to work for one of seven clients. The one asking for an educational game about fractions peaked my interest. Throughout the project we had to work with 3 designers, but only one programmer. To solve this imbalance I as project manager distributed simple coding tasks to the other two designers and took over some detached systems myself, such that the main programmer could focus on the main mechanics without ever running into a production bottleneck. ",
+    "Furthermore the project taught me communication with a client by using communication documents. "
   ],
   "tags": [
     {
@@ -45,7 +45,7 @@
     }
   ],
   "tools": [
-    "Board Games",
+    "Analog Prototype",
     "Miro",
     "Unity"
   ],

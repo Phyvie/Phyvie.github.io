@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "origin": "private",
   "team-size": "2",
-  "date": "?",
-  "time": "?",
+  "date": "n/a",
+  "time": "n/a",
   "thumbnail": {
     "src": "./Thumbnail_Jump.png",
     "alt": "Dont Brake Project IMG"
@@ -13,13 +13,13 @@
   "trailer": {
     "src": "./Movement_Showcase.mp4"
   },
-  "main-contribution": "programmer - dragon movement controls",
+  "main-contribution": "programmer:  dragon steering",
   "contributions": [
     "Programming"
   ],
   "description": [
-    "An artist friend and me challenged ourselves to create a dragon with innovative movement. ",
-    "Throughout the project I familiarised myself with Unreal Engine, as well as the coding of character controllers. "
+    "An artist friend and me challenged ourselves to create a dragon with innovative movement.",
+    "The challenge at this point was that humanoid movement was insufficient as reference due to being two-legged and vehicle movement was insufficient due to being wheel not leg-based. As a result I mixed techniques: suspension physics for the legs like arcade-racing games use for wheels, movement controls like a humanoid, but inertia (and thus drifting) like a car."
   ],
   "tags": [
     {
@@ -27,7 +27,7 @@
       "relevance": "2"
     },
     {
-      "name": "group-feature",
+      "name": "demo",
       "relevance": "3"
     },
     {
@@ -37,7 +37,8 @@
   ],
   "tools": [
     "Unreal Engine",
-    "C++"
+    "Cpp",
+    "Git"
   ],
   "mechanic-video": {
     "src": "./#.mp4"

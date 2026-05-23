@@ -8,132 +8,153 @@
     <title> Portfolio - Valentin Then Bergh </title>
 
     <!-- general purpose stylesheets & JavaScripts -->
-    <link rel="stylesheet" href="CSS_JS/reset.css">
-    <link rel="stylesheet" href="CSS_JS/global_variables.css">
+    <link rel="stylesheet" href="Components/reset.css">
+    <link rel="stylesheet" href="Components/global_variables.css">
 
-    <link rel="stylesheet" href="CSS_JS/styling/media.css">
-    <link rel="stylesheet" href="CSS_JS/common.blocks/header.css">
-    <link rel="stylesheet" href="CSS_JS/common.blocks/tag.css">
+    <link rel="stylesheet" href="Components/styling/media.css">
+    <link rel="stylesheet" href="Components/common.blocks/header.css">
+    <link rel="stylesheet" href="Components/common.blocks/tag.css">
 
-    <link rel="stylesheet" href="CSS_JS/lightbox/_example_lightbox.css">
-    <script type="module" src="CSS_JS/lightbox/lightbox.js"></script>
+    <link rel="stylesheet" href="Components/tooltips/tooltip.css">
+    <script type="module" src="Components/tooltips/tooltip-manager.js"></script>
 
-    <link rel="stylesheet" href="CSS_JS/scroll-container/scroll-container.css">
-    <script type="module" src="CSS_JS/scroll-container/scroll-container.js"></script>
+    <link rel="stylesheet" href="Components/lightbox/lightbox.css">
+    <script type="module" src="Components/lightbox/lightbox.js"></script>
 
-    <script type="module" src="CSS_JS/common.blocks/switchable-content-container.js"></script>
+    <link rel="stylesheet" href="Components/scroll-container/scroll-container.css">
+    <script type="module" src="Components/scroll-container/scroll-container.js"></script>
 
-    <link rel="stylesheet" href="modules/highlight/styles/dark-phy.css">
-    <script src="modules/highlight/highlight.min.js"></script>
+    <script type="module" src="Components/common.blocks/switchable-content-container.js"></script>
+
+    <link rel="stylesheet" href="Components/modules/highlight/styles/dark-phy.css">
+    <script src="Components/modules/highlight/highlight.min.js"></script>
 
     <!-- project-/file-specific stylesheets & JavaScripts -->
-    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/main.css">
-    <link rel="stylesheet" href="CSS_JS/project-card/project-card.css">
-    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/project-section.css">
-    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/contribution-section.css">
+    <link rel="stylesheet" href="Components/portfolio.blocks/main.css">
+    <link rel="stylesheet" href="Components/portfolio.blocks/contribution-section.css">
 
-    <link rel="stylesheet" href="Navigation/NavBar.css">
-    <script type="module" src="Navigation/AddNavBar.js"></script>
+    <link rel="stylesheet" href="Components/project-card/project-card.css">
+    <link rel="stylesheet" href="Components/project-header-section/project-header-section.css">
+
+    <link rel="stylesheet" href="Components/Navigation/NavBar.css">
+    <script type="module" src="Components/Navigation/AddNavBar.js"></script>
+
+    <link rel="stylesheet" href="Components/Footer/Footer.css">
+    <script type="module" src="Components/Footer/AddFooter.js"></script>
 
     <!-- individual section stylesheets -->
-    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/about-me.css">
-    <link rel="stylesheet" href="Projects/Rotations/CSS_JS/rotations-header-section.css">
-    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/further-projects-section.css">
-    <script defer type="module" src="CSS_JS/portfolio.blocks/further-projects-section.js"></script>
+    <link rel="stylesheet" href="Components/portfolio.blocks/about-me.css">
+    <link rel="stylesheet" href="Components/portfolio.blocks/further-projects-section.css">
 
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="Index/index.css">
 
-    <link rel="stylesheet" href="ZyKa/debug/debug.css">
+    <link rel="stylesheet" href="Debug/debug/debug.css">
 </head>
 <body>
 
 <!-- region LIGHTBOX -->
-<div id="lightbox__overlay" class="lightbox__overlay"> <!-- !!!ZyKa remove the --fullscreen class, make it toggleable via code -->
-    <div class="lightbox__content-container">
+<div id="lightbox__overlay" class="lightbox__overlay">
+    <div class="lightbox__window">
         <button class="lightbox__close-btn" id="closeLightbox">&times;</button>
-        <div class="lightbox__content" id="lightboxBody">
+        <div class="lightbox__content-container" id="lightboxBody">
             <!-- Content will be loaded here dynamically -->
         </div>
     </div>
 </div>
 <!-- endregion LIGHTBOX -->
 
+<div class="debug-navbar">
+
+</div>
+
 <main class="main">
-    <section id="about-me" class="main__panel project-section project-section__main-content">
+    <section id="about-me" class="main__panel about-me project-section__main-content">
 <!--        <div class="project-section__media media&#45;&#45;relative-wrapper" style="aspect-ratio: 1/1; flex-basis: 30%; border-radius: 8vw">-->
-        <div class="project-section__media media--relative-wrapper">
-            <img class="media--cover" src="Data/portrait_vtb_2.jpg" alt="Image of me" style="border-radius: 12vw; ">
+        <div class="about-me__media media--relative-wrapper">
+            <img class="media--cover" src="Data/portrait_vtb_2.jpg" alt="Image of me">
         </div>
-        <div class="project-section__info-container">
-            <h1 class="header header--left"> Valentin Then Bergh </h1>
-            <div class="flex-tags">
-                <p class="flex-tags__tag tag tag--about-me-skills header--lvl3"> Gameplay <br class="tag--about-me-br"> Programming </p>
-                <p class="flex-tags__tag tag tag--about-me-skills header--lvl3"> Mechanics <br class="tag--about-me-br"> Design </p>
-                <p class="flex-tags__tag tag tag--about-me-skills header--lvl3"> Tech <br class="tag--about-me-br"> Design </p>
-                <p class="flex-tags__tag tag tag--about-me-skills header--lvl3"> Math <br class="tag--about-me-br"> Visualization </p>
+        <div class="about-me__header">
+            <h1 class="about-me__name"> Valentin Then Bergh </h1>
+            <div class="about-me__roles-container">
+                <p class="about-me__role"> Mechanics <br class="about_me--role_br"> Design </p>
+                <p class="about-me__slash"> / </p>
+                <p class="about-me__role"> Gameplay <br class="about_me--role_br"> Programming </p>
             </div>
-            <div class="project-section__description">
-                <p>
-                    <span class="header--lvl3"> My Work: </span> I am a tech designer from Germany. As such, I work as <span class="emphasized--in-text"> intermediary between game design and programming </span>: On the design side, I contribute ideas & logic to new <span class="emphasized--in-text"> game mechanics </span> , before I translate the systems into <span class="emphasized--in-text"> flowcharts </span> that programmers can smoothly implement. On the programming side, I <span class="emphasized--in-text"> code design-heavy gameplay systems </span> and <span class="emphasized--in-text"> organize assets </span> to empower designers in crafting gameplay more easily. <br>
-                    <br>
-<!--                     <span class="header&#45;&#45;lvl3"> Genres: </span> Due to my focus on gameplay mechanics, I am especially drawn to <span class="emphasized&#45;&#45;in-text"> ludic and minimalistic games </span>. e.g., platformers, metroidvanias, card-/monster-gatherers, logic puzzles, and music games. <br>-->
-<!--                    <br>-->
-                    <span class="header--lvl3"> Experience: </span> I studied at the Cologne Game Lab, where I collaborated on multiple group projects spanning several weeks each. Throughout these, I gained experience in the group use of <span class="emphasized--in-text"> Unity (C#, 4 years) </span>, Unreal Engine (C++, 1 year), as well as organizational tools, like Git, Miro, and more. <br>
-                    <br>
-                    <span class="header--lvl3"> Plans: </span> For the future, I'd like to learn how to contribute these skills in a professional environment. Therefore, I am currently <span class="emphasized--in-text"> seeking internships as a tech designer </span> to learn more about industry standards, especially the pipeline from designing to programming game mechanics.
-                </p>
-            </div>
-            <div class="project-section__links flex-tags">
-                <a class="flex-tags__tag tag tag--link-arrow tag--about-me-links" href="mailto:valentin.thenbergh@online.de"> Contact-E-Mail </a>
-                <a class="flex-tags__tag tag tag--link-arrow tag--about-me-links" href="./Data/Placeholder_CV.pdf"> Curriculum Vitae </a>
-            </div>
+        </div>
+        <div class="about-me__description" style="align-self: start;">
+            <p>
+                <span class="header--lvl3"> My Specialisation:</span> I am a <span class="emphasized--in-text"> technical game designer </span> from Germany. As such, I work as <span class="emphasized--in-text"> intermediary between game design and programming</span>: On the design side, I contribute ideas, logic, and <span class="emphasized--in-text"> game mechanic prototypes</span> — which I then translate into <span class="emphasized--in-text"> flowcharts</span> for smooth implementation by programmers. On the technical side, I focus on <span class="emphasized--in-text"> game-feel implementation </span> and asset organization to empower designers in crafting gameplay more easily. <br>
+                <br>
+<!--            <span class="header&#45;&#45;lvl3"> Genres:</span> Due to my focus on gameplay mechanics, I am especially drawn to <span class="emphasized&#45;&#45;in-text"> ludic and minimalistic games</span>. e.g., platformers, metroidvanias, card-/monster-gatherers, logic puzzles, and music games. <br>-->
+<!--            <br>-->
+                <span class="header--lvl3"> Experience:</span> I studied at the Cologne Game Lab, where I collaborated on over 5 group projects each spanning 7 or more weeks. Throughout these, I gained experience in the collaborative usage of <span class="emphasized--in-text"> Unity with C# (4 years) </span>, and Unreal Engine with C++ (1 year), as well as creating <span class="emphasized--in-text"> analog prototypes</span> and organizational tools, like Git, Miro, and more. <br>
+                <br>
+                <span class="header--lvl3"> Plans:</span> For the future, I'd like to contribute these skills in a professional environment, while learning about varying approaches for the design to programming pipeline. Therefore, I am currently <span class="emphasized--in-text"> seeking positions as a tech designer</span>.
+            </p>
+        </div>
+        <div class="about-me__links">
+            <a class="about-me__link tag tag--link-arrow" href="mailto:valentin.thenbergh@online.de"> E-Mail </a>
+            <a class="about-me__link tag tag--link-arrow" href="./Data/CV_EN.pdf"> CV </a>
         </div>
     </section>
 
-    <hr class="main__separator"></hr>
+    <hr class="main__separator">
 
-    <section class="main__panel further-projects-section" data-filter-container-parent="further_projects_section__cards-container">
-        <h1 class="header"> Further Skills & Projects </h1>
+    <section id ="main__highlight_projects" class="main__highlight_projects">
+        <h1 class="main__highlight-header header"> Featured Projects </h1>
 
-        <h2 class="header--lvl3"> Skills: <span style="font-size: var(--FONT-SIZE-SMALL)"> (click to filter projects) </span> </h2>
-        <div class="further-projects-section__filter-trigger-container">
+        <div data-scriptName="highlight-projects-start"></div>
+    </section>
 
-            <p class="further-projects-section__filter-trigger-category-header"> Engines: </p>
-            <div class="further-projects-section__filter-trigger-category" data-filter-trigger-group="engines">
-                <div class="further-projects-section__filter-trigger tag tag--emphasized" data-filter-trigger="Unity"> Unity </div>
-                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="Unreal Engine"> Unreal Engine </div>
-<!--                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="other engine"> other engine </div>-->
+    <hr class="main__separator">
+
+    <section id="further-projects-section" class="main__panel further-projects-section" data-filter-container-parent="further_projects_section__cards-container">
+        <h1 class="further-projects-section__header header"> Further Skills & Projects </h1>
+
+        <div class="further-projects-section__type-filters">
+            <h3 class="further-projects-section__types-header header--lvl2"> Project-Filters <br>
+                <span class="further-projects-section__hint-tap"> (tap to filter projects below)</span>
+            </h3>
+
+            <p class="further-projects-section__types-category-header"> Roles: </p>
+            <div class="further-projects-section__types-category" data-filter-trigger-group="role" data-filter-trigger-group-combine-behaviour="ONE">
+                <div class="further-projects-section__type-filter-trigger tag further-projects-section__type-filter-trigger--emphasized" data-filter-trigger="programming"> programming </div>
+                <div class="further-projects-section__type-filter-trigger tag further-projects-section__type-filter-trigger--emphasized" data-filter-trigger="mechanic design"> mechanic design </div>
+                <div class="further-projects-section__type-filter-trigger tag" data-filter-trigger="level design"> level design </div>
+                <!--                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="visuals"> visuals </div>-->
             </div>
 
-            <p class="further-projects-section__filter-trigger-category-header"> Team- & Project-Size: </p>
-            <div class="further-projects-section__filter-trigger-category" data-filter-trigger-group="team-size">
-                <div class="further-projects-section__filter-trigger tag tag--emphasized" data-filter-trigger="group-project"> group project </div>
-                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="group-feature"> group feature </div>
-                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="solo-project"> solo-project </div>
-<!--                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="solo-mechanic"> solo-mechanic </div>-->
+            <p class="further-projects-section__types-category-header"> Team & Project Size: </p>
+            <div class="further-projects-section__types-category" data-filter-trigger-group="team-size" data-filter-trigger-group-combine-behaviour="ONE">
+                <div class="further-projects-section__type-filter-trigger tag further-projects-section__type-filter-trigger--emphasized" data-filter-trigger="group-project"> group projects </div>
+                <div class="further-projects-section__type-filter-trigger tag" data-filter-trigger="solo-project"> solo-project </div>
+                <div class="further-projects-section__type-filter-trigger tag" data-filter-trigger="demo"> demo </div>
             </div>
 
-            <p class="further-projects-section__filter-trigger-category-header"> My Role: </p>
-            <div class="further-projects-section__filter-trigger-category" data-filter-trigger-group="role">
-                <div class="further-projects-section__filter-trigger tag tag--emphasized" data-filter-trigger="programming"> programming </div>
-                <div class="further-projects-section__filter-trigger tag tag--emphasized" data-filter-trigger="mechanic design"> mechanic design </div>
-                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="level design"> level design </div>
-<!--                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="visuals"> visuals </div>-->
-            </div>
-
-            <p class="further-projects-section__filter-trigger-category-header"> Other: </p>
-            <div class="further-projects-section__filter-trigger-category" data-filter-trigger-group="other">
-                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="educational"> educational </div>
-                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="audio"> audio </div>
+            <p class="further-projects-section__types-category-header"> Other: </p>
+            <div class="further-projects-section__types-category" data-filter-trigger-group="other" data-filter-trigger-group-combine-behaviour="ONE">
+                <div class="further-projects-section__type-filter-trigger tag" data-filter-trigger="educational"> educational </div>
+                <div class="further-projects-section__type-filter-trigger tag" data-filter-trigger="audio"> audio </div>
             </div>
         </div>
+
+        <div class="further-projects-section__tools" data-filter-trigger-group="tools" data-filter-trigger-group-combine-behaviour="ANY" data-scriptName="further-project-section-tools-container">
+            <h2 class="further-projects-section__tools-header header--lvl2"> Tools
+                <span class="further-projects-section__tools-hint-by-expertise"> by expertise</span> <br>
+                <span class="further-projects-section__hint-click"> (click to filter projects below)</span>
+                <span class="further-projects-section__hint-tap"> (tap to filter projects below)</span>
+            </h2>
+                <!-- further-projects-section.js creates the filter-tag-elements for the tools here -->
+        </div>
+
         <div id="further-projects-section__cards-container" class="further-projects-section__cards-container--autogrid" data-filter-container="further_projects_section__cards-container">
-            <!-- project cards are loaded in here via "further-projects-section.js" -->
+            <!-- project cards are loaded in here via further-projects-section.js -->
         </div>
+        <script type="module" src="Components/portfolio.blocks/further-projects-section.js"></script>
     </section>
 </main>
 
-<script type="module" src="index.js"></script>
+<script type="module" src="Index"></script>
 
 </body>
 </html>

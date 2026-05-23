@@ -1,11 +1,12 @@
 {
   "project-title": "Bevoiced",
+  "project-type": "Voice Input Demo",
 
   "version": "1.0.0",
   "origin": "Cologne Game Lab",
   "team-size": "5",
   "date": "2022",
-  "time": "7w",
+  "time": "9 weeks",
 
   "thumbnail": {
     "src": "./Thumbnail.png",
@@ -15,11 +16,13 @@
     "src": "./mechanic_showcase.mp4"
   },
 
-  "main-contribution": "programmer - voice controls",
-  "contributions": "Missing Contributions",
+  "main-contribution": "programmer:  voice controls",
+  "contributions": [
+    "Programming"
+  ],
+
   "description": [
-    "My first group game project at university. ",
-    "While the game itself wasn't very successful, we (two programmers, in a team of 5 game devs) managed to implement a mechanic where players control the environment by the pitch of their voice. "
+    "In my first collaborative university game project, we had ambitious goals: Make a game with voice pitch as input mechanic. While the game as a whole did not get finished, we two programmers managed to create a technical demo - with visuals and level design crafted by the other 3 team members. "
   ],
   "tags": [
     {
@@ -31,7 +34,7 @@
       "relevance": "1"
     },
     {
-      "name": "group-feature",
+      "name": "demo",
       "relevance": "1"
     },
     {
@@ -40,5 +43,9 @@
     }
   ],
 
-  "tools": "Missing Tools"
+  "tools":
+  [
+    "Unity",
+    "cs"
+  ]
 }

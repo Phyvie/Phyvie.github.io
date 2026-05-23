@@ -1,0 +1,37 @@
+.header {
+    /*color: hsl(18, 80%, 80%);*/
+    padding: var(--LAYOUT-SPACING-DEFAULT);
+    font-size: var(--FONT-SIZE-TITLE);
+    text-align: center;
+}
+
+.header--lvl2 {
+    /*color: hsl(18, 80%, 80%);*/
+    font-size: var(--FONT-SIZE-TITLE-LVL2);
+}
+
+.header--lvl3 {
+    /*color: hsl(18, 80%, 80%);*/
+    font-size: var(--FONT-SIZE-TITLE-LVL3);
+    font-weight: bold;
+}
+
+.emphasized--in-text {
+    /* Use your existing variables */
+    --highlight-color: color-mix(in srgb, var(--COLOR-LIGHT-ACCENT) 10%, transparent);
+
+    background: linear-gradient(
+            to right,
+            transparent 0%,
+            var(--highlight-color) 5px,
+            var(--highlight-color) calc(100% - 5px),
+            transparent 100%
+    );
+
+    /* Crucial for multi-line text: ensures the gradient repeats on each line */
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    padding: 0 5px;
+    font-weight: bolder;
+}

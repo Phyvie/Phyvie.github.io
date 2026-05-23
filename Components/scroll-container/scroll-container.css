@@ -1,0 +1,156 @@
+/* relative wrapper for next/last scroll-buttons */
+.scroll-container {
+    position: relative;
+
+    border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
+
+    container: scroll-container / inline-size;
+}
+
+.scroll-container--with-border {
+
+}
+
+/* container for the content which is actually scrolling */
+.scroll-container__content-container {
+    width: 100%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+
+    overflow: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    --SCROLL-CONTAINER-ITEM-GAP: var(--LAYOUT-SPACING-DEFAULT);
+    gap: var(--SCROLL-CONTAINER-ITEM-GAP);
+
+    --SCROLL-CONTAINER-VISIBLE-CHILD-COUNT: 1;
+}
+
+.scroll-container__item {
+    position: relative;
+    min-width: 0;
+    scroll-snap-align: start;
+    background-color: var(--COLOR-BG-BLOCK);
+    border-radius: var(--LAYOUT-BORDER-RADIUS-SMALL);
+    overflow: hidden;
+
+    --SCROLL-CONTAINER-GAP-COUNT: calc(var(--SCROLL-CONTAINER-VISIBLE-CHILD-COUNT) - 1);
+    flex: 0 0 calc(100% / var(--SCROLL-CONTAINER-VISIBLE-CHILD-COUNT) - var(--SCROLL-CONTAINER-ITEM-GAP)/2 * min(1, var(--SCROLL-CONTAINER-GAP-COUNT)));
+}
+
+.scroll-container__bottom-navigation-line {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    padding: var(--LAYOUT-SPACING-XS) 0 0;
+}
+
+.scroll-container__bot-nav-line-button {
+    padding: var(--LAYOUT-SPACING-SMALL);
+    background-color: var(--COLOR-BG-ELEMENT);
+    border-radius: var(--LAYOUT-BORDER-RADIUS-CYLINDER);
+    color: var(--COLOR-TEXT-ELEMENT);
+}
+
+.scroll-container__absolute-nav-button {
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    z-index: var(--Z-INDEX-SCROLL-NAV-BUTTON);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.scroll-container__nav-button--prev::before,
+.scroll-container__nav-button--next::before{
+    content: "";
+    display: block;
+    width: 80%;
+    height: 80%;
+    background-color: color-mix(in srgb, var(--COLOR-BG-ELEMENT) 50%, transparent 50%);
+}
+
+.scroll-container__nav-button--prev:hover::before,
+.scroll-container__nav-button--next:hover::before {
+    background-color: var(--COLOR-BG-ELEMENT);
+}
+
+.scroll-container__nav-button--prev {
+    left: calc(0px - var(--LAYOUT-SPACING-DEFAULT));
+    justify-content: flex-start;
+}
+
+.scroll-container__nav-button--prev::before {
+    clip-path: polygon(100% 0%, 0% 50%, 100% 100%);
+}
+
+.scroll-container__nav-button--next {
+    right: calc(0px - var(--LAYOUT-SPACING-DEFAULT));
+    justify-content: flex-end;
+}
+
+.scroll-container__nav-button--next::before {
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+}
+/* region example-additional styling */
+
+/* region scroll-container-group, which is a wrapper for anything additional to the scroll-container */
+.scroll-container-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--LAYOUT-SPACING-DEFAULT);
+    border: 3px solid var(--COLOR-DARK-FADED);
+    border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
+}
+
+.scroll-container-group .scroll-container {
+    border: none !important;
+    border-radius: 0;
+}
+/* endregion */
+
+/* region scroll-container__miniature, which contains a miniature of each item of the scroll-container used for a better overview and easy scrolling. items are typically created via javascript*/
+.scroll-container__miniature {
+    padding: var(--LAYOUT-SPACING-SMALL);
+
+    border-bottom: 1px solid var(--COLOR-DARK-FADED); /* Line separating from main scroll-container */
+    background-color: color-mix(in srgb, var(--COLOR-BG-BLOCK), var(--COLOR-DARK-FADED) 10%); /* Slightly different background for the miniature area */
+    border-radius: var(--LAYOUT-BORDER-RADIUS-DEFAULT);
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch; /* Ensure all items have same height */
+    gap: var(--LAYOUT-SPACING-SMALL);
+    overflow-x: auto;
+}
+
+/* Scrollbar styling for the miniature container */
+.scroll-container__miniature::-webkit-scrollbar {
+    height: 4px;
+}
+.scroll-container__miniature::-webkit-scrollbar-track {
+    background: var(--COLOR-DARK-FADED);
+}
+.scroll-container__miniature::-webkit-scrollbar-thumb {
+    background: var(--COLOR-BG-ELEMENT);
+    border-radius: 3px;
+}
+/* endregion */
+
+@media (max-height: 37.49rem) {
+    .scroll-container__miniature {
+        order: 1;
+    }
+}

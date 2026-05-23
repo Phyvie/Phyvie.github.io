@@ -5,7 +5,7 @@
   "origin": "Cologne Game Lab",
   "team-size": "5",
   "date": "2022",
-  "time": "7w",
+  "time": "7 weeks",
   "thumbnail": {
     "src": "./Thumbnail2.png",
     "alt": "Lone Signal Project IMG"
@@ -16,16 +16,15 @@
   },
   "project-page-link": "#",
   "project-info-link": "/Portfolio/Projects/Lone_Signal/Lone_Signal.html",
-  "main-contribution": "programmer - object recognition camera",
+  "main-contribution": "programmer:  auto-journal camera",
   "contributions": [
     "programming: photo mechanic",
     "programming: movement controller"
   ],
   "description": [
-    "A narrative walking simulator developed in 7 weeks as a university project. ",
-    "As the sole programmer my biggest challenge was the implementation of the photo mechanic: ",
-    "I created a system for the designers to create perspective puzzles & reward the players with pieces of the narrative. ",
-    "Over one or multiple playthroughs the players create a photo album to discover the story behind the alien planet. "
+    "In this narrative walking simulator, developed over 7 weeks as a university project, the player can create a photo album by taking pictures to discover the story behind the alien planet. As sole programmer, there were two challenges for me: ",
+    "First, the artists preference to use Unreal Engine for graphic purposes. I hadn't worked with Unreal Engine before. Therefore, I took the first two weeks to learn coding with c++ in Unreal via an online course. ",
+    "Second, for the photo mechanic, the designer planned on setting up over 60 locations, where the player gets information for taking a picture. Therefore I created an unreal-actor system which enabled the designers to easily setup the narrative elements. "
   ],
   "tags": [
     {
@@ -44,6 +43,7 @@
   "tools": [
     "Unreal Engine",
     "Cpp",
+    "Subversion",
     "TortoiseSVN"
   ],
   "highlight": "Narrative Photo Album Mechanic",
