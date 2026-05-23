@@ -1,1 +1,16 @@
+#Dependencies
+node_modules/
+.vanv/
+__pycache__/
+
+#IDE
+.idea/
+.vscode/
+
+#project specific ignores
+#raw video material
 **/DaVinciResolve/**
+
+**/workflow_documentation/**
+
+Feedback.txt

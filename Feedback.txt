@@ -1,0 +1,158 @@
+Feedback - Moritz: 
+Instant: 
+--- code game-feel -> Verb nicht mitmarkieren (write game-feel-code)
+--- Unity with C#, Unreal Engine mitmarkieren?
+--- Lebenslauf EN-> Überschrift; 
+--- Lebenslauf DE->Datei/Dateilink fixen
+--- delete in-text CV button (&mail-button?)
+--- Replace "My Work" with "My ???"
+--- c-sharp-logo-link
+--- scroll-pfeil hitbox ist HUUUUGE!
+
+
+Quick-Fix: 
+--- Farben anpassen / Kill Light-Mode
+--- Adjust Tags, cause they look clickable
+--- about-me: first sentence -> describe tech designer more clearly
+--- adjust emphasized text design
+--- ??? remove about-me -> implement "to the top button"
+--- add video-play-button on project-card-thumbnails
+--- github link ändern auf github homepage
+--- github -> check what's public and what's private
+
+
+Medium, High-Impact: 
+--- Moebius_Magnus.html & Rotations.html pages don't communicate that they are behind the scenes pages
+--- project-card-more shouldn't close on click
+--- plans umschreiben von Dinge lernen zu Dinge liefern
+--- project-header-section in lightbox, data-table layout
+--- WebGL-implementation on Rotations.html doesn't work
+--- lightbox is too small for project-header-section on mobile screens
+
+Complex, High-Impact: 
+Moebius_Magnus, Redo Gameplay Video & Audio
+
+Complex, Medium-Impact: 
+--- tag-hovering behaves weird
+--- tag-hovering -> remove tooltip on scroll (for mobile devices)
+
+Complex, Low-Imapct:
+Behind-the-scenes scroll-container relayout
+put the project cards directly into HTML & only load their data via javascript
+Europass CV?
+
+
+!!!LATER Bild ersetzen -> mehr Kamera gucken
+
+IGNORE: 
+Medium, Low-Impact: 
+Moebius_Magnus Dev_Journey weird cut to gameplay
+~~~ Tool usage descriptions (removed cause I was mentally overstrained creating the section)
+
+Highly Complex: 
+Rotations -> Moritz clicked, but skipped behind the scenes page
+
+
+
+
+Feedback Flo: 
+--- Video-Play-Button missing on project-header-section
+--- Behind-the-scenes-button missing on project-header-section on index.js
+--- remove direct click on NavBar-"projects-button" (cause otherwise confusing that it would only scroll down; maybe also move project-gallery onto another page)
+
+--- pre.code scollable machen
+
+--- project-description gragoon is too general/short
+--- project-description, include learnings & outcomes / solved problems
+--- -> more problem->solution texts (in porject-descriptions & in workflows)
+--- scroll-snapping
+
+--- looking for internship on CV -> looking for positions as tech designer
+
+CV: 
+--- Game Development Skills reorder (management should not be at first position)
+~~~ style CV (dont want to)
+--- CV buddy-bash job at different position
+--- Game Development Skills reorder (management should not be at first position)
+--- English CV; Replace "August 2025 - Jetzt" with "Since 2025"
+
+my thoughts: 
+make workflow-images whiteboxable?
+--- adjust workflow scroll-container height on mobile
+
+
+Feedback Sebi: 
+NAVBAR: 
+--- NavBar Bild verlinken
+--- NavBar @ without underscore
+--- NavBar -> Padding nach oben
+--- NavBar Mobile -> Text-right-aligned
+--- NavBar Tablet redesign
+--- NavBar header capitalization & bindestrich
+--- NavBar projects no linebreak
+
+TABLET-CHROME-LAYOUT: 
+!!! recheck lines
+!!! project-header-section__media Kasten-Design
+--- project-header-section__data-table left-align the info-icons
+
+OTHER: 
+~~~ fancier project names (too much work / mentally overstrains me)
+--- behind the scenes links to #behind-the-scenes section
+--- icon for private projects
+--- more-links-padding
+--- more-clipping-path / icon
+
+IMPRESSUM & COPYRIGHT
+!..! HTML-HEADER-CONVENTIONS
+!..! checkout what the viewport line does
+
+CV: 
+--- Lebenslauf: irgendwas bei Auto-didactic web development
+--- CV_EN: Köln -> Cologne
+
+CV_Display as in-page, such that I can still add the navbar on top
+
+
+Feedback Noa: 
+PROJECT-HEADER-SECTION: 
+--- moebius-magnus: rewrite roles
+--- tool-icons too small
+--- -> horizontal separators & then make them bigger
+
+BEHIND-THE-SCENES: 
+--- behind the scenes: description text is too wide -> checkout typography rules about how many character per line
+--- BackEnd-Math-Code => remove "("")" from Example: 
+~~~ Noa is just skipping through the "behind-the-scenes"-scroller => the scroller is not interesting enough ~~~(too complicated to fix)
+--- behind-the-scenes cards are too wide
+
+NAVBAR
+~~~ Behind-the-scenes content overview (idc)
+~~~ The behind-the-scenes sections appear disconnected (idc)
+~~~ increase website-side-padding ~~~ (nope, I'm not gonna disallow people from viewing on "full-width")
+??? nav-bar to the left side
+
+FURTHER-PROJECTS-SECTION: 
+!?! project-card highlight (& tool-relevance sorting)
+--- further-projects-section, tools-icons are too small & tags are too big
+~-~ further-projects: having tools & skills is a weird overlap (removed the doubled information, kept the rest; also nobody else said anything about it)
+~~~ project-cards-fully clickable (extra work for little result)
+--- project-cards-roles-descriptions are too long (should not be 2 lines)
+
+UNITY-BUILD: 
+~~~ nobody is using the drag-and-drop in the rotations-tool (hardly changable, would need to do smth in unity to change it)
+~~~ matrices -> get closest rotation-matrix-function (would need to do a lot of work in unity to ensure this works)
+
+
+
+!..! GITHUB: 
+Git_Hub Repo Cleanen
++ ReadMe & Licence
+read-me-file(s)
+gitignore -> remove node_modules
+git -> clean up folders
+git -> remove folders from all commits (command)
+
+
+
+
