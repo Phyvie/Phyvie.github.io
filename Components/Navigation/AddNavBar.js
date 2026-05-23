@@ -10,12 +10,12 @@ export async function addNavBar() {
         return;
     }
 
-    navbarElement.querySelectorAll("[data-rel-link]").forEach(
-        linkElement => {
-            let absoluteLink = new URL(linkElement.getAttribute("data-rel-link"), import.meta.url).href;
-            linkElement.href = absoluteLink;
-        }
-    )
+    // navbarElement.querySelectorAll("[data-rel-link]").forEach(
+    //     linkElement => {
+    //         let relativeLink = linkElement.href;
+    //         linkElement.href = new URL(relativeLink, import.meta.url).href;
+    //     }
+    // )
 
     await document.querySelector('body').insertAdjacentHTML('afterbegin', navbarElement.outerHTML);
     initialiseNavBar();

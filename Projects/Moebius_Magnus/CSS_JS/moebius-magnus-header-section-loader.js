@@ -3,7 +3,7 @@ import {initializeProjectHeaderSection} from "../../../Components/project-header
 
 async function initialize()
 {
-    const projectHeaderSectionPath = "../../../CSS_JS/project-header-section/project-header-section.html";
+    const projectHeaderSectionPath = "../../../Components/project-header-section/project-header-section.html";
     const projectHeaderTemplate = await loadExternalTemplate(projectHeaderSectionPath, "project-header-section-template");
     
     const targetElement = document.getElementById('project-header-section-container');

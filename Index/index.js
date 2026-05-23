@@ -13,7 +13,7 @@ async function load_highlight_sections() {
         return;
     }
 
-    const projectHeaderSectionPath = "./CSS_JS/project-header-section/project-header-section.html";
+    const projectHeaderSectionPath = "./Components/project-header-section/project-header-section.html";
     const projectHeaderTemplate = await loadExternalTemplate(projectHeaderSectionPath, "project-header-section-template");
 
     if (!projectHeaderTemplate) {
@@ -25,16 +25,16 @@ async function load_highlight_sections() {
     let lastProject = highlightProjectsStart;
     for (const section of [
         {
-            "jsonPath": './Projects/Rotations/project_data.json'
+            "jsonPath": '../Projects/Rotations/project_data.json'
             , "config":
                 {
                     "displayWebpageLink": true
                     , "initialiseWebGLBuild": true
-                    , "webGLIFrameURL": new URL("./CSS_JS/UnityWebGL/lightbox/lightbox-webGL-iframe.html", import.meta.url).href
+                    , "webGLIFrameURL": new URL("../Components/UnityWebGL/lightbox/lightbox-webGL-iframe.html", import.meta.url).href
                 }
         },
         {
-            "jsonPath": './Projects/Moebius_Magnus/project_data.json'
+            "jsonPath": '../Projects/Moebius_Magnus/project_data.json'
             , "config":
                 {
                     "displayWebpageLink": true,

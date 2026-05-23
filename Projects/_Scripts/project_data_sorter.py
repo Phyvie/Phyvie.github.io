@@ -424,7 +424,7 @@ def analyzeProjectFiles():
 def normalizeProjectFiles():
     base_file = '../_template_project_data.json'
     files_to_normalize = [
-        '../../CSS_JS/project-card/_example_project_data.json'
+        '../../Components/project-card/_example_project_data.json'
         '../Bevoiced/project_data.json',
         '../Dont_Brake/project_data.json',
         '../Gragoon/project_data.json',
