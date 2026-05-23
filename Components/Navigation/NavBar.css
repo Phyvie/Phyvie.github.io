@@ -147,7 +147,9 @@
     text-decoration: underline;
 }
 
-.navbar__link {
+.navbar__link
+, .navbar__link a
+{
     white-space: nowrap;
 }
 

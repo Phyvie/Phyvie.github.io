@@ -25,7 +25,7 @@ async function load_highlight_sections() {
     let lastProject = highlightProjectsStart;
     for (const section of [
         {
-            "jsonPath": '../Projects/Rotations/project_data.json'
+            "jsonPath": new URL('../Projects/Rotations/project_data.json', import.meta.url).href
             , "config":
                 {
                     "displayWebpageLink": true
@@ -34,7 +34,7 @@ async function load_highlight_sections() {
                 }
         },
         {
-            "jsonPath": '../Projects/Moebius_Magnus/project_data.json'
+            "jsonPath": new URL('../Projects/Moebius_Magnus/project_data.json', import.meta.URL).href
             , "config":
                 {
                     "displayWebpageLink": true,
@@ -57,10 +57,9 @@ async function load_highlight_sections() {
             separator.after(projectHeaderSection);
             lastProject = projectHeaderSection;
 
-            const projectDataURL = new URL(section.jsonPath, import.meta.url).href;
             projectHeaderSection.classList.add('main__panel');
 
-            await initializeProjectHeaderSection(projectHeaderSection, projectDataURL, section.config);
+            await initializeProjectHeaderSection(projectHeaderSection, section.jsonPath, section.config);
         } catch (error) {
             console.error("load_highlight_sections: Failed to initialize project-header-section");
             console.error(error);
