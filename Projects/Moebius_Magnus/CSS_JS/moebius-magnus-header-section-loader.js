@@ -1,5 +1,5 @@
-import {loadExternalTemplate, createFragmentFromTemplate} from "../../../CSS_JS/URL-Fetching-And-Templates/template-manager.js";
-import {initializeProjectHeaderSection} from "../../../CSS_JS/project-header-section/project-header-section.js";
+import {loadExternalTemplate, createFragmentFromTemplate} from "../../../Components/URL-Fetching-And-Templates/template-manager.js";
+import {initializeProjectHeaderSection} from "../../../Components/project-header-section/project-header-section.js";
 
 async function initialize()
 {

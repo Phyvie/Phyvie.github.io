@@ -1,5 +1,5 @@
 {
-  "project-title": "Rotation Parametr&shy;izations",
+  "project-title": "Rotation Education",
   "project-type": "Educational Tool",
   "version": "1.0.0",
   "origin": "Cologne Game Lab",
@@ -15,7 +15,7 @@
     "alt": "Rotation_Parametrization Video"
   },
   "git-link": "https://#",
-  "main-contribution": "designer & programmer:  educational tool",
+  "main-contribution": "solo-dev: educational tool",
   "contributions": {
     "containerID": "rotations-workflow",
     "contributions": [

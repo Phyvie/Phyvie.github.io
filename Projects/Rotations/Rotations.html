@@ -8,35 +8,38 @@
     <title> VTB - Rotation Education </title>
 
     <!-- general purpose stylesheets & JavaScripts -->
-    <link rel="stylesheet" href="../../CSS_JS/reset.css">
-    <link rel="stylesheet" href="../../CSS_JS/global_variables.css">
+    <link rel="stylesheet" href="../../Components/reset.css">
+    <link rel="stylesheet" href="../../Components/global_variables.css">
 
-    <link rel="stylesheet" href="../../CSS_JS/styling/media.css">
-    <link rel="stylesheet" href="../../CSS_JS/common.blocks/header.css">
-    <link rel="stylesheet" href="../../CSS_JS/common.blocks/tag.css">
+    <link rel="stylesheet" href="../../Components/styling/media.css">
+    <link rel="stylesheet" href="../../Components/common.blocks/header.css">
+    <link rel="stylesheet" href="../../Components/common.blocks/tag.css">
 
-    <link rel="stylesheet" href="../../CSS_JS/scroll-container/scroll-container.css">
-    <script type="module" src="../../CSS_JS/scroll-container/scroll-container.js"></script>
+    <link rel="stylesheet" href="../../Components/scroll-container/scroll-container.css">
+    <script type="module" src="../../Components/scroll-container/scroll-container.js"></script>
 
-    <link rel="stylesheet" href="../../CSS_JS/lightbox/lightbox.css">
-    <script type="module" src="../../CSS_JS/lightbox/lightbox.js"></script>
+    <link rel="stylesheet" href="../../Components/lightbox/lightbox.css">
+    <script type="module" src="../../Components/lightbox/lightbox.js"></script>
 
-    <link rel="stylesheet" href="../../CSS_JS/tooltips/tooltip.css">
-    <script type="module" src="../../CSS_JS/tooltips/tooltip-manager.js"></script>
+    <link rel="stylesheet" href="../../Components/tooltips/tooltip.css">
+    <script type="module" src="../../Components/tooltips/tooltip-manager.js"></script>
 
-    <link rel="stylesheet" href="../../modules/highlight/styles/dark-phy.css">
-    <script src="../../modules/highlight/highlight.min.js"></script>
+    <link rel="stylesheet" href="../../Components/modules/highlight/styles/dark-phy.css">
+    <script src="../../Components/modules/highlight/highlight.min.js"></script>
 
     <!-- project-/file-specific stylesheets & JavaScripts -->
-    <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/main.css">
-    <link rel="stylesheet" href="../../CSS_JS/project-header-section/project-header-section.css">
-    <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/contribution-section.css">
+    <link rel="stylesheet" href="../../Components/portfolio.blocks/main.css">
+    <link rel="stylesheet" href="../../Components/project-header-section/project-header-section.css">
+    <link rel="stylesheet" href="../../Components/portfolio.blocks/contribution-section.css">
 
-    <link rel="stylesheet" href="../../Navigation/NavBar.css">
-    <script type="module" src="../../Navigation/AddNavBar.js"></script>
+    <link rel="stylesheet" href="../../Components/Navigation/NavBar.css">
+    <script type="module" src="../../Components/Navigation/AddNavBar.js"></script>
 
-    <link rel="stylesheet" href="../../CSS_JS/project-header-section/project-header-section.css">
-    <link rel="stylesheet" href="../../CSS_JS/UnityWebGL/lightbox/lightbox-WebGL-build.css">
+    <link rel="stylesheet" href="../../Components/Footer/Footer.css">
+    <script type="module" src="../../Components/Footer/AddFooter.js"></script>
+
+    <link rel="stylesheet" href="../../Components/project-header-section/project-header-section.css">
+    <link rel="stylesheet" href="../../Components/UnityWebGL/lightbox/lightbox-WebGL-build.css">
 
     <script type="module" src="rotations.js"></script>
 </head>
@@ -49,7 +52,7 @@
 </div>
 
     <script type="module">
-        import { initialize } from '../../CSS_JS/UnityWebGL/lightbox/lightbox-webGL-build.js';
+        import { initialize } from '../../Components/UnityWebGL/lightbox/lightbox-webGL-build.js';
         initialize(
             new URL("../../CSS_JS/UnityWebGL/lightbox/lightbox-webGL.html", import.meta.url).href,
                 new URL("../../CSS_JS/UnityWebGL/lightbox/lightbox-webGL-iframe.html", import.meta.url).href,
@@ -62,14 +65,14 @@
 
 <section id="Backend-Math-Code"
          class="main__panel contribution-section">
-    <h1 class="header"> Behind the Scenes—Backend Math Code </h1>
-    <p>
+    <h1 class="contribution-section__header header">Behind the Scenes—Backend Math Code</h1>
+    <p class=contribution-section__description>
         To create a visualization of the different rotation parameterizations, I first had to create a coding backend that can handle the mathematics.
         For that purpose I started with research, followed by creating a code architecture and lastly implementing the classes.
         The example below shows my my workflow exemplified on how I implemented the Quaternion class & specifically the exponential map.
     </p> <br>
 
-    <div class="scroll-container  contribution-section--scroll-container">
+    <div class="scroll-container  contribution-section__scroll-container">
         <div id="code-scroll-container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
             <div id="" class="scroll-container__item scroll-container__item--contribution-section scroll-container__item--active">
                 <div class="described-item">
@@ -120,7 +123,7 @@
                             However, there are multiple problems with that:
                             First, there is no specific class for Euler angles and rotation vectors, as both are handled via the Vector3 class in combination with functions spread across Quaternion, Matrix and Vector3 classes. Second, the unity-built-in classes aren't accessible enough. e.g. their variables can't be bound to AI in the way I wished for, nor can there be a custom property drawer for them. <br>
                             My solution: For the sake of consistency (one parametrization = one class) and more control, I decided to write my own rotation math library. Thus, I had to research the mathematical functions, implement them and create a code architecture. <br>
-                            The example below </span> shows my workflow exemplified based on my research and implementation of the quaternion class and the exponential map.
+                            The example below shows my workflow exemplified based on my research and implementation of the quaternion class and the exponential map.
                         </p>
                     </div>
                 </div>
@@ -288,7 +291,7 @@ public class ComboRotCot : MonoBehaviour
                         <b class="header--lvl3"> Example: </b>
                     </div>
                     <div class="described-item__description">
-                        <p> (in combination with the other worksteps): The plane is rotated by the two unit quaternions, which share a rotation axis (yellow), but differ in their angle. </p>
+                        <p> Example of a result: The plane is rotated by the two unit quaternions, which share a rotation axis (yellow), but differ in their angle. </p>
                     </div>
                 </div>
             </div>
@@ -304,12 +307,12 @@ public class ComboRotCot : MonoBehaviour
 
 <section id="Math-Visualisation"
          class="main__panel contribution-section">
-    <h1 class="header"> Behind the Scenes—Mathematics Visualization </h1>
-    <p>
+    <h1 class="contribution-section__header header">Behind the Scenes—Mathematics Visualization</h1>
+    <p class=contribution-section__description>
         Once I had the code finished, the next step was to create the visual representation. This meant not only modeling the object & creating shaders, but also creating a code architecture which adjusts the visualization according to parameter changes & parameter conversion. Ideally while keeping the mathematical backend independent of the visualization.
     </p>
 
-    <div class="scroll-container contribution-section--scroll-container">
+    <div class="scroll-container contribution-section__scroll-container">
         <div id="mathvis-scroll-container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
             <div id="inspiration-eater" class="scroll-container__item scroll-container__item--contribution-section scroll-container__item--active">
                 <div class="described-item">
@@ -456,10 +459,10 @@ public class ComboRotCot : MonoBehaviour
                     </div>
                 </div>
             </div>
-
-            <div class="scroll-container__absolute-nav-button scroll-container__nav-button--prev" data-scroll="prev"></div>
-            <div class="scroll-container__absolute-nav-button scroll-container__nav-button--next" data-scroll="next"></div>
         </div>
+
+        <div class="scroll-container__absolute-nav-button scroll-container__nav-button--prev" data-scroll="prev"></div>
+        <div class="scroll-container__absolute-nav-button scroll-container__nav-button--next" data-scroll="next"></div>
     </div>
 </section>
 
@@ -467,15 +470,15 @@ public class ComboRotCot : MonoBehaviour
 
 <section id="User-Interface"
          class="main__panel contribution-section">
-    <h1 class="header"> Behind the Scenes—Frontend User Interface </h1>
-    <p>
+    <h1 class="contribution-section__header header">Behind the Scenes—Frontend User Interface</h1>
+    <p class=contribution-section__description>
         With a finished backend and visualization, the last step was to create a user interface.
         Throughout this process, I started from sketches, continued with Unity UI Toolkit implementation and lastly binding to the backend.
         One specifically interesting challenge was to ensure the user can mostly freely type in values, while ensuring the parametrization remains valid.
         The example below focuses on the implementation of the UI for the axis-angle-rotation-parameters; specifically the x-value.
     </p>
 
-    <div class="scroll-container contribution-section--scroll-container">
+    <div class="scroll-container contribution-section__scroll-container">
         <div id="user-interface-scroll-container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
             <div id="UI-planning-sketch" class="scroll-container__item scroll-container__item--contribution-section scroll-container__item--active">
                 <div class="described-item">

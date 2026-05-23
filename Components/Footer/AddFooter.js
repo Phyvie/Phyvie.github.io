@@ -1,0 +1,31 @@
+import {fetchElementFromURL} from "../URL-Fetching-And-Templates/cross-html-engine.js";
+import {initialiseFooter} from "./Footer.js";
+
+export async function addFooter() {
+    const footerElement = await fetchElementFromURL(import.meta.resolve('./Footer.html'), ".footer")
+
+    if (!footerElement)
+    {
+        console.error("addFooter failed to load footer");
+        return;
+    }
+
+    footerElement.querySelectorAll("[data-rel-link]").forEach(
+        linkElement => {
+            let absoluteLink = new URL(linkElement.getAttribute("data-rel-link"), import.meta.url).href;
+            linkElement.href = absoluteLink;
+        }
+    )
+
+    await document.querySelector('body').insertAdjacentHTML('beforeend', footerElement.outerHTML);
+    initialiseFooter();
+}
+
+if (document.readyState === 'loading')
+{
+    document.addEventListener('DOMContentLoaded', addFooter);
+}
+else
+{
+    addFooter();
+}

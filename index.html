@@ -8,44 +8,47 @@
     <title> Portfolio - Valentin Then Bergh </title>
 
     <!-- general purpose stylesheets & JavaScripts -->
-    <link rel="stylesheet" href="CSS_JS/reset.css">
-    <link rel="stylesheet" href="CSS_JS/global_variables.css">
+    <link rel="stylesheet" href="Components/reset.css">
+    <link rel="stylesheet" href="Components/global_variables.css">
 
-    <link rel="stylesheet" href="CSS_JS/styling/media.css">
-    <link rel="stylesheet" href="CSS_JS/common.blocks/header.css">
-    <link rel="stylesheet" href="CSS_JS/common.blocks/tag.css">
+    <link rel="stylesheet" href="Components/styling/media.css">
+    <link rel="stylesheet" href="Components/common.blocks/header.css">
+    <link rel="stylesheet" href="Components/common.blocks/tag.css">
 
-    <link rel="stylesheet" href="CSS_JS/tooltips/tooltip.css">
-    <script type="module" src="CSS_JS/tooltips/tooltip-manager.js"></script>
+    <link rel="stylesheet" href="Components/tooltips/tooltip.css">
+    <script type="module" src="Components/tooltips/tooltip-manager.js"></script>
 
-    <link rel="stylesheet" href="CSS_JS/lightbox/lightbox.css">
-    <script type="module" src="CSS_JS/lightbox/lightbox.js"></script>
+    <link rel="stylesheet" href="Components/lightbox/lightbox.css">
+    <script type="module" src="Components/lightbox/lightbox.js"></script>
 
-    <link rel="stylesheet" href="CSS_JS/scroll-container/scroll-container.css">
-    <script type="module" src="CSS_JS/scroll-container/scroll-container.js"></script>
+    <link rel="stylesheet" href="Components/scroll-container/scroll-container.css">
+    <script type="module" src="Components/scroll-container/scroll-container.js"></script>
 
-    <script type="module" src="CSS_JS/common.blocks/switchable-content-container.js"></script>
+    <script type="module" src="Components/common.blocks/switchable-content-container.js"></script>
 
-    <link rel="stylesheet" href="modules/highlight/styles/dark-phy.css">
-    <script src="modules/highlight/highlight.min.js"></script>
+    <link rel="stylesheet" href="Components/modules/highlight/styles/dark-phy.css">
+    <script src="Components/modules/highlight/highlight.min.js"></script>
 
     <!-- project-/file-specific stylesheets & JavaScripts -->
-    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/main.css">
-    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/contribution-section.css">
+    <link rel="stylesheet" href="Components/portfolio.blocks/main.css">
+    <link rel="stylesheet" href="Components/portfolio.blocks/contribution-section.css">
 
-    <link rel="stylesheet" href="CSS_JS/project-card/project-card.css">
-    <link rel="stylesheet" href="CSS_JS/project-header-section/project-header-section.css">
+    <link rel="stylesheet" href="Components/project-card/project-card.css">
+    <link rel="stylesheet" href="Components/project-header-section/project-header-section.css">
 
-    <link rel="stylesheet" href="Navigation/NavBar.css">
-    <script type="module" src="Navigation/AddNavBar.js"></script>
+    <link rel="stylesheet" href="Components/Navigation/NavBar.css">
+    <script type="module" src="Components/Navigation/AddNavBar.js"></script>
+
+    <link rel="stylesheet" href="Components/Footer/Footer.css">
+    <script type="module" src="Components/Footer/AddFooter.js"></script>
 
     <!-- individual section stylesheets -->
-    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/about-me.css">
-    <link rel="stylesheet" href="CSS_JS/portfolio.blocks/further-projects-section.css">
+    <link rel="stylesheet" href="Components/portfolio.blocks/about-me.css">
+    <link rel="stylesheet" href="Components/portfolio.blocks/further-projects-section.css">
 
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="Index/index.css">
 
-    <link rel="stylesheet" href="ZyKa/debug/debug.css">
+    <link rel="stylesheet" href="Debug/debug/debug.css">
 </head>
 <body>
 
@@ -108,58 +111,50 @@
     <section id="further-projects-section" class="main__panel further-projects-section" data-filter-container-parent="further_projects_section__cards-container">
         <h1 class="further-projects-section__header header"> Further Skills & Projects </h1>
 
-        <div class="further-projects-section__skills">
-            <h3 class="further-projects-section__skills-header header--lvl3"> Skills <br>
-                <span class="further-projects-section__hint-click"> (click to filter projects below)</span>
+        <div class="further-projects-section__type-filters">
+            <h3 class="further-projects-section__types-header header--lvl2"> Project-Filters <br>
                 <span class="further-projects-section__hint-tap"> (tap to filter projects below)</span>
             </h3>
 
-            <p class="further-projects-section__skills-category-header"> Engines: </p>
-            <div class="further-projects-section__skills-category" data-filter-trigger-group="engines" data-filter-trigger-group-combine-behaviour="ONE">
-                <div class="further-projects-section__skills-filter-trigger tag further-projects-section__skills-filter-trigger--emphasized" data-filter-trigger="Unity"> Unity </div>
-                <div class="further-projects-section__skills-filter-trigger tag" data-filter-trigger="Unreal Engine"> Unreal Engine </div>
-                <!--                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="other engine"> other engine </div>-->
-            </div>
-
-            <p class="further-projects-section__skills-category-header"> Roles: </p>
-            <div class="further-projects-section__skills-category" data-filter-trigger-group="role" data-filter-trigger-group-combine-behaviour="ONE">
-                <div class="further-projects-section__skills-filter-trigger tag further-projects-section__skills-filter-trigger--emphasized" data-filter-trigger="programming"> programming </div>
-                <div class="further-projects-section__skills-filter-trigger tag further-projects-section__skills-filter-trigger--emphasized" data-filter-trigger="mechanic design"> mechanic design </div>
-                <div class="further-projects-section__skills-filter-trigger tag" data-filter-trigger="level design"> level design </div>
+            <p class="further-projects-section__types-category-header"> Roles: </p>
+            <div class="further-projects-section__types-category" data-filter-trigger-group="role" data-filter-trigger-group-combine-behaviour="ONE">
+                <div class="further-projects-section__type-filter-trigger tag further-projects-section__type-filter-trigger--emphasized" data-filter-trigger="programming"> programming </div>
+                <div class="further-projects-section__type-filter-trigger tag further-projects-section__type-filter-trigger--emphasized" data-filter-trigger="mechanic design"> mechanic design </div>
+                <div class="further-projects-section__type-filter-trigger tag" data-filter-trigger="level design"> level design </div>
                 <!--                <div class="further-projects-section__filter-trigger tag" data-filter-trigger="visuals"> visuals </div>-->
             </div>
 
-            <p class="further-projects-section__skills-category-header"> Other: </p>
-            <div class="further-projects-section__skills-category" data-filter-trigger-group="other" data-filter-trigger-group-combine-behaviour="ONE">
-                <div class="further-projects-section__skills-filter-trigger tag" data-filter-trigger="educational"> educational </div>
-                <div class="further-projects-section__skills-filter-trigger tag" data-filter-trigger="audio"> audio </div>
+            <p class="further-projects-section__types-category-header"> Team & Project Size: </p>
+            <div class="further-projects-section__types-category" data-filter-trigger-group="team-size" data-filter-trigger-group-combine-behaviour="ONE">
+                <div class="further-projects-section__type-filter-trigger tag further-projects-section__type-filter-trigger--emphasized" data-filter-trigger="group-project"> group projects </div>
+                <div class="further-projects-section__type-filter-trigger tag" data-filter-trigger="solo-project"> solo-project </div>
+                <div class="further-projects-section__type-filter-trigger tag" data-filter-trigger="demo"> demo </div>
             </div>
 
-            <p class="further-projects-section__skills-category-header"> Team & Project Size: </p>
-            <div class="further-projects-section__skills-category" data-filter-trigger-group="team-size" data-filter-trigger-group-combine-behaviour="ONE">
-                <div class="further-projects-section__skills-filter-trigger tag further-projects-section__skills-filter-trigger--emphasized" data-filter-trigger="group-project"> group projects </div>
-                <div class="further-projects-section__skills-filter-trigger tag" data-filter-trigger="solo-project"> solo-project </div>
-                <div class="further-projects-section__skills-filter-trigger tag" data-filter-trigger="demo"> demo </div>
+            <p class="further-projects-section__types-category-header"> Other: </p>
+            <div class="further-projects-section__types-category" data-filter-trigger-group="other" data-filter-trigger-group-combine-behaviour="ONE">
+                <div class="further-projects-section__type-filter-trigger tag" data-filter-trigger="educational"> educational </div>
+                <div class="further-projects-section__type-filter-trigger tag" data-filter-trigger="audio"> audio </div>
             </div>
         </div>
 
         <div class="further-projects-section__tools" data-filter-trigger-group="tools" data-filter-trigger-group-combine-behaviour="ANY" data-scriptName="further-project-section-tools-container">
-            <h3 class="further-projects-section__tools-header"> Tools
+            <h2 class="further-projects-section__tools-header header--lvl2"> Tools
                 <span class="further-projects-section__tools-hint-by-expertise"> by expertise</span> <br>
                 <span class="further-projects-section__hint-click"> (click to filter projects below)</span>
                 <span class="further-projects-section__hint-tap"> (tap to filter projects below)</span>
-            </h3>
+            </h2>
                 <!-- further-projects-section.js creates the filter-tag-elements for the tools here -->
         </div>
 
         <div id="further-projects-section__cards-container" class="further-projects-section__cards-container--autogrid" data-filter-container="further_projects_section__cards-container">
             <!-- project cards are loaded in here via further-projects-section.js -->
         </div>
-        <script type="module" src="./CSS_JS/portfolio.blocks/further-projects-section.js"></script>
+        <script type="module" src="Components/portfolio.blocks/further-projects-section.js"></script>
     </section>
 </main>
 
-<script type="module" src="index.js"></script>
+<script type="module" src="Index"></script>
 
 </body>
 </html>

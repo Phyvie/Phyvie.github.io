@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title> Navigation Bar </title>
+
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../global_variables.css">
+    <link rel="stylesheet" href="../styling/media.css">
+    <link rel="stylesheet" href="../portfolio.blocks/main.css">
+
+    <link rel="stylesheet" href="NavBar.css">
+    <script type="module">
+        import {initialiseNavBar} from "./NavBar.js";
+        if (document.readyState === 'loading')
+        {
+            document.addEventListener('DOMContentLoaded', initialiseNavBar);
+        }
+        else
+        {
+            initialiseNavBar()
+        }
+    </script>
+</head>
+<body style="width: 100vw; height: 100vh;">
+
+<header class="navbar">
+    <div class="navbar__about-me-container">
+        <a class="navbar__img-and-name" data-rel-link="../index.html">
+            <div class="navbar__image-container media-flex-center-wrapper">
+                <img src="/Data/portrait_vtb_2.jpg" alt="IMG" class="media--contain" style="transform: scale(1.5)">
+            </div>
+            <div class="navbar__name-and-role-container--small">
+                <p class="navbar__name"> Valentin Then Bergh </p>
+            </div>
+            <div class="navbar__name-and-role-container--medium">
+                <p class="navbar__name"> Valentin Then Bergh - Technical Game Design </p>
+            </div>
+            <div class="navbar__name-and-role-container--large">
+                <p class="navbar__name"> Valentin Then Bergh </p>
+                <p class="navbar__role"> Technical Game Designer </p>
+            </div>
+
+        </a>
+        <div class="navbar__contact-container">
+            <a class="navbar__contact" href="mailto:valentin.thenbergh@online.de"> <img src="../../Data/Icons/at.svg" alt="mail" class="media--img-in-font navbar__link-image"> </a>
+        </div>
+        <div class="navbar__github-link">
+            <a class="navbar__github" href="https://github.com/Phyvie"> <img src="../../Data/Icons/GitHub.png" alt="GitHub" class="media--img-in-font navbar__link-image"> </a>
+        </div>
+    </div>
+    <nav class="navbar__menu">
+        <ul class="navbar__links">
+            <li class="navbar__foldout-button navbar__link"> <a data-rel-link="../index.html" href="../../index.html"> About Me </a> </li>
+            <li class="navbar__foldout-button"> <p> Projects </p>
+                <ul class="navbar__foldout">
+                    <li class="navbar__link"> <a data-rel-link="../index.html#further-projects-section" href="../../index.html#further-projects-section"> Gallery </a> </li>
+                    <li class="navbar__link"> <a data-rel-link="../Projects/Rotations/Rotations.html" href="../../Projects/Rotations/Rotations.html"> Rotation Education</a> </li>
+                    <li class="navbar__link"> <a data-rel-link="../Projects/Moebius_Magnus/Moebius_Magnus.html" href="../../Projects/Moebius_Magnus/Moebius_Magnus.html"> Moebius Magnus </a> </li>
+                </ul>
+            </li>
+            <li class="navbar__foldout-button"> CV
+                <ul class="navbar__foldout">
+                    <li class="navbar__link"> <a data-rel-link="../Data/CV_DE.pdf" href="../../Data/CV_DE.pdf"> DE </a> </li>
+                    <li class="navbar__link"> <a data-rel-link="../Data/CV_EN.pdf" href="../../Data/CV_EN.pdf"> EN </a> </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="navbar__hamburger">
+        <span class="navbar__hamburger-line"></span>
+        <span class="navbar__hamburger-line"></span>
+        <span class="navbar__hamburger-line"></span>
+    </div>
+</header>
+
+<main class="main">
+
+</main>
+
+</body>
+</html>

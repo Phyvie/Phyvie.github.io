@@ -1,9 +1,3 @@
-<!-- pre-main-commit-tests:
-check video working,
-check WebGL build working
-check scrolling works
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,35 +8,38 @@ check scrolling works
     <title> VTB - Moebius Magnus </title>
 
     <!-- general purpose stylesheets & JavaScripts -->
-    <link rel="stylesheet" href="../../CSS_JS/reset.css">
-    <link rel="stylesheet" href="../../CSS_JS/global_variables.css">
+    <link rel="stylesheet" href="../../Components/reset.css">
+    <link rel="stylesheet" href="../../Components/global_variables.css">
 
-    <link rel="stylesheet" href="../../CSS_JS/styling/media.css">
-    <link rel="stylesheet" href="../../CSS_JS/common.blocks/header.css">
-    <link rel="stylesheet" href="../../CSS_JS/common.blocks/tag.css">
+    <link rel="stylesheet" href="../../Components/styling/media.css">
+    <link rel="stylesheet" href="../../Components/common.blocks/header.css">
+    <link rel="stylesheet" href="../../Components/common.blocks/tag.css">
 
-    <link rel="stylesheet" href="../../CSS_JS/scroll-container/scroll-container.css">
-    <script type="module" src="../../CSS_JS/scroll-container/scroll-container.js"></script>
+    <link rel="stylesheet" href="../../Components/scroll-container/scroll-container.css">
+    <script type="module" src="../../Components/scroll-container/scroll-container.js"></script>
 
-    <link rel="stylesheet" href="../../CSS_JS/tooltips/tooltip.css">
-    <script type="module" src="../../CSS_JS/tooltips/tooltip-manager.js"></script>
+    <link rel="stylesheet" href="../../Components/tooltips/tooltip.css">
+    <script type="module" src="../../Components/tooltips/tooltip-manager.js"></script>
 
-    <link rel="stylesheet" href="../../CSS_JS/lightbox/lightbox.css">
-    <script type="module" src="../../CSS_JS/lightbox/lightbox.js"></script>
+    <link rel="stylesheet" href="../../Components/lightbox/lightbox.css">
+    <script type="module" src="../../Components/lightbox/lightbox.js"></script>
 
-    <link rel="stylesheet" href="../../modules/highlight/styles/dark-phy.css">
-    <script src="../../modules/highlight/highlight.min.js"></script>
+    <link rel="stylesheet" href="../../Components/modules/highlight/styles/dark-phy.css">
+    <script src="../../Components/modules/highlight/highlight.min.js"></script>
 
     <!-- project-/file-specific stylesheets & JavaScripts -->
-    <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/main.css">
-    <link rel="stylesheet" href="../../CSS_JS/project-header-section/project-header-section.css">
-    <link rel="stylesheet" href="../../CSS_JS/portfolio.blocks/contribution-section.css">
+    <link rel="stylesheet" href="../../Components/portfolio.blocks/main.css">
+    <link rel="stylesheet" href="../../Components/project-header-section/project-header-section.css">
+    <link rel="stylesheet" href="../../Components/portfolio.blocks/contribution-section.css">
 
-    <link rel="stylesheet" href="../../Navigation/NavBar.css">
-    <script type="module" src="../../Navigation/AddNavBar.js"></script>
+    <link rel="stylesheet" href="../../Components/Navigation/NavBar.css">
+    <script type="module" src="../../Components/Navigation/AddNavBar.js"></script>
 
-    <link rel="stylesheet" href="../../CSS_JS/project-header-section/project-header-section.css">
-    <link rel="stylesheet" href="../../CSS_JS/UnityWebGL/lightbox/lightbox-WebGL-build.css">
+    <link rel="stylesheet" href="../../Components/Footer/Footer.css">
+    <script type="module" src="../../Components/Footer/AddFooter.js"></script>
+
+    <link rel="stylesheet" href="../../Components/project-header-section/project-header-section.css">
+    <link rel="stylesheet" href="../../Components/UnityWebGL/lightbox/lightbox-WebGL-build.css">
 
     <script type="module" src="Moebius_magnus.js"></script>
 </head>
@@ -69,12 +66,12 @@ check scrolling works
 
     <section id="Prototyping"
              class="main__panel contribution-section">
-        <h1 class="header"> Behind the Scenes—Game Concept </h1>
-        <p>
+        <h1 class="contribution-section__header header">Behind the Scenes—Game Concept</h1>
+        <p class=contribution-section__description>
             As the project lead & solo designer, it was my task to come up with a game concept. At the start everybody's ideas were incorporated in a miro board. Subsequently, I did more research, developed meachnic ideas, etc. After another consultation with my group, we worked on prototypes. Finally, my prototype about moebius strips was chosen as our game project.
         </p> <br>
 
-        <div class="scroll-container contribution-section--scroll-container">
+        <div class="scroll-container contribution-section__scroll-container">
             <div id="prototyping_scroll_container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
 
                 <div id="" class="scroll-container__item scroll-container__item--contribution-section scroll-container__item--active">
@@ -188,13 +185,13 @@ check scrolling works
 
     <section id="Game Design Document"
              class="main__panel contribution-section">
-        <h1 class="header"> Behind the Scenes—Game Design Document </h1>
-        <p>
+        <h1 class="contribution-section__header header">Behind the Scenes—Game Design Document</h1>
+        <p class=contribution-section__description>
             Given the idea for the game, I had to figure out the detailed game mechanics. I started from a simple game loop, incorporated that into a larger context. Subsequently, I created flowcharts & in-engine blockout-timelines of individual game mechanics.
             The scroll-container below showcases the creation of the bridge-mechanic. The full Game Design Document can be found <a href="./Workflow/GDD/Moebius_GDD.pdf" target="_blank"> here </a>.
         </p>
 
-        <div class="scroll-container contribution-section--scroll-container">
+        <div class="scroll-container contribution-section__scroll-container">
             <div id="game_design_document_scroll_container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
 
                 <div id="action-loop" class="scroll-container__item scroll-container__item--contribution-section scroll-container__item--active">
@@ -216,7 +213,7 @@ check scrolling works
                 <div id="game-loop" class="scroll-container__item scroll-container__item--contribution-section">
                     <div class="described-item">
                         <div class="described-item__content media-flex-center-wrapper">
-                            <img src="./Workflow/GDD/Action_Loop.png" class="media--contain" alt="image: research-source-example">
+                            <img src="./Workflow/GDD/Full_Loop.png" class="media--contain" alt="image: research-source-example">
                         </div>
                         <div class="described-item__header">
                             <b class="header--lvl3"> Full Game-Loop </b>
@@ -292,12 +289,12 @@ check scrolling works
 
     <section id="Other Tasks"
              class="main__panel contribution-section">
-        <h1 class="header"> Behind the Scenes—Sound </h1>
-        <p>
+        <h1 class="contribution-section__header header">Behind the Scenes—Sound</h1>
+        <p class=contribution-section__description>
             Disclaimer: I am not a professional in sound design, only a hobby musician. However, this skillset comes in useful in designing how the sound supports the gameplay & atmosphere and in implementing the sounds into the gameplay. This particular project did not have a dedicated sound-designer; thus, I took over the whole pipeline, from researching inspirations & instruments, to creating the soundscape and finally implementing a semi-procedural sound-system in via fmod in unity.
         </p>
 
-        <div class="scroll-container contribution-section--scroll-container">
+        <div class="scroll-container contribution-section__scroll-container">
             <div id="sound_scroll-container" class="scroll-container__content-container scroll-container__content-container--contributions-section">
                 <div id="inspiration" class="scroll-container__item scroll-container__item--contribution-section scroll-container__item--active">
                     <div class="described-item">

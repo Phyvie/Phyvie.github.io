@@ -1,0 +1,205 @@
+.contribution-section {
+    --described-item--miniature-height: 150px;
+    --described-item--miniature-height--mobile: 75px;
+    --described-item--miniature-height--mobile-landscape: 15px;
+    --scroll-container-group-height: min(calc(var(--SCREEN-HEIGHT-MAIN-CONTENT) * 0.9), 920px);
+}
+
+@media (max-width: 79.99rem) {
+    .contribution-section {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+}
+
+@media (min-width: 80rem) {
+    .contribution-section {
+        display: grid;
+        grid-template-columns: 50ch minmax(0, 1fr);
+        grid-template-rows: auto 1fr;
+        gap: var(--LAYOUT-SPACING-DEFAULT);
+        align-items: start;
+    }
+
+    .contribution-section__header {
+        grid-row: 1;
+        grid-column: 1;
+        align-self: start;
+        text-align: left;
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .contribution-section__description {
+        grid-row: 2;
+        grid-column: 1;
+        margin-right: var(--LAYOUT-SPACING-DEFAULT);
+    }
+
+    .scroll-container-group {
+        grid-row: 1 / span 2;
+        grid-column: 2;
+        align-self: stretch;
+    }
+}
+
+/* Scroll snapping didn't work cleanly with only CSS; would require HTML-DOM-changes (e.g. absolute positioned snapping element) or javascript for snapping with manually defined snap-thresholds. */
+/*html {*/
+/*    scroll-padding: calc(var(--navbar-height) + var(--SCREEN-HEIGHT-MAIN-CONTENT) * 0.025) 0 0;*/
+/*    scroll-snap-type: y proximity;*/
+/*}*/
+
+/*.contribution-section .scroll-container-group {*/
+/*    scroll-snap-stop: always;*/
+/*    scroll-snap-align: start;*/
+/*}*/
+
+.scroll-container-group {
+    height: var(--scroll-container-group-height);
+    /*height: auto; */
+    display: flex;
+    flex-direction: column;
+
+    container: scroll-container / size;
+}
+
+.contribution-section__scroll-container {
+    flex: 1;
+    min-height: 0;
+}
+
+.scroll-container__content-container--contributions-section {
+    height: 100%;
+}
+
+.contribution-section__scroll-container-nav-button {
+
+}
+
+@container scroll-container (max-aspect-ratio: 16/9)
+{
+    .described-item {
+        height: 100%;
+        display: grid;
+        grid-template-columns: auto;
+        --description-height: calc(var(--ELEMENT-LINE-HEIGHT) * 5);
+        grid-template-rows: 5fr auto var(--description-height);
+        gap: var(--LAYOUT-SPACING-DEFAULT);
+        grid-template-areas:
+            "content"
+            "header"
+            "description";
+    }
+}
+
+@container scroll-container (min-aspect-ratio: 16/9)
+{
+    .described-item {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 0.6fr 0.4fr;
+        grid-template-rows: var(--LAYOUT-SPACING-DEFAULT) auto 1fr var(--LAYOUT-SPACING-DEFAULT);
+        gap: var(--LAYOUT-SPACING-DEFAULT);
+        grid-template-areas:
+            ". ."
+            "content header"
+            "content description"
+            ". ."
+            ;
+    }
+
+    .described-item__content {
+        height: 100%;
+        min-height: 0;
+    }
+}
+
+.described-item__content {
+    overflow: auto;
+    grid-area: content;
+}
+
+.described-item__header {
+    grid-area: header;
+    padding: 0 var(--LAYOUT-SPACING-DEFAULT);
+}
+
+.described-item__description {
+    overflow: auto;
+    grid-area: description;
+    padding: 0 var(--LAYOUT-SPACING-DEFAULT);
+}
+
+/* region Miniature */
+.described-item.described-item--miniature {
+    flex: 0 0 min(20vw, 150px); /* Fixed width for miniature items */
+    height: var(--described-item--miniature-height);
+
+    overflow: hidden;
+    padding: 0;
+
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    border: 1px solid var(--COLOR-DARK-FADED);
+    border-radius: var(--LAYOUT-BORDER-RADIUS-SMALL);
+    background-color: var(--COLOR-BG-BLOCK);
+
+    display: flex;
+    flex-direction: column; /* Ensure content is stacked */
+    gap: var(--LAYOUT-SPACING-XS);
+}
+
+.described-item.described-item--miniature:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    border-color: var(--COLOR-BG-ELEMENT);
+    z-index: 1; /* Ensure hover effect is on top */
+}
+
+.described-item.described-item--miniature .described-item__content {
+    flex: 1;
+    height: auto;
+    overflow: hidden;
+}
+
+.described-item.described-item--miniature .described-item__header {
+    height: auto;
+    white-space: nowrap;
+    padding: var(--LAYOUT-SPACING-XS);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.8rem;
+}
+
+.described-item.described-item--miniature.--selected {
+    border-color: var(--COLOR-BG-ELEMENT);
+    box-shadow: 0 0 10px var(--COLOR-BG-ELEMENT);
+    transform: scale(1.02);
+}
+
+@media (max-width: 37.49rem) {
+    .described-item.described-item--miniature {
+        flex: 0 0 var(--described-item--miniature-height--mobile);
+        height: var(--described-item--miniature-height--mobile);
+    }
+
+    .described-item.described-item--miniature .described-item__header {
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-height: 37.49rem) {
+    .described-item.described-item--miniature {
+        flex: 0 0 var(--described-item--miniature-height--mobile-landscape);
+        height: var(--described-item--miniature-height--mobile-landscape);
+    }
+
+    .described-item.described-item--miniature .described-item__header {
+        display: none;
+    }
+
+    .described-item.described-item--miniature .described-item__content {
+        display: none;
+    }
+}
+/* endregion miniature*/
