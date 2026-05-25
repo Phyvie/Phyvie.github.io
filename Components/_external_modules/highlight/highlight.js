@@ -41,8 +41,8 @@ var hljs = (function () {
     return obj;
   }
 
-  /** @typedef {import('Components/modules/highlight/highlight.js').CallbackResponse} CallbackResponse */
-  /** @typedef {import('Components/modules/highlight/highlight.js').CompiledMode} CompiledMode */
+  /** @typedef {import('Components/_external_modules/highlight/highlight.js').CallbackResponse} CallbackResponse */
+  /** @typedef {import('Components/_external_modules/highlight/highlight.js').CompiledMode} CompiledMode */
   /** @implements CallbackResponse */
 
   class Response {
@@ -208,7 +208,7 @@ var hljs = (function () {
 
   /** @typedef {{scope?: string, language?: string, children: Node[]} | string} Node */
   /** @typedef {{scope?: string, language?: string, children: Node[]} } DataNode */
-  /** @typedef {import('Components/modules/highlight/highlight.js').Emitter} Emitter */
+  /** @typedef {import('Components/_external_modules/highlight/highlight.js').Emitter} Emitter */
   /**  */
 
   /** @returns {DataNode} */
@@ -525,8 +525,8 @@ var hljs = (function () {
     }).map(re => `(${re})`).join(joinWith);
   }
 
-  /** @typedef {import('Components/modules/highlight/highlight.js').Mode} Mode */
-  /** @typedef {import('Components/modules/highlight/highlight.js').ModeCallback} ModeCallback */
+  /** @typedef {import('Components/_external_modules/highlight/highlight.js').Mode} Mode */
+  /** @typedef {import('Components/_external_modules/highlight/highlight.js').ModeCallback} ModeCallback */
 
   // Common regexps
   const MATCH_NOTHING_RE = /\b\B/;
@@ -749,8 +749,8 @@ var hljs = (function () {
   });
 
   /**
-  @typedef {import('Components/modules/highlight/highlight.js').CallbackResponse} CallbackResponse
-  @typedef {import('Components/modules/highlight/highlight.js').CompilerExt} CompilerExt
+  @typedef {import('Components/_external_modules/highlight/highlight.js').CallbackResponse} CallbackResponse
+  @typedef {import('Components/_external_modules/highlight/highlight.js').CompilerExt} CompilerExt
   */
 
   // Grammar extensions / plugins
@@ -1007,7 +1007,7 @@ var hljs = (function () {
   /* eslint-disable no-throw-literal */
 
   /**
-  @typedef {import('Components/modules/highlight/highlight.js').CompiledMode} CompiledMode
+  @typedef {import('Components/_external_modules/highlight/highlight.js').CompiledMode} CompiledMode
   */
 
   const MultiClassError = new Error();
@@ -1136,11 +1136,11 @@ var hljs = (function () {
   }
 
   /**
-  @typedef {import('Components/modules/highlight/highlight.js').Mode} Mode
-  @typedef {import('Components/modules/highlight/highlight.js').CompiledMode} CompiledMode
-  @typedef {import('Components/modules/highlight/highlight.js').Language} Language
-  @typedef {import('Components/modules/highlight/highlight.js').HLJSPlugin} HLJSPlugin
-  @typedef {import('Components/modules/highlight/highlight.js').CompiledLanguage} CompiledLanguage
+  @typedef {import('Components/_external_modules/highlight/highlight.js').Mode} Mode
+  @typedef {import('Components/_external_modules/highlight/highlight.js').CompiledMode} CompiledMode
+  @typedef {import('Components/_external_modules/highlight/highlight.js').Language} Language
+  @typedef {import('Components/_external_modules/highlight/highlight.js').HLJSPlugin} HLJSPlugin
+  @typedef {import('Components/_external_modules/highlight/highlight.js').CompiledLanguage} CompiledLanguage
   */
 
   // compilation
@@ -1576,24 +1576,24 @@ var hljs = (function () {
 
 
   /**
-  @typedef {import('Components/modules/highlight/highlight.js').Mode} Mode
-  @typedef {import('Components/modules/highlight/highlight.js').CompiledMode} CompiledMode
-  @typedef {import('Components/modules/highlight/highlight.js').CompiledScope} CompiledScope
-  @typedef {import('Components/modules/highlight/highlight.js').Language} Language
-  @typedef {import('Components/modules/highlight/highlight.js').HLJSApi} HLJSApi
-  @typedef {import('Components/modules/highlight/highlight.js').HLJSPlugin} HLJSPlugin
-  @typedef {import('Components/modules/highlight/highlight.js').PluginEvent} PluginEvent
-  @typedef {import('Components/modules/highlight/highlight.js').HLJSOptions} HLJSOptions
-  @typedef {import('Components/modules/highlight/highlight.js').LanguageFn} LanguageFn
-  @typedef {import('Components/modules/highlight/highlight.js').HighlightedHTMLElement} HighlightedHTMLElement
-  @typedef {import('Components/modules/highlight/highlight.js').BeforeHighlightContext} BeforeHighlightContext
+  @typedef {import('Components/_external_modules/highlight/highlight.js').Mode} Mode
+  @typedef {import('Components/_external_modules/highlight/highlight.js').CompiledMode} CompiledMode
+  @typedef {import('Components/_external_modules/highlight/highlight.js').CompiledScope} CompiledScope
+  @typedef {import('Components/_external_modules/highlight/highlight.js').Language} Language
+  @typedef {import('Components/_external_modules/highlight/highlight.js').HLJSApi} HLJSApi
+  @typedef {import('Components/_external_modules/highlight/highlight.js').HLJSPlugin} HLJSPlugin
+  @typedef {import('Components/_external_modules/highlight/highlight.js').PluginEvent} PluginEvent
+  @typedef {import('Components/_external_modules/highlight/highlight.js').HLJSOptions} HLJSOptions
+  @typedef {import('Components/_external_modules/highlight/highlight.js').LanguageFn} LanguageFn
+  @typedef {import('Components/_external_modules/highlight/highlight.js').HighlightedHTMLElement} HighlightedHTMLElement
+  @typedef {import('Components/_external_modules/highlight/highlight.js').BeforeHighlightContext} BeforeHighlightContext
   @typedef {import('highlight.js/private').MatchType} MatchType
   @typedef {import('highlight.js/private').KeywordData} KeywordData
   @typedef {import('highlight.js/private').EnhancedMatch} EnhancedMatch
   @typedef {import('highlight.js/private').AnnotatedError} AnnotatedError
-  @typedef {import('Components/modules/highlight/highlight.js').AutoHighlightResult} AutoHighlightResult
-  @typedef {import('Components/modules/highlight/highlight.js').HighlightOptions} HighlightOptions
-  @typedef {import('Components/modules/highlight/highlight.js').HighlightResult} HighlightResult
+  @typedef {import('Components/_external_modules/highlight/highlight.js').AutoHighlightResult} AutoHighlightResult
+  @typedef {import('Components/_external_modules/highlight/highlight.js').HighlightOptions} HighlightOptions
+  @typedef {import('Components/_external_modules/highlight/highlight.js').HighlightResult} HighlightResult
   */
 
 
