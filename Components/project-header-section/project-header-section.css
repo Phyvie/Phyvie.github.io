@@ -324,11 +324,14 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    align-content: center;
+    align-items: flex-start;
     gap: var(--LAYOUT-SPACING-SMALL);
 }
 
 .project-header-section__tools-icons .tag{
-    width: 3em;
+    flex: 0 0 3em;
+    height: fit-content;
     padding: var(--LAYOUT-SPACING-XS) var(--LAYOUT-SPACING-XS);
 }
 /* endregion */
