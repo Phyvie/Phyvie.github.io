@@ -63,7 +63,8 @@
     /* endregion FONTS */
 
     /* region LAYOUT */
-    --SCREEN-HEIGHT-MAIN-CONTENT: calc(100vh - var(--navbar-height));
+    --PAGE-TOP-PADDING: var(--navbar-height);
+    --SCREEN-HEIGHT-MAIN-CONTENT: calc(100vh - var(--PAGE-TOP-PADDING));
     --SCREEN-WIDTH-MAIN-CONTENT: 100vw;
     scroll-padding-top: var(--navbar-height);
 

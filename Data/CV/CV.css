@@ -1,0 +1,19 @@
+.cv-container {
+    width: 100%;
+    margin-top: calc(var(--navbar-height));
+    height: var(--SCREEN-HEIGHT-MAIN-CONTENT);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+.cv-object {
+    width: 80%;
+    height: 100%;
+    border: none;
+}
+@media (max-width: 768px) {
+    .cv-object {
+        width: 100%;
+    }
+}
