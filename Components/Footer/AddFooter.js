@@ -10,13 +10,6 @@ export async function addFooter() {
         return;
     }
 
-    // footerElement.querySelectorAll("[data-rel-link]").forEach(
-    //     linkElement => {
-    //         let relativeLink = linkElement.getAttribute("data-rel-link");
-    //         linkElement.href = new URL(relativeLink, import.meta.url).href;
-    //     }
-    // )
-
     await document.querySelector('body').insertAdjacentHTML('beforeend', footerElement.outerHTML);
     initialiseFooter();
 }

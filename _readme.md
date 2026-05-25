@@ -3,14 +3,14 @@
 
 [🚀 **View Live Portfolio**](https://phyvie.github.io/)
 
-This repository contains the source code for my personal portfolio website, designed to showcase my work in game design and gameplay programming.
+This repository contains the source code for my personal portfolio website, designed to showcase my work in game mechanics design and gameplay programming.
 
 ---
 
 ### 🛠 Technical Stack
 *   **Languages:** HTML5, CSS (BEM methodology), JavaScript (ES6+)
-*   **Libraries:** [highlight.js](https://highlightjs.org/) (for code syntax highlighting)
-*   **Used Tools:** Git, WebStorm
+*   **Libraries:** [highlight.js](https://highlightjs.org/) (for code syntax highlighting in behind-the-scenes example code-blocks)
+*   **Used Tools:** WebStorm, Git
 
 Disclaimer: Parts of the website are written with the help of WebStorms Junie-AI, but are fully planned, reviewed, adjusted and tested by me.  
 
