@@ -34,7 +34,7 @@ async function load_highlight_sections() {
                 }
         },
         {
-            "jsonPath": new URL('../Projects/Moebius_Magnus/project_data.json', import.meta.URL).href
+            "jsonPath": new URL('../Projects/Moebius_Magnus/project_data.json', import.meta.url).href
             , "config":
                 {
                     "displayWebpageLink": true,
