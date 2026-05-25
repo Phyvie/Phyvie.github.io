@@ -1,4 +1,4 @@
-import {TryLoadJson} from "../../common.blocks/load-data-refs.js";
+import {TryLoadJson} from "../../load-data-refs.js";
 import {resolveRelativeUrlsInJson} from "../../URL-Fetching-And-Templates/cross-html-engine.js";
 import {embedWebGLIFrame, startEmbeddedGame} from "../unity-embed-webGL-iframe.js";
 import {loadExternalTemplate} from "../../URL-Fetching-And-Templates/template-manager.js";

@@ -1,4 +1,4 @@
-import { findInRelatives } from "../../DOMFunctions.js";
+import { findInRelatives } from "../DOMFunctions.js";
 import { hideTooltip } from "../tooltips/tooltip-manager.js";
 
 function onClick(event) {

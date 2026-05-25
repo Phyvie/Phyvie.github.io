@@ -1,4 +1,4 @@
-import {findAllInRelatives, ReturnElementOrGetById, getElementIdentifier} from "../../DOMFunctions.js";
+import {findAllInRelatives, ReturnElementOrGetById, getElementIdentifier} from "../DOMFunctions.js";
 
 export {
     scrollContainerByIndices,

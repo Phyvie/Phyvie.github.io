@@ -1,4 +1,4 @@
-import {resolveRelativeUrlsInJson} from "../URL-Fetching-And-Templates/cross-html-engine.js";
+import {resolveRelativeUrlsInJson} from "./URL-Fetching-And-Templates/cross-html-engine.js";
 
 export function loadDataRefs(targetRootElement, jsonData, baseUrl = null)
 {

@@ -4,7 +4,7 @@
  * Not an autonomous script, must be imported by another script to work (e.g. further-projects-section.js)
  */
 
-import {loadDataRefs} from "../common.blocks/load-data-refs.js";
+import {loadDataRefs} from "../load-data-refs.js";
 import {
     loadExternalTemplate,
     addTemplateToDocument,
@@ -36,7 +36,6 @@ export async function LoadProjectCardTemplate(templatePath, templateId)
     return TEMPLATE_PROJECT_CARD;
 }
 
-/* create an html-fragment, that holds a copy of the TEMPLATE content*/
 export function CreateProjectCardFragment() {y
     if (!TEMPLATE_PROJECT_CARD) {
         console.error("CreateProjectCard: template is not set");
@@ -50,9 +49,6 @@ export function AppendProjectCardToElement(element)
     return appendTemplateCopyToElement(element, TEMPLATE_PROJECT_CARD);
 }
 
-/*
- * sets up the foldout of the overlay when the user clicks on the info button
- */
 export function LoadProjectCardData(projectCard, jsonFile, baseUrl = null)
 {
     if (!projectCard || !jsonFile) {
@@ -100,23 +96,6 @@ function SetupInfoButtonOverlay(projectCard)
         infoContainer.classList.toggle('--inactive');
     });
 }
-
-/* region alt layout with foldout */
-// function SetupFoldable(projectCard)
-// {
-//     const foldButton = projectCard.querySelector('[data-more-info-button]');
-//     const foldable = projectCard.querySelector('[data-project-card-foldable]');
-//
-//     if (!foldButton || !foldable)
-//     {
-//         return;
-//     }
-//
-//     foldButton.onclick = () => {
-//         foldable.classList.toggle('--folded');
-//     }
-// }
-/* endregion alt layout with foldout */
 
 function wireImageToVideo(image, video, playButton = null) {
     if (!image || !video || !playButton)
@@ -174,14 +153,6 @@ function wireOverlayToVideo(video)
     }
 
     let overlayedElements = [];
-
-    // alt layout with other overlays
-    // let overlayBottom = projectCard.querySelector('.overlay__bottom');
-    // if (!overlayBottom)
-    // {
-    //     console.warn("wireOverlayToVideo: overlay__bottom element not found");
-    // }
-    // overlayedElements.push(overlayBottom);
 
     let overlayTitle = projectCard.querySelector('.overlay__project-title');
     if (!overlayTitle)

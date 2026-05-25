@@ -1,8 +1,8 @@
-import {loadDataRefs, TryLoadJson} from "../common.blocks/load-data-refs.js";
+import {loadDataRefs, TryLoadJson} from "../load-data-refs.js";
 import {resolveRelativeUrlsInJson} from "../URL-Fetching-And-Templates/cross-html-engine.js";
 
 import {embedWebGLIFrame, startEmbeddedGame} from "../UnityWebGL/unity-embed-webGL-iframe.js";
-import {createSwitchableContentContainer} from "../common.blocks/switchable-content-container.js";
+import {createSwitchableContentContainer} from "../switchable-content-container/switchable-content-container.js";
 
 import HTMLContentCache from "../URL-Fetching-And-Templates/HTML-content-cache.js";
 import {IsLightboxOpen, CloseLightbox, OpenLightbox, SetLightboxStyle, fullscreenStyle} from "../lightbox/lightbox.js";
@@ -16,6 +16,12 @@ export async function initializeProjectHeaderSection(headerSection, projectDataU
          , "displayWebpageLink": false
      })
 {
+    if (!(headerSection instanceof HTMLElement || headerSection instanceof DocumentFragment))
+    {
+        console.error("Failed to initialize project header section: headerSection is not an HTMLElement");
+        return;
+    }
+
     let jsonData = await TryLoadJson(projectDataURL);
     if (!jsonData)
     {

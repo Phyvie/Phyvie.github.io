@@ -1,8 +1,10 @@
 <!--
-1. AppendProject Card appends a copy of the project-card-template saved in project-card.js->PROJECT_CARD_TEMPLATE_PATH#PROJECT_CARD_TEMPLATE_ID
-2. TryLoadJson tries to load & return a json-File stored at the specific location (relative or absolute)
-3. LoadProjectCardData replaces the placeholder in the project card with the data specified in the json file
-4. SetupProjectCardInteraction enables clicking on the info-button & playing the video
+in project-card.js:
+1. AppendProjectCardToElement appends a copy of the project-card-template to an element (current template: Project-Card-Template.html; reference stored in project-card.js.PROJECT_CARD_TEMPLATE_PATH#PROJECT_CARD_TEMPLATE_ID)
+2. LoadProjectCardData will load the data into the card in two steps, both requiring load-dara-refs.js:
+    2.a Load the json file at the path specified via TryLoadJson (from load-data-refs.js)
+    2.b loadDataRefs (from load-data-refs.js) will parse any attribute "[data-ref='...']" search for the corresponding data in the json-file and replace it with that data.
+4. SetupProjectCardInteraction enables the interactivity of the project card, i.e. click to play video & click on more-button to load lightbox
 
 For an example of data look at: /
 -->
@@ -13,10 +15,10 @@ For an example of data look at: /
     <meta charset="UTF-8">
     <title> _example__project-card-loading </title>
     
-    <link rel="stylesheet" href="../reset.css">
-    <link rel="stylesheet" href="../global_variables.css">
+    <link rel="stylesheet" href="../styling/reset.css">
+    <link rel="stylesheet" href="../styling/global_variables.css">
     <link rel="stylesheet" href="../styling/media.css">
-    <link rel="stylesheet" href="../common.blocks/tag.css">
+    <link rel="stylesheet" href="../styling/tag.css">
     <link rel="stylesheet" href="./project-card.css">
 </head>
 

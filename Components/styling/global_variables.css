@@ -42,10 +42,6 @@
     /* endregion COLOR CONTEXTS */
 
     /* region FONTS */
-    /* TodoZyKa Styling: Adjust the fonts (especially for tags) */
-    --FF-MAIN: sans-serif;
-    --FF-SECONDARY: serif;
-
     --FONT-SIZE-DEFAULT: 1rem;
     --FONT-SIZE-XS: 0.4rem;
     --FONT-SIZE-SMALL: 0.8rem;
@@ -61,7 +57,7 @@
 
 
     color: var(--COLOR-TEXT-BLOCK);
-    font-family: var(--FF-MAIN), var(--FF-SECONDARY);
+    font-family: sans-serif serif;
     font-size: var(--FONT-SIZE-DEFAULT);
     line-height: var(--ELEMENT-LINE-HEIGHT);
     /* endregion FONTS */

@@ -1,0 +1,3 @@
+the switchable content container was supposed to be a feature that shows a preview of the content from another side inside the current side. 
+For instance, upon clicking on one of the listed contributions in a project section, an additional section shows some behind-the-scenes. 
+I decided to simply move the content to the behind-the-scenes pages & remove the usage of a switchable content container, as it would have taken more time to properly adjust the design and debug the feature than it was worth. 

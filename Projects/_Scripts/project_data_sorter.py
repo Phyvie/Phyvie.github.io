@@ -1,3 +1,11 @@
+# Used to ensure that the JSON files for the projects follow a rough structure, i.e. they all include a basic set of data (name, origin, team-size, ...) and have all of their data in the same order.
+# Does not run automatically, must be manually called via:
+# 1. call analysis to get data on multiple files
+# 2. create/update a template for the project-data and if necessary a dictionary with alternative keys (("key": ["alt-key-1, alt-key-2, ...]); e.g. "project-page-link": ["project-url", "project-page-url"])
+# 3. call normalize on the json-files to normalize (brings all files into the order of the template and simultaneously replaces any alt-names with the proper names)
+
+# WARNING: not yet tested for data
+
 import json
 import os
 import shutil

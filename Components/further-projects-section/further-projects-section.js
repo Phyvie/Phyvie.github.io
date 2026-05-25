@@ -1,4 +1,4 @@
-import {ToolsIconsRegistry, TryLoadJson, trySetIcon} from "../common.blocks/load-data-refs.js";
+import {ToolsIconsRegistry, TryLoadJson, trySetIcon} from "../load-data-refs.js";
 
 import {
     AppendProjectCardToElement,
@@ -166,8 +166,6 @@ async function CreateProjectCards() {
 
                     const fragment = createFragmentFromTemplate(HEADER_SECTION_TEMPLATE);
                     const headerSection = fragment.querySelector('.project-header-section');
-
-                    const webglIframeURL = jsonData.WebGLBuildURL ? new URL(jsonData.WebGLBuildURL, projectDataURL).href : null;
 
                     // Ensure the link in the header section points to the correct project page
                     const discoverMoreLink = headerSection.querySelector('.tag--link-arrow');
