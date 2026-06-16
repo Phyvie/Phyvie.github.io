@@ -117,6 +117,7 @@
 .described-item__content {
     overflow: auto;
     grid-area: content;
+    align-items: flex-start;
 }
 
 .described-item__header {
