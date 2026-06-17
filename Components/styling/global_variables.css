@@ -64,8 +64,8 @@
 
     /* region LAYOUT */
     --PAGE-TOP-PADDING: var(--navbar-height);
-    --SCREEN-HEIGHT-MAIN-CONTENT: calc(100vh - var(--PAGE-TOP-PADDING));
-    --SCREEN-WIDTH-MAIN-CONTENT: 100vw;
+    --SCREEN-HEIGHT-MAIN-CONTENT: calc(100dvh - var(--PAGE-TOP-PADDING));
+    --SCREEN-WIDTH-MAIN-CONTENT: 100dvw;
     scroll-padding-top: var(--navbar-height);
 
     --LAYOUT-SPACING-XS: clamp(0.1rem, calc(0.25vw + 0.125rem), 0.5rem);
