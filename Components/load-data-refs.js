@@ -69,7 +69,7 @@ export const ToolsIconsRegistry = new Map([
     ['GDD', {src: "/Data/Icons/GDD.png", alt: "game design document", desc: "", skillLevel: "proficient, ~2years"}],
 
     ['Unity UI Toolkit', {text: "UUT", alt: "Unity UI Toolkit", desc: "Unity's Web-dev-inspired new UI System", skillLevel: "functional, ~1year"}],
-    ['cs', {src: "/Data/Icons/Cs.png", alt: "csharp", desc: "programming language", skillLevel: "functional, ~4years"}],
+    ['cs', {src: "/Data/Icons/Cs.png", alt: "csharp", desc: "programming language", skillLevel: "proficient, ~4years"}],
     ['Miro', {src: "/Data/Icons/Miro.png", alt: "Miro", desc: "collaborative online whiteboard", skillLevel: "functional"}],
     ['Git', {src: "/Data/Icons/Git.png", alt: "git", desc: "version control", skillLevel: "functional, ~4years"}],
     // ['Libre_Office', {src: "/Data/Icons/Libre_Office.png", alt: "Libre_Office", desc: "", skillLevel: "functional"}],
